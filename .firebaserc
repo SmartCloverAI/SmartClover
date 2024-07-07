@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "smartclover-b7a88"
-  }
+    "default": "smartclover-b7a88",
+    "main": "smartclover-b7a88"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
