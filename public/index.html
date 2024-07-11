@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7K8RBNW1L"></script>
     <script>
@@ -12,12 +11,10 @@
       gtag('config', 'G-L7K8RBNW1L');
     </script>
 
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- update the version number as needed -->
+    <!-- Firebase integration -->
     <script defer src="/__/firebase/10.12.3/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/10.12.3/firebase-auth-compat.js"></script>
     <script defer src="/__/firebase/10.12.3/firebase-database-compat.js"></script>
     <script defer src="/__/firebase/10.12.3/firebase-firestore-compat.js"></script>
@@ -27,10 +24,6 @@
     <script defer src="/__/firebase/10.12.3/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/10.12.3/firebase-remote-config-compat.js"></script>
     <script defer src="/__/firebase/10.12.3/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <style media="screen">
@@ -58,51 +51,77 @@
         <p>Creativity | Digitalization | Human-in-the-loop AI for Good</p>
       </div>
     </header>
-  
-    <section id="about">
-      <div class="container">
-        <center><img src="smartclover_logo.jpg" alt="SmartClover Logo" "width="200" height="200"></center>
-        <h2>About Us</h2>
-        <p>SmartClover is a small yet innovative boutique company that specializes in the creation of digital products powered by AI and in particular by advanced Data Science and generative deep learning models. Our primary aim is to blend cutting-edge technology with creative insights to deliver unique and effective solutions. Founded by a small team passionate about creativity, AI for good, practical real-world data science, SmartClover is dedicated to pushing the boundaries of what is possible with modern technology.</p>
-        <p>At SmartClover, we believe in the transformative power of digitalization and the importance of human-centric AI. Our approach, which we term "human-in-the-loop AI for good," ensures that technology serves humanity and enhances human capabilities rather than replacing them. This philosophy underpins all our services and products, driving us to create solutions that are both innovative and ethical.</p>
-      </div>
-    </section>
-  
-    <section id="products">
-      <div class="container">
-        <h2>Creative Products</h2>
-        <p>We are particularly proud of our creative products designed to enhance emotional intelligence (EQ) in children. Leveraging generative AI, we create interactive and engaging digital experiences that foster emotional growth and creativity. Our products are designed to be both fun and educational, providing children with tools to develop their emotional and cognitive skills.</p>
-        <p>Our focus on EQ-enhancing products stems from our belief in the importance of emotional intelligence in early childhood development. By integrating advanced AI technologies with educational principles, we create products that are not only innovative but also beneficial for children’s emotional and social development. These products are perfect for parents, educators, and caregivers looking for modern educational tools.</p>
-      </div>
-    </section>
-  
-    <section id="Services">
-      <div class="container">
-        <h2>Services</h2>
-        <p>Our qualitative and quantitative research services are designed to provide thorough and insightful analysis in various fields. Using advanced Large Language Models (LLMs) with augmented data retrieval capabilities, we can offer nuanced and detailed research outputs. While we are focused on the healthcare sector with particular focus on cancer prevention, these services are perfect for academic institutions, research organizations, and businesses needing in-depth analysis.</p>
-        <p>We offer a comprehensive range of services designed to help businesses and individuals harness the power of AI and data science. Our AI-assisted data analysis service leverages the latest in machine learning and AI to provide deep insights and actionable recommendations. This service is ideal for businesses looking to make data-driven decisions and gain a competitive edge in their industry. From predictive analytics to custom machine learning models, our team is equipped to handle a wide variety of data science challenges. We work closely with our clients to understand their unique requirements and deliver solutions that drive success.</p>
-      </div>
-    </section>
 
-    <section id="values">
-      <div class="container">
-        <h2>Our Values</h2>
-        <p>The core values of SmartClover are creativity, digitalization, and human-in-the-loop AI for good. Creativity drives us to explore new ideas and innovate continually. Digitalization is at the heart of our mission, enabling us to transform traditional processes and experiences into more efficient and engaging digital solutions.</p>
-        <p>Human-in-the-loop AI for good is our guiding principle, ensuring that our technological advancements always serve to enhance human life. We are committed to developing AI solutions that are ethical, transparent, and beneficial to society. Our approach ensures that humans remain central to the decision-making process, using AI to augment human capabilities and foster a better world.</p>
+    <div class="carousel">
+      <div class="carousel-item" id="about">
+        <div class="container">
+          <center><img src="smartclover_logo.jpg" alt="SmartClover Logo" width="200" height="200"></center>
+          <h2>About Us</h2>
+          <p>SmartClover is a small yet innovative boutique company that specializes in the creation of digital products powered by AI and in particular by advanced Data Science and generative deep learning models. Our primary aim is to blend cutting-edge technology with creative insights to deliver unique and effective solutions. Founded by a small team passionate about creativity, AI for good, practical real-world data science, SmartClover is dedicated to pushing the boundaries of what is possible with modern technology.</p>
+          <p>At SmartClover, we believe in the transformative power of digitalization and the importance of human-centric AI. Our approach, which we term "human-in-the-loop AI for good," ensures that technology serves humanity and enhances human capabilities rather than replacing them. This philosophy underpins all our services and products, driving us to create solutions that are both innovative and ethical.</p>
+        </div>
       </div>
-    </section>
 
-    <section id="contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>We believe in the power of collaboration and are always eager to connect with potential clients, partners, and innovators. If you are interested in our services or products, or if you have any questions, please do not hesitate to reach out to us. We look forward to hearing from you and exploring how we can work together to achieve great things.</p>
+      <div class="carousel-item" id="products">
+        <div class="container">
+          <h2>Creative Products</h2>
+          <p>We are particularly proud of our creative products designed to enhance emotional intelligence (EQ) in children. Leveraging generative AI, we create interactive and engaging digital experiences that foster emotional growth and creativity. Our products are designed to be both fun and educational, providing children with tools to develop their emotional and cognitive skills.</p>
+          <p>Our focus on EQ-enhancing products stems from our belief in the importance of emotional intelligence in early childhood development. By integrating advanced AI technologies with educational principles, we create products that are not only innovative but also beneficial for children’s emotional and social development. These products are perfect for parents, educators, and caregivers looking for modern educational tools.</p>
+        </div>
       </div>
-    </section>
-  
+
+      <div class="carousel-item" id="services">
+        <div class="container">
+          <h2>Services</h2>
+          <p>Our qualitative and quantitative research services are designed to provide thorough and insightful analysis in various fields. Using advanced Large Language Models (LLMs) with augmented data retrieval capabilities, we can offer nuanced and detailed research outputs. While we are focused on the healthcare sector with particular focus on cancer prevention, these services are perfect for academic institutions, research organizations, and businesses needing in-depth analysis.</p>
+          <p>We offer a comprehensive range of services designed to help businesses and individuals harness the power of AI and data science. Our AI-assisted data analysis service leverages the latest in machine learning and AI to provide deep insights and actionable recommendations. This service is ideal for businesses looking to make data-driven decisions and gain a competitive edge in their industry. From predictive analytics to custom machine learning models, our team is equipped to handle a wide variety of data science challenges. We work closely with our clients to understand their unique requirements and deliver solutions that drive success.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" id="values">
+        <div class="container">
+          <h2>Our Values</h2>
+          <p>The core values of SmartClover are creativity, digitalization, and human-in-the-loop AI for good. Creativity drives us to explore new ideas and innovate continually. Digitalization is at the heart of our mission, enabling us to transform traditional processes and experiences into more efficient and engaging digital solutions.</p>
+          <p>Human-in-the-loop AI for good is our guiding principle, ensuring that our technological advancements always serve to enhance human life. We are committed to developing AI solutions that are ethical, transparent, and beneficial to society. Our approach ensures that humans remain central to the decision-making process, using AI to augment human capabilities and foster a better world.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item" id="contact">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>We believe in the power of collaboration and are always eager to connect with potential clients, partners, and innovators. If you are interested in our services or products, or if you have any questions, please do not hesitate to reach out to us. We look forward to hearing from you and exploring how we can work together to achieve great things.</p>
+        </div>
+      </div>
+    </div>
+
     <footer>
       <div class="container">
         <p>&copy; 2024 SmartClover. All rights reserved.</p>
       </div>
     </footer>
-  </body>  
+
+    <script>
+      let currentIndex = 0;
+      const items = document.querySelectorAll('.carousel-item');
+      const itemCount = items.length;
+
+      function showItem(index) {
+        items.forEach((item, i) => {
+          item.style.display = i === index ? 'block' : 'none';
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') {
+          currentIndex = (currentIndex + 1) % itemCount;
+          showItem(currentIndex);
+        } else if (e.key === 'ArrowUp') {
+          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+          showItem(currentIndex);
+        }
+      });
+
+      showItem(currentIndex);
+    </script>
+  </body>
 </html>
