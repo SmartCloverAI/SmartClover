@@ -42,7 +42,7 @@ header p {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
-  padding: 40px;  /* Increase padding to give more space inside the card */
+  padding: 20px;  /* Increase padding to give more space inside the card */
   width: 100%;
   max-width: 800px;  /* Set a max-width to control the width of the card */
 }
