@@ -1,5 +1,7 @@
 body {
   font-family: 'Georgia', serif;
+  font-size: 18px;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
@@ -29,27 +31,28 @@ header p {
   font-size: 1.5em;
 }
 
-.carousel {
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.carousel-item {
-  display: none;
-  padding: 40px;
-  height: 100vh;
-  box-sizing: border-box;
-  overflow-y: auto;
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
 }
 
-.carousel-item h2 {
+.card h2 {
   font-size: 2.5em;
   color: #4CAF50;
   margin-bottom: 20px;
 }
 
-.carousel-item p, .carousel-item ul {
+.card p, .card ul {
   font-size: 1.5em;
   line-height: 1.6;
   margin-bottom: 20px;
