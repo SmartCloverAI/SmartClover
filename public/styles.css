@@ -43,7 +43,8 @@ header p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   padding: 20px;
-  width: 100%;
+  width: auto;
+  max-width: 600px;
 }
 
 .card h2 {
