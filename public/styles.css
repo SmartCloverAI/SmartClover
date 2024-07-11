@@ -1,12 +1,12 @@
 body {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
 }
 
 .container {
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -20,12 +20,13 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 3em;
+  font-weight: bold;
 }
 
 header p {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .carousel {
@@ -36,7 +37,7 @@ header p {
 
 .carousel-item {
   display: none;
-  padding: 20px;
+  padding: 40px;
   height: 100vh;
   box-sizing: border-box;
   overflow-y: auto;
@@ -45,10 +46,11 @@ header p {
 .carousel-item h2 {
   font-size: 2.5em;
   color: #4CAF50;
+  margin-bottom: 20px;
 }
 
 .carousel-item p, .carousel-item ul {
-  font-size: 1.2em;
+  font-size: 1.5em;
   line-height: 1.6;
   margin-bottom: 20px;
 }

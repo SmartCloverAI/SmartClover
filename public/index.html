@@ -121,6 +121,15 @@
         }
       });
 
+      document.addEventListener('wheel', (e) => {
+        if (e.deltaY > 0) {
+          currentIndex = (currentIndex + 1) % itemCount;
+        } else {
+          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+        }
+        showItem(currentIndex);
+      });      
+
       showItem(currentIndex);
     </script>
   </body>
