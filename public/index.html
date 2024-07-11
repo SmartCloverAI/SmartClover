@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-L7K8RBNW1L');
     </script>
 
@@ -26,20 +25,6 @@
     <script defer src="/__/firebase/10.12.3/firebase-performance-compat.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartClover</title>
     <link rel="stylesheet" href="styles.css">
@@ -52,8 +37,8 @@
       </div>
     </header>
 
-    <div class="carousel">
-      <div class="carousel-item" id="about">
+    <div class="content">
+      <div class="card" id="about">
         <div class="container">
           <center><img src="smartclover_logo.jpg" alt="SmartClover Logo" width="200" height="200"></center>
           <h2>About Us</h2>
@@ -62,7 +47,7 @@
         </div>
       </div>
 
-      <div class="carousel-item" id="products">
+      <div class="card" id="products">
         <div class="container">
           <h2>Creative Products</h2>
           <p>We are particularly proud of our creative products designed to enhance emotional intelligence (EQ) in children. Leveraging generative AI, we create interactive and engaging digital experiences that foster emotional growth and creativity. Our products are designed to be both fun and educational, providing children with tools to develop their emotional and cognitive skills.</p>
@@ -70,7 +55,7 @@
         </div>
       </div>
 
-      <div class="carousel-item" id="services">
+      <div class="card" id="services">
         <div class="container">
           <h2>Services</h2>
           <p>Our qualitative and quantitative research services are designed to provide thorough and insightful analysis in various fields. Using advanced Large Language Models (LLMs) with augmented data retrieval capabilities, we can offer nuanced and detailed research outputs. While we are focused on the healthcare sector with particular focus on cancer prevention, these services are perfect for academic institutions, research organizations, and businesses needing in-depth analysis.</p>
@@ -78,7 +63,7 @@
         </div>
       </div>
 
-      <div class="carousel-item" id="values">
+      <div class="card" id="values">
         <div class="container">
           <h2>Our Values</h2>
           <p>The core values of SmartClover are creativity, digitalization, and human-in-the-loop AI for good. Creativity drives us to explore new ideas and innovate continually. Digitalization is at the heart of our mission, enabling us to transform traditional processes and experiences into more efficient and engaging digital solutions.</p>
@@ -86,7 +71,7 @@
         </div>
       </div>
 
-      <div class="carousel-item" id="contact">
+      <div class="card" id="contact">
         <div class="container">
           <h2>Contact Us</h2>
           <p>We believe in the power of collaboration and are always eager to connect with potential clients, partners, and innovators. If you are interested in our services or products, or if you have any questions, please do not hesitate to reach out to us. We look forward to hearing from you and exploring how we can work together to achieve great things.</p>
@@ -99,38 +84,5 @@
         <p>&copy; 2024 SmartClover. All rights reserved.</p>
       </div>
     </footer>
-
-    <script>
-      let currentIndex = 0;
-      const items = document.querySelectorAll('.carousel-item');
-      const itemCount = items.length;
-
-      function showItem(index) {
-        items.forEach((item, i) => {
-          item.style.display = i === index ? 'block' : 'none';
-        });
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowDown') {
-          currentIndex = (currentIndex + 1) % itemCount;
-          showItem(currentIndex);
-        } else if (e.key === 'ArrowUp') {
-          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-          showItem(currentIndex);
-        }
-      });
-
-      document.addEventListener('wheel', (e) => {
-        if (e.deltaY > 0) {
-          currentIndex = (currentIndex + 1) % itemCount;
-        } else {
-          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-        }
-        showItem(currentIndex);
-      });      
-
-      showItem(currentIndex);
-    </script>
   </body>
 </html>
