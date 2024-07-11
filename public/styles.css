@@ -41,21 +41,21 @@ header p {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
-  padding: 20px;  /* Increase padding to give more space inside the card */
+  margin: 10px 0;
+  padding: 10px;  /* Reduced padding to make the text occupy more space */
   width: 100%;
   max-width: 800px;  /* Set a max-width to control the width of the card */
 }
 
 .card h2 {
-  font-size: 2.5em;
+  font-size: 1.75em; /* Reduced by 30% from 2.5em */
   color: #4CAF50;
   margin-bottom: 20px;
 }
 
 .card p, .card ul {
-  font-size: 1.5em;
-  line-height: 1.6;
+  font-size: 1.05em; /* Reduced by 30% from 1.5em */
+  line-height: 1.12; /* Reduced by 30% from 1.6 */
   margin-bottom: 20px;
 }
 
