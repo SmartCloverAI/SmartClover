@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import ServedBy from './ServedByComponent';
 
 const navLinks = [
@@ -13,6 +14,7 @@ const navLinks = [
 
 const Layout = ({ children }) => {
   const router = useRouter();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isLinkActive = (href) => {
     if (href === '/blog') {
@@ -22,6 +24,10 @@ const Layout = ({ children }) => {
     return router.pathname === href;
   };
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [router.pathname]);
+
   return (
     <>
       <nav>
@@ -30,7 +36,19 @@ const Layout = ({ children }) => {
             <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
             <span className="nav-brand-text">SmartClover</span>
           </Link>
-          <div className="nav-links">
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            Menu
+          </button>
+          <div
+            id="primary-navigation"
+            className={`nav-links${isMenuOpen ? ' open' : ''}`}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -46,7 +64,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <div className="served-by">
         <ServedBy />
-        <p>© {new Date().getFullYear()} SmartClover. v1.0. Creativity · Digitalization · Human-in-the-loop AI for Good</p>
+        <p>© {new Date().getFullYear()} SmartClover. v1.1. Creativity · Digitalization · Human-in-the-loop AI for Good</p>
       </div>
     </>
   );
