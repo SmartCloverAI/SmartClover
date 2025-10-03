@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <div className="served-by">
         <ServedBy />
-        <p>© {new Date().getFullYear()} SmartClover. Creativity · Digitalization · Human-in-the-loop AI for Good.</p>
+        <p>© {new Date().getFullYear()} SmartClover. v1.0. Creativity · Digitalization · Human-in-the-loop AI for Good</p>
       </div>
     </>
   );
