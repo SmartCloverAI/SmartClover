@@ -32,19 +32,27 @@ const Layout = ({ children }) => {
     <>
       <nav>
         <div className="nav-inner">
-          <Link href="/" className="nav-brand" aria-label="SmartClover home">
-            <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
-            <span className="nav-brand-text">SmartClover</span>
-          </Link>
-          <button
-            type="button"
-            className="nav-toggle"
-            aria-expanded={isMenuOpen}
-            aria-controls="primary-navigation"
-            onClick={() => setIsMenuOpen((open) => !open)}
-          >
-            Menu
-          </button>
+          <div className="nav-header">
+            <Link href="/" className="nav-brand" aria-label="SmartClover home">
+              <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
+              <span className="nav-brand-text">SmartClover</span>
+            </Link>
+            <button
+              type="button"
+              className="nav-toggle"
+              aria-expanded={isMenuOpen}
+              aria-controls="primary-navigation"
+              aria-label="Toggle navigation menu"
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              <span className="nav-toggle-icon" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="nav-toggle-text">{isMenuOpen ? 'Close' : 'Menu'}</span>
+            </button>
+          </div>
           <div
             id="primary-navigation"
             className={`nav-links${isMenuOpen ? ' open' : ''}`}
