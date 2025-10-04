@@ -5,6 +5,7 @@
 - Reusable layouts, forms, and widgets sit in `components/` (mix of `.jsx` and `.tsx`); colocate helper modules beside the component to keep imports local.
 - Markdown articles live in `posts/` and require `title`, `date`, and `excerpt` front matter so chronological ordering works.
 - Keep static media in `public/` and global overrides in `styles/globals.css`; never commit `.next/` or other build artifacts.
+- after each modification increase the manual version in the footer residing in the `components/Layout.tsx` file.
 
 ## Build, Test, and Development Commands
 - `npm install` (or `npm ci` for CI) installs dependencies in sync with `package-lock.json`.

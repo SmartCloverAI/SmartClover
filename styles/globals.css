@@ -207,6 +207,13 @@ nav {
   flex-wrap: wrap;
 }
 
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
 .nav-brand {
   display: inline-flex;
   align-items: center;
@@ -240,14 +247,18 @@ nav {
 
 .nav-toggle {
   display: none;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 0.45rem 0.9rem;
+  font-size: 0.92rem;
+  padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1;
 }
 
 .nav-toggle:focus-visible,
@@ -255,6 +266,45 @@ nav {
   outline: none;
   background: rgba(31, 122, 140, 0.12);
   color: var(--accent);
+  border-color: rgba(31, 122, 140, 0.35);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+}
+
+.nav-toggle[aria-expanded='true'] {
+  background: rgba(31, 122, 140, 0.12);
+  color: var(--accent);
+  border-color: rgba(31, 122, 140, 0.45);
+}
+
+.nav-toggle-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.22rem;
+}
+
+.nav-toggle-icon span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-text {
+  display: inline-block;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-icon span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle-icon span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .nav-link {
@@ -587,11 +637,18 @@ footer p {
     gap: 0.7rem;
   }
 
+  .nav-header {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .nav-toggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-self: flex-end;
+    align-self: auto;
+  }
+
+  .nav-toggle-text {
+    font-size: 0.88rem;
   }
 
   .nav-links {
@@ -600,6 +657,13 @@ footer p {
     gap: 0.5rem;
     justify-content: flex-start;
     width: 100%;
+    flex: none;
+    margin-top: 0.2rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 18px 32px rgba(15, 23, 42, 0.16);
   }
 
   .nav-links.open {
