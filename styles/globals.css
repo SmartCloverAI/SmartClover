@@ -560,6 +560,11 @@ footer p {
   background: linear-gradient(135deg, rgba(31, 122, 140, 0.1), rgba(31, 122, 140, 0.02));
   border: 1px solid rgba(31, 122, 140, 0.18);
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
 }
 
 .served-by > * {
@@ -570,6 +575,8 @@ footer p {
   gap: 0.35rem;
   font-size: 0.82rem;
   color: var(--text-muted);
+  width: 100%;
+  text-align: inherit;
 }
 
 .served-by p {
