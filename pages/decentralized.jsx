@@ -5,41 +5,44 @@ import Link from 'next/link';
 const Decentralized = () => (
   <>
     <Head>
-      <title>Why Decentralized? | SmartClover x Ratio1</title>
+      <title>Your AI, your eSource | SmartClover</title>
       <meta
         name="description"
-        content="Discover how Ratio1's decentralized edge network keeps SmartClover applications resilient, private, and in the hands of the people who use them."
+        content="SmartClover keeps healthcare AI and research platforms inside your governance boundary with verifiable deployment controls and audit-ready evidence."
       />
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Why Decentralized?</span>
-      <h1>Own your AI, protect your data</h1>
+      <span className="tagline">Your AI, your eSource</span>
+      <h1>Keep regulated AI under your direction</h1>
       <p>
-        Ratio1’s Deeploy architecture keeps SmartClover solutions under the control of the organisations that operate
-        them. Decentralisation is how we guarantee sovereignty, resilience, and verifiable accountability for healthcare
-        and cybersecurity workloads.
+        SmartClover pairs distributed delivery with human-guided governance so research teams retain control of
+        sensitive data, adapt models responsibly, and share evidence with regulators and sponsors.
+      </p>
+      <p>
+        Within regulated research, eSource denotes the electronic source data captured at point of care, while the
+        patient health record (PHR) aggregates that longitudinal evidence for sponsors and clinicians.
       </p>
     </header>
 
     <section className="surface-card spotlight" aria-labelledby="decentralized-governance">
       <div className="spotlight-content">
-        <h2 id="decentralized-governance">Your AI, your data</h2>
+        <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
-          Deploying on Ratio1 means applications stay anchored to your governance policies. Workloads run on edge nodes
-          you permission, eliminating the lock-in that comes with centralised cloud providers and ensuring there is no
-          censorship layer between your teams and their tools.
+          Deployments run on Ratio1 Worker App Runner nodes that you designate, so AI services operate on infrastructure
+          that matches your residency, privacy, and procurement requirements. You always know where eSource data is
+          processed.
         </p>
         <div className="key-points">
-          <span>Data never leaves the trust boundary you define-ownership stays with clinicians and security leaders.</span>
-          <span>Permissioned access controls decide which nodes execute workloads and who can audit them.</span>
-          <span>Worker App Runner, powered by Deeploy, automates delivery from Git without taking control of your assets.</span>
+          <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
+          <span>Role-based controls decide which teams can push updates and who signs off on changes.</span>
+          <span>Automated delivery never takes custody of your data or credentials.</span>
         </div>
       </div>
       <div className="spotlight-media">
         <Image
           src="/images/governance-network.png"
-          alt="Decentralised governance network illustration"
+          alt="Healthcare data stewardship illustration"
           width={896}
           height={1152}
         />
@@ -48,22 +51,21 @@ const Decentralized = () => (
 
     <section className="surface-card spotlight" aria-labelledby="decentralized-immutability">
       <div className="spotlight-content">
-        <h2 id="decentralized-immutability">Immutability for healthcare and cybersecurity incidents</h2>
+        <h2 id="decentralized-immutability">Audit-ready evidence without extra busywork</h2>
         <p>
-          Blockchain-backed scheduling records every deployment event. When an investigation happens-whether for a
-          clinical audit or a cybersecurity incident-you have an immutable ledger that proves what ran, when, and on which
-          node. That transparency is critical for regulated environments.
+          Every deployment writes to an append-only delivery log, producing timestamps and build fingerprints ready for
+          clinical audits or security reviews. Investigators see exactly what ran and why decisions were made.
         </p>
         <div className="key-points">
-          <span>Incident responders can reference tamper-evident logs to trace actions and contain threats.</span>
-          <span>Healthcare compliance teams gain verifiable evidence for audits and reporting obligations.</span>
-          <span>Every build artifact is fingerprinted, preventing silent changes from slipping into production.</span>
+          <span>Trace updates from research notebooks to production models with human-readable context.</span>
+          <span>Healthcare compliance teams receive exportable evidence for sponsor and regulator reviews.</span>
+          <span>Every build artifact is fingerprinted, preventing unexpected changes from reaching production.</span>
         </div>
       </div>
       <div className="spotlight-media">
         <Image
           src="/images/analytics-dashboard.png"
-          alt="Immutable analytics timeline visual"
+          alt="Audit dashboard timeline visual"
           width={640}
           height={822}
         />
@@ -72,20 +74,19 @@ const Decentralized = () => (
 
     <section className="surface-card spotlight" aria-labelledby="decentralized-governance-model">
       <div className="spotlight-content">
-        <h2 id="decentralized-governance-model">Trustless, permissioned governance</h2>
+        <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
-          Ratio1’s trustless model enforces good data governance by design. Smart contracts coordinate deployment while
-          your organisation sets the rules for participation. It is decentralised yet permissioned, so sensitive workloads
-          gain resilience without losing oversight.
+          Policy templates encode participation rules while SmartClover facilitators ensure they reflect sponsor and
+          regulator obligations. Teams collaborate confidently without handing control to a central vendor.
         </p>
         <div className="key-points">
-          <span>No single party can alter workloads or censor access once policies are set.</span>
-          <span>Stakeholders can independently verify compliance with governance requirements.</span>
-          <span>Edge redundancy keeps services online even if one node is compromised.</span>
+          <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
+          <span>Stakeholders can independently verify compliance across participating sites.</span>
+          <span>Redundant nodes keep services responsive during maintenance or regional outages.</span>
         </div>
         <div className="cta-links">
-          <Link href="https://ratio1.ai/roadmap" className="button secondary">
-            Explore Ratio1’s Deeploy roadmap
+          <Link href="/contact" className="button secondary">
+            Talk with SmartClover about deployment options
           </Link>
           <Link href="/blog/ratio1-worker-runner" className="button secondary">
             Read how we deploy on Worker App Runner
@@ -95,7 +96,7 @@ const Decentralized = () => (
       <div className="spotlight-media">
         <Image
           src="/images/partnership-handshake.png"
-          alt="Partnership handshake illustrating collaborative governance"
+          alt="Clinicians and technologists collaborating on AI governance"
           width={1024}
           height={1024}
         />

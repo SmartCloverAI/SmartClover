@@ -114,8 +114,9 @@ const Services = () => (
           sensitivity of the workloads.
         </p>
         <p>
-          Ratio1’s Worker App Runner powers many of our deployments, giving clients decentralised resilience and control
-          over updates. Learn more about the platform in our <Link href="/decentralized">Why Decentralized?</Link> section.
+          Ratio1’s Worker App Runner powers many of our deployments, giving clients verifiable updates while keeping
+          infrastructure aligned with clinical governance. Learn more about the platform in our{' '}
+          <Link href="/decentralized">Your AI, your eSource</Link> section.
         </p>
       </div>
       <div className="spotlight-media">

@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services & Products', href: '/services' },
-  { label: 'Why Decentralized?', href: '/decentralized' },
+  { label: 'Your AI, your eSource', href: '/decentralized' },
   { label: 'Blog', href: '/blog' }
 ];
 
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <div className="served-by">
         <ServedBy />
-        <p>© {new Date().getFullYear()} SmartClover. v1.2
+        <p>© {new Date().getFullYear()} SmartClover. v1.3
           <br />
         Creativity · Digitalization · Human-in-the-loop AI for Good
         </p>
