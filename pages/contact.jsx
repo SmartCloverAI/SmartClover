@@ -21,7 +21,7 @@ const Contact = () => (
 
     <section className="surface-card">
       <h2>Say hello</h2>
-      <p>Email: <a href="mailto:hello@smartclover.ro">hello@smartclover.ro</a></p>
+      <p>Email: <a href="mailto:andreea@smartclover.ro">andreea@smartclover.ro</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/company/smartclover" rel="noopener noreferrer">SmartClover</a></p>
       <p>
         Prefer a call? Share a time in your email and we’ll schedule a session to walk through your goals and how our

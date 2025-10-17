@@ -16,12 +16,14 @@ const Decentralized = () => (
       <span className="tagline">Your AI, your eSource</span>
       <h1>Keep regulated AI under your direction</h1>
       <p>
-        SmartClover pairs distributed delivery with human-guided governance so research teams retain control of
+        SmartClover pairs distributed ledger-based delivery with human-guided governance so research teams retain control of
         sensitive data, adapt models responsibly, and share evidence with regulators and sponsors.
       </p>
       <p>
-        Within regulated research, eSource denotes the electronic source data captured at point of care, while the
-        patient health record (PHR) aggregates that longitudinal evidence for sponsors and clinicians.
+        <i>
+          Note: Within regulated research, eSource denotes the electronic source data captured at point of care, while the
+          patient health record (PHR) aggregates that longitudinal evidence for sponsors and clinicians.
+        </i>
       </p>
     </header>
 
@@ -53,7 +55,7 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-immutability">Audit-ready evidence without extra busywork</h2>
         <p>
-          Every deployment writes to an append-only delivery log, producing timestamps and build fingerprints ready for
+          Every deployment writes to an append-only delivery public ledger log, producing timestamps and build fingerprints ready for
           clinical audits or security reviews. Investigators see exactly what ran and why decisions were made.
         </p>
         <div className="key-points">
