@@ -79,8 +79,8 @@ const About = () => (
           generate it and ensuring resilience beyond a single data centre.
         </p>
         <p>
-          Combining SmartClover's expertise in healthcare analytics, cybersecurity, and creative education products with
-          Ratio1's platform means clients receive AI that is ethical, transparent, and engineered to thrive in production.
+          Combining SmartClover&apos;s expertise in healthcare analytics, cybersecurity, and creative education products with
+          Ratio1&apos;s platform means clients receive AI that is ethical, transparent, and engineered to thrive in production.
         </p>
       </div>
       <div className="spotlight-media">
