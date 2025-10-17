@@ -16,8 +16,8 @@ const About = () => (
       <h1>People-first AI, crafted in a boutique studio</h1>
       <p>
         SmartClover is a small yet innovative company specialising in the creation of digital products powered by
-        advanced data science and generative deep learning. We pair technical rigour with creativity so AI becomes a
-        trusted partner for clinicians, educators, and communities.
+        advanced Data Science including generative deep learning and domain specific models. We pair technical rigour with creativity so AI becomes a
+        trusted partner for clinicians, educators, communities and more.
       </p>
     </header>
 
@@ -25,9 +25,9 @@ const About = () => (
       <div className="spotlight-content">
         <h2 id="about-story">Our story</h2>
         <p>
-          Founded by a team passionate about creativity, AI for good, and practical real-world data science, SmartClover
-          is dedicated to pushing the boundaries of what is possible with modern technology. We deliver unique solutions
-          by blending human insight with cutting-edge models, ensuring every project feels intuitive and respectful of the
+          Founded by a small yet passionate team about creativity, AI for good, and practical real-world data science, SmartClover
+          is dedicated to pushing the boundaries of what is possible with modern tech. We deliver unique solutions
+          by blending human insight with cutting-edge Deep Learning models, ensuring every project feels intuitive and respectful of the
           people who rely on it.
         </p>
         <p>
@@ -79,8 +79,8 @@ const About = () => (
           generate it and ensuring resilience beyond a single data centre.
         </p>
         <p>
-          Combining SmartClover’s expertise in healthcare analytics, cybersecurity, and creative education products with
-          Ratio1’s platform means clients receive AI that is ethical, transparent, and engineered to thrive in production.
+          Combining SmartClover's expertise in healthcare analytics, cybersecurity, and creative education products with
+          Ratio1's platform means clients receive AI that is ethical, transparent, and engineered to thrive in production.
         </p>
       </div>
       <div className="spotlight-media">
