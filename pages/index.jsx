@@ -188,7 +188,7 @@ const Home = () => (
           of healthcare AI.
         </p>
         <div className="cta-links">
-          <Link href="mailto:hello@smartclover.ai" className="button primary">
+          <Link href="mailto:andreea@smartclover.ai" className="button primary">
             Contact Us
           </Link>
           <Link href="/services" className="button secondary">
