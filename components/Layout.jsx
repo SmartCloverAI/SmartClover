@@ -12,7 +12,7 @@ const navLinks = [
   { label: 'Blog', href: '/blog' }
 ];
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hostId = 'unknown' }) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
       </nav>
       <main>{children}</main>
       <div className="served-by">
-        <ServedBy />
+        <ServedBy hostId={hostId} />
         <p>© {new Date().getFullYear()} SmartClover. v1.4
           <br />
         Creativity · Digitalization · Human-in-the-loop AI for Good
