@@ -1,7 +1,8 @@
-const hostId =
-  process.env.NEXT_PUBLIC_EE_HOST_ID ?? process.env.EE_HOST_ID ?? 'unknown';
+type ServedByProps = {
+  hostId: string;
+};
 
-const ServedBy = () => (
+const ServedBy = ({ hostId }: ServedByProps) => (
   <div>
     <a href="https://ratio1.ai" className="font-semibold mr-1">
       Ratio1
