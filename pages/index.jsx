@@ -45,8 +45,9 @@ const techPartners = [
     description: 'Accelerated training and fine-tuning of domain-specific models unlock near real-time healthcare insights.'
   },
   {
-    title: 'Ratio1 Collaboration',
-    description: 'Decentralized AI infrastructure keeps deployments on-premise while preserving "Your AI, Your Data."'
+    title: 'Your AI, Your Data Deployments',
+    description:
+      'On-prem and on-edge execution frameworks deliver "your AI, your Data", "your App, your Data", and "your Ai, your eSource" outcomes with ledger immutability and modern CI/CD pipelines.'
   },
   {
     title: 'Healthcare Research Alliances',
@@ -61,7 +62,7 @@ const serviceIdentity = [
   },
   {
     title: 'Program-Based Engagements',
-    description: 'Subscription-style service tiers bundle research, monitoring, and education assets with clear SLAs.'
+    description: 'Subscription-style service tiers bundle research, monitoring, and education assets with clear SLAs rooted in "Your App, your Data" principles.'
   },
   {
     title: 'No Hourly Consultancy',
@@ -73,21 +74,22 @@ const managedPrograms = [
   {
     title: 'Evidence-Linked Healthcare Research Services',
     description:
-      'Retrieval-augmented research programmes that synthesise clinical notes, observational data, and medical literature into validated insights.',
+      'Retrieval-augmented research programmes that synthesise clinical notes, observational data, and medical literature into validated insights with predictive modelling built on state-of-the-art foundation models and time-series approaches for diverse healthcare use cases.',
     deliverables: [
       'Early-detection intelligence with full evidence citations',
       'Clinician co-designed annotation and review loops',
-      'Story-driven reports, dashboards, and educational briefs'
+      'Story-driven reports, dashboards, and educational briefs',
+      'Predictive modelling pipelines combining current SOTA architectures with multivariate time-series forecasting for clinical, operational, and educational scenarios'
     ]
   },
   {
     title: 'Digital Resilience Service for Healthcare',
     description:
-      'AI-augmented monitoring that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection.',
+      'AI-augmented monitoring that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection and immutable ledger-backed audit trails.',
     deliverables: [
       'Noise-reduced alerting and contextual incident playbooks',
-      'Edge deployments that preserve data residency and sovereignty',
-      'Immutable audit logging for compliance and executive reporting'
+      'On-prem and on-edge deployments that preserve data residency and sovereignty',
+      'Immutable ledger logging for compliance, modern CI/CD, and executive reporting'
     ]
   },
   {
@@ -228,7 +230,9 @@ const Home = () => (
         <h1 id="hero-title">SmartClover</h1>
         <p>
           SmartClover is a healthcare AI services company delivering managed research, resilience, and learning
-          programmes—not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI.
+          programmes—not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI rooted
+          in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles across on-prem and
+          on-edge environments.
         </p>
         <div className="cta-links">
           <Link href="#contact" className="button primary">
@@ -278,7 +282,8 @@ const Home = () => (
         <h2 id="service-company-heading">Services Company Promise</h2>
         <p>
           We deliver outcomes through managed services. Every engagement provides staffed operations, automation assets,
-          and shared accountability instead of ad-hoc consultancy deliverables.
+          and shared accountability anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot;
+          principles instead of ad-hoc consultancy deliverables.
         </p>
       </div>
       <div className="feature-grid three-up">
@@ -310,8 +315,8 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="service-programs-heading">Managed AI Service Programmes</h2>
         <p>
-          Structured service tiers combine automation, qualitative insight, and governance so healthcare teams receive
-          continuously operated AI capabilities.
+          Structured service tiers combine automation, qualitative insight, governance, and on-prem/on-edge pipelines so
+          healthcare teams receive continuously operated AI capabilities with ledger immutability and modern CI/CD.
         </p>
       </div>
       <div className="service-programs">
@@ -389,7 +394,10 @@ const Home = () => (
       </div>
       <div className="spotlight-content">
         <h2 id="governance-heading">Your AI, Your Data</h2>
-        <p>We keep workloads transparent, permissioned, and evidence-linked so healthcare leaders retain full governance.</p>
+        <p>
+          We keep workloads transparent, permissioned, and evidence-linked with ledger immutability, modern CI/CD, and
+          on-prem/on-edge execution so healthcare leaders retain full governance.
+        </p>
         <div className="feature-grid three-up compact">
           {governancePillars.map((item) => (
             <div key={item.title} className="feature">

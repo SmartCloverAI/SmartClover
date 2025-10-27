@@ -70,17 +70,16 @@ const About = () => (
       </div>
     </section>
 
-    <section className="surface-card spotlight" aria-labelledby="about-ratio1">
+    <section className="surface-card spotlight" aria-labelledby="about-deployments">
       <div className="spotlight-content">
-        <h2 id="about-ratio1">Working with Ratio1</h2>
+        <h2 id="about-deployments">Your AI, your Data deployment model</h2>
         <p>
-          Our partnership with Ratio1 brings decentralised infrastructure to every engagement. Their Worker App Runner
-          deploys applications across a trustless network of edge nodes, keeping data sovereignty with the people who
-          generate it and ensuring resilience beyond a single data centre.
+          SmartClover delivers &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; infrastructure
+          so applications run on-prem and on-edge, close to the clinical and educational teams who depend on them.
         </p>
         <p>
-          Combining SmartClover&apos;s expertise in healthcare analytics, cybersecurity, and creative education products with
-          Ratio1&apos;s platform means clients receive AI that is ethical, transparent, and engineered to thrive in production.
+          Immutable ledgers, modern CI/CD, and deterministic rollout controls keep every service resilient beyond a
+          single data centre while preserving the sovereignty of the organisations that generate the data.
         </p>
       </div>
       <div className="spotlight-media">
