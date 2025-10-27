@@ -147,6 +147,12 @@ main {
   border-color: var(--accent-soft);
 }
 
+.button.tertiary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: rgba(31, 122, 140, 0.4);
+}
+
 .button:hover {
   transform: translateY(-2px);
 }
@@ -176,6 +182,62 @@ main {
 }
 
 .feature-description {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.service-programs {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.service-program {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(31, 122, 140, 0.14);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.service-program h3 {
+  margin: 0;
+}
+
+.service-program p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.service-program ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(31, 122, 140, 0.12);
+}
+
+.faq-item dt {
+  margin: 0 0 0.55rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-item dd {
   margin: 0;
   color: var(--text-muted);
 }
