@@ -31,9 +31,9 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
-          Deployments run on Ratio1 Worker App Runner nodes that you designate, so AI services operate on infrastructure
-          that matches your residency, privacy, and procurement requirements. You always know where eSource data is
-          processed.
+          Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; control planes that you designate, so AI
+          services operate on on-prem and on-edge infrastructure that matches your residency, privacy, and procurement
+          requirements. You always know where eSource data is processed.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
@@ -90,8 +90,8 @@ const Decentralized = () => (
           <Link href="/contact" className="button secondary">
             Talk with SmartClover about deployment options
           </Link>
-          <Link href="/blog/ratio1-worker-runner" className="button secondary">
-            Read how we deploy on Worker App Runner
+          <Link href="/blog" className="button secondary">
+            Read how we deploy with ledger immutability
           </Link>
         </div>
       </div>

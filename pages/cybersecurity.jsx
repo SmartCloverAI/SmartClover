@@ -50,8 +50,9 @@ const Cybersecurity = () => (
       <h2>Integrated with SmartClover services</h2>
       <p>
         Our cybersecurity practice supports broader SmartClover engagements, from healthcare analytics platforms to
-        creative digital products that require strong privacy guarantees. Deployments on Ratio1’s edge network further
-        enhance resilience by distributing workloads away from single points of failure.
+        creative digital products that require strong privacy guarantees. Deployments follow &quot;your AI, your Data&quot; and
+        &quot;your App, your Data&quot; principles, running on-prem and on-edge with ledger immutability and modern CI/CD to
+        distribute workloads away from single points of failure.
       </p>
     </section>
   </>

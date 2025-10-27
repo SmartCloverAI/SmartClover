@@ -12,15 +12,15 @@ const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 const servicePrinciples = [
   {
     title: 'Outcome-Owned Service Delivery',
-    description: 'We operate AI assets, data pipelines, and governance rituals on your behalf with measurable KPIs.'
+    description: 'We operate AI assets, data pipelines, and governance rituals on your behalf with measurable KPIs under a "your AI, your Data" commitment.'
   },
   {
     title: 'Embedded Cross-Disciplinary Teams',
-    description: 'Researchers, engineers, and educators stay aligned with your staff through managed service cadences.'
+    description: 'Researchers, engineers, and educators stay aligned with your staff through managed service cadences that keep every workload "your App, your Data".'
   },
   {
     title: 'Transparent SLA Agreements',
-    description: 'Each service programme defines review cycles, reporting depth, and escalation paths—never hourly consulting.'
+    description: 'Each service programme defines review cycles, reporting depth, and escalation paths—never hourly consulting—while protecting "your Ai, your eSource".'
   }
 ];
 
@@ -28,21 +28,22 @@ const serviceProgramSummaries = [
   {
     title: 'Evidence-Linked Healthcare Research Services',
     description:
-      'Retrieval-augmented research that validates every insight with source citations and clinician co-review.',
+      'Retrieval-augmented research that validates every insight with source citations, clinician co-review, and predictive modelling built on state-of-the-art foundation models plus time-series pipelines for varied healthcare use cases.',
     deliverables: [
       'Continuous monitoring of clinical and observational datasets',
       'Qualitative synthesis workshops with medical partners',
-      'Insight libraries and explainable research narratives'
+      'Insight libraries and explainable research narratives',
+      'Predictive modelling workflows combining SOTA architectures with multivariate time-series forecasting for clinical, operational, and educational scenarios'
     ]
   },
   {
     title: 'Digital Resilience Service for Healthcare',
     description:
-      'AI-augmented monitoring that protects hospital ecosystems with CRA-aligned anomaly detection and response support.',
+      'AI-augmented monitoring that protects hospital ecosystems with CRA-aligned anomaly detection, ledger immutability, and modern CI/CD automation.',
     deliverables: [
       'Proactive IoT and infrastructure telemetry baselines',
       'Playbook-driven incident triage with human approval gates',
-      'Executive and regulatory-ready audit reporting'
+      'On-prem and on-edge pipelines that provide immutable ledger evidence and executive-ready reporting'
     ]
   },
   {
@@ -265,8 +266,9 @@ const Services = () => (
           sensitivity of the workloads.
         </p>
         <p>
-          Ratio1’s Worker App Runner powers many of our deployments, giving clients verifiable updates while keeping
-          infrastructure aligned with clinical governance. Learn more about the platform in our{' '}
+          Deployments follow our &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles—
+          executing on-prem and on-edge with ledger immutability and modern CI/CD that keeps infrastructure aligned with
+          clinical governance. Learn more about the approach in our{' '}
           <Link href="/decentralized">Your AI, your eSource</Link> section.
         </p>
       </div>
