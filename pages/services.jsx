@@ -2,24 +2,173 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const siteUrl = 'https://smartclover.ro';
+const pageTitle = 'SmartClover Services | Managed Healthcare AI Programmes';
+const pageDescription =
+  'SmartClover is a healthcare AI services company delivering managed research, resilience, and creative education programmes with embedded service teams—not consultancy engagements.';
+
+const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
+
+const servicePrinciples = [
+  {
+    title: 'Outcome-Owned Service Delivery',
+    description: 'We operate AI assets, data pipelines, and governance rituals on your behalf with measurable KPIs.'
+  },
+  {
+    title: 'Embedded Cross-Disciplinary Teams',
+    description: 'Researchers, engineers, and educators stay aligned with your staff through managed service cadences.'
+  },
+  {
+    title: 'Transparent SLA Agreements',
+    description: 'Each service programme defines review cycles, reporting depth, and escalation paths—never hourly consulting.'
+  }
+];
+
+const serviceProgramSummaries = [
+  {
+    title: 'Evidence-Linked Healthcare Research Services',
+    description:
+      'Retrieval-augmented research that validates every insight with source citations and clinician co-review.',
+    deliverables: [
+      'Continuous monitoring of clinical and observational datasets',
+      'Qualitative synthesis workshops with medical partners',
+      'Insight libraries and explainable research narratives'
+    ]
+  },
+  {
+    title: 'Digital Resilience Service for Healthcare',
+    description:
+      'AI-augmented monitoring that protects hospital ecosystems with CRA-aligned anomaly detection and response support.',
+    deliverables: [
+      'Proactive IoT and infrastructure telemetry baselines',
+      'Playbook-driven incident triage with human approval gates',
+      'Executive and regulatory-ready audit reporting'
+    ]
+  },
+  {
+    title: 'Creative Education Experience Service',
+    description:
+      'Generative storytelling environments that advance emotional intelligence while safeguarding learners and content.',
+    deliverables: [
+      'Adaptive narrative engines moderated by educators',
+      'Content governance pipelines with human checkpoints',
+      'Impact dashboards for families, schools, and researchers'
+    ]
+  }
+];
+
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'SmartClover Managed Healthcare AI Services',
+  url: `${siteUrl}/services`,
+  provider: {
+    '@type': 'Organization',
+    name: 'SmartClover',
+    url: siteUrl
+  },
+  serviceType: 'Managed healthcare AI services',
+  areaServed: {
+    '@type': 'Place',
+    name: 'Europe and global partners'
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'SmartClover Service Programmes',
+    itemListElement: serviceProgramSummaries.map((service) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description
+      }
+    }))
+  }
+};
+
 const Services = () => (
   <>
     <Head>
-      <title>Services & Products | SmartClover</title>
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
       <meta
-        name="description"
-        content="Discover SmartClover services covering healthcare AI research, AI-augmented cybersecurity, and creative EQ products for children."
+        name="robots"
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
+      <meta name="keywords" content="managed AI services, healthcare AI programmes, SmartClover services" />
+      <meta name="author" content="SmartClover" />
+      <link rel="canonical" href={`${siteUrl}/services`} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={`${siteUrl}/services`} />
+      <meta property="og:image" content={`${siteUrl}/images/hero-gradient-workspace.png`} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={`${siteUrl}/images/hero-gradient-workspace.png`} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(servicesSchema) }} />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Services & Products</span>
-      <h1>Applied AI programmes that pair insight with security</h1>
+      <h1>Managed healthcare AI services with embedded delivery teams</h1>
       <p>
-        We combine large language models, qualitative research, and responsible deployment practices to support
-        healthcare teams and creative learning partners. Every engagement keeps humans in control and impact measurable.
+        We are a healthcare AI services company—not a consultancy—operating retrieval-augmented research, digital
+        resilience, and creative learning programmes with accountable SLAs and human oversight.
       </p>
+      <div className="cta-links">
+        <Link
+          href="/docs/SmartClover_1pagepitchdeck.pdf"
+          className="button secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          Download One-Pager
+        </Link>
+      </div>
     </header>
+
+    <section className="surface-card" aria-labelledby="service-principles-heading">
+      <div className="section-heading">
+        <h2 id="service-principles-heading">What Makes SmartClover a Services Company</h2>
+        <p>
+          Managed service agreements cover discovery, build, deployment, and operations so partners receive maintained AI
+          capability—not advice-only slide decks.
+        </p>
+      </div>
+      <div className="feature-grid three-up">
+        {servicePrinciples.map((principle) => (
+          <div key={principle.title} className="feature">
+            <h3 className="feature-title">{principle.title}</h3>
+            <p className="feature-description">{principle.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="service-catalog-heading">
+      <div className="section-heading">
+        <h2 id="service-catalog-heading">Service Catalogue Overview</h2>
+        <p>
+          Every programme combines automation, qualitative research, and governance reviews operated by SmartClover teams
+          within your environment.
+        </p>
+      </div>
+      <div className="service-programs">
+        {serviceProgramSummaries.map((service) => (
+          <article key={service.title} className="service-program">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <ul>
+              {service.deliverables.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
 
     <section className="surface-card spotlight" id="healthcare-ai" aria-labelledby="healthcare-ai-heading">
       <div className="spotlight-content">
@@ -31,12 +180,13 @@ const Services = () => (
         </p>
         <p>
           Our workflows capture provenance for every recommendation, so clinicians can review the data that shaped an
-          insight. Dashboards, reports, and embedded storytelling keep multi-disciplinary teams aligned.
+          insight. Dashboards, reports, and embedded storytelling keep multi-disciplinary teams aligned while immutable
+          audit logs document every decision point.
         </p>
         <div className="key-points">
           <span>Data ingestion pipelines for structured and unstructured medical sources.</span>
           <span>Co-designed annotation sessions with clinicians to validate AI findings.</span>
-          <span>Predictive and preventative models that feed into public health initiatives.</span>
+          <span>Predictive and preventative models with evidence citations ready for public health initiatives.</span>
         </div>
       </div>
       <div className="spotlight-media">
@@ -54,14 +204,15 @@ const Services = () => (
         <h2 id="cybersecurity-heading">Cybersecurity for Healthcare</h2>
         <p>
           The average healthcare breach now costs over $10M. We build AI-augmented monitoring that reduces alert noise,
-          detects anomalies across medical IoT, and gives security teams the context they need to act quickly.
+          detects anomalies across medical IoT, and gives security teams the context they need to act quickly while
+          staying aligned with EU CRA rules.
         </p>
         <p>
           Our engineers pair machine learning with operational playbooks so humans remain the final decision-makers.
           Every deployment balances compliance, patient privacy, and the practical realities of clinical environments.
         </p>
         <div className="key-points">
-          <span>Behavioural baselines for EHR platforms, medical devices, and staff workflows.</span>
+          <span>CRA-aligned behavioural baselines for EHR platforms, medical devices, and staff workflows.</span>
           <span>Incident response simulations that pair AI suggestions with expert review.</span>
           <span>Transparent reporting that satisfies regulators and reinforces patient trust.</span>
         </div>
