@@ -228,6 +228,38 @@ main {
   gap: 0.45rem;
 }
 
+.flagship-highlight {
+  border: 1px solid rgba(15, 120, 141, 0.3);
+  background:
+    linear-gradient(135deg, rgba(15, 120, 141, 0.2), rgba(255, 255, 255, 0.92) 58%),
+    var(--surface);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+}
+
+.flagship-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.32rem 0.82rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(15, 120, 141, 0.24);
+}
+
+.flagship-highlight .section-heading {
+  gap: 0.7rem;
+}
+
+.flagship-highlight .service-program {
+  border-color: rgba(15, 120, 141, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .faq-list {
   display: grid;
   gap: 1rem;
