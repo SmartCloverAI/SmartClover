@@ -1,50 +1,79 @@
-# SmartClover Website
+# CerviGuard
 
-A modern, minimalist multi-page website for SmartClover built with Next.js. The site highlights our healthcare AI
-research, AI-augmented cybersecurity services, decentralised "your AI, your Data" deployments, and creative EQ products
-for children. All content is statically generated-no Firebase dependencies.
+CerviGuard is SmartClover's human-in-the-loop AI initiative focused on cervical cancer prevention, follow-up, and
+evidence-linked clinical collaboration. This repository powers the public web experience and service communication layer.
 
-## Getting Started
+## Need
 
-Install dependencies and run the development server:
+Healthcare teams managing cervical cancer prevention face fragmented data, delayed follow-up, and high documentation
+burden. Programs need faster insight without sacrificing clinical safety, privacy, or traceability.
 
+## Objective
+
+Deliver a trustworthy AI-supported service model that helps teams:
+- identify risk and follow-up gaps earlier,
+- keep clinicians in final control of decisions,
+- preserve data sovereignty under "your AI, your Data" principles.
+
+## Purpose
+
+CerviGuard exists to improve prevention outcomes through practical, governed AI workflows that combine quantitative
+signals, qualitative evidence, and transparent human oversight.
+
+## Usability & Features
+
+### Who It Serves
+- Clinicians and care coordinators monitoring screening and follow-up pathways.
+- Program leaders who need explainable metrics and operational visibility.
+- Security and governance stakeholders requiring auditable, sovereign deployment models.
+
+### Core Capabilities
+- Evidence-linked insight communication: every key claim can be tied back to source context.
+- Human-in-the-loop workflow design: AI supports decisions, clinicians retain authority.
+- Prevention-focused service narrative: content emphasizes early detection and follow-up reliability.
+- Sovereign deployment positioning: "your AI, your Data", "your App, your Data", and "your Ai, your eSource".
+- Blog-driven knowledge publishing for research and operational updates.
+
+### UX Principles
+- Clear language for non-technical healthcare stakeholders.
+- Structured page hierarchy for quick scanning on desktop and mobile.
+- Consistent call-to-action paths for discovery, contact, and service exploration.
+
+## Technical Overview
+
+### Stack
+- Next.js 14 (Pages Router) + React 18.
+- Markdown content pipeline via `gray-matter` + `remark` + `remark-html`.
+- Global styling in `styles/globals.css`.
+
+### Architecture
+- `pages/`: static marketing and information routes.
+- `pages/blog/`: statically generated blog index and per-post pages.
+- `lib/posts.js`: markdown loading, parsing, sorting, HTML transformation.
+- `components/Layout.jsx`: shared navigation/footer and manual version marker.
+- `components/ServedByComponent.tsx`: edge host identity banner.
+
+### Environment Variables
+- `EE_HOST_ID` or `NEXT_PUBLIC_EE_HOST_ID` for host identity display.
+- Do not commit `.env` files.
+
+### Development Commands
 ```bash
 npm install
 npm run dev
+npm run lint
+npm run build
+npm run start
 ```
 
-Open http://localhost:3000 to view the site. Pages are generated statically with Next.js so they are fast, secure, and
-ready for deployment to a "your AI, your Data" edge platform with ledger-backed CI/CD.
+### Quality Baseline
+- Lint must pass: `npm run lint`.
+- Production build must pass: `npm run build`.
+- Manual smoke checks in `npm run dev`, especially after content or navigation edits.
 
-## Available Scripts
+### Deployment
 
-- `npm run dev` – start the development server
-- `npm run build` – generate the production build
-- `npm run start` – run the production build locally
-- `npm run lint` – run ESLint using Next.js defaults
-
-## Project Structure
-
-```
-.
-├── components/          # Shared layout components (navigation, footer)
-├── lib/                 # Blog utilities for markdown posts
-├── pages/               # Next.js pages (Home, About, Products, Services, etc.)
-├── pages/blog/          # Blog index and dynamic post routes
-├── posts/               # Markdown blog posts with frontmatter
-├── public/              # Static assets (SmartClover logo)
-└── styles/              # Global styling with a minimalist, one-column layout
-```
-
-## Content Management
-
-Blog posts live in the `posts/` directory as Markdown files with frontmatter (`title`, `date`, `excerpt`). Next.js uses
-static generation to turn each post into a page, so publishing an update is as simple as committing a new file.
-
-## Deployment
-
-The project is optimised for deployment on a "your AI, your Data" edge automation pipeline. Configure the job with
-commands such as:
+The app is designed for static-first delivery and can be deployed through an edge pipeline that runs:
 
 ```bash
 npm install
@@ -52,8 +81,6 @@ npm run build
 npm run start
 ```
 
-The platform clones the repository, runs these commands, and launches the app across its decentralised edge network.
-
 ## License
 
-© 2024 SmartClover. Creativity · Digitalization · Human-in-the-loop AI for Good.
+© SmartClover. Creativity · Digitalization · Human-in-the-loop AI for Good.

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'SmartClover Services | Managed Healthcare AI Programmes';
 const pageDescription =
-  'SmartClover is a healthcare AI services company delivering managed research, resilience, and creative education programmes with embedded service teams—not consultancy engagements.';
+  'SmartClover is a healthcare AI services company delivering managed research, resilience, and creative education programmes with embedded service teams - not consultancy engagements.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -20,7 +20,7 @@ const servicePrinciples = [
   },
   {
     title: 'Transparent SLA Agreements',
-    description: 'Each service programme defines review cycles, reporting depth, and escalation paths—never hourly consulting—while protecting "your Ai, your eSource".'
+    description: 'Each service programme defines review cycles, reporting depth, and escalation paths - never hourly consulting - while protecting "your Ai, your eSource".'
   }
 ];
 
@@ -115,7 +115,7 @@ const Services = () => (
       <span className="tagline">Services & Products</span>
       <h1>Managed healthcare AI services with embedded delivery teams</h1>
       <p>
-        We are a healthcare AI services company—not a consultancy—operating retrieval-augmented research, digital
+        We are a healthcare AI services company - not a consultancy - operating retrieval-augmented research, digital
         resilience, and creative learning programmes with accountable SLAs and human oversight.
       </p>
       <div className="cta-links">
@@ -135,7 +135,7 @@ const Services = () => (
         <h2 id="service-principles-heading">What Makes SmartClover a Services Company</h2>
         <p>
           Managed service agreements cover discovery, build, deployment, and operations so partners receive maintained AI
-          capability—not advice-only slide decks.
+          capability - not advice-only slide decks.
         </p>
       </div>
       <div className="feature-grid three-up">
@@ -266,7 +266,7 @@ const Services = () => (
           sensitivity of the workloads.
         </p>
         <p>
-          Deployments follow our &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles—
+          Deployments follow our &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles - 
           executing on-prem and on-edge with ledger immutability and modern CI/CD that keeps infrastructure aligned with
           clinical governance. Learn more about the approach in our{' '}
           <Link href="/decentralized">Your AI, your eSource</Link> section.

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'SmartClover | Healthcare AI Services Company';
 const pageDescription =
-  'SmartClover delivers managed healthcare AI services that combine retrieval-augmented research, digital resilience, and creative education programmes—never traditional consultancy.';
+  'SmartClover delivers managed healthcare AI services that combine retrieval-augmented research, digital resilience, and creative education programmes - never traditional consultancy.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -143,7 +143,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'SmartClover is a healthcare AI services company providing managed research, resilience, and education programmes—not a consultancy.',
+    'SmartClover is a healthcare AI services company providing managed research, resilience, and education programmes - not a consultancy.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   address: {
@@ -230,7 +230,7 @@ const Home = () => (
         <h1 id="hero-title">SmartClover</h1>
         <p>
           SmartClover is a healthcare AI services company delivering managed research, resilience, and learning
-          programmes—not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI rooted
+          programmes - not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI rooted
           in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles across on-prem and
           on-edge environments.
         </p>
