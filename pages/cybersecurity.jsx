@@ -41,7 +41,7 @@ const Cybersecurity = () => (
         <li>Operational playbooks that keep humans in charge of decision making.</li>
       </ul>
       <p>
-        AI does not replace cybersecurity experts-it equips them with sharper, more contextualised intelligence so they
+        AI does not replace cybersecurity experts - it equips them with sharper, more contextualised intelligence so they
         can protect patients and staff.
       </p>
     </section>

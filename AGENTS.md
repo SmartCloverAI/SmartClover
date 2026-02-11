@@ -252,3 +252,92 @@ No modification is complete until this adversarial entry is added.
   - Bumped footer version to `v2.1`.
   - Ran `npm run lint` (pass) and `npm run build` (pass).
 - Residual Risk: Teams that do large uncommitted sessions may still need discipline to remember final pre-commit bump.
+
+### [2026-02-11 07:58 UTC] TYPE: discovery
+- Author: Codex
+- Summary: Verified current external sources for CerviGuard positioning and prior cervical-screening research attribution for Dr. Andreea Damian and Dr. Florian Nicula.
+- Evidence: `https://cerviguard.link/`; `https://github.com/SmartCloverAI/CerviGuard`; `https://pubmed.ncbi.nlm.nih.gov/35999375/`; `https://pubmed.ncbi.nlm.nih.gov/28347409/`; `https://pubmed.ncbi.nlm.nih.gov/31304013/`.
+- Impact: Site messaging can now reference flagship product details and prior research with stable, externally verifiable citations.
+- Follow-up: Re-validate links periodically as publications and product docs evolve.
+
+### [2026-02-11 07:58 UTC] TYPE: change
+- Author: Codex
+- Summary: Added a dedicated CerviGuard flagship section in Services & Products content, added source-linked research foundation coverage for Dr. Andreea Damian and Dr. Florian Nicula, and standardized key terminology across pages.
+- Evidence: `pages/services.jsx`; `pages/products.jsx`; `posts/healthcare-ai-research.md`; `pages/index.jsx`; `pages/about.jsx`; `pages/values.jsx`; `pages/cybersecurity.jsx`; `README.md`.
+- Impact: Product/service narrative is clearer, research attribution is explicit and evidence-linked, and wording consistency is improved across primary marketing pages.
+- Follow-up: none
+
+### [2026-02-11 07:58 UTC] ADVERSARIAL-CHECK
+- Scope: `pages/services.jsx`, `pages/products.jsx`, `posts/healthcare-ai-research.md`, `pages/index.jsx`, `pages/about.jsx`, `pages/values.jsx`, `pages/cybersecurity.jsx`, `README.md`, `AGENTS.md`.
+- CRITIC Findings:
+  - New research attribution could overstate individual contributions without direct publication links.
+  - Adding flagship-product messaging only in one location could create navigation-level inconsistency.
+  - Text consistency updates risked introducing style drift or broken JSX.
+  - Build validation might fail due environment-specific filesystem behavior rather than code defects.
+- BUILDER Actions:
+  - Added direct PubMed links for cited studies and tied each statement to specific publication records.
+  - Added CerviGuard flagship coverage in both `pages/services.jsx` and `pages/products.jsx`.
+  - Standardized high-visibility wording (`your AI`, `digitalization`, contact email consistency) and reviewed changed JSX output.
+  - Ran `npm run lint` (pass) and `npm run build` (fails with `EXDEV: cross-device link not permitted` during `.next` file rename after static page generation).
+- Residual Risk: Production build status remains unconfirmed in this environment because of the `EXDEV` filesystem rename failure; functional correctness of content changes is still supported by passing lint and successful compile/static-page generation stages before the rename step.
+
+### [2026-02-11 08:11 UTC] TYPE: discovery
+- Author: Codex
+- Summary: Previous citation mapping for cervical-screening references was incorrect; PMIDs `35999375`, `28347409`, and `31304013` do not match the claimed studies.
+- Evidence: DOI-to-PubMed verification via NCBI E-utilities for `10.1136/bmjopen-2021-053954` -> `PMID 35197342`; `10.1016/j.socscimed.2017.04.040` -> `PMID 28460211`; direct checks on `https://pubmed.ncbi.nlm.nih.gov/35999375/` and `https://pubmed.ncbi.nlm.nih.gov/31304013/`.
+- Impact: All public-facing research references needed correction to avoid misattribution and credibility risk.
+- Follow-up: Validate any future DOI/PMID pairings before publishing content updates.
+
+### [2026-02-11 08:11 UTC] TYPE: insight
+- Author: Codex
+- Summary: Founder publication history spans name continuity from Andreea Itu (2017 paper author list) to Dr. Andreea Damian (2022 BMJ Open protocol), with Dr. Florian Nicula as a documented collaborator in the 2017 study.
+- Evidence: `https://pubmed.ncbi.nlm.nih.gov/28460211/`; `https://pubmed.ncbi.nlm.nih.gov/35197342/`; `https://doi.org/10.1016/j.socscimed.2017.04.040`.
+- Impact: Founder narrative should explicitly explain the publication-name continuity when presenting prior research.
+- Follow-up: none
+
+### [2026-02-11 08:11 UTC] TYPE: change
+- Author: Codex
+- Summary: Reworked Services and Products flagship sections to reflect current CerviGuard positioning, added founder-history continuity coverage with corrected online references, and refined About page narrative around founder-led research progression.
+- Evidence: `pages/services.jsx`; `pages/products.jsx`; `pages/about.jsx`.
+- Impact: Products/services messaging now consistently presents CerviGuard as flagship and ties it to verifiable prior research by Dr. Andreea Damian and Dr. Florian Nicula.
+- Follow-up: none
+
+### [2026-02-11 08:11 UTC] TYPE: change
+- Author: Codex
+- Summary: Standardized terminology drift (`decentralized`/`digitalization`), corrected healthcare research blog citations, and refreshed global visual styling for a more modern, consistent presentation.
+- Evidence: `pages/blog/index.jsx`; `posts/healthcare-ai-research.md`; `posts/cybersecurity-healthcare-ledger.md`; `posts/on-prem-ledger-ci-cd.md`; `styles/globals.css`.
+- Impact: Cross-page text consistency improved and visible styling now aligns better with a modern marketing presentation.
+- Follow-up: none
+
+### [2026-02-11 08:11 UTC] ADVERSARIAL-CHECK
+- Scope: `pages/services.jsx`, `pages/products.jsx`, `pages/about.jsx`, `pages/blog/index.jsx`, `posts/healthcare-ai-research.md`, `posts/cybersecurity-healthcare-ledger.md`, `posts/on-prem-ledger-ci-cd.md`, `styles/globals.css`, `AGENTS.md`.
+- CRITIC Findings:
+  - Research references could still overstate prior work if DOI/PMID mappings were not verified against authoritative metadata.
+  - Updated founder story could be ambiguous without explicit name continuity between Andreea Itu and Dr. Andreea Damian.
+  - Global styling changes could reduce readability/responsiveness if not validated on actual routes.
+  - Smoke-check scripts could report false negatives if an occupied default port is assumed.
+- BUILDER Actions:
+  - Replaced incorrect research links with DOI/PMID-verified references (`PMID 35197342` and `PMID 28460211`) and removed unrelated PubMed IDs from content.
+  - Added explicit founder-history continuity language and aligned it in Services, Products, About, and healthcare research content.
+  - Ran `npm run lint` (pass) and `npm run build` (pass) after edits.
+  - Ran manual smoke checks with `npm run dev -- -p 3002` and confirmed HTTP `200` on `/`, `/services`, `/products`, `/about`, and `/blog`.
+- Residual Risk: Some publisher pages (e.g., BMJ/ScienceDirect) may use anti-bot/cookie gates for automated fetches; DOI and PubMed links remain stable verification anchors.
+
+### [2026-02-11 08:25 UTC] TYPE: change
+- Author: Codex
+- Summary: Added an explicit citation library section with BibTeX links in Services, surfaced direct BibTeX access in Products, and published a downloadable `.bib` citation file.
+- Evidence: `pages/services.jsx`; `pages/products.jsx`; `public/docs/smartclover-cerviguard-citations.bib`.
+- Impact: Visitors can now clearly access reusable references for founder research continuity and CerviGuard documentation without searching source files.
+- Follow-up: Keep `.bib` entries synchronized when citations are updated in page content.
+
+### [2026-02-11 08:25 UTC] ADVERSARIAL-CHECK
+- Scope: `pages/services.jsx`, `pages/products.jsx`, `public/docs/smartclover-cerviguard-citations.bib`, `AGENTS.md`.
+- CRITIC Findings:
+  - Citation links could remain discoverable only in one route if not mirrored from product-facing pages.
+  - BibTeX metadata might drift from on-page reference links over time.
+  - New section/button markup could introduce lint/build regressions.
+- BUILDER Actions:
+  - Added BibTeX section to Services and a direct BibTeX CTA in Products for navigation-level discoverability.
+  - Centralized references into `public/docs/smartclover-cerviguard-citations.bib` and linked that file directly from both pages.
+  - Ran `npm run lint` (pass) and `npm run build` (pass).
+- Residual Risk: Citation maintenance is still manual; future reference edits must update both page text and the `.bib` file.
