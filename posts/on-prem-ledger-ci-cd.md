@@ -6,7 +6,7 @@ excerpt: "How SmartClover ships Next.js services to on-prem and on-edge infrastr
 
 Our "your AI, your Data" edge platform turns Git repositories into running applications without bespoke DevOps scripts. The service clones your repo, installs dependencies, builds the project, and launches it across a blockchain-governed network of edge nodes that you control. Continuous delivery hooks straight into the decentralised control plane, so regulated teams manage deployments with the same ergonomics as a hosted platform.
 </br></br>
-For SmartClover, that means our healthcare analytics portals and cybersecurity dashboards run close to the users who need them, with reliability that comes from decentralisation rather than a single region. Updates are as simple as pushing new code and triggering the pipeline—the platform handles container orchestration, tunnels, observability, and immutable ledger attestations.
+For SmartClover, that means our healthcare analytics portals and cybersecurity dashboards run close to the users who need them, with reliability that comes from decentralisation rather than a single region. Updates are as simple as pushing new code and triggering the pipeline - the platform handles container orchestration, tunnels, observability, and immutable ledger attestations.
 </br></br>
 To make that possible, SmartClover brings regulated-sector requirements for auditable AI workloads while the platform provides a hardened edge network with per-tenant isolation and programmable data residency. Shared sprints cover everything from privacy-preserving build pipelines to deterministic rollbacks, so every deployment satisfies healthcare compliance without slowing our shipping cadence.
 </br></br>
