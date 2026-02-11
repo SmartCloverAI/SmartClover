@@ -15,8 +15,14 @@ Do not delete prior memory entries. If a past entry is wrong, append a correctio
 3. Execute changes.
 4. After every important discovery, change, or insight, append a memory entry to `## 11) Memory Ledger`.
 5. After every modification batch, run the mandatory adversarial check in `## 10) Adversarial Change Check`.
-6. After every modification batch, increment the manual footer version in `components/Layout.jsx`.
+6. Before each commit, increment the manual footer version in `components/Layout.jsx` exactly once.
 7. Validate with `npm run lint` and `npm run build` when feasible.
+
+## Versioning Policy
+- Footer version is the manual release counter shown in `components/Layout.jsx`.
+- Version increment cadence is per commit, not per edit.
+- If one commit contains multiple local edit batches, increment once right before commit finalization.
+- If a commit is split into multiple commits, each commit must include its own increment.
 
 ## 3) Project Baseline (Verified 2026-02-11)
 - Framework: Next.js 14 (Pages Router) with React 18.
@@ -220,3 +226,29 @@ No modification is complete until this adversarial entry is added.
   - Appended correction insight and updated environment section in `AGENTS.md`.
   - Ran `npm run lint` (pass) and `npm run build` (pass).
 - Residual Risk: If runtime environment omits both `EE_HOST_ID` and `R1EN_HOST_ID`, host id remains `unknown` by design.
+
+### [2026-02-11 07:25 UTC] TYPE: insight
+- Author: Codex
+- Summary: Version increment rule is now explicitly defined as per commit, replacing per modification-batch wording.
+- Evidence: `AGENTS.md` workflow step 6 and `Versioning Policy` section.
+- Impact: Future agents can align version bumps with commit boundaries and avoid ambiguous bump timing.
+- Follow-up: Apply this rule consistently in all future commits.
+
+### [2026-02-11 07:25 UTC] TYPE: change
+- Author: Codex
+- Summary: Incremented footer manual version from `v2.0` to `v2.1`.
+- Evidence: `components/Layout.jsx`.
+- Impact: Version counter reflects this documentation policy change.
+- Follow-up: Increment once per commit going forward.
+
+### [2026-02-11 07:25 UTC] ADVERSARIAL-CHECK
+- Scope: `AGENTS.md`, `components/Layout.jsx`.
+- CRITIC Findings:
+  - Previous wording could cause more than one version bump before a single commit.
+  - Policy clarity was incomplete for multi-edit local sessions.
+- BUILDER Actions:
+  - Replaced workflow step with per-commit requirement.
+  - Added explicit `Versioning Policy` rules in `AGENTS.md`.
+  - Bumped footer version to `v2.1`.
+  - Ran `npm run lint` (pass) and `npm run build` (pass).
+- Residual Risk: Teams that do large uncommitted sessions may still need discipline to remember final pre-commit bump.
