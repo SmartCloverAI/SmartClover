@@ -31,7 +31,7 @@ signals, qualitative evidence, and transparent human oversight.
 - Evidence-linked insight communication: every key claim can be tied back to source context.
 - Human-in-the-loop workflow design: AI supports decisions, clinicians retain authority.
 - Prevention-focused service narrative: content emphasizes early detection and follow-up reliability.
-- Sovereign deployment positioning: "your AI, your Data", "your App, your Data", and "your Ai, your eSource".
+- Sovereign deployment positioning: "your AI, your Data", "your App, your Data", and "your AI, your eSource".
 - Blog-driven knowledge publishing for research and operational updates.
 
 ### UX Principles

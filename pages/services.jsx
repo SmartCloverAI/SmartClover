@@ -20,7 +20,7 @@ const servicePrinciples = [
   },
   {
     title: 'Transparent SLA Agreements',
-    description: 'Each service programme defines review cycles, reporting depth, and escalation paths - never hourly consulting - while protecting "your Ai, your eSource".'
+    description: 'Each service programme defines review cycles, reporting depth, and escalation paths - never hourly consulting - while protecting "your AI, your eSource".'
   }
 ];
 
@@ -54,6 +54,92 @@ const serviceProgramSummaries = [
       'Adaptive narrative engines moderated by educators',
       'Content governance pipelines with human checkpoints',
       'Impact dashboards for families, schools, and researchers'
+    ]
+  }
+];
+
+const cerviGuardHighlights = [
+  'Secure pilot login for authorized clinicians and administrators.',
+  'De-identified cervical image intake with AI-assisted transformation-zone and lesion classification.',
+  'Role-based case management for triage, follow-up, and audit-ready decision support.'
+];
+
+const founderHistory = [
+  {
+    period: '2017',
+    title: 'Community-level cervical screening participation research',
+    detail:
+      'Dr. Florian Nicula co-authored the Social Science & Medicine qualitative study on Roma women’s screening participation in Romania. The same author list includes Andreea Itu, the publication name used by SmartClover founder Dr. Andreea Damian in earlier work.',
+    links: [
+      {
+        label: 'PubMed PMID 28460211',
+        href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/'
+      },
+      {
+        label: 'DOI 10.1016/j.socscimed.2017.04.040',
+        href: 'https://doi.org/10.1016/j.socscimed.2017.04.040'
+      }
+    ]
+  },
+  {
+    period: '2022',
+    title: 'Follow-up barriers protocol in remote Romanian communities',
+    detail:
+      'Dr. Andreea Damian co-authored the BMJ Open qualitative study protocol on facilitators and barriers after abnormal cervical screening, grounding SmartClover follow-up workflow design in field-informed evidence.',
+    links: [
+      {
+        label: 'PubMed PMID 35197342',
+        href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/'
+      },
+      {
+        label: 'BMJ Open article',
+        href: 'https://bmjopen.bmj.com/content/12/2/e053954'
+      }
+    ]
+  },
+  {
+    period: '2024-2026',
+    title: 'CerviGuard pilot implementation',
+    detail:
+      'The SmartClover CerviGuard Pilot translates this research line into a secure clinical console co-authored by Andreea D, Cristian Bleotiu, Vitalii Toderian, and Florian Nicula.',
+    links: [
+      {
+        label: 'cerviguard.link',
+        href: 'https://cerviguard.link'
+      },
+      {
+        label: 'GitHub: SmartCloverAI/CerviGuard',
+        href: 'https://github.com/SmartCloverAI/CerviGuard'
+      }
+    ]
+  }
+];
+
+const citationRecords = [
+  {
+    key: 'cerviguard_pilot',
+    title: 'SmartClover CerviGuard Pilot (2024-2026)',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard' },
+      { label: 'Website', href: 'https://cerviguard.link' }
+    ]
+  },
+  {
+    key: 'Nyanchokae053954',
+    title:
+      'Understanding facilitators and barriers to follow-up after abnormal cervical cancer screening examination among women living in remote areas of Romania (BMJ Open, 2022)',
+    links: [
+      { label: 'PubMed PMID 35197342', href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/' },
+      { label: 'DOI 10.1136/bmjopen-2021-053954', href: 'https://doi.org/10.1136/bmjopen-2021-053954' }
+    ]
+  },
+  {
+    key: 'ANDREASSEN201748',
+    title:
+      'Controversies about cervical cancer screening: A qualitative study of Roma women\'s (non)participation in cervical cancer screening in Romania (Social Science & Medicine, 2017)',
+    links: [
+      { label: 'PubMed PMID 28460211', href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/' },
+      { label: 'DOI 10.1016/j.socscimed.2017.04.040', href: 'https://doi.org/10.1016/j.socscimed.2017.04.040' }
     ]
   }
 ];
@@ -171,6 +257,127 @@ const Services = () => (
       </div>
     </section>
 
+    <section className="surface-card" id="cerviguard-flagship" aria-labelledby="cerviguard-heading">
+      <div className="section-heading">
+        <h2 id="cerviguard-heading">Flagship Product: CerviGuard</h2>
+        <p>
+          CerviGuard is SmartClover&apos;s flagship product for cervical cancer prevention and follow-up, delivered as a
+          secure healthcare AI service with clinicians in final control.
+        </p>
+      </div>
+      <div className="service-programs">
+        <article className="service-program">
+          <h3>Current product focus</h3>
+          <p>
+            As of February 11, 2026, the live product experience at{' '}
+            <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
+              cerviguard.link
+            </a>{' '}
+            presents CerviGuard as a secure-access workspace for authorized pilot accounts with clinical case management
+            workflows. The public codebase at{' '}
+            <a
+              href="https://github.com/SmartCloverAI/CerviGuard"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SmartCloverAI/CerviGuard
+            </a>{' '}
+            documents local setup, role-based operations, and deployment architecture.
+          </p>
+          <p>
+            The repository describes a TRL 6 pilot that has already been used in a small-scale oncological context with
+            de-identified images, while keeping clinicians in final control of decisions.
+          </p>
+          <ul>
+            {cerviGuardHighlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="cta-links">
+            <a
+              href="https://cerviguard.link"
+              className="button primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit CerviGuard
+            </a>
+            <a
+              href="https://github.com/SmartCloverAI/CerviGuard"
+              className="button secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub Project
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="research-foundation-heading">
+      <div className="section-heading">
+        <h2 id="research-foundation-heading">Founder Story and Research Continuity</h2>
+        <p>
+          CerviGuard is presented as a continuation of documented cervical-screening research by founder Dr. Andreea
+          Damian and collaborator Dr. Florian Nicula, not as a disconnected standalone product.
+        </p>
+      </div>
+      <div className="service-programs">
+        {founderHistory.map((entry) => (
+          <article key={entry.title} className="service-program">
+            <h3>{`${entry.period} · ${entry.title}`}</h3>
+            <p>{entry.detail}</p>
+            <div className="cta-links">
+              {entry.links.map((link) => (
+                <a key={link.href} href={link.href} className="button tertiary" target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section className="surface-card" id="citations-bibtex" aria-labelledby="citations-heading">
+      <div className="section-heading">
+        <h2 id="citations-heading">Citation Library (BibTeX)</h2>
+        <p>
+          We publish our CerviGuard and founder-history citations in reusable BibTeX format for academic writing, due
+          diligence, and transparent reference management.
+        </p>
+      </div>
+      <div className="cta-links">
+        <a
+          href="/docs/smartclover-cerviguard-citations.bib"
+          className="button primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open BibTeX File
+        </a>
+        <a href="/docs/smartclover-cerviguard-citations.bib" className="button secondary" download>
+          Download .bib
+        </a>
+      </div>
+      <div className="service-programs">
+        {citationRecords.map((record) => (
+          <article key={record.key} className="service-program">
+            <h3>{record.key}</h3>
+            <p>{record.title}</p>
+            <div className="cta-links">
+              {record.links.map((link) => (
+                <a key={link.href} href={link.href} className="button tertiary" target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section className="surface-card spotlight" id="healthcare-ai" aria-labelledby="healthcare-ai-heading">
       <div className="spotlight-content">
         <h2 id="healthcare-ai-heading">AI for Healthcare Research</h2>
@@ -266,7 +473,7 @@ const Services = () => (
           sensitivity of the workloads.
         </p>
         <p>
-          Deployments follow our &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles - 
+          Deployments follow our &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles -
           executing on-prem and on-edge with ledger immutability and modern CI/CD that keeps infrastructure aligned with
           clinical governance. Learn more about the approach in our{' '}
           <Link href="/decentralized">Your AI, your eSource</Link> section.

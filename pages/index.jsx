@@ -47,7 +47,7 @@ const techPartners = [
   {
     title: 'Your AI, Your Data Deployments',
     description:
-      'On-prem and on-edge execution frameworks deliver "your AI, your Data", "your App, your Data", and "your Ai, your eSource" outcomes with ledger immutability and modern CI/CD pipelines.'
+      'On-prem and on-edge execution frameworks deliver "your AI, your Data", "your App, your Data", and "your AI, your eSource" outcomes with ledger immutability and modern CI/CD pipelines.'
   },
   {
     title: 'Healthcare Research Alliances',
@@ -231,7 +231,7 @@ const Home = () => (
         <p>
           SmartClover is a healthcare AI services company delivering managed research, resilience, and learning
           programmes - not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI rooted
-          in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot; principles across on-prem and
+          in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles across on-prem and
           on-edge environments.
         </p>
         <div className="cta-links">
@@ -282,7 +282,7 @@ const Home = () => (
         <h2 id="service-company-heading">Services Company Promise</h2>
         <p>
           We deliver outcomes through managed services. Every engagement provides staffed operations, automation assets,
-          and shared accountability anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your Ai, your eSource&quot;
+          and shared accountability anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot;
           principles instead of ad-hoc consultancy deliverables.
         </p>
       </div>
@@ -455,7 +455,7 @@ const Home = () => (
           of healthcare AI.
         </p>
         <div className="cta-links">
-          <Link href="mailto:andreea@smartclover.ai" className="button primary">
+          <Link href="mailto:andreea@smartclover.ro" className="button primary">
             Contact Us
           </Link>
           <Link href="/services" className="button secondary">

@@ -20,7 +20,7 @@ const Blog = ({ posts }) => (
       <title>SmartClover Blog | Insights & Updates</title>
       <meta
         name="description"
-        content="Thoughts on healthcare AI, cybersecurity, and decentralised deployments from the SmartClover team."
+        content="Thoughts on healthcare AI, cybersecurity, and decentralized deployments from the SmartClover team."
       />
     </Head>
 
@@ -28,7 +28,7 @@ const Blog = ({ posts }) => (
       <span className="tagline">Blog</span>
       <h1>Ideas from the SmartClover lab</h1>
       <p>
-        Deep dives into healthcare research, cybersecurity, decentralised infrastructure, and the creative products we
+        Deep dives into healthcare research, cybersecurity, decentralized infrastructure, and the creative products we
         build for people.
       </p>
     </header>

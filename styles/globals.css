@@ -1,13 +1,13 @@
 :root {
-  --background: #f4f6f8;
-  --surface: #ffffff;
+  --background: #eef4f9;
+  --surface: rgba(255, 255, 255, 0.92);
   --text-primary: #1f2933;
   --text-muted: #4b5765;
-  --accent: #1f7a8c;
-  --accent-soft: rgba(31, 122, 140, 0.12);
-  --border: rgba(15, 23, 42, 0.08);
+  --accent: #0f788d;
+  --accent-soft: rgba(15, 120, 141, 0.12);
+  --border: rgba(15, 23, 42, 0.1);
   --radius: 16px;
-  --shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+  --shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
 }
 
 *,
@@ -20,12 +20,21 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% -18%, rgba(15, 120, 141, 0.18), transparent 34%),
+    radial-gradient(circle at 90% 0%, rgba(4, 157, 191, 0.12), transparent 38%),
+    linear-gradient(180deg, #f7fbff 0%, var(--background) 100%);
   color: var(--text-primary);
-  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'IBM Plex Sans', 'Avenir Next', 'Segoe UI', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   min-height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Sora', 'IBM Plex Sans', 'Avenir Next', 'Segoe UI', sans-serif;
 }
 
 a {
@@ -45,7 +54,7 @@ img {
 }
 
 main {
-  width: min(880px, calc(100% - 2.5rem));
+  width: min(960px, calc(100% - 2.5rem));
   margin: 0 auto;
   padding: 3rem 0 3.5rem;
 }
@@ -76,7 +85,8 @@ main {
   padding: 2rem;
   margin-bottom: 1.4rem;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(6px);
 }
 
 .surface-card h2 {
@@ -252,14 +262,14 @@ blockquote {
 }
 
 nav {
-  width: min(880px, calc(100% - 2.5rem));
+  width: min(960px, calc(100% - 2.5rem));
   margin: 2rem auto 0;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.84);
   backdrop-filter: blur(18px);
   border-radius: 999px;
   padding: 0.85rem 1.2rem;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
 }
 
 .nav-inner {
@@ -388,7 +398,7 @@ nav {
 }
 
 footer {
-  width: min(880px, calc(100% - 2.5rem));
+  width: min(960px, calc(100% - 2.5rem));
   margin: 0 auto 3rem;
   padding: 2rem 0;
   color: var(--text-muted);
@@ -615,7 +625,7 @@ footer p {
 }
 
 .served-by {
-  width: min(880px, calc(100% - 2.5rem));
+  width: min(960px, calc(100% - 2.5rem));
   margin: 0 auto 2.5rem;
   border-radius: var(--radius);
   padding: 1.2rem 1.5rem;
