@@ -341,3 +341,29 @@ No modification is complete until this adversarial entry is added.
   - Centralized references into `public/docs/smartclover-cerviguard-citations.bib` and linked that file directly from both pages.
   - Ran `npm run lint` (pass) and `npm run build` (pass).
 - Residual Risk: Citation maintenance is still manual; future reference edits must update both page text and the `.bib` file.
+
+### [2026-02-11 11:23 UTC] TYPE: change
+- Author: Codex
+- Summary: Relocated founder history and citation library ownership to the bottom of the About page and removed both sections from Services.
+- Evidence: `pages/about.jsx`; `pages/services.jsx`; `pages/products.jsx`.
+- Impact: About is now the single canonical route for founder timeline and BibTeX citation access, reducing duplicated research blocks in service marketing content.
+- Follow-up: Keep About and `public/docs/smartclover-cerviguard-citations.bib` synchronized when citation metadata changes.
+
+### [2026-02-11 11:23 UTC] TYPE: change
+- Author: Codex
+- Summary: Repositioned and restyled CerviGuard as a top-of-page flagship highlight in both Services and Products.
+- Evidence: `pages/services.jsx`; `pages/products.jsx`; `styles/globals.css`.
+- Impact: Flagship positioning is now immediate and visually prioritized instead of appearing mid-flow in long-form service content.
+- Follow-up: none
+
+### [2026-02-11 11:23 UTC] ADVERSARIAL-CHECK
+- Scope: `pages/about.jsx`, `pages/services.jsx`, `pages/products.jsx`, `styles/globals.css`, `AGENTS.md`.
+- CRITIC Findings:
+  - Moving founder/citation sections could leave stale links or fragment IDs on other pages.
+  - Flagship content might still feel secondary if only copy changed but section order stayed deep in the page.
+  - New visual highlight styles could regress readability or break responsive rendering.
+- BUILDER Actions:
+  - Removed Services citation/founder sections, added About-bottom anchors (`about-founder-history`, `about-citations-bibtex`), and repointed cross-page CTAs.
+  - Moved CerviGuard into top-priority sections on Services and Products and added a shared `flagship-highlight` visual treatment.
+  - Ran `npm run lint` (pass), `npm run build` (pass), and manual smoke checks via `npm run dev -- -p 3002` with HTTP `200` for `/`, `/services`, `/products`, and `/about`.
+- Residual Risk: Citation maintenance remains manual; future edits must update both About content and the `.bib` file together.

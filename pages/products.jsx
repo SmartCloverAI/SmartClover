@@ -7,17 +7,6 @@ const cerviGuardCapabilities = [
   'Role-based follow-up workflows with evidence-linked review history.'
 ];
 
-const founderReferences = [
-  {
-    label: 'BMJ Open (2022): Follow-up barriers in remote Romanian communities',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/'
-  },
-  {
-    label: 'Social Science & Medicine (2017): Roma women screening participation in Romania',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/'
-  }
-];
-
 const Products = () => (
   <>
     <Head>
@@ -37,8 +26,11 @@ const Products = () => (
       </p>
     </header>
 
-    <section className="surface-card" aria-labelledby="flagship-product-heading">
-      <h2 id="flagship-product-heading">Flagship healthcare product: CerviGuard</h2>
+    <section className="surface-card flagship-highlight" aria-labelledby="flagship-product-heading">
+      <div className="section-heading">
+        <span className="flagship-kicker">Flagship Product</span>
+        <h2 id="flagship-product-heading">CerviGuard is the lead product in our portfolio</h2>
+      </div>
       <p>
         CerviGuard is SmartClover&apos;s flagship product for cervical cancer prevention and follow-up. The live pilot at{' '}
         <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
@@ -74,35 +66,8 @@ const Products = () => (
         <Link href="/services#cerviguard-flagship" className="button tertiary">
           Read Services Context
         </Link>
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="founder-history-heading">
-      <h2 id="founder-history-heading">Founder history behind the flagship</h2>
-      <p>
-        CerviGuard builds on the cervical-screening research line of founder Dr. Andreea Damian and collaborator Dr.
-        Florian Nicula. Earlier publications list the founder as Andreea Itu, followed by Andreea Damian in later work.
-      </p>
-      <ul>
-        {founderReferences.map((reference) => (
-          <li key={reference.href}>
-            <a href={reference.href} target="_blank" rel="noopener noreferrer">
-              {reference.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div className="cta-links">
-        <a
-          href="/docs/smartclover-cerviguard-citations.bib"
-          className="button secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open BibTeX citations
-        </a>
-        <Link href="/services#citations-bibtex" className="button tertiary">
-          View citation library section
+        <Link href="/about#about-founder-history" className="button tertiary">
+          Founder history and citations
         </Link>
       </div>
     </section>
