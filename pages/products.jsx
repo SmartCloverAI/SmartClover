@@ -66,8 +66,8 @@ const Products = () => (
         <Link href="/services#cerviguard-flagship" className="button tertiary">
           Read Services Context
         </Link>
-        <Link href="/about#about-founder-history" className="button tertiary">
-          Founder history and citations
+        <Link href="/about#about-links-references" className="button tertiary">
+          Links and references
         </Link>
       </div>
     </section>

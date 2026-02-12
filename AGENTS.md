@@ -367,3 +367,68 @@ No modification is complete until this adversarial entry is added.
   - Moved CerviGuard into top-priority sections on Services and Products and added a shared `flagship-highlight` visual treatment.
   - Ran `npm run lint` (pass), `npm run build` (pass), and manual smoke checks via `npm run dev -- -p 3002` with HTTP `200` for `/`, `/services`, `/products`, and `/about`.
 - Residual Risk: Citation maintenance remains manual; future edits must update both About content and the `.bib` file together.
+
+### [2026-02-11 16:49 UTC] TYPE: change
+- Author: Codex
+- Summary: Replaced oversized About founder-history/citation sections with a concise Links and references module that includes product links, the SmartClover Hugging Face hub, and core research references.
+- Evidence: `pages/about.jsx`; `pages/services.jsx`; `pages/products.jsx`; `styles/globals.css`.
+- Impact: The About page now presents credibility resources in a more professional, executive-friendly format while preserving citation and flagship discoverability.
+- Follow-up: Keep external links and the `.bib` file aligned when resources change.
+
+### [2026-02-11 16:49 UTC] ADVERSARIAL-CHECK
+- Scope: `pages/about.jsx`, `pages/services.jsx`, `pages/products.jsx`, `styles/globals.css`, `AGENTS.md`.
+- CRITIC Findings:
+  - Replacing About anchors could break existing cross-page navigation from Services/Products.
+  - Compressing founder/citation content could accidentally remove access to citation artifacts.
+  - Converting CTA-style references into compact link lists could reduce readability without dedicated styling.
+- BUILDER Actions:
+  - Repointed Services and Products CTAs to `/about#about-links-references` and removed stale About anchor usage in page code.
+  - Preserved BibTeX access in About via `Open BibTeX file` and `Download .bib` actions.
+  - Added `.reference-link-list` styles for clear visual hierarchy and link affordance.
+  - Ran `npm run lint` (pass), `npm run build` (pass), and manual smoke checks via `npm run dev -- -p 3002` with HTTP `200` for `/about`, `/services`, and `/products`.
+- Residual Risk: External resources (Hugging Face, GitHub, PubMed, CerviGuard site) are maintained outside this repo and may change over time.
+
+### [2026-02-11 19:58 UTC] TYPE: change
+- Author: Codex
+- Summary: Added a new Blog post explaining what CerviGuard proposes, linking to live product/public implementation/model hub, and grounding the narrative in remote-area prophylaxis and screening mission experience with peer-reviewed references.
+- Evidence: `posts/cerviguard-remote-screening-foundations.md`.
+- Impact: Blog content now explicitly connects CerviGuard product intent to field-informed screening/follow-up realities and verifiable research anchors.
+- Follow-up: Keep linked resources and research references updated if product URLs or publication records change.
+
+### [2026-02-11 19:58 UTC] ADVERSARIAL-CHECK
+- Scope: `posts/cerviguard-remote-screening-foundations.md`, `AGENTS.md`.
+- CRITIC Findings:
+  - New copy could overstate clinical claims unless the post clearly frames AI as clinician-support rather than clinician-replacement.
+  - Mentioning remote-area prophylaxis missions without evidence links could reduce credibility.
+  - Markdown/front-matter issues could break blog listing or static generation.
+- BUILDER Actions:
+  - Kept language explicit that clinicians remain in final control and framed the post as operational proposal plus workflow support.
+  - Added direct links to CerviGuard product/repository/Hugging Face and research anchors (`PubMed 28460211`, `PubMed 35197342`).
+  - Ran `npm run lint` (pass), `npm run build` (pass), and manual smoke checks via `npm run dev -- -p 3002` with HTTP `200` for `/blog` and `/blog/cerviguard-remote-screening-foundations`.
+- Residual Risk: External pages (CerviGuard site, Hugging Face, GitHub, PubMed) are outside repository control and may change content or availability.
+
+### [2026-02-11 20:03 UTC] TYPE: discovery
+- Author: Codex
+- Summary: Blog markdown rendering was globally degraded because `remark@14` with `remark-html@16` left markdown uncompiled, causing raw markdown syntax to appear on post pages.
+- Evidence: `package.json` dependency mismatch; runtime inspection of `/blog/healthcare-ai-research` and `/blog/cerviguard-remote-screening-foundations` showing raw `##`/`*` markup before fix.
+- Impact: All blog detail pages could render unprofessional raw markdown until dependency compatibility was restored.
+- Follow-up: Keep `remark` and `remark-html` versions aligned when updating markdown tooling.
+
+### [2026-02-11 20:03 UTC] TYPE: change
+- Author: Codex
+- Summary: Upgraded `remark` to a compatible major version, preserved `remark-html` conversion flow, and adjusted the new CerviGuard post list formatting to avoid hard-break artifacts.
+- Evidence: `package.json`; `package-lock.json`; `posts/cerviguard-remote-screening-foundations.md`.
+- Impact: Blog posts now render as HTML (`h2`, lists, links) instead of raw markdown, restoring correct production presentation.
+- Follow-up: none
+
+### [2026-02-11 20:03 UTC] ADVERSARIAL-CHECK
+- Scope: `package.json`, `package-lock.json`, `posts/cerviguard-remote-screening-foundations.md`, `AGENTS.md`.
+- CRITIC Findings:
+  - Dependency changes can introduce regressions outside blog rendering if package compatibility is not validated.
+  - Rendering could still look wrong if markdown content relies on ambiguous hard-break syntax.
+  - A fix that only targets the new post would leave pre-existing blog posts broken.
+- BUILDER Actions:
+  - Updated `remark` to a compatible version with `remark-html` and validated markdown-to-HTML conversion behavior.
+  - Removed trailing hard-break spacing in the numbered research list of the new CerviGuard post.
+  - Ran `npm run lint` (pass), `npm run build` (pass), and manual runtime checks confirming HTTP `200` and HTML-rendered markdown for `/blog/healthcare-ai-research` and `/blog/cerviguard-remote-screening-foundations`.
+- Residual Risk: Future dependency upgrades may silently alter markdown output semantics; verify sample posts during dependency maintenance.
