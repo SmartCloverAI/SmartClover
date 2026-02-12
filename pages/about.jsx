@@ -2,82 +2,38 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const founderHistory = [
+const referenceGroups = [
   {
-    period: '2017',
-    title: 'Community-level cervical screening participation research',
-    detail:
-      'Dr. Florian Nicula co-authored the Social Science & Medicine qualitative study on Roma women\'s screening participation in Romania. The same author list includes Andreea Itu, the publication name used by SmartClover founder Dr. Andreea Damian in earlier work.',
+    title: 'Products and models',
+    description: 'Public entry points for SmartClover products and model releases.',
     links: [
       {
-        label: 'PubMed PMID 28460211',
-        href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/'
-      },
-      {
-        label: 'DOI 10.1016/j.socscimed.2017.04.040',
-        href: 'https://doi.org/10.1016/j.socscimed.2017.04.040'
-      }
-    ]
-  },
-  {
-    period: '2022',
-    title: 'Follow-up barriers protocol in remote Romanian communities',
-    detail:
-      'Dr. Andreea Damian co-authored the BMJ Open qualitative study protocol on facilitators and barriers after abnormal cervical screening, grounding SmartClover follow-up workflow design in field-informed evidence.',
-    links: [
-      {
-        label: 'PubMed PMID 35197342',
-        href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/'
-      },
-      {
-        label: 'BMJ Open article',
-        href: 'https://bmjopen.bmj.com/content/12/2/e053954'
-      }
-    ]
-  },
-  {
-    period: '2024-2026',
-    title: 'CerviGuard pilot implementation',
-    detail:
-      'The SmartClover CerviGuard Pilot translates this research line into a secure clinical console co-authored by Andreea D, Cristian Bleotiu, Vitalii Toderian, and Florian Nicula.',
-    links: [
-      {
-        label: 'cerviguard.link',
+        label: 'CerviGuard live workspace',
         href: 'https://cerviguard.link'
       },
       {
-        label: 'GitHub: SmartCloverAI/CerviGuard',
+        label: 'CerviGuard source repository',
         href: 'https://github.com/SmartCloverAI/CerviGuard'
+      },
+      {
+        label: 'SmartClover on Hugging Face',
+        href: 'https://huggingface.co/smartclover'
       }
     ]
-  }
-];
-
-const citationRecords = [
-  {
-    key: 'cerviguard_pilot',
-    title: 'SmartClover CerviGuard Pilot (2024-2026)',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard' },
-      { label: 'Website', href: 'https://cerviguard.link' }
-    ]
   },
   {
-    key: 'Nyanchokae053954',
-    title:
-      'Understanding facilitators and barriers to follow-up after abnormal cervical cancer screening examination among women living in remote areas of Romania (BMJ Open, 2022)',
+    title: 'Research references',
+    description:
+      'Founder publication continuity spans Dr. Andreea Damian (published earlier as Andreea Itu) and Dr. Florian Nicula.',
     links: [
-      { label: 'PubMed PMID 35197342', href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/' },
-      { label: 'DOI 10.1136/bmjopen-2021-053954', href: 'https://doi.org/10.1136/bmjopen-2021-053954' }
-    ]
-  },
-  {
-    key: 'ANDREASSEN201748',
-    title:
-      'Controversies about cervical cancer screening: A qualitative study of Roma women\'s (non)participation in cervical cancer screening in Romania (Social Science & Medicine, 2017)',
-    links: [
-      { label: 'PubMed PMID 28460211', href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/' },
-      { label: 'DOI 10.1016/j.socscimed.2017.04.040', href: 'https://doi.org/10.1016/j.socscimed.2017.04.040' }
+      {
+        label: 'PubMed 35197342 (BMJ Open, 2022)',
+        href: 'https://pubmed.ncbi.nlm.nih.gov/35197342/'
+      },
+      {
+        label: 'PubMed 28460211 (Social Science & Medicine, 2017)',
+        href: 'https://pubmed.ncbi.nlm.nih.gov/28460211/'
+      }
     ]
   }
 ];
@@ -171,47 +127,30 @@ const About = () => (
       </div>
     </section>
 
-    <section className="surface-card" id="about-founder-history" aria-labelledby="founder-history-heading">
+    <section className="surface-card" id="about-links-references" aria-labelledby="links-references-heading">
       <div className="section-heading">
-        <h2 id="founder-history-heading">Founder history behind CerviGuard</h2>
+        <h2 id="links-references-heading">Links and references</h2>
         <p>
-          Founder Dr. Andreea Damian has contributed to cervical-screening research in Romania across multiple phases,
-          including publications where her earlier name appears as Andreea Itu. This research path now informs the
-          CerviGuard flagship product.
+          This section keeps public product, model, and research references in one concise place for partner due
+          diligence.
         </p>
       </div>
       <div className="service-programs">
-        {founderHistory.map((entry) => (
-          <article key={entry.title} className="service-program">
-            <h3>{`${entry.period} · ${entry.title}`}</h3>
-            <p>{entry.detail}</p>
-            <div className="cta-links">
-              {entry.links.map((link) => (
-                <a key={link.href} href={link.href} className="button tertiary" target="_blank" rel="noopener noreferrer">
-                  {link.label}
-                </a>
+        {referenceGroups.map((group) => (
+          <article key={group.title} className="service-program">
+            <h3>{group.title}</h3>
+            <p>{group.description}</p>
+            <ul className="list-reset reference-link-list">
+              {group.links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </article>
         ))}
-      </div>
-      <div className="cta-links">
-        <Link href="/services#cerviguard-flagship" className="button primary">
-          View flagship service details
-        </Link>
-        <Link href="/products" className="button secondary">
-          View product overview
-        </Link>
-      </div>
-    </section>
-
-    <section className="surface-card" id="about-citations-bibtex" aria-labelledby="citations-heading">
-      <div className="section-heading">
-        <h2 id="citations-heading">Citation library (BibTeX)</h2>
-        <p>
-          We publish CerviGuard and founder-history references in reusable BibTeX format for academic writing, due
-          diligence, and transparent reference management.
-        </p>
       </div>
       <div className="cta-links">
         <a
@@ -225,21 +164,9 @@ const About = () => (
         <a href="/docs/smartclover-cerviguard-citations.bib" className="button secondary" download>
           Download .bib
         </a>
-      </div>
-      <div className="service-programs">
-        {citationRecords.map((record) => (
-          <article key={record.key} className="service-program">
-            <h3>{record.key}</h3>
-            <p>{record.title}</p>
-            <div className="cta-links">
-              {record.links.map((link) => (
-                <a key={link.href} href={link.href} className="button tertiary" target="_blank" rel="noopener noreferrer">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </article>
-        ))}
+        <Link href="/services#cerviguard-flagship" className="button tertiary">
+          View flagship service details
+        </Link>
       </div>
     </section>
   </>

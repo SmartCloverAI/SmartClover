@@ -148,7 +148,7 @@ const Services = () => (
       <article className="service-program">
         <h3>Current product focus</h3>
         <p>
-          As of February 11, 2026, the live product experience at{' '}
+          As of October 1, 2025, the live product experience at{' '}
           <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
             cerviguard.link
           </a>{' '}
@@ -180,8 +180,8 @@ const Services = () => (
           >
             View GitHub Project
           </a>
-          <Link href="/about#about-founder-history" className="button tertiary">
-            Founder history and citations
+          <Link href="/about#about-links-references" className="button tertiary">
+            Links and references
           </Link>
         </div>
       </article>

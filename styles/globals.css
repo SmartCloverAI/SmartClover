@@ -228,6 +228,25 @@ main {
   gap: 0.45rem;
 }
 
+.reference-link-list {
+  margin-top: 0.2rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.reference-link-list a {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 120, 141, 0.35);
+  text-underline-offset: 3px;
+}
+
+.reference-link-list a:hover {
+  color: var(--accent);
+  text-decoration-color: rgba(15, 120, 141, 0.6);
+}
+
 .flagship-highlight {
   border: 1px solid rgba(15, 120, 141, 0.3);
   background:
