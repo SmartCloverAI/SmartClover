@@ -221,6 +221,14 @@ const CerviGuard = () => (
             Open Live Pilot
           </a>
           <a
+            href="/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf"
+            className="button secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download MDR Draft PDF
+          </a>
+          <a
             href="https://github.com/SmartCloverAI/CerviGuard"
             className="button secondary"
             target="_blank"

@@ -9,3 +9,5 @@ yarn-error.log*
 .prompt.md
 
 .env
+
+WORK/

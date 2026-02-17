@@ -414,3 +414,222 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed; all routes generated successfully).
 - Residual Risk: Regulatory classification wording should be revalidated whenever CerviGuard certification status changes.
+
+### [2026-02-17 08:12 UTC] TYPE: insight
+- Author: Codex
+- Summary: Added a formal investor-style due diligence evaluation highlighting commercialization-proof, regulatory-evidence, and trust-asset gaps in SmartClover's public website narrative despite improved product positioning.
+- Evidence: `EVALUATION.md`; supporting references from `pages/index.jsx`, `pages/services.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`, `pages/_document.jsx`, `components/Layout.jsx`; render checks via `npx playwright screenshot` on `/`, `/services`, `/cerviguard`, `/contact` (desktop + mobile).
+- Impact: Future website and go-to-market updates should prioritize quantified traction, regulatory substantiation, and procurement-grade trust artifacts before investor/program due diligence.
+- Follow-up: Convert evaluation findings into a prioritized remediation backlog for website, compliance documentation, and commercial packaging.
+
+### [2026-02-17 08:12 UTC] ADVERSARIAL-CHECK
+- Scope: diligence artifact creation for website/business-model assessment (`EVALUATION.md`) and mandatory memory-log update.
+- BUILDER Intent + Change:
+  - Produced a critical Google-Cloud/VC-style evaluation of SmartClover SRL based strictly on publicly visible repository content and rendered pages.
+  - Ranked findings by severity, provided a scorecard, and defined required evidence gates for positive investment/program recommendation.
+- CRITIC Findings:
+  - Conclusions could overreach if not explicitly tied to concrete public evidence.
+  - Look-and-feel assessment could be biased if not validated on rendered pages.
+- BUILDER Response / Refinements:
+  - Added explicit file-path evidence anchors for all major findings and flagged evidence limitations where appropriate.
+  - Captured and reviewed rendered desktop/mobile screenshots via `npx playwright screenshot` to ground UX observations.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed; all static/SSG routes generated successfully).
+- Residual Risk: External proof artifacts (regulatory certificates, commercial metrics, customer outcomes) remain unavailable in-repo, so findings stay limited to public-web evidence.
+
+### [2026-02-17 08:17 UTC] TYPE: change
+- Author: Codex
+- Summary: Added `UPGRADE.md`, a prioritized remediation backlog that converts `EVALUATION.md` findings into surgical website modifications with explicit dependency gates.
+- Evidence: `UPGRADE.md`, `EVALUATION.md`.
+- Impact: Future work can execute high-impact fixes in ordered batches while avoiding unsupported claims where evidence is missing.
+- Follow-up: Collect answers for the `UPGRADE.md` clarification set before implementing blocked regulatory/commercial/trust batches.
+
+### [2026-02-17 08:17 UTC] ADVERSARIAL-CHECK
+- Scope: due-diligence remediation planning artifact (`UPGRADE.md`) and required memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Translated each critical/high-risk finding in `EVALUATION.md` into targeted, minimal file-level website modifications.
+  - Added phased execution order, acceptance criteria, and a clarifications checklist for unresolved evidence.
+- CRITIC Findings:
+  - Proposed trust/regulatory/commercial pages could imply unavailable proof if dependencies were not explicit.
+  - Plan could lose execution focus without clear separation between immediately implementable and blocked work.
+- BUILDER Response / Refinements:
+  - Marked each batch status (`implementable immediately` vs `blocked/partially blocked`) and tied blockers to specific missing inputs.
+  - Added explicit clarifications for MDR substantiation, pricing/contracts, KPI disclosure, legal policy ownership, security controls, CRM path, and portfolio focus.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Website-level implementation for regulatory/trust/commercial proof remains contingent on external evidence and policy approvals.
+
+### [2026-02-17 08:26 UTC] TYPE: change
+- Author: Codex
+- Summary: Updated `UPGRADE.md` to incorporate user-provided commercialization/regulatory/trust clarifications and reclassified batches into immediate, interim, and blocked execution states.
+- Evidence: `UPGRADE.md` sections `Clarifications Incorporated (2026-02-17)`, `Priority Plan`, `Clarifications Required`.
+- Impact: Website upgrade execution can start immediately on de-risking and structure layers while preserving compliance-safe wording for unpublished evidence.
+- Follow-up: Confirm remaining blockers in `UPGRADE.md` (CRM routing/SLA semantics, KPI disclosure limits, regulatory publication timeline, and partner-naming approval).
+
+### [2026-02-17 08:26 UTC] ADVERSARIAL-CHECK
+- Scope: `UPGRADE.md` clarification integration and execution-plan refinement; mandatory memory-log update.
+- BUILDER Intent + Change:
+  - Integrated explicit user answers into the upgrade plan as binding assumptions for regulatory, pricing, trust, security, traction timeline, and roadmap focus.
+  - Reduced generic clarification backlog to only unresolved implementation blockers.
+- CRITIC Findings:
+  - "SLA over 99%" for contact flow is ambiguous and could be misapplied as a response-time commitment.
+  - NIS2/CRA wording may become over-claiming if phrased as formal compliance without legal substantiation.
+  - Traction data currently provides chronology but not quantified KPI deltas expected by diligence standards.
+- BUILDER Response / Refinements:
+  - Kept contact funnel batch partially blocked pending explicit SLA and lead-routing definitions.
+  - Added wording-control clarification (`aligned with` vs `compliant with`) in remaining blocker list.
+  - Split proof delivery into Phase 1 timeline publication and Phase 2 KPI enrichment once denominator-approved metrics are available.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Final diligence-grade proof density still depends on publishable regulatory identifiers, measurable KPIs, and legal approval of trust-policy text.
+
+### [2026-02-17 08:35 UTC] TYPE: change
+- Author: Codex
+- Summary: Incorporated final business/regulatory clarifications into `UPGRADE.md` and added an EU/Romania MDR Class I self-assessment declaration template proposal.
+- Evidence: `UPGRADE.md`, `docs/MDR_1_PROPOSAL.md`.
+- Impact: Planning assumptions are now aligned with confirmed constraints (B2B quote-based commercial model, email lead routing, response-time SLA framing, NIS2/CRA-aligned wording, and roadmap positioning for EQ products), while regulatory publication details remain safely staged.
+- Follow-up: Confirm publication timing and approved public wording for MDR identifiers and TealGuard partnership statement; approve legal review workflow for trust-policy drafts.
+
+### [2026-02-17 08:35 UTC] ADVERSARIAL-CHECK
+- Scope: clarification-driven plan refinement in `UPGRADE.md` and MDR draft-template creation in `docs/MDR_1_PROPOSAL.md`.
+- BUILDER Intent + Change:
+  - Resolved remaining plan ambiguities using user-supplied decisions (routing, SLA type, jurisdiction scope, contract-language strictness, security wording, product focus).
+  - Added a structured MDR self-assessment declaration template for EU/Romania with placeholders and internal-approval gates.
+- CRITIC Findings:
+  - Draft regulatory template could be misused as a final legal artifact if not explicitly marked draft-only.
+  - Partnership naming can create legal/commercial exposure if wording exceeds approved project scope.
+  - Absence of publishable numeric KPIs still limits diligence-grade proof strength.
+- BUILDER Response / Refinements:
+  - Marked the MDR file as draft proposal for internal legal/regulatory review and non-legal-advice.
+  - Constrained `UPGRADE.md` partnership language to TealGuard project context and retained explicit wording-approval follow-up.
+  - Kept KPI disclosure as a staged blocker (timeline now, metrics later).
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Regulatory identifiers, legal-policy approvals, and quantified KPI disclosures are still pending and remain prerequisites for full diligence-grade website substantiation.
+
+### [2026-02-17 08:39 UTC] TYPE: change
+- Author: Codex
+- Summary: Locked the approved TealGuard public partnership sentence in `UPGRADE.md` and converted `docs/MDR_1_PROPOSAL.md` from generic template to a prefilled MDR Class I draft with explicit missing-input requirements.
+- Evidence: `UPGRADE.md`, `docs/MDR_1_PROPOSAL.md`.
+- Impact: Regulatory planning now includes concrete public wording and a near-complete declaration skeleton that can be finalized quickly once remaining legal/regulatory identifiers are provided.
+- Follow-up: Provide all missing fields listed in `docs/MDR_1_PROPOSAL.md` section `## 15) Missing Information Required From SmartClover`.
+
+### [2026-02-17 08:39 UTC] ADVERSARIAL-CHECK
+- Scope: `UPGRADE.md` partnership-wording finalization and MDR declaration draft completion in `docs/MDR_1_PROPOSAL.md`.
+- BUILDER Intent + Change:
+  - Applied user-approved TealGuard sentence as the canonical partnership line in planning artifacts.
+  - Prefilled MDR declaration sections with all verifiable repo/user data (manufacturer identity, scope, intended use, product timeline, cybersecurity wording constraints) and marked unresolved mandatory fields.
+- CRITIC Findings:
+  - A partially filled declaration could be mistaken for a finalized legal artifact if unresolved fields are not clearly flagged.
+  - Class I positioning can be challenged if Annex VIII rule mapping and measuring-function determination are not explicitly documented.
+  - Missing UDI/SRN/document references still block formal declaration readiness.
+- BUILDER Response / Refinements:
+  - Added explicit `MISSING INPUT` markers and a consolidated required-information checklist.
+  - Kept declaration text draft-scoped and pending final legal/regulatory approval.
+  - Retained conservative wording (`positioned as`) until formal identifiers and conformity evidence are available.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Regulatory/legal sign-off cannot proceed without the outstanding identifiers, Annex VIII rule mapping, technical-document references, and authorized signatory details.
+
+### [2026-02-17 08:46 UTC] TYPE: change
+- Author: Codex
+- Summary: Enriched `docs/MDR_1_PROPOSAL.md` with online-sourced SMARTCLOVER SRL registration identifiers (CUI, ONRC number, EUID), incorporation reference, and source-traceability notes while reducing unresolved fields to strict regulatory/documentation gaps.
+- Evidence: `docs/MDR_1_PROPOSAL.md`; online sources `https://www.risco.ro/verifica-firma/smartclover-cui-50315196`, `https://ec.europa.eu/taxation_customs/vies/rest-api/ms/RO/vat/50315196`.
+- Impact: MDR draft now covers most company-identification requirements with reproducible references and narrows remaining input requests to declaration-critical legal/regulatory fields.
+- Follow-up: Provide remaining inputs listed in `docs/MDR_1_PROPOSAL.md` section `## 16) Missing Information Required From SmartClover`.
+
+### [2026-02-17 08:46 UTC] ADVERSARIAL-CHECK
+- Scope: online-evidence enrichment for MDR draft (`docs/MDR_1_PROPOSAL.md`) and memory-log update.
+- BUILDER Intent + Change:
+  - Replaced placeholder company identity values with online-verified entries (CUI, ONRC, EUID, address context).
+  - Added explicit online source traceability and kept unresolved regulatory fields clearly flagged.
+- CRITIC Findings:
+  - Company-data aggregators can drift from official registries, creating potential identifier mismatch risk.
+  - VIES snapshot returned `MS_UNAVAILABLE`, so VAT validity could not be confirmed at retrieval time.
+  - MDR Rule 11 mapping remains legally sensitive and cannot be finalized from public marketing sources alone.
+- BUILDER Response / Refinements:
+  - Kept source links in-document and labeled unresolved fields as `MISSING INPUT` instead of inferring legal-final values.
+  - Recorded VIES service-state limitation explicitly in the source notes.
+  - Marked Rule 11 classification mapping as provisional pending formal regulatory/legal validation.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Formal declaration readiness still depends on regulator-grade documentary references (SRN/UDI/Annex VIII legal mapping/technical dossier IDs/signatory details).
+
+### [2026-02-17 08:47 UTC] TYPE: change
+- Author: Codex
+- Summary: Moved diligence planning documents into serialized `WORK/` paths for ordered future documentation (`01_EVALUATION.md`, `02_UPGRADE.md`).
+- Evidence: `WORK/01_EVALUATION.md`, `WORK/02_UPGRADE.md`, command: `mv EVALUATION.md WORK/01_EVALUATION.md && mv UPGRADE.md WORK/02_UPGRADE.md`.
+- Impact: Future artifacts can follow stable serial naming in one folder for predictable sequence management.
+- Follow-up: Create subsequent artifacts as `WORK/03_*.md`, `WORK/04_*.md`, etc.
+
+### [2026-02-17 08:47 UTC] ADVERSARIAL-CHECK
+- Scope: document relocation and serialization (`EVALUATION.md` -> `WORK/01_EVALUATION.md`, `UPGRADE.md` -> `WORK/02_UPGRADE.md`).
+- BUILDER Intent + Change:
+  - Consolidate diligence/planning files under `WORK/` with explicit numeric prefixes.
+  - Preserve file contents while changing only path and naming convention.
+- CRITIC Findings:
+  - Existing references to legacy root-level filenames may become stale.
+  - Serialization policy can drift if not followed in future document additions.
+- BUILDER Response / Refinements:
+  - Kept content unchanged and only moved files to deterministic names.
+  - Recorded follow-up policy in memory log to continue serial naming in `WORK/`.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Historical append-only log entries still reference legacy paths by design and should be interpreted as historical evidence.
+
+### [2026-02-17 08:51 UTC] TYPE: change
+- Author: Codex
+- Summary: Finalized most remaining MDR draft fields using user-provided regulatory/commercial inputs and live product metadata, including explicit launch dates, signatory identity, and app version capture from `https://cerviguard.link`.
+- Evidence: `docs/MDR_1_PROPOSAL.md`; live page evidence for version string (`CerviGuard v0.4.7`) from `https://cerviguard.link`.
+- Impact: MDR proposal now has substantially reduced open fields and includes draft text for Rule 11 rationale, measuring-function stance, and formal IFU limitation set pending legal sign-off.
+- Follow-up: Provide remaining items listed in `docs/MDR_1_PROPOSAL.md` section `## 16) Missing Information Required From SmartClover`.
+
+### [2026-02-17 08:51 UTC] ADVERSARIAL-CHECK
+- Scope: MDR declaration enrichment and clarification closure in `docs/MDR_1_PROPOSAL.md`.
+- BUILDER Intent + Change:
+  - Applied user-confirmed values (SRN none, launch dates, signatory identity) and inserted live app version evidence.
+  - Added draft legal text for Annex VIII Rule 11 mapping, measuring-function status, and IFU contraindications/limitations.
+- CRITIC Findings:
+  - Rule 11 Class I mapping may be challenged if intended use is interpreted as direct diagnostic decision support.
+  - Live website version may diverge from formal regulated build identifier used in technical dossier control.
+  - Signatory date remains unresolved, blocking completion of a sign-ready declaration artifact.
+- BUILDER Response / Refinements:
+  - Kept Rule 11 mapping explicitly labeled as draft pending legal/regulatory approval.
+  - Distinguished visible product version (`v0.4.7`) from final regulated build identifier governance.
+  - Retained explicit missing-input item for signatory date and documentary IDs.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Formal conformity declaration cannot be finalized until UDI strategy, dossier reference IDs, and legal approval of classification rationale are completed.
+
+### [2026-02-17 08:55 UTC] TYPE: change
+- Author: Codex
+- Summary: Generated a formal PDF from `docs/MDR_1_PROPOSAL.md`, published it under `public/docs/`, and exposed direct download access in the CerviGuard page CTA section.
+- Evidence: `scripts/generate-mdr-pdf.mjs`, `public/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf`, `pages/cerviguard.jsx`.
+- Impact: The MDR draft is now consumable as a formal downloadable artifact directly from the flagship product route.
+- Follow-up: Re-run `node scripts/generate-mdr-pdf.mjs` whenever `docs/MDR_1_PROPOSAL.md` changes.
+
+### [2026-02-17 08:55 UTC] ADVERSARIAL-CHECK
+- Scope: MDR PDF generation pipeline + CerviGuard page integration (`scripts/generate-mdr-pdf.mjs`, `public/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf`, `pages/cerviguard.jsx`).
+- BUILDER Intent + Change:
+  - Implemented deterministic Markdown-to-PDF generation using `remark` + `playwright` with formal page styling and pagination.
+  - Added a `Download MDR Draft PDF` CTA to `/cerviguard` linking the generated artifact in `/docs`.
+- CRITIC Findings:
+  - Generated PDF could drift from source markdown if regeneration is forgotten after content updates.
+  - Exposing intermediate HTML preview in `public/docs` would add unnecessary public artifact surface.
+  - Live-product CTA integration could break if artifact path changes.
+- BUILDER Response / Refinements:
+  - Added a reusable generator script and documented regeneration in follow-up text.
+  - Moved HTML preview output to `/tmp` and kept only the final PDF in `public/docs`.
+  - Linked CTA to a stable deterministic filename (`/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf`).
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The PDF reflects current markdown state at generation time and requires manual regeneration after future MDR source edits.
