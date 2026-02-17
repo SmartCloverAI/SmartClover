@@ -16,9 +16,9 @@ const Decentralized = () => (
       <span className="tagline">Your AI, your eSource</span>
       <h1>Keep regulated AI under your direction</h1>
       <p>
-        SmartClover pairs distributed ledger-based delivery with human-guided governance so research teams retain control of
-        sensitive data, adapt models responsibly, and share evidence with regulators across SaaS/PaaS healthcare product
-        operations.
+        SmartClover pairs distributed ledger-based delivery with hybrid cloud-edge coordination so research teams retain
+        control of sensitive data, adapt models responsibly, and share evidence with regulators across SaaS/PaaS
+        healthcare product operations.
       </p>
       <p>
         <i>
@@ -33,8 +33,8 @@ const Decentralized = () => (
         <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
           Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; control planes that you designate, so AI
-          product platforms operate on on-prem and on-edge infrastructure that matches your residency, privacy, and
-          procurement requirements. You always know where eSource data is processed.
+          product platforms operate on on-prem and on-edge infrastructure with cloud coordination layers that match your
+          residency, privacy, and procurement requirements. You always know where eSource data is processed.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
@@ -80,7 +80,7 @@ const Decentralized = () => (
         <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
           Policy templates are built into product releases so participation rules remain aligned with sponsor and
-          regulator obligations. Teams operate confidently without handing control to a central vendor.
+          regulator obligations. Teams operate confidently without surrendering control to a central data silo.
         </p>
         <div className="key-points">
           <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
@@ -90,6 +90,12 @@ const Decentralized = () => (
         <div className="cta-links">
           <Link href="/contact" className="button secondary">
             Talk with SmartClover about deployment options
+          </Link>
+          <Link href="/cloud-architecture" className="button secondary">
+            Review Cloud + Edge Model
+          </Link>
+          <Link href="/trust/security" className="button tertiary">
+            Security Baseline
           </Link>
           <Link href="/blog" className="button secondary">
             Read how we deploy with ledger immutability

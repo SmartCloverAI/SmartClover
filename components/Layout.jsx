@@ -2,15 +2,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import ConsentManager from './ConsentManager';
 import ServedBy from './ServedByComponent';
 
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'CerviGuard', href: '/cerviguard' },
-  { label: 'Products & More', href: '/services' },
-  { label: 'Your AI, your eSource', href: '/decentralized' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'How to Buy', href: '/how-to-buy' },
+  { label: 'Proof', href: '/proof' },
+  { label: 'Regulatory', href: '/regulatory' },
+  { label: 'Trust', href: '/trust' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/blog' }
+];
+
+const footerQuickLinks = [
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'How to Buy', href: '/how-to-buy' },
+  { label: 'Proof', href: '/proof' },
+  { label: 'Regulatory', href: '/regulatory' },
+  { label: 'Trust', href: '/trust' },
+  { label: 'Cloud Architecture', href: '/cloud-architecture' }
 ];
 
 const Layout = ({ children, hostId = 'unknown' }) => {
@@ -18,8 +32,8 @@ const Layout = ({ children, hostId = 'unknown' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isLinkActive = (href) => {
-    if (href === '/blog') {
-      return router.pathname.startsWith('/blog');
+    if (href === '/blog' || href === '/trust') {
+      return router.pathname.startsWith(href);
     }
 
     return router.pathname === href;
@@ -54,16 +68,9 @@ const Layout = ({ children, hostId = 'unknown' }) => {
               <span className="nav-toggle-text">{isMenuOpen ? 'Close' : 'Menu'}</span>
             </button>
           </div>
-          <div
-            id="primary-navigation"
-            className={`nav-links${isMenuOpen ? ' open' : ''}`}
-          >
+          <div id="primary-navigation" className={`nav-links${isMenuOpen ? ' open' : ''}`}>
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`nav-link${isLinkActive(link.href) ? ' active' : ''}`}
-              >
+              <Link key={link.href} href={link.href} className={`nav-link${isLinkActive(link.href) ? ' active' : ''}`}>
                 {link.label}
               </Link>
             ))}
@@ -72,12 +79,21 @@ const Layout = ({ children, hostId = 'unknown' }) => {
       </nav>
       <main>{children}</main>
       <div className="served-by">
+        <div className="footer-quick-links" aria-label="Quick diligence links">
+          {footerQuickLinks.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
         <ServedBy hostId={hostId} />
-        <p>© {new Date().getFullYear()} SmartClover. v2.1
+        <p>
+          © {new Date().getFullYear()} SmartClover. v2.1
           <br />
-        Creativity · Digitalization · Human-in-the-loop AI for Good
+          Creativity · Digitalization · Human-in-the-loop AI for Good
         </p>
       </div>
+      <ConsentManager />
     </>
   );
 };

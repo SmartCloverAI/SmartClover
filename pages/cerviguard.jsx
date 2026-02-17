@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import DiligenceLinksSection from '../components/DiligenceLinksSection';
 
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
@@ -18,7 +19,7 @@ const featurePillars = [
   {
     title: 'MDR Class I Diagnostic Support',
     description:
-      'CerviGuard operates as an MDR Class I cervical cancer screening companion app with transparent confidence outputs and clinician-led decisions.'
+      'CerviGuard is positioned as an MDR Class I cervical cancer screening companion app with transparent confidence outputs and clinician-led decisions.'
   },
   {
     title: 'Digital-Native Delivery',
@@ -239,6 +240,9 @@ const CerviGuard = () => (
           <Link href="/contact" className="button tertiary">
             Request Product Demo
           </Link>
+          <Link href="/regulatory" className="button tertiary">
+            Regulatory Baseline
+          </Link>
         </div>
       </div>
       <div className="cerviguard-hero-media">
@@ -339,7 +343,23 @@ const CerviGuard = () => (
           </article>
         ))}
       </div>
+      <div className="cta-links">
+        <Link href="/pricing" className="button secondary">
+          Pricing and Packaging
+        </Link>
+        <Link href="/how-to-buy" className="button secondary">
+          How to Buy
+        </Link>
+        <Link href="/proof" className="button secondary">
+          Proof Timeline
+        </Link>
+      </div>
     </section>
+
+    <DiligenceLinksSection
+      headingId="cerviguard-diligence-links"
+      description="Use these linked routes to review commercial, proof, regulatory, trust, and architecture layers around CerviGuard."
+    />
 
     <section className="surface-card spotlight closing" aria-labelledby="cerviguard-cta-heading">
       <div className="spotlight-content">
