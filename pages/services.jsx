@@ -5,7 +5,7 @@ import Link from 'next/link';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'SmartClover Product Operations | Healthcare AI SaaS/PaaS';
 const pageDescription =
-  'SmartClover delivers healthcare AI product operations through digital-native SaaS/PaaS applications and managed platform modules.';
+  'SmartClover delivers healthcare AI product operations through two tracks: classical imaging and structured-data predictive analytics (including the MDR Class I CerviGuard companion app), plus generative SaaS systems for prophylaxis communication and qualitative research.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -59,9 +59,33 @@ const serviceProgramSummaries = [
 ];
 
 const cerviGuardHighlights = [
+  'MDR Class I cervical cancer screening companion application designed for safe clinical support.',
   'Secure pilot login for authorized clinicians and administrators.',
   'De-identified cervical image intake with AI-assisted transformation-zone and lesion classification.',
   'Role-based case management for triage, follow-up, and audit-ready decision support.'
+];
+
+const aiHealthcareDirections = [
+  {
+    title: 'Direction 1: Classical Imaging + Structured Data Analytics',
+    description:
+      'Inferential and predictive analytics pipelines process imaging and structured clinical datasets for diagnosis-support and triage intelligence.',
+    points: [
+      'Includes CerviGuard as an MDR Class I cervical cancer screening companion app',
+      'Pairs image-based signals with structured metadata for clearer clinical context',
+      'Maintains clinician-led review for final decisions'
+    ]
+  },
+  {
+    title: 'Direction 2: Generative SaaS for Communication + Qualitative Research',
+    description:
+      'Generative product systems support primary prophylaxis communication, stakeholder interaction, and qualitative research workflows.',
+    points: [
+      'Served via SaaS for communication and stakeholder-facing interactions',
+      'Designs qualitative study questionnaires as part of product workflows',
+      'Analyzes aggregated qualitative data to generate structured insight outputs'
+    ]
+  }
 ];
 
 const servicesSchema = {
@@ -122,7 +146,9 @@ const Services = () => (
       <h1>Healthcare AI product operations for SmartClover SaaS/PaaS platforms</h1>
       <p>
         SmartClover operates digital-native SaaS/PaaS products for retrieval-augmented research, digital resilience, and
-        clinical decision-support workflows with accountable governance and continuous platform evolution.
+        clinical decision-support workflows with accountable governance and continuous platform evolution. Our healthcare
+        AI roadmap follows two complementary directions: classical analytics (including CerviGuard) and generative SaaS
+        systems for communication plus qualitative research.
       </p>
       <div className="cta-links">
         <Link
@@ -136,13 +162,36 @@ const Services = () => (
       </div>
     </header>
 
+    <section className="surface-card" aria-labelledby="two-directions-heading">
+      <div className="section-heading">
+        <h2 id="two-directions-heading">Two AI Directions in Healthcare</h2>
+        <p>
+          SmartClover&apos;s digital-product strategy is intentionally dual-track so organizations can adopt both rigorous
+          clinical analytics and generative communication/research capabilities within one platform portfolio.
+        </p>
+      </div>
+      <div className="feature-grid two-up">
+        {aiHealthcareDirections.map((direction) => (
+          <article key={direction.title} className="feature">
+            <h3 className="feature-title">{direction.title}</h3>
+            <p className="feature-description">{direction.description}</p>
+            <ul>
+              {direction.points.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section className="surface-card flagship-highlight" id="cerviguard-flagship" aria-labelledby="cerviguard-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Flagship Product Platform</span>
         <h2 id="cerviguard-heading">CerviGuard leads our healthcare product portfolio</h2>
         <p>
-          CerviGuard is SmartClover&apos;s flagship product for cervical cancer prevention and follow-up, delivered as a
-          secure healthcare AI platform with clinicians in final control.
+          CerviGuard is SmartClover&apos;s flagship MDR Class I cervical cancer screening companion app, delivered as a secure
+          healthcare AI platform with clinicians in final control.
         </p>
       </div>
       <article className="service-program">

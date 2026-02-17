@@ -42,13 +42,26 @@ const referenceGroups = [
   }
 ];
 
+const aiHealthcareDirections = [
+  {
+    title: 'Direction 1: Classical Imaging + Structured Data Analytics',
+    description:
+      'Clinical inferential and predictive analytics across imaging and structured datasets, anchored by CerviGuard as an MDR Class I cervical cancer screening companion app.'
+  },
+  {
+    title: 'Direction 2: Generative SaaS + Qualitative Research Automation',
+    description:
+      'Generative systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
+  }
+];
+
 const About = () => (
   <>
     <Head>
       <title>About SmartClover | AI-Centric Healthcare Product Company</title>
       <meta
         name="description"
-        content="SmartClover is an AI-centric healthcare product company blending SaaS/PaaS platform delivery, evidence-linked research, and sovereign deployment."
+        content="SmartClover is an AI-centric healthcare product company blending two healthcare AI directions: classical imaging/structured analytics and generative SaaS systems for communication plus qualitative research."
       />
     </Head>
 
@@ -57,7 +70,8 @@ const About = () => (
       <h1>People-first AI, delivered through products and accountable operations</h1>
       <p>
         SmartClover is an AI-centric healthcare product company that pairs deep technical execution with domain evidence.
-        We build practical SaaS/PaaS systems where clinicians and operational teams remain in control of outcomes.
+        We build practical SaaS/PaaS systems where clinicians and operational teams remain in control of outcomes across
+        two healthcare AI directions: classical analytics and generative systems.
       </p>
     </header>
 
@@ -81,6 +95,24 @@ const About = () => (
           width={896}
           height={1152}
         />
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="about-directions-heading">
+      <div className="section-heading">
+        <h2 id="about-directions-heading">Our Two Healthcare AI Directions</h2>
+        <p>
+          SmartClover&apos;s digital-product roadmap keeps both classical and generative AI capabilities active across the
+          healthcare portfolio.
+        </p>
+      </div>
+      <div className="feature-grid two-up">
+        {aiHealthcareDirections.map((direction) => (
+          <article key={direction.title} className="feature">
+            <h3 className="feature-title">{direction.title}</h3>
+            <p className="feature-description">{direction.description}</p>
+          </article>
+        ))}
       </div>
     </section>
 

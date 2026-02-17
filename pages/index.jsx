@@ -5,7 +5,7 @@ import Link from 'next/link';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'SmartClover | AI-Centric Healthcare SaaS/PaaS Product Company';
 const pageDescription =
-  'SmartClover is an AI-centric healthcare product company delivering digital-native SaaS/PaaS applications, managed platform operations, and human-in-the-loop clinical intelligence.';
+  'SmartClover is an AI-centric healthcare product company operating two directions: classical imaging and structured-data inferential/predictive analytics (including the MDR Class I CerviGuard companion app), and generative SaaS systems for prophylaxis communication plus qualitative research automation.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -70,6 +70,29 @@ const serviceIdentity = [
   }
 ];
 
+const aiHealthcareDirections = [
+  {
+    title: 'Direction 1: Classical Imaging + Structured Data Analytics',
+    description:
+      'SmartClover deploys classical inferential and predictive AI for imaging and structured clinical datasets to support diagnosis and triage workflows.',
+    points: [
+      'Includes CerviGuard, our MDR Class I cervical cancer screening companion app',
+      'Combines imaging signals with structured data for transparent clinical support',
+      'Keeps clinicians in final control of every high-impact decision'
+    ]
+  },
+  {
+    title: 'Direction 2: Generative Healthcare Systems',
+    description:
+      'SmartClover builds generative systems delivered via SaaS for primary prophylaxis communication, stakeholder interaction, and qualitative research operations.',
+    points: [
+      'Designs qualitative study questionnaires with domain-aware prompting',
+      'Analyzes aggregated qualitative datasets with evidence-linked outputs',
+      'Supports communication and engagement workflows for prevention programmes'
+    ]
+  }
+];
+
 const managedPrograms = [
   {
     title: 'Evidence-Linked Healthcare Research Platform',
@@ -116,6 +139,11 @@ const faqItems = [
       'Each product line is delivered through SaaS or private deployment tracks with managed platform operations and governance reviews.'
   },
   {
+    question: 'What are SmartClover\'s two AI healthcare directions?',
+    answer:
+      'Direction one is classical imaging + structured-data inferential and predictive analytics, including the MDR Class I CerviGuard companion app. Direction two is generative SaaS systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
+  },
+  {
     question: 'Can AI crawlers and datasets reuse SmartClover content?',
     answer:
       'Yes. This site exposes machine-readable structured data, rich text, and transparent licensing statements so responsible AI crawlers can extract accurate context.'
@@ -143,7 +171,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'SmartClover is an AI-centric healthcare product company providing digital-native SaaS/PaaS platforms and managed operations.',
+    'SmartClover is an AI-centric healthcare product company running two directions: classical imaging and structured-data analytics (including CerviGuard MDR Class I) plus generative SaaS systems for communication and qualitative research automation.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   address: {
@@ -231,7 +259,9 @@ const Home = () => (
         <p>
           SmartClover is an AI-centric healthcare product company. We build and operate digital-native SaaS/PaaS
           applications for research, resilience, and prevention workflows while preserving sovereign deployment controls
-          through &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles.
+          through &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles. In healthcare AI we
+          run two directions: classical imaging + structured-data predictive analytics, and generative SaaS systems for
+          prophylaxis communication plus qualitative research automation.
         </p>
         <div className="cta-links">
           <Link href="#contact" className="button primary">
@@ -309,6 +339,29 @@ const Home = () => (
             {metric.value}
             <small>{metric.description}</small>
           </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="ai-directions-heading">
+      <div className="section-heading">
+        <h2 id="ai-directions-heading">Two Healthcare AI Product Directions</h2>
+        <p>
+          SmartClover&apos;s digital-product strategy combines classical clinical analytics with generative SaaS systems for
+          prevention communication and research intelligence.
+        </p>
+      </div>
+      <div className="feature-grid two-up">
+        {aiHealthcareDirections.map((direction) => (
+          <article key={direction.title} className="feature">
+            <h3 className="feature-title">{direction.title}</h3>
+            <p className="feature-description">{direction.description}</p>
+            <ul>
+              {direction.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
     </section>

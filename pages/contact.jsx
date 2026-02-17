@@ -6,7 +6,7 @@ const Contact = () => (
       <title>Contact SmartClover</title>
       <meta
         name="description"
-        content="Get in touch with SmartClover to discuss healthcare AI SaaS/PaaS products, managed platform operations, and digital-native pilots."
+        content="Get in touch with SmartClover to discuss our two healthcare AI product directions: classical analytics (including CerviGuard MDR Class I) and generative SaaS systems for communication and qualitative research."
       />
     </Head>
 
@@ -15,7 +15,8 @@ const Contact = () => (
       <h1>Let&apos;s build and scale purposeful healthcare AI products</h1>
       <p>
         We support healthcare operators, innovators, and investors adopting digital-native AI products. Reach out and
-        we&apos;ll map the right SaaS/PaaS rollout for your clinical and operational goals.
+        we&apos;ll map the right SaaS/PaaS rollout across our two directions: classical analytics products and generative
+        communication/research systems.
       </p>
     </header>
 

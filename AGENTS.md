@@ -389,3 +389,28 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed with all routes generated).
 - Residual Risk: `AGENTS.md` historical entries still mention older menu labels by design (append-only history).
+
+### [2026-02-17 07:36 UTC] TYPE: change
+- Author: Codex
+- Summary: Added and reiterated SmartClover's two-direction healthcare AI product strategy across core site pages: (1) classical imaging + structured-data inferential/predictive analytics including CerviGuard as MDR Class I companion app, and (2) generative SaaS systems for prophylaxis communication, stakeholder interaction, and qualitative research automation.
+- Evidence: `pages/index.jsx`, `pages/services.jsx`, `pages/about.jsx`, `pages/products.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`.
+- Impact: Product positioning now explicitly communicates the portfolio logic and digital-native SaaS/PaaS model in multiple user-visible sections.
+- Follow-up: Keep future product copy aligned with the same two-direction framing.
+
+### [2026-02-17 07:36 UTC] ADVERSARIAL-CHECK
+- Scope: multi-page messaging refactor for two-direction healthcare AI narrative.
+- BUILDER Intent + Change:
+  - Integrated explicit two-direction messaging into Home, Services, About, Products, CerviGuard, and Contact routes.
+  - Added MDR Class I CerviGuard references and generative qualitative-research workflow details in repeated strategic sections.
+- CRITIC Findings:
+  - Single-page-only updates would fail to communicate portfolio strategy consistently.
+  - Missing MDR Class I language on flagship sections could weaken regulatory/product clarity.
+  - Generative track could remain vague without explicit questionnaire-design and aggregated-data analysis wording.
+- BUILDER Response / Refinements:
+  - Added dedicated two-direction sections/cards on key pages and repeated direction language in headers/metadata/FAQ copy.
+  - Added MDR Class I phrasing to CerviGuard and services/home capability narratives.
+  - Added explicit generative-system statements for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed; all routes generated successfully).
+- Residual Risk: Regulatory classification wording should be revalidated whenever CerviGuard certification status changes.

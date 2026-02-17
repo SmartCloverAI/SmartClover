@@ -2,9 +2,23 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 const cerviGuardCapabilities = [
+  'MDR Class I cervical cancer screening companion app positioning within the SmartClover portfolio.',
   'Secure sign-in workspace for authorized clinicians and administrators.',
   'AI-assisted support for de-identified cervical image analysis and case triage.',
   'Role-based follow-up workflows with evidence-linked review history.'
+];
+
+const aiHealthcareDirections = [
+  {
+    title: 'Direction 1: Classical Analytics Products',
+    description:
+      'Imaging and structured-data inferential/predictive analytics products for diagnosis support, including CerviGuard.'
+  },
+  {
+    title: 'Direction 2: Generative SaaS Products',
+    description:
+      'Generative systems for primary prophylaxis communication, stakeholder interaction, qualitative questionnaire design, and aggregated-data analysis.'
+  }
 ];
 
 const Products = () => (
@@ -13,7 +27,7 @@ const Products = () => (
       <title>Products | SmartClover</title>
       <meta
         name="description"
-        content="Explore SmartClover digital-native products, including the CerviGuard healthcare SaaS/PaaS platform and AI-powered learning experiences."
+        content="Explore SmartClover digital-native products across two healthcare AI directions: classical analytics (including CerviGuard MDR Class I) and generative SaaS systems for communication and qualitative research."
       />
     </Head>
 
@@ -22,9 +36,24 @@ const Products = () => (
       <h1>Digital-native products for healthcare and human development</h1>
       <p>
         SmartClover builds AI-centric product lines with SaaS/PaaS delivery models. CerviGuard is our flagship healthcare
-        platform, while our creative EQ experiences remain a long-term product pillar.
+        platform, while our creative EQ experiences remain a long-term product pillar. In healthcare AI, we intentionally
+        operate both classical analytics and generative system directions.
       </p>
     </header>
+
+    <section className="surface-card" aria-labelledby="products-directions-heading">
+      <div className="section-heading">
+        <h2 id="products-directions-heading">Two Healthcare AI Directions in the Product Portfolio</h2>
+      </div>
+      <div className="feature-grid two-up">
+        {aiHealthcareDirections.map((direction) => (
+          <article key={direction.title} className="feature">
+            <h3 className="feature-title">{direction.title}</h3>
+            <p className="feature-description">{direction.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
     <section className="surface-card flagship-highlight" aria-labelledby="flagship-product-heading">
       <div className="section-heading">
