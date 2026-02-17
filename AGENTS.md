@@ -918,3 +918,56 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: Automated captures used Chromium mobile emulation; Safari/WebKit-specific rendering differences may still exist and should be validated on-device.
+
+### [2026-02-17 16:39 UTC] TYPE: change
+- Author: Codex
+- Summary: Replaced the long homepage hero intro paragraph with a structured overview card (lead sentence + short bullets) and added responsive styling for cleaner above-the-fold readability.
+- Evidence: `pages/index.jsx`, `styles/globals.css`; commands: `npm run lint`, `npm run build`, `npx playwright screenshot --device='Desktop Chrome' http://127.0.0.1:3010 /tmp/home-hero-card-desktop-fold.png`, `node -e "const { chromium } = require('playwright'); (async () => { const browser = await chromium.launch(); const context = await browser.newContext({ viewport: { width: 390, height: 844 } }); const page = await context.newPage(); await page.goto('http://127.0.0.1:3010', { waitUntil: 'networkidle' }); const accept = page.getByRole('button', { name: /Accept all/i }); if (await accept.count()) { await accept.first().click(); } await page.waitForTimeout(350); await page.screenshot({ path: '/tmp/home-hero-card-mobile-clean.png' }); await browser.close(); })();"`.
+- Impact: The homepage opening message is easier to scan on both desktop and mobile while preserving the same strategic content.
+- Follow-up: Keep hero bullet text concise when homepage positioning copy is updated.
+
+### [2026-02-17 16:39 UTC] ADVERSARIAL-CHECK
+- Scope: homepage hero readability/layout refactor (`pages/index.jsx`, `styles/globals.css`) and memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Replaced the long single hero paragraph with a compact card that separates the core statement from supporting points.
+  - Added a styled gradient-tinted card with responsive typography/spacing tuned for desktop and small screens.
+- CRITIC Findings:
+  - The intro card could still feel dense on mobile if copy wraps into long blocks.
+  - New card styling could disrupt the existing hero hierarchy or trigger narrow-viewport overflow.
+  - Consent overlay can mask first-content evaluation if screenshots are captured without dismissal.
+- BUILDER Response / Refinements:
+  - Kept one short lead statement and converted the rest to scan-friendly bullets.
+  - Added mobile-specific spacing/font-size tuning for card content.
+  - Validated desktop/mobile captures and captured a mobile view after accepting consent; also ran a 320px overflow check.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+  - `npx playwright screenshot --device='Desktop Chrome' http://127.0.0.1:3010 /tmp/home-hero-card-desktop-fold.png` -> pass (desktop above-fold card rendering verified).
+  - `node -e "const { chromium } = require('playwright'); (async () => { const browser = await chromium.launch(); const context = await browser.newContext({ viewport: { width: 390, height: 844 } }); const page = await context.newPage(); await page.goto('http://127.0.0.1:3010', { waitUntil: 'networkidle' }); const accept = page.getByRole('button', { name: /Accept all/i }); if (await accept.count()) { await accept.first().click(); } await page.waitForTimeout(350); await page.screenshot({ path: '/tmp/home-hero-card-mobile-clean.png' }); await browser.close(); })();"` -> pass (mobile above-fold card rendering verified).
+  - `node -e "const { chromium } = require('playwright'); (async () => { const browser = await chromium.launch(); const context = await browser.newContext({ viewport: { width: 320, height: 800 } }); const page = await context.newPage(); await page.goto('http://127.0.0.1:3010', { waitUntil: 'networkidle' }); const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth); console.log(overflow ? 'overflow-detected' : 'no-overflow'); await browser.close(); })();"` -> pass (`no-overflow`).
+- Residual Risk: If hero copy grows further, the card can become tall again on mobile and may need copy-length constraints.
+
+### [2026-02-17 19:54 UTC] TYPE: change
+- Author: Codex
+- Summary: Added `WORK/07_UPDATE.md`, a source-backed authenticity methodology for assessing AI-generated vs human-made websites plus a prioritized SmartClover-specific remediation plan to increase human-authored perception.
+- Evidence: `WORK/07_UPDATE.md`; research references embedded in the document (ICML/ACL/COLING/NAACL papers, C2PA spec, IETF AIPREF draft, OpenAI classifier limitations note); local evidence commands `rg -o "SaaS/PaaS|human-in-the-loop|your AI, your Data|roadmap expansion|primary wedge|product-first|pending publication|draft" pages | sort | uniq -c | sort -nr`.
+- Impact: Future messaging, trust/provenance, and IA updates now have a concrete state-of-the-art framework and measurable authenticity targets rather than ad-hoc copy edits.
+- Follow-up: Execute `WORK/07_UPDATE.md` Batch A-C (copy de-templating, human authorship metadata, IA normalization), then reassess perception metrics release-over-release.
+
+### [2026-02-17 19:54 UTC] ADVERSARIAL-CHECK
+- Scope: authenticity-assessment artifact creation (`WORK/07_UPDATE.md`) and mandatory memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Produced a practical state-of-the-art detection framework that reflects detector strengths and known failure modes under robustness stress.
+  - Added SmartClover-specific findings and a prioritized instruction set to make the site read as more human-made while preserving evidence-safe claims.
+- CRITIC Findings:
+  - A detector-centric document could overstate confidence and imply binary certainty where current literature shows fragility.
+  - Recommendations could become generic unless tied to concrete repository patterns.
+  - External-reference-heavy guidance could drift if not paired with local verification and measurable acceptance criteria.
+- BUILDER Response / Refinements:
+  - Framed final determination as confidence-band verification (not binary attribution) and emphasized multi-layer evidence.
+  - Included concrete in-repo signals (repeated-phrase patterns, draft/pending-publication density, IA inconsistency cues) and route-level remediation priorities.
+  - Added actionable acceptance metrics (repetition index, specificity index, detector disagreement rate, traceability rate) to keep execution testable.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: External detection/provenance standards and detector performance evolve quickly; `WORK/07_UPDATE.md` should be refreshed when major benchmark/spec updates are published.
