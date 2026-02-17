@@ -260,13 +260,22 @@ const Home = () => (
       <div className="hero-copy">
         <span className="tagline">Healthcare AI Products · Human-in-the-Loop · Sovereign Deployments</span>
         <h1 id="hero-title">SmartClover</h1>
-        <p>
-          SmartClover is an AI-centric healthcare product company. We build and operate digital-native SaaS/PaaS
-          applications for research, resilience, and prevention workflows while preserving sovereign deployment controls
-          through &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles. In healthcare AI we
-          run two directions: classical imaging + structured-data predictive analytics, and generative SaaS systems for
-          prophylaxis communication plus qualitative research automation.
-        </p>
+        <div className="hero-intro-card" aria-label="SmartClover overview">
+          <p className="hero-intro-lead">
+            SmartClover is an AI-centric healthcare product company building and operating digital-native SaaS/PaaS
+            applications.
+          </p>
+          <ul className="hero-intro-points">
+            <li>Research, resilience, and prevention workflows with sovereign deployment controls.</li>
+            <li>
+              &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; operating principles.
+            </li>
+            <li>
+              Two directions: classical imaging + structured-data predictive analytics, and generative SaaS for
+              prophylaxis communication plus qualitative research automation.
+            </li>
+          </ul>
+        </div>
         <div className="cta-links">
           <Link href="#contact" className="button primary">
             Request Demo
