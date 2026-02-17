@@ -251,6 +251,7 @@ const CerviGuard = () => (
           alt="CerviGuard dashboard showing analysis and triage overview"
           width={1600}
           height={1100}
+          sizes="(max-width: 879px) 100vw, 48vw"
           priority
         />
       </div>
@@ -301,7 +302,13 @@ const CerviGuard = () => (
         {screenshotGallery.map((shot) => (
           <article key={shot.src} className="cerviguard-shot-card">
             <div className="cerviguard-shot-media">
-              <Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                width={shot.width}
+                height={shot.height}
+                sizes="(max-width: 879px) 100vw, 46vw"
+              />
             </div>
             <div className="cerviguard-shot-meta">
               <h3>{shot.title}</h3>
@@ -391,6 +398,7 @@ const CerviGuard = () => (
           alt="CerviGuard profile controls supporting secure account operations"
           width={1600}
           height={1100}
+          sizes="(max-width: 879px) 100vw, 44vw"
         />
       </div>
     </section>

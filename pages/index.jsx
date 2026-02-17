@@ -296,6 +296,7 @@ const Home = () => (
           alt="Modern healthcare technology interface with AI elements"
           width={620}
           height={620}
+          sizes="(max-width: 879px) 100vw, 46vw"
           priority
         />
       </div>
@@ -404,6 +405,7 @@ const Home = () => (
           alt="Healthcare researchers reviewing advanced analytics"
           width={620}
           height={620}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
       <div className="spotlight-content">
@@ -440,6 +442,7 @@ const Home = () => (
         width={640}
         height={300}
         className="section-illustration"
+        sizes="(max-width: 879px) 100vw, 860px"
       />
       <div className="feature-grid three-up">
         {dataSolutions.map((item) => (
@@ -458,6 +461,7 @@ const Home = () => (
           alt="Secure healthcare data network with encrypted connections"
           width={620}
           height={620}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
       <div className="spotlight-content">
@@ -514,6 +518,7 @@ const Home = () => (
           alt="Healthcare and technology teams reviewing AI product outcomes"
           width={560}
           height={560}
+          sizes="(max-width: 879px) 100vw, 44vw"
         />
       </div>
       <div className="spotlight-content">

@@ -48,6 +48,7 @@ const Decentralized = () => (
           alt="Healthcare data stewardship illustration"
           width={896}
           height={1152}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
@@ -71,6 +72,7 @@ const Decentralized = () => (
           alt="Audit dashboard timeline visual"
           width={640}
           height={822}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
@@ -108,6 +110,7 @@ const Decentralized = () => (
           alt="Clinicians and technologists reviewing decentralized AI governance controls"
           width={1024}
           height={1024}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>

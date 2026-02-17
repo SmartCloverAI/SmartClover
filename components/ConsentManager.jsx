@@ -114,8 +114,14 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
         </>
       ) : null}
 
-      <button type="button" className="consent-settings-button" onClick={openSettings}>
-        Cookie settings ({consentSummary})
+      <button
+        type="button"
+        className="consent-settings-button"
+        onClick={openSettings}
+        aria-label={`Cookie settings (${consentSummary})`}
+      >
+        <span className="consent-settings-label">Cookie settings</span>
+        <span className="consent-settings-summary">({consentSummary})</span>
       </button>
 
       {shouldShowPanel ? (

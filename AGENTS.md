@@ -886,3 +886,35 @@ No modification batch is complete until this entry is appended.
   - `npx playwright screenshot --device='iPhone 13' http://127.0.0.1:3010 ...` -> fail (WebKit executable missing in local Playwright cache).
   - `npx playwright screenshot --viewport-size='390,844' http://127.0.0.1:3010 ...` -> pass (mobile-equivalent Chromium screenshots captured for `/` and `/products`).
 - Residual Risk: Mobile screenshots validate viewport behavior but do not fully replicate Safari/WebKit rendering until WebKit browser binaries are installed.
+
+### [2026-02-17 13:23 UTC] TYPE: change
+- Author: Codex
+- Summary: Completed a full mobile visual audit across all page routes and route-level images, then implemented responsive hardening: compact cookie-settings mobile chip, reduced small-screen heading scale, and explicit `next/image` `sizes` declarations on all major page media to prevent oversized mobile image variants.
+- Evidence: `components/ConsentManager.jsx`, `styles/globals.css`, `pages/index.jsx`, `pages/about.jsx`, `pages/services.jsx`, `pages/decentralized.jsx`, `pages/cerviguard.jsx`; route/image audits via Playwright mobile sweeps (25 routes, including blog slugs), overflow checks, visible-image load checks, and `_next/image` request-width audits.
+- Impact: Mobile pages render with less UI obstruction, improved headline readability, and substantially better image request sizing (`_next/image` max mobile width reduced from up to 3840 to 1200) across audited routes.
+- Follow-up: Re-run the same mobile sweeps after any future typography/layout/image updates and include WebKit/Safari capture when available.
+
+### [2026-02-17 13:23 UTC] ADVERSARIAL-CHECK
+- Scope: repository-wide mobile UX hardening for consent UI, responsive typography, and image delivery sizing (`components/ConsentManager.jsx`, `styles/globals.css`, `pages/index.jsx`, `pages/about.jsx`, `pages/services.jsx`, `pages/decentralized.jsx`, `pages/cerviguard.jsx`).
+- BUILDER Intent + Change:
+  - Audited all route pages and route-level images under mobile viewport conditions (iPhone-width and adversarial narrow 320px) to identify concrete rendering failures.
+  - Reworked cookie-settings trigger labeling/structure and mobile styling to avoid long fixed-label overlap with content.
+  - Added explicit `sizes` to all major Next.js image components to prevent mobile clients from requesting desktop-scale variants.
+  - Tuned small-screen heading scale in global CSS to reduce oversized hero/page-title blocks.
+- CRITIC Findings:
+  - Mobile could still suffer hidden horizontal overflow on narrow widths despite appearing fine at one viewport.
+  - Lazy-loaded images could appear broken during scroll if timing/load behavior regressed.
+  - Image sizing changes could still serve overlarge assets or accidentally reduce perceived quality.
+  - Hiding text in the cookie trigger on mobile could remove status context for assistive technologies.
+- BUILDER Response / Refinements:
+  - Ran route-wide overflow checks for iPhone and 320px viewports; no overflow or image-overflow routes remained.
+  - Ran visible-image checks across top/mid/bottom slices with extended waits; no persistent broken visible images found.
+  - Measured `_next/image` request widths before/after and confirmed max mobile width dropped from 3840/2048/1920 bands to 1200 with no >1600 requests remaining.
+  - Preserved consent status context through `aria-label` on the mobile-compact cookie-settings button.
+- Verification:
+  - `node (Playwright iPhone 12 full-route sweep: 25 routes, overflow + visible-image checks + mobile screenshots)` -> pass (no overflow routes; no persistent visible broken images).
+  - `node (Playwright 320px adversarial sweep across all routes)` -> pass (no overflow routes; no image overflow routes).
+  - `node (Playwright _next/image request-width audit before/after)` -> pass (mobile max request width reduced to 1200; no >1600 requests).
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Automated captures used Chromium mobile emulation; Safari/WebKit-specific rendering differences may still exist and should be validated on-device.
