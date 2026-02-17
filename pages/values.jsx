@@ -6,7 +6,7 @@ const Values = () => (
       <title>Our Values | SmartClover</title>
       <meta
         name="description"
-        content="Creativity, digitalization, and human-in-the-loop AI for good guide every SmartClover engagement."
+        content="Creativity, digitalization, and human-in-the-loop AI for good guide every SmartClover product and platform release."
       />
     </Head>
 
@@ -15,7 +15,7 @@ const Values = () => (
       <h1>Principles that keep technology human</h1>
       <p>
         Creativity, digitalization, and human-in-the-loop AI for good are more than words - they are commitments that
-        shape our products, services, and partnerships.
+        shape our SaaS/PaaS products and managed platform operations.
       </p>
     </header>
 
@@ -30,7 +30,7 @@ const Values = () => (
     <section className="surface-card">
       <h2>Digitalization</h2>
       <p>
-        Digital experiences should feel frictionless. We transform traditional processes into seamless workflows that
+        Digital experiences should feel frictionless. We transform traditional processes into productized workflows that
         respect data integrity, accessibility, and long-term maintainability.
       </p>
     </section>

@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const siteUrl = 'https://smartclover.ro';
-const pageTitle = 'SmartClover | Healthcare AI Services Company';
+const pageTitle = 'SmartClover | AI-Centric Healthcare SaaS/PaaS Product Company';
 const pageDescription =
-  'SmartClover delivers managed healthcare AI services that combine retrieval-augmented research, digital resilience, and creative education programmes - never traditional consultancy.';
+  'SmartClover is an AI-centric healthcare product company delivering digital-native SaaS/PaaS applications, managed platform operations, and human-in-the-loop clinical intelligence.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -50,31 +50,31 @@ const techPartners = [
       'On-prem and on-edge execution frameworks deliver "your AI, your Data", "your App, your Data", and "your AI, your eSource" outcomes with ledger immutability and modern CI/CD pipelines.'
   },
   {
-    title: 'Healthcare Research Alliances',
-    description: 'Romanian Cancer Society and clinical partners co-design oncology research and communication initiatives.'
+    title: 'Healthcare Research Network',
+    description: 'Romanian Cancer Society and clinical research institutions inform oncology product evidence and communication.'
   }
 ];
 
 const serviceIdentity = [
   {
-    title: 'Dedicated Service Teams',
-    description: 'Cross-functional squads own delivery from discovery to operations so you receive outcomes, not reports.'
+    title: 'Own Product Portfolio',
+    description: 'SmartClover builds and operates its own production applications instead of one-off implementations.'
   },
   {
-    title: 'Program-Based Engagements',
-    description: 'Subscription-style service tiers bundle research, monitoring, and education assets with clear SLAs rooted in "Your App, your Data" principles.'
+    title: 'SaaS/PaaS Revenue Model',
+    description: 'Subscription access and platform integrations pair governed usage with transparent operating SLAs.'
   },
   {
-    title: 'No Hourly Consultancy',
-    description: 'We operate as a services company, embedding specialists directly into your workflows without ad-hoc billing.'
+    title: 'Continuous Platform Operations',
+    description: 'Dedicated platform operations keep SmartClover products secure, reliable, and continuously improving.'
   }
 ];
 
 const managedPrograms = [
   {
-    title: 'Evidence-Linked Healthcare Research Services',
+    title: 'Evidence-Linked Healthcare Research Platform',
     description:
-      'Retrieval-augmented research programmes that synthesise clinical notes, observational data, and medical literature into validated insights with predictive modelling built on state-of-the-art foundation models and time-series approaches for diverse healthcare use cases.',
+      'Retrieval-augmented product modules that synthesize clinical notes, observational data, and medical literature into validated insights with predictive modelling built on state-of-the-art foundation models and time-series approaches.',
     deliverables: [
       'Early-detection intelligence with full evidence citations',
       'Clinician co-designed annotation and review loops',
@@ -83,7 +83,7 @@ const managedPrograms = [
     ]
   },
   {
-    title: 'Digital Resilience Service for Healthcare',
+    title: 'Digital Resilience Platform for Healthcare',
     description:
       'AI-augmented monitoring that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection and immutable ledger-backed audit trails.',
     deliverables: [
@@ -93,7 +93,7 @@ const managedPrograms = [
     ]
   },
   {
-    title: 'Creative Education Experience Service',
+    title: 'Creative Education Experience Platform',
     description:
       'Generative storytelling environments that build emotional intelligence in children within governed, educator-led spaces.',
     deliverables: [
@@ -108,12 +108,12 @@ const faqItems = [
   {
     question: 'Is SmartClover a consultancy?',
     answer:
-      'No. SmartClover is a healthcare AI services company delivering managed programmes with defined service levels, embedded teams, and owned outcomes rather than advice-only engagements.'
+      'No. SmartClover is a healthcare AI product company delivering SaaS/PaaS platforms and managed product operations, not consultancy or outsourcing.'
   },
   {
-    question: 'How are SmartClover services delivered?',
+    question: 'How are SmartClover products delivered?',
     answer:
-      'Each programme runs as an ongoing service tier that bundles research operations, automation pipelines, and governance reviews so organisations receive maintained AI assets.'
+      'Each product line is delivered through SaaS or private deployment tracks with managed platform operations and governance reviews.'
   },
   {
     question: 'Can AI crawlers and datasets reuse SmartClover content?',
@@ -128,12 +128,12 @@ const dataSolutions = [
     description: 'Machine learning algorithms uncover deep insights and recommendations for data-driven teams.'
   },
   {
-    title: 'Predictive Analytics',
-    description: 'Custom models forecast trends and outcomes, giving providers and partners a confident edge.'
+    title: 'Predictive Intelligence',
+    description: 'Domain-tuned models forecast trends and outcomes for healthcare product workflows.'
   },
   {
-    title: 'Custom Solutions',
-    description: 'Tailored architectures designed to handle unique healthcare data science challenges.'
+    title: 'Reusable AI Modules',
+    description: 'Productized modules accelerate rollout across screening, monitoring, and reporting scenarios.'
   }
 ];
 
@@ -143,7 +143,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'SmartClover is a healthcare AI services company providing managed research, resilience, and education programmes - not a consultancy.',
+    'SmartClover is an AI-centric healthcare product company providing digital-native SaaS/PaaS platforms and managed operations.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   address: {
@@ -159,7 +159,7 @@ const organizationSchema = {
   })),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'SmartClover Managed AI Services',
+    name: 'SmartClover Healthcare AI Product Portfolio',
     itemListElement: managedPrograms.map((program) => ({
       '@type': 'OfferCatalog',
       name: program.title,
@@ -208,7 +208,7 @@ const Home = () => (
         name="robots"
         content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
-      <meta name="keywords" content="healthcare AI services, managed AI programmes, SmartClover, human-in-the-loop AI" />
+      <meta name="keywords" content="healthcare AI SaaS, healthcare AI PaaS, AI healthcare products, SmartClover, human-in-the-loop AI" />
       <meta name="author" content="SmartClover" />
       <link rel="canonical" href={`${siteUrl}/`} />
       <meta property="og:type" content="website" />
@@ -226,20 +226,22 @@ const Home = () => (
 
     <header className="surface-card hero" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <span className="tagline">Healthcare AI Services · Human-in-the-Loop · Sovereign Deployments</span>
+        <span className="tagline">Healthcare AI Products · Human-in-the-Loop · Sovereign Deployments</span>
         <h1 id="hero-title">SmartClover</h1>
         <p>
-          SmartClover is a healthcare AI services company delivering managed research, resilience, and learning
-          programmes - not a consultancy. We embed specialists alongside your teams to operate ethical, sovereign AI rooted
-          in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles across on-prem and
-          on-edge environments.
+          SmartClover is an AI-centric healthcare product company. We build and operate digital-native SaaS/PaaS
+          applications for research, resilience, and prevention workflows while preserving sovereign deployment controls
+          through &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; principles.
         </p>
         <div className="cta-links">
           <Link href="#contact" className="button primary">
-            Get Started
+            Request Demo
           </Link>
           <Link href="/services" className="button secondary">
             Learn More
+          </Link>
+          <Link href="/cerviguard" className="button secondary">
+            Explore CerviGuard
           </Link>
           <Link
             href="/docs/SmartClover_1pagepitchdeck.pdf"
@@ -265,7 +267,7 @@ const Home = () => (
     <section className="surface-card mission" aria-labelledby="mission-title">
       <div className="section-heading">
         <h2 id="mission-title">Our Mission</h2>
-        <p>We pair responsible computation with domain collaboration so AI becomes a trusted partner in healthcare.</p>
+        <p>We pair responsible computation with domain evidence so AI becomes a trusted product layer in healthcare.</p>
       </div>
       <div className="pillars-grid">
         {missionHighlights.map((highlight) => (
@@ -279,11 +281,11 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="service-company-heading">
       <div className="section-heading">
-        <h2 id="service-company-heading">Services Company Promise</h2>
+        <h2 id="service-company-heading">Digital Product Operating Model</h2>
         <p>
-          We deliver outcomes through managed services. Every engagement provides staffed operations, automation assets,
-          and shared accountability anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot;
-          principles instead of ad-hoc consultancy deliverables.
+          SmartClover delivers outcomes through a product-first model. Every deployment combines platform engineering,
+          operations, and accountable governance anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI,
+          your eSource&quot; principles.
         </p>
       </div>
       <div className="feature-grid three-up">
@@ -299,7 +301,7 @@ const Home = () => (
     <section className="surface-card" aria-labelledby="trust-heading">
       <div className="section-heading">
         <h2 id="trust-heading">Trust Commitments</h2>
-        <p>Every SmartClover engagement stays aligned with the guarantees outlined in our healthcare one-pager.</p>
+        <p>Every SmartClover product deployment stays aligned with the guarantees outlined in our healthcare one-pager.</p>
       </div>
       <div className="stat-blocks">
         {trustMetrics.map((metric) => (
@@ -313,10 +315,10 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="service-programs-heading">
       <div className="section-heading">
-        <h2 id="service-programs-heading">Managed AI Service Programmes</h2>
+        <h2 id="service-programs-heading">AI Product Platform Modules</h2>
         <p>
-          Structured service tiers combine automation, qualitative insight, governance, and on-prem/on-edge pipelines so
-          healthcare teams receive continuously operated AI capabilities with ledger immutability and modern CI/CD.
+          Structured programme tiers combine product engineering, automation, qualitative insight, governance, and
+          on-prem/on-edge pipelines so healthcare teams receive continuously operated AI capabilities.
         </p>
       </div>
       <div className="service-programs">
@@ -344,7 +346,7 @@ const Home = () => (
         />
       </div>
       <div className="spotlight-content">
-        <h2 id="research-heading">Healthcare Research Services</h2>
+        <h2 id="research-heading">Healthcare Research Product Layer</h2>
         <p>
           Retrieval-augmented large language models surface evidence-backed healthcare research with a specialised focus
           on early detection and prevention programmes for chronic diseases.
@@ -411,8 +413,8 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="partnership-heading">
       <div className="section-heading">
-        <h2 id="partnership-heading">Technology & Partnerships</h2>
-        <p>We collaborate with infrastructure and clinical partners who reinforce ethical, sovereign healthcare AI.</p>
+        <h2 id="partnership-heading">Technology Foundations & Research Network</h2>
+        <p>Infrastructure providers and research institutions reinforce ethical, sovereign healthcare AI across product lines.</p>
       </div>
       <div className="pillars-grid">
         {techPartners.map((partner) => (
@@ -426,8 +428,8 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="faq-heading">
       <div className="section-heading">
-        <h2 id="faq-heading">SmartClover Services FAQs</h2>
-        <p>Clear, crawler-friendly answers to how our healthcare AI services operate.</p>
+        <h2 id="faq-heading">SmartClover Product FAQs</h2>
+        <p>Clear, crawler-friendly answers to how our healthcare AI products and platforms operate.</p>
       </div>
       <dl className="faq-list">
         {faqItems.map((item) => (
@@ -443,16 +445,16 @@ const Home = () => (
       <div className="spotlight-media">
         <Image
           src="/images/partnership-handshake.png"
-          alt="Healthcare and technology experts collaborating"
+          alt="Healthcare and technology teams reviewing AI product outcomes"
           width={560}
           height={560}
         />
       </div>
       <div className="spotlight-content">
-        <h2 id="collaborate-heading">Ready to Innovate Together?</h2>
+        <h2 id="collaborate-heading">Ready to Launch with SmartClover Products?</h2>
         <p>
-          We believe in the power of collaboration and welcome clients, partners, and innovators exploring the next wave
-          of healthcare AI.
+          Evaluate CerviGuard and other SmartClover AI product lines with a rollout model that matches your governance,
+          deployment, and clinical workflow requirements.
         </p>
         <div className="cta-links">
           <Link href="mailto:andreea@smartclover.ro" className="button primary">

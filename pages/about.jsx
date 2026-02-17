@@ -4,9 +4,13 @@ import Link from 'next/link';
 
 const referenceGroups = [
   {
-    title: 'Products and models',
-    description: 'Public entry points for SmartClover products and model releases.',
+    title: 'Products, platforms, and models',
+    description: 'Public entry points for SmartClover healthcare SaaS/PaaS products and model releases.',
     links: [
+      {
+        label: 'CerviGuard product walkthrough',
+        href: '/cerviguard'
+      },
       {
         label: 'CerviGuard live workspace',
         href: 'https://cerviguard.link'
@@ -41,19 +45,19 @@ const referenceGroups = [
 const About = () => (
   <>
     <Head>
-      <title>About SmartClover | Human-Centered AI Services</title>
+      <title>About SmartClover | AI-Centric Healthcare Product Company</title>
       <meta
         name="description"
-        content="SmartClover is a healthcare AI services company blending human-in-the-loop product delivery, evidence-linked research, and sovereign deployment."
+        content="SmartClover is an AI-centric healthcare product company blending SaaS/PaaS platform delivery, evidence-linked research, and sovereign deployment."
       />
     </Head>
 
     <header className="page-header">
       <span className="tagline">About SmartClover</span>
-      <h1>People-first AI, delivered as accountable services</h1>
+      <h1>People-first AI, delivered through products and accountable operations</h1>
       <p>
-        SmartClover is a healthcare AI services company that pairs deep technical execution with domain collaboration. We
-        build practical systems where clinicians, educators, and operational teams remain in control of outcomes.
+        SmartClover is an AI-centric healthcare product company that pairs deep technical execution with domain evidence.
+        We build practical SaaS/PaaS systems where clinicians and operational teams remain in control of outcomes.
       </p>
     </header>
 
@@ -62,8 +66,8 @@ const About = () => (
         <h2 id="about-story">Our story</h2>
         <p>
           SmartClover was founded to close the gap between ambitious AI ideas and reliable real-world deployment. Our
-          team combines research discipline, product thinking, and operational ownership so partners receive maintained
-          capabilities instead of ad-hoc consulting output.
+          team combines research discipline, product thinking, and operational ownership so healthcare organizations
+          receive maintained product capabilities instead of one-off deliverables.
         </p>
         <p>
           From early prototypes to production operations, we keep experts in the loop, document key decisions, and build
@@ -85,7 +89,7 @@ const About = () => (
         <h2 id="about-values">Our values guide every build</h2>
         <p>
           Creativity, digitalization, and human-in-the-loop AI for good are the anchors of SmartClover. They shape how we
-          explore emerging technology and how we collaborate with partners.
+          explore emerging technology and how we evolve product roadmaps.
         </p>
         <div className="key-points">
           <span>Creativity keeps us curious, imaginative, and ready to experiment with empathy.</span>
@@ -110,10 +114,11 @@ const About = () => (
         <h2 id="about-deployments">Your AI, your Data deployment model</h2>
         <p>
           SmartClover delivers &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; infrastructure
-          so applications run on-prem and on-edge, close to the clinical and educational teams who depend on them.
+          so SaaS/PaaS applications run on-prem and on-edge, close to the clinical and educational teams who depend on
+          them.
         </p>
         <p>
-          Immutable ledgers, modern CI/CD, and deterministic rollout controls keep every service resilient beyond a
+          Immutable ledgers, modern CI/CD, and deterministic rollout controls keep every platform release resilient beyond a
           single data centre while preserving the sovereignty of the organisations that generate the data.
         </p>
       </div>
@@ -131,7 +136,7 @@ const About = () => (
       <div className="section-heading">
         <h2 id="links-references-heading">Links and references</h2>
         <p>
-          This section keeps public product, model, and research references in one concise place for partner due
+          This section keeps public product, model, and research references in one concise place for enterprise due
           diligence.
         </p>
       </div>
@@ -165,7 +170,7 @@ const About = () => (
           Download .bib
         </a>
         <Link href="/services#cerviguard-flagship" className="button tertiary">
-          View flagship service details
+          View flagship product details
         </Link>
       </div>
     </section>
