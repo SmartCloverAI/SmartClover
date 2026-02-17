@@ -13,16 +13,16 @@ const Products = () => (
       <title>Products | SmartClover</title>
       <meta
         name="description"
-        content="Explore SmartClover products, including the CerviGuard flagship and AI-powered learning experiences for children."
+        content="Explore SmartClover digital-native products, including the CerviGuard healthcare SaaS/PaaS platform and AI-powered learning experiences."
       />
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Products</span>
-      <h1>Products that combine clinical safety and creative learning</h1>
+      <span className="tagline">Products & Platforms</span>
+      <h1>Digital-native products for healthcare and human development</h1>
       <p>
-        SmartClover builds product lines for both healthcare and education. CerviGuard is our flagship healthcare
-        product, while our creative EQ experiences remain a long-term product pillar.
+        SmartClover builds AI-centric product lines with SaaS/PaaS delivery models. CerviGuard is our flagship healthcare
+        platform, while our creative EQ experiences remain a long-term product pillar.
       </p>
     </header>
 
@@ -44,7 +44,8 @@ const Products = () => (
         >
           SmartCloverAI/CerviGuard
         </a>{' '}
-        consistently present a secure, human-in-the-loop operating model.
+        consistently present a secure, human-in-the-loop operating model. A dedicated product page now documents the
+        end-to-end user journey with authenticated application screenshots.
       </p>
       <ul>
         {cerviGuardCapabilities.map((item) => (
@@ -63,8 +64,11 @@ const Products = () => (
         >
           View GitHub Project
         </a>
+        <Link href="/cerviguard" className="button secondary">
+          Open Dedicated Product Page
+        </Link>
         <Link href="/services#cerviguard-flagship" className="button tertiary">
-          Read Services Context
+          Read Platform Context
         </Link>
         <Link href="/about#about-links-references" className="button tertiary">
           Links and references
@@ -73,7 +77,7 @@ const Products = () => (
     </section>
 
     <section className="surface-card">
-      <h2>Interactive worlds designed for growth</h2>
+      <h2>Interactive learning products designed for growth</h2>
       <p>
         We are particularly proud of our creative products designed to enhance emotional intelligence (EQ) in children.
         Leveraging generative AI, we create interactive and engaging digital experiences that foster emotional growth and
@@ -92,21 +96,20 @@ const Products = () => (
     </section>
 
     <section className="surface-card">
-      <h2>Always human-in-the-loop</h2>
+      <h2>Always human-in-the-loop, always product-first</h2>
       <p>
-        Creativity, digitalization, and human oversight define every release. Educators receive detailed insights about
-        how stories evolve, while children explore safe, uplifting narratives that spark curiosity. We continue to expand
-        these products with feedback from the communities who use them daily.
+        Creativity, digitalization, and human oversight define every release. SmartClover keeps a digital-native operating
+        model across both healthcare and education products, combining platform engineering with managed support.
       </p>
       <div className="cta-links">
         <Link href="/contact" className="button primary">
-          Talk to us about pilots
+          Request Product Access
         </Link>
         <Link href="/values" className="button secondary">
           Read our guiding values
         </Link>
         <Link href="/services" className="button tertiary">
-          Explore all services and products
+          Explore product operations
         </Link>
       </div>
     </section>

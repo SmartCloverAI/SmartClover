@@ -6,7 +6,7 @@ const Cybersecurity = () => (
       <title>Healthcare Cybersecurity | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover protects healthcare organisations with AI-enhanced cybersecurity services that detect threats, secure medical data, and reduce false alarms."
+        content="SmartClover protects healthcare organisations with AI-enhanced cybersecurity layers that secure digital-native SaaS/PaaS healthcare platforms."
       />
     </Head>
 
@@ -47,12 +47,12 @@ const Cybersecurity = () => (
     </section>
 
     <section className="surface-card">
-      <h2>Integrated with SmartClover services</h2>
+      <h2>Integrated with SmartClover products</h2>
       <p>
-        Our cybersecurity practice supports broader SmartClover engagements, from healthcare analytics platforms to
+        Our cybersecurity layer is built into SmartClover product operations, from healthcare analytics platforms to
         creative digital products that require strong privacy guarantees. Deployments follow &quot;your AI, your Data&quot; and
-        &quot;your App, your Data&quot; principles, running on-prem and on-edge with ledger immutability and modern CI/CD to
-        distribute workloads away from single points of failure.
+        &quot;your App, your Data&quot; principles, running on-prem and on-edge with ledger immutability and modern CI/CD so
+        SaaS/PaaS healthcare workloads avoid single points of failure.
       </p>
     </section>
   </>

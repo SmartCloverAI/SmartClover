@@ -17,7 +17,8 @@ const Decentralized = () => (
       <h1>Keep regulated AI under your direction</h1>
       <p>
         SmartClover pairs distributed ledger-based delivery with human-guided governance so research teams retain control of
-        sensitive data, adapt models responsibly, and share evidence with regulators and sponsors.
+        sensitive data, adapt models responsibly, and share evidence with regulators across SaaS/PaaS healthcare product
+        operations.
       </p>
       <p>
         <i>
@@ -32,8 +33,8 @@ const Decentralized = () => (
         <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
           Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; control planes that you designate, so AI
-          services operate on on-prem and on-edge infrastructure that matches your residency, privacy, and procurement
-          requirements. You always know where eSource data is processed.
+          product platforms operate on on-prem and on-edge infrastructure that matches your residency, privacy, and
+          procurement requirements. You always know where eSource data is processed.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
@@ -78,13 +79,13 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
-          Policy templates encode participation rules while SmartClover facilitators ensure they reflect sponsor and
-          regulator obligations. Teams collaborate confidently without handing control to a central vendor.
+          Policy templates are built into product releases so participation rules remain aligned with sponsor and
+          regulator obligations. Teams operate confidently without handing control to a central vendor.
         </p>
         <div className="key-points">
           <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
           <span>Stakeholders can independently verify compliance across participating sites.</span>
-          <span>Redundant nodes keep services responsive during maintenance or regional outages.</span>
+          <span>Redundant nodes keep product platforms responsive during maintenance or regional outages.</span>
         </div>
         <div className="cta-links">
           <Link href="/contact" className="button secondary">
@@ -98,7 +99,7 @@ const Decentralized = () => (
       <div className="spotlight-media">
         <Image
           src="/images/partnership-handshake.png"
-          alt="Clinicians and technologists collaborating on AI governance"
+          alt="Clinicians and technologists reviewing decentralized AI governance controls"
           width={1024}
           height={1024}
         />

@@ -6,16 +6,16 @@ const Contact = () => (
       <title>Contact SmartClover</title>
       <meta
         name="description"
-        content="Get in touch with SmartClover to discuss healthcare AI projects, cybersecurity engagements, and creative product collaborations."
+        content="Get in touch with SmartClover to discuss healthcare AI SaaS/PaaS products, managed platform operations, and digital-native pilots."
       />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Contact</span>
-      <h1>Let’s collaborate on purposeful AI</h1>
+      <h1>Let&apos;s build and scale purposeful healthcare AI products</h1>
       <p>
-        We partner with healthcare teams, educators, innovators, and investors who believe in human-centred AI. Reach
-        out and we’ll start shaping the next experiment together.
+        We support healthcare operators, innovators, and investors adopting digital-native AI products. Reach out and
+        we&apos;ll map the right SaaS/PaaS rollout for your clinical and operational goals.
       </p>
     </header>
 
@@ -32,9 +32,9 @@ const Contact = () => (
     <section className="surface-card">
       <h2>What to expect</h2>
       <ul>
-        <li>A short discovery conversation to map the challenge and success metrics.</li>
-        <li>Collaborative scoping that keeps people, privacy, and impact in focus.</li>
-        <li>Transparent timelines for pilots, research sprints, or full deployments.</li>
+        <li>A focused product qualification call to map use cases, users, and measurable outcomes.</li>
+        <li>Onboarding planning that aligns SaaS/PaaS rollout with privacy and governance requirements.</li>
+        <li>Transparent timelines for activation, adoption, and ongoing managed platform operations.</li>
       </ul>
     </section>
   </>

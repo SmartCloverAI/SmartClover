@@ -7,7 +7,8 @@ import ServedBy from './ServedByComponent';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services & Products', href: '/services' },
+  { label: 'CerviGuard', href: '/cerviguard' },
+  { label: 'Products & More', href: '/services' },
   { label: 'Your AI, your eSource', href: '/decentralized' },
   { label: 'Blog', href: '/blog' }
 ];
