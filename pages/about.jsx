@@ -94,6 +94,7 @@ const About = () => (
           alt="SmartClover design workspace with AI interfaces"
           width={896}
           height={1152}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
@@ -137,6 +138,7 @@ const About = () => (
           alt="Children exploring an interactive emotional learning experience"
           width={1216}
           height={832}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
@@ -160,6 +162,7 @@ const About = () => (
           alt="Decentralized network visual representing governance"
           width={896}
           height={1152}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>

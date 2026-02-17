@@ -1038,6 +1038,9 @@ footer p {
   right: 1rem;
   bottom: 1rem;
   z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
   border: 1px solid rgba(15, 120, 141, 0.32);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
@@ -1045,11 +1048,22 @@ footer p {
   font-size: 0.82rem;
   font-weight: 600;
   padding: 0.55rem 0.9rem;
+  max-width: min(360px, calc(100vw - 1.2rem));
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.15);
 }
 
 .consent-settings-button:hover {
   color: var(--accent);
+}
+
+.consent-settings-label {
+  white-space: nowrap;
+}
+
+.consent-settings-summary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .consent-panel {
@@ -1228,6 +1242,16 @@ footer p {
     padding: 2.4rem 0 3rem;
   }
 
+  .page-header h1 {
+    font-size: clamp(1.95rem, 9vw, 2.35rem);
+    line-height: 1.18;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+    line-height: 1.08;
+  }
+
   .hero,
   .cerviguard-hero,
   .spotlight,
@@ -1265,5 +1289,12 @@ footer p {
   .consent-settings-button {
     bottom: 0.65rem;
     right: 0.65rem;
+    padding: 0.52rem 0.74rem;
+    font-size: 0.78rem;
+    max-width: calc(100vw - 1rem);
+  }
+
+  .consent-settings-summary {
+    display: none;
   }
 }

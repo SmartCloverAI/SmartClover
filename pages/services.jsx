@@ -192,6 +192,7 @@ const Services = () => (
           alt="Healthcare and technology teams aligning on product rollout"
           width={1024}
           height={1024}
+          sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
