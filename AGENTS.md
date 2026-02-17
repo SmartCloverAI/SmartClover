@@ -857,3 +857,32 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: The evaluation remains bounded to public repository/web evidence; private commercial contracts, audited KPI packs, and final legal/regulatory approvals were not available for direct validation.
+
+### [2026-02-17 12:43 UTC] TYPE: change
+- Author: Codex
+- Summary: Simplified top navigation to six core items (`Home`, `About`, `CerviGuard`, `Products & More`, `Contact`, `Blog`), consolidated Pricing/How-to-Buy/Proof/Regulatory/Trust into a compact shared `Products & More` card section, and constrained the first-visit cookie consent panel to a centered max-width layout.
+- Evidence: `components/Layout.jsx`, `components/DiligenceLinksSection.jsx`, `pages/products.jsx`, `pages/index.jsx`, `pages/services.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`, `styles/globals.css`; commands: `npm run lint`, `npm run build`, `npx playwright screenshot --device='Desktop Chrome' http://127.0.0.1:3010 ...`, `npx playwright screenshot --viewport-size='390,844' http://127.0.0.1:3010 ...`.
+- Impact: Main navigation is less crowded, diligence content is grouped under one product-context section with compact cards, and the consent panel no longer expands to near full-browser width on first load.
+- Follow-up: Refresh copy in the compact `Products & More` cards whenever procurement/regulatory page scope changes.
+
+### [2026-02-17 12:43 UTC] ADVERSARIAL-CHECK
+- Scope: navigation information architecture update + compact diligence-card section + consent-panel width fix (`components/Layout.jsx`, `components/DiligenceLinksSection.jsx`, `pages/products.jsx`, `pages/index.jsx`, `pages/services.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`, `styles/globals.css`, `AGENTS.md`).
+- BUILDER Intent + Change:
+  - Reduced top navigation to the requested six entries and preserved active-state feedback for grouped `Products & More` child routes.
+  - Replaced diligence-button rows with compact, descriptive cards and aligned route descriptions to Pricing/How-to-Buy/Proof/Regulatory/Trust grouping.
+  - Refactored cookie consent panel positioning/size to fixed centered width with viewport-bounded max height and mobile-safe overflow behavior.
+- CRITIC Findings:
+  - Grouped navigation can feel broken if child routes (`/pricing`, `/how-to-buy`, `/proof`, `/regulatory`, `/trust/*`) do not mark the `Products & More` nav item as active.
+  - Compact card layouts can become dense or unreadable on narrow mobile viewports.
+  - New consent sizing can still regress if only code-level checks are used without rendered-page validation.
+- BUILDER Response / Refinements:
+  - Added explicit grouped-route matching logic for `Products & More` (including `/trust/*` and `/cloud-architecture`) in nav active-state handling.
+  - Added compact-card CSS with short descriptions plus hover/focus-visible states for readability/accessibility.
+  - Performed rendered screenshot smoke checks for desktop and mobile after build; when `iPhone 13` device capture failed due missing WebKit executable, reran mobile screenshots with Chromium viewport sizing to complete validation.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+  - `npx playwright screenshot --device='Desktop Chrome' http://127.0.0.1:3010 ...` -> pass (desktop screenshots captured for `/` and `/products`).
+  - `npx playwright screenshot --device='iPhone 13' http://127.0.0.1:3010 ...` -> fail (WebKit executable missing in local Playwright cache).
+  - `npx playwright screenshot --viewport-size='390,844' http://127.0.0.1:3010 ...` -> pass (mobile-equivalent Chromium screenshots captured for `/` and `/products`).
+- Residual Risk: Mobile screenshots validate viewport behavior but do not fully replicate Safari/WebKit rendering until WebKit browser binaries are installed.

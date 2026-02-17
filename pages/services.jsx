@@ -198,7 +198,7 @@ const Services = () => (
 
     <DiligenceLinksSection
       headingId="services-diligence-links"
-      description="Evaluate pricing, procurement, proof, regulatory, trust, and architecture routes directly from the services context."
+      description="Evaluate Pricing, How to Buy, Proof, Regulatory, and Trust directly from the services context."
     />
   </>
 );

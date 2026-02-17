@@ -335,7 +335,7 @@ const Contact = () => {
 
       <DiligenceLinksSection
         headingId="contact-diligence-links"
-        description="Before submitting, you can review pricing, onboarding, proof, regulatory, trust, and cloud architecture baselines."
+        description="Before submitting, review Pricing, How to Buy, Proof, Regulatory, and Trust baselines."
       />
     </>
   );

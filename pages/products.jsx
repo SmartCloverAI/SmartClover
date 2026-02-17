@@ -37,7 +37,7 @@ const healthcareDirections = [
 const Products = () => (
   <>
     <Head>
-      <title>Products | SmartClover</title>
+      <title>Products & More | SmartClover</title>
       <meta
         name="description"
         content="SmartClover product portfolio with primary CerviGuard wedge and roadmap module tracks, aligned to healthcare AI commercialization sequence."
@@ -45,21 +45,22 @@ const Products = () => (
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Products and Platforms</span>
-      <h1>Product portfolio with clear commercialization sequencing</h1>
+      <span className="tagline">Products & More</span>
+      <h1>Product portfolio with one compact diligence hub</h1>
       <p>
         SmartClover leads with CerviGuard as the active healthcare wedge. Adjacent tracks are preserved as roadmap
-        expansion modules to keep operational focus and proof density.
+        expansion modules to keep operational focus and proof density, while commercial and compliance pages are grouped
+        in one section.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
           Open CerviGuard
         </Link>
-        <Link href="/pricing" className="button secondary">
-          Pricing Model
+        <Link href="#products-more-links" className="button secondary">
+          Open Products & More
         </Link>
-        <Link href="/how-to-buy" className="button secondary">
-          Procurement Flow
+        <Link href="/contact" className="button tertiary">
+          Contact
         </Link>
       </div>
     </header>
@@ -96,7 +97,7 @@ const Products = () => (
 
     <section className="surface-card" aria-labelledby="products-proof-heading">
       <div className="section-heading">
-        <h2 id="products-proof-heading">Flagship product evidence paths</h2>
+        <h2 id="products-proof-heading">Flagship product evidence context</h2>
       </div>
       <p>
         The live pilot at <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">cerviguard.link</a>{' '}
@@ -104,24 +105,14 @@ const Products = () => (
         <a href="https://github.com/SmartCloverAI/CerviGuard" target="_blank" rel="noopener noreferrer">
           SmartCloverAI/CerviGuard
         </a>{' '}
-        are complemented by dedicated regulatory, trust, proof, and procurement pages.
+        are complemented by dedicated pricing, onboarding, proof, regulatory, and trust pages grouped below.
       </p>
-      <div className="cta-links">
-        <Link href="/proof" className="button secondary">
-          Proof Timeline
-        </Link>
-        <Link href="/regulatory" className="button secondary">
-          Regulatory Posture
-        </Link>
-        <Link href="/trust" className="button secondary">
-          Trust Baseline
-        </Link>
-      </div>
     </section>
 
     <DiligenceLinksSection
-      headingId="products-diligence-links"
-      description="Review all procurement and diligence routes from the product context before starting qualification."
+      headingId="products-more-links"
+      heading="Products & More"
+      description="Review Pricing, How to Buy, Proof, Regulatory, and Trust from one compact section before starting qualification."
     />
   </>
 );

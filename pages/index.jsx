@@ -277,11 +277,8 @@ const Home = () => (
           <Link href="/cerviguard" className="button secondary">
             Explore CerviGuard
           </Link>
-          <Link href="/pricing" className="button secondary">
-            View Pricing Model
-          </Link>
-          <Link href="/proof" className="button secondary">
-            Review Proof
+          <Link href="/products" className="button secondary">
+            Products & More
           </Link>
           <Link
             href="/docs/SmartClover_1pagepitchdeck.pdf"
@@ -429,7 +426,7 @@ const Home = () => (
 
     <DiligenceLinksSection
       headingId="home-diligence-links"
-      description="Enterprise buyers can review commercial structure, proof, regulatory posture, trust baselines, and cloud architecture in dedicated routes."
+      description="Enterprise buyers can review Pricing, How to Buy, Proof, Regulatory, and Trust from one compact section."
     />
 
     <section className="surface-card" aria-labelledby="data-heading">
