@@ -633,3 +633,227 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: The PDF reflects current markdown state at generation time and requires manual regeneration after future MDR source edits.
+
+### [2026-02-17 09:01 UTC] TYPE: change
+- Author: Codex
+- Summary: Added `WORK/03_EVALUATION.md`, a stricter Google-Cloud/VC due diligence assessment focused on value creation and digital business-model viability using current public repository evidence.
+- Evidence: `WORK/03_EVALUATION.md`; supporting references from `pages/index.jsx`, `pages/services.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`, `pages/decentralized.jsx`, `pages/_document.jsx`, `docs/MDR_1_PROPOSAL.md`, `components/Layout.jsx`, `styles/globals.css`.
+- Impact: The diligence artifact set now contains a refreshed critical evaluation that can be used as a harder gate before commercialization, trust-center, and regulatory-proof upgrades.
+- Follow-up: Convert the highest-severity blockers in `WORK/03_EVALUATION.md` into an execution backlog with owners and evidence requirements.
+
+### [2026-02-17 09:01 UTC] ADVERSARIAL-CHECK
+- Scope: critical diligence artifact creation (`WORK/03_EVALUATION.md`) and mandatory memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Produced a high-stringency evaluator report using an institutional Google Cloud startup and VC due diligence lens.
+  - Prioritized value and digital business-model underwriteability, then mapped findings to concrete file-level evidence.
+- CRITIC Findings:
+  - Conclusions could overreach if not explicitly anchored to line-level public evidence.
+  - A critical tone could ignore meaningful progress made since prior evaluation and reduce decision usefulness.
+  - Look-and-feel could be over-weighted despite user guidance to prioritize business-model value.
+- BUILDER Response / Refinements:
+  - Added explicit evidence anchors for each major finding and constrained claims to publicly visible artifacts.
+  - Included a "What Changed Positively" section to preserve calibration and avoid one-sided assessment.
+  - Kept UI observations as secondary and focused the scorecard on monetization, GTM, trust, regulatory, and cloud-scale viability.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed; all static and SSG routes generated successfully).
+- Residual Risk: Findings remain limited to public repository/web evidence and do not include private commercial, legal, security, or clinical data-room documents.
+
+### [2026-02-17 09:16 UTC] TYPE: change
+- Author: Codex
+- Summary: Added `WORK/04_UPGRADE.md`, a minimum-key-solutions execution plan derived from `WORK/03_EVALUATION.md` that maps each critical finding to concrete website workstreams, acceptance criteria, and submission gates for Google Cloud Startup and VC diligence.
+- Evidence: `WORK/04_UPGRADE.md`, `WORK/03_EVALUATION.md`.
+- Impact: Upgrade execution can now proceed with a stricter, finding-linked sequence that prioritizes commercial proof, trust/regulatory substantiation, cloud-fit evidence, and conversion instrumentation.
+- Follow-up: Implement `WORK/04_UPGRADE.md` batches in sequence and attach publishable KPI/regulatory/legal artifacts to close remaining blocked gates.
+
+### [2026-02-17 09:16 UTC] ADVERSARIAL-CHECK
+- Scope: execution-plan artifact creation from latest critical diligence report (`WORK/04_UPGRADE.md`) and memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Converted `WORK/03_EVALUATION.md` critical findings into an implementation-ready upgrade document with explicit batching, acceptance criteria, dependencies, and go/no-go checklist.
+  - Kept plan constrained to evidence-backed claims and staged blocked items (KPI publication, MDR identifiers, legal approvals).
+- CRITIC Findings:
+  - A broad plan could drift from minimum-pass scope if findings are not mapped explicitly to tasks.
+  - Repeating prior upgrade content without stricter sequencing would reduce decision value.
+  - Application guidance could overstate certainty if blockers are not clearly separated from immediately implementable work.
+- BUILDER Response / Refinements:
+  - Added a finding-to-workstream mapping table covering findings #1 through #9.
+  - Structured work into minimum key batches with acceptance criteria and a 10-business-day sequence.
+  - Isolated external blocking dependencies and made go/no-go submission criteria explicit.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Full diligence-grade readiness still depends on publishable KPI denominators/time windows, finalized MDR identifiers, and legal sign-off for trust-policy content.
+
+### [2026-02-17 10:02 UTC] TYPE: change
+- Author: Codex
+- Summary: Updated `WORK/04_UPGRADE.md` Batch 2 pricing requirements to explicitly require formal RFQ-based commercial quotations and professional wording that all fees are quote-only after scope definition.
+- Evidence: `WORK/04_UPGRADE.md` Batch 2 item `4. Publish packaging and pricing logic page`.
+- Impact: Commercial-model guidance now removes ambiguity and enforces enterprise-grade language that aligns with quote-based B2B sales motion.
+- Follow-up: Apply the same RFQ-only wording on the future `pages/pricing.jsx` implementation.
+
+### [2026-02-17 10:02 UTC] ADVERSARIAL-CHECK
+- Scope: pricing-language refinement in `WORK/04_UPGRADE.md` and required memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Strengthen Batch 2 guidance so pricing communication is explicit, professional, and consistent with RFQ-only commercial policy.
+  - Added language covering subscription/onboarding/integration/optional-module fees as formal quotation items only.
+- CRITIC Findings:
+  - Generic "pricing on request" wording can be interpreted as informal and still leave room for ambiguity.
+  - Missing explicit RFQ statement could weaken procurement clarity for enterprise buyers.
+- BUILDER Response / Refinements:
+  - Replaced the generic line with formal RFQ wording tied to scope definition.
+  - Added an acceptance criterion that the page must explicitly state all prices are subject to RFQ.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The plan text is now explicit, but the enforcement value depends on implementing the same wording in the actual `pages/pricing.jsx` route.
+
+### [2026-02-17 10:07 UTC] TYPE: change
+- Author: Codex
+- Summary: Enriched `WORK/04_UPGRADE.md` with a future-agent execution support layer including claim-to-artifact guardrails, per-finding evidence matrix, verification shortcuts, and curated primary-source links (Google Cloud program/architecture, MDR/GDPR/NIS2/CRA, consent implementation, Next.js routes/API docs).
+- Evidence: `WORK/04_UPGRADE.md` sections `Future-Agent Execution Hints (Critical)`, `Evidence Matrix`, `Verification Shortcuts for Future Agents`, `Source Pack (Primary References)`.
+- Impact: Future agents now have practical implementation guidance and authoritative references needed to execute all upgrade batches with lower ambiguity and lower over-claim risk.
+- Follow-up: Keep external source links and regulatory guidance references refreshed when major framework or legal updates are published.
+
+### [2026-02-17 10:07 UTC] ADVERSARIAL-CHECK
+- Scope: documentation enhancement for future-agent execution (`WORK/04_UPGRADE.md`) and mandatory memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Added concrete hints, templates, and source references so future agents can close all findings in `WORK/03_EVALUATION.md` with fewer interpretation gaps.
+  - Added explicit verification commands and a finding-to-artifact matrix to improve implementation quality control.
+- CRITIC Findings:
+  - A plan without implementation hints can still fail due to inconsistent claim wording and missing evidence discipline.
+  - Missing primary-source references increases risk of policy drift or incorrect compliance framing.
+  - Future agents may under-validate changes without explicit command-level checks.
+- BUILDER Response / Refinements:
+  - Added copy baselines for RFQ/regulatory/security statements and mandatory page structure guidance.
+  - Added a curated primary-source pack scoped to Google Cloud program fit, EU medical/regulatory requirements, privacy/consent, and Next.js implementation.
+  - Added shortcut verification commands and manual smoke-check paths for consistent execution.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Some linked legal/policy sources are high-level guidance and still require counsel validation before publishing final legal claims.
+
+### [2026-02-17 10:13 UTC] TYPE: change
+- Author: Codex
+- Summary: Updated `WORK/04_UPGRADE.md` to ensure every TODO (items 1-13) has an explicit source status (`clear` vs `missing source`) and added a mandatory missing-source request list for unresolved inputs required to execute all upgrade batches.
+- Evidence: `WORK/04_UPGRADE.md` sections `TODO Source Ledger (All Batch Items)` and `Missing Source Requests (Must Be Provided Before Full Execution)`.
+- Impact: Future agents can now identify exactly which tasks are executable immediately and which require owner-provided evidence/artifacts before implementation.
+- Follow-up: Provide the seven missing-source packs listed in `WORK/04_UPGRADE.md` before full execution of blocked TODO items.
+
+### [2026-02-17 10:13 UTC] ADVERSARIAL-CHECK
+- Scope: source-completeness hardening for all `WORK/04_UPGRADE.md` TODOs and required memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Added a per-TODO source ledger for all 13 upgrade actions with explicit source sufficiency status.
+  - Added a concrete owner-input request list covering missing onboarding, regulatory, legal, consent, KPI, cloud-architecture, and GTM artifacts.
+- CRITIC Findings:
+  - A generic source pack may still leave individual TODOs ambiguous for execution.
+  - Without an explicit missing-source list, future agents may implement high-risk tasks with inferred or unsupported claims.
+  - Blocked items need clear stop conditions to avoid partial compliance theater.
+- BUILDER Response / Refinements:
+  - Added row-level source status for TODOs 1-13.
+  - Marked blocked tasks as `missing source` and specified exact artifacts required.
+  - Added a mandatory request section so agents can ask for missing sources before implementation.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Full closure still depends on owner-provided source packs for regulatory identifiers, approved legal texts, publishable KPIs, cloud architecture specifics, and operational GTM policies.
+
+### [2026-02-17 10:43 UTC] TYPE: change
+- Author: Codex
+- Summary: Created proposed draft source packs under `WORK/sources/` for all seven previously missing input categories and linked each missing-source request in `WORK/04_UPGRADE.md` to its corresponding draft file.
+- Evidence: `WORK/sources/README.md`, `WORK/sources/01_onboarding_procurement_source_pack.md`, `WORK/sources/02_regulatory_publication_source_pack.md`, `WORK/sources/03_legal_trust_source_pack.md`, `WORK/sources/04_consent_analytics_source_pack.md`, `WORK/sources/05_kpi_proof_source_pack.md`, `WORK/sources/06_cloud_architecture_source_pack.md`, `WORK/sources/07_contact_gtm_operations_source_pack.md`, `WORK/04_UPGRADE.md` section `Missing Source Requests (Must Be Provided Before Full Execution)`.
+- Impact: Maintainers now have editable baseline artifacts for every blocked source dependency, enabling faster review/approval and reducing ambiguity for future agents executing Upgrade 04.
+- Follow-up: Review each source-pack draft, replace `TBD` fields with approved values, and mark owner/legal/regulatory sign-off before implementing blocked TODOs.
+
+### [2026-02-17 10:43 UTC] ADVERSARIAL-CHECK
+- Scope: source-pack generation for all blocked Upgrade 04 inputs (`WORK/sources/*`) and linkage updates in `WORK/04_UPGRADE.md`.
+- BUILDER Intent + Change:
+  - Generated one structured, professional draft per missing-source request so the user can verify/edit/validate before implementation.
+  - Added direct file references in `WORK/04_UPGRADE.md` so future agents can discover the source packs without interpretation.
+- CRITIC Findings:
+  - Source requests could remain too abstract if drafts lacked concrete baseline wording and artifact schemas.
+  - Future agents could still miss source files if upgrade TODOs were not directly linked to concrete paths.
+  - Draft policy/regulatory text could be mistaken as final if status/approval signals were not explicit.
+- BUILDER Response / Refinements:
+  - Included explicit `Document status: Proposed draft` headers and approval checklists in each source pack.
+  - Added per-request `Proposed draft to review/edit` links in `WORK/04_UPGRADE.md` for all seven missing-source items.
+  - Prefilled reusable baseline wording while keeping unresolved fields marked as `TBD` for owner validation.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Draft packs reduce ambiguity but do not replace legal/regulatory/executive approval; blocked TODOs remain blocked until `TBD` values are finalized.
+
+### [2026-02-17 10:51 UTC] TYPE: change
+- Author: Codex
+- Summary: Completed and enriched all `WORK/sources/*` source-pack drafts using existing repository evidence plus maintainer-provided architecture assumptions, with a fully populated cloud architecture pack (permissioned on-edge hybrid, end-to-end encryption, no centralized clinical payload storage, on-chain immutable trace logs) and corresponding status updates in `WORK/04_UPGRADE.md`.
+- Evidence: `WORK/sources/01_onboarding_procurement_source_pack.md`, `WORK/sources/02_regulatory_publication_source_pack.md`, `WORK/sources/03_legal_trust_source_pack.md`, `WORK/sources/04_consent_analytics_source_pack.md`, `WORK/sources/05_kpi_proof_source_pack.md`, `WORK/sources/06_cloud_architecture_source_pack.md`, `WORK/sources/07_contact_gtm_operations_source_pack.md`, `WORK/sources/README.md`, `WORK/04_UPGRADE.md` (`TODO Source Ledger` status updates).
+- Impact: Future agents now have high-completeness proposed source artifacts for all blocked Upgrade 04 inputs, reducing unknowns and enabling execution once owner/legal/regulatory validation is applied.
+- Follow-up: Review and approve each source pack, finalize pending publication markers (especially regulatory identifiers and KPI values), then implement the corresponding website routes/policies.
+
+### [2026-02-17 10:51 UTC] ADVERSARIAL-CHECK
+- Scope: source-pack completion across `WORK/sources/*` and status normalization in `WORK/04_UPGRADE.md`.
+- BUILDER Intent + Change:
+  - Filled source packs with concrete values derived from repository context (`WORK/02_UPGRADE.md`, `docs/MDR_1_PROPOSAL.md`, `pages/contact.jsx`, `pages/decentralized.jsx`, `posts/cybersecurity-healthcare-ledger.md`, `pages/index.jsx`) and explicit maintainer architecture assumptions.
+  - Reclassified TODO source statuses from `missing source` to `draft available, validation pending` where corresponding source packs now exist.
+- CRITIC Findings:
+  - Completing drafts without explicit provenance could still lead to unsupported publication claims.
+  - Cloud-architecture wording could overreach if not clearly tied to maintainer-provided assumptions.
+  - Some operational/legal/regulatory values remain governance decisions, not purely technical defaults.
+- BUILDER Response / Refinements:
+  - Added `Source Basis` sections to each source pack to show provenance.
+  - Explicitly separated `proposed` wording from final approved policy language and preserved validation checklists.
+  - Kept publication-sensitive items as `pending publication` or sign-off gated where hard evidence remains external.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Legal/regulatory publication control remains external; draft completion does not equal formal approval for public claims.
+
+### [2026-02-17 11:11 UTC] TYPE: change
+- Author: Codex
+- Summary: Executed Upgrade 04 across site routes with evidence-safe implementation: added pricing/procurement/proof/regulatory/cloud/trust routes, added consent-gated analytics and qualification-funnel contact flow, removed absolute/guarantee wording, hardened navigation/cross-linking for buyer diligence paths, and documented unresolved publication-grade gaps in `WORK/05_MISSING_INFO.md`.
+- Evidence: `components/Layout.jsx`, `components/ConsentManager.jsx`, `components/DiligenceLinksSection.jsx`, `pages/_document.jsx`, `pages/index.jsx`, `pages/services.jsx`, `pages/products.jsx`, `pages/cerviguard.jsx`, `pages/contact.jsx`, `pages/decentralized.jsx`, `posts/cybersecurity-healthcare-ledger.md`, `pages/pricing.jsx`, `pages/how-to-buy.jsx`, `pages/proof.jsx`, `pages/regulatory.jsx`, `pages/cloud-architecture.jsx`, `pages/trust/index.jsx`, `pages/trust/privacy-policy.jsx`, `pages/trust/terms-of-service.jsx`, `pages/trust/data-processing.jsx`, `pages/trust/security.jsx`, `pages/trust/incident-response.jsx`, `pages/api/contact.js`, `styles/globals.css`, `WORK/05_MISSING_INFO.md`.
+- Impact: The website now exposes commercial/proof/regulatory/trust/cloud diligence artifacts in direct navigation paths while preserving non-overclaim wording and explicit draft/pending-publication boundaries.
+- Follow-up: Complete all remaining blocked publication-grade items listed in `WORK/05_MISSING_INFO.md` (KPI values, final MDR identifiers, legal-approved policy text, production relay infrastructure, approved architecture diagram/service specificity).
+
+### [2026-02-17 11:11 UTC] ADVERSARIAL-CHECK
+- Scope: Upgrade 04 site implementation and gap handoff (`components/*`, `pages/*`, `posts/cybersecurity-healthcare-ledger.md`, `styles/globals.css`, `WORK/05_MISSING_INFO.md`).
+- BUILDER Intent + Change:
+  - Implement all Upgrade 04 tasks with reliable in-repo sources and draft-safe disclaimers where approvals are pending.
+  - Added new diligence routes (pricing, how-to-buy, proof, regulatory, trust center stack, cloud architecture), consent-managed analytics, contact qualification funnel/API validation, and route-level cross-linking.
+  - Removed unbounded trust/security wording and reframed decentralized messaging as hybrid cloud+edge.
+- CRITIC Findings:
+  - Public pages could overclaim if pending regulatory/legal/KPI fields were presented as finalized facts.
+  - Contact relay could be non-operational without a configured transport endpoint.
+  - Navigation and style expansion could introduce regressions across mobile and static build paths.
+- BUILDER Response / Refinements:
+  - Marked trust/regulatory/legal artifacts as draft status and retained `pending publication` placeholders where final identifiers/values are not approved.
+  - Implemented contact API with validation, anti-spam controls, and mailto fallback plus optional webhook relay, then documented production relay dependency in `WORK/05_MISSING_INFO.md`.
+  - Added shared diligence links and responsive CSS updates, then validated full lint/build outputs.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build succeeded; new routes including `/pricing`, `/how-to-buy`, `/proof`, `/regulatory`, `/trust/*`, `/cloud-architecture`, and `/api/contact` generated/compiled successfully).
+- Residual Risk: Publication-grade diligence still depends on external approvals and artifacts (numeric KPIs, final MDR identifiers, legal-final policy text, production relay transport configuration, and architecture disclosure sign-off).
+
+### [2026-02-17 11:20 UTC] TYPE: change
+- Author: Codex
+- Summary: Added a fresh root-level `EVALUATION.md` (critical v3) to reassess SmartClover SRL with an exigent Google Cloud startup-program and institutional VC due-diligence lens after recent website upgrades, prioritizing value capture and digital business-model underwriteability.
+- Evidence: `EVALUATION.md`; reviewed routes/modules `pages/index.jsx`, `pages/cerviguard.jsx`, `pages/pricing.jsx`, `pages/how-to-buy.jsx`, `pages/proof.jsx`, `pages/regulatory.jsx`, `pages/cloud-architecture.jsx`, `pages/contact.jsx`, `pages/trust/*.jsx`, `pages/api/contact.js`, `components/ConsentManager.jsx`, `components/Layout.jsx`, `WORK/05_MISSING_INFO.md`; rendered-check commands using Playwright screenshots on desktop/mobile.
+- Impact: Replaces stale diligence posture with a current-state critical scorecard and severity-ranked blockers that reflect both newly added diligence routes and unresolved publication-grade evidence gaps.
+- Follow-up: Convert top blockers in `EVALUATION.md` (KPI publication, regulatory/legal finalization, cloud specificity, and lead-routing hardening) into a dated execution plan with owners.
+
+### [2026-02-17 11:20 UTC] ADVERSARIAL-CHECK
+- Scope: new audit artifact creation (`EVALUATION.md`) and mandatory memory-log update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Produced a new critical due-diligence report focused on value and digital business-model viability after recent website changes.
+  - Included updated scorecard, severity-ranked findings, and explicit evidence anchors to current routes/trust/regulatory/proof/commercial artifacts.
+- CRITIC Findings:
+  - A strict report could over-penalize the project by ignoring meaningful structural improvements delivered in Upgrade 04.
+  - Look-and-feel findings could be weak if based on static code review alone.
+  - Conclusions could overreach if they included assumptions beyond publicly verifiable evidence.
+- BUILDER Response / Refinements:
+  - Added a dedicated "What Improved Since The Previous Audit" section before blockers to preserve calibration.
+  - Performed rendered validation across key routes (desktop + mobile) and incorporated first-visit UX observations (consent overlay, nav density) using screenshot evidence.
+  - Anchored every major blocker to concrete repository evidence and to `WORK/05_MISSING_INFO.md` for unresolved publishable-source dependencies.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The evaluation remains bounded to public repository/web evidence; private commercial contracts, audited KPI packs, and final legal/regulatory approvals were not available for direct validation.

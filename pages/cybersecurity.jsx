@@ -50,7 +50,7 @@ const Cybersecurity = () => (
       <h2>Integrated with SmartClover products</h2>
       <p>
         Our cybersecurity layer is built into SmartClover product operations, from healthcare analytics platforms to
-        creative digital products that require strong privacy guarantees. Deployments follow &quot;your AI, your Data&quot; and
+        creative digital products that require strong privacy safeguards. Deployments follow &quot;your AI, your Data&quot; and
         &quot;your App, your Data&quot; principles, running on-prem and on-edge with ledger immutability and modern CI/CD so
         SaaS/PaaS healthcare workloads avoid single points of failure.
       </p>

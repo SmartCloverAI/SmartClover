@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import DiligenceLinksSection from '../components/DiligenceLinksSection';
 
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'SmartClover | AI-Centric Healthcare SaaS/PaaS Product Company';
@@ -26,15 +27,15 @@ const missionHighlights = [
 
 const trustMetrics = [
   {
-    value: '100% Data Sovereignty',
+    value: 'Data sovereignty controls',
     description: 'Client data stays inside secure environments, aligning with regulatory and patient expectations.'
   },
   {
-    value: '100% Source Verification',
+    value: 'Evidence-linked outputs',
     description: 'Insights remain linked to primary evidence so clinical teams can validate AI-generated findings.'
   },
   {
-    value: '100% Human Oversight',
+    value: 'Human decision authority',
     description: 'Clinicians maintain final decision authority across research, security, and education workflows.'
   }
 ];
@@ -95,6 +96,7 @@ const aiHealthcareDirections = [
 
 const managedPrograms = [
   {
+    status: 'Primary wedge',
     title: 'Evidence-Linked Healthcare Research Platform',
     description:
       'Retrieval-augmented product modules that synthesize clinical notes, observational data, and medical literature into validated insights with predictive modelling built on state-of-the-art foundation models and time-series approaches.',
@@ -106,9 +108,10 @@ const managedPrograms = [
     ]
   },
   {
+    status: 'Roadmap expansion track',
     title: 'Digital Resilience Platform for Healthcare',
     description:
-      'AI-augmented monitoring that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection and immutable ledger-backed audit trails.',
+      'AI-augmented monitoring roadmap that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection and immutable ledger-backed audit trails.',
     deliverables: [
       'Noise-reduced alerting and contextual incident playbooks',
       'On-prem and on-edge deployments that preserve data residency and sovereignty',
@@ -116,9 +119,10 @@ const managedPrograms = [
     ]
   },
   {
+    status: 'Roadmap expansion track',
     title: 'Creative Education Experience Platform',
     description:
-      'Generative storytelling environments that build emotional intelligence in children within governed, educator-led spaces.',
+      'Generative storytelling roadmap for emotional intelligence in children within governed, educator-led spaces.',
     deliverables: [
       'Adaptive narratives tuned to emotional learning goals',
       'Governed content pipelines with human review checkpoints',
@@ -273,6 +277,12 @@ const Home = () => (
           <Link href="/cerviguard" className="button secondary">
             Explore CerviGuard
           </Link>
+          <Link href="/pricing" className="button secondary">
+            View Pricing Model
+          </Link>
+          <Link href="/proof" className="button secondary">
+            Review Proof
+          </Link>
           <Link
             href="/docs/SmartClover_1pagepitchdeck.pdf"
             className="button tertiary"
@@ -331,7 +341,7 @@ const Home = () => (
     <section className="surface-card" aria-labelledby="trust-heading">
       <div className="section-heading">
         <h2 id="trust-heading">Trust Commitments</h2>
-        <p>Every SmartClover product deployment stays aligned with the guarantees outlined in our healthcare one-pager.</p>
+        <p>Every SmartClover deployment is governed by documented controls and publication-safe trust commitments.</p>
       </div>
       <div className="stat-blocks">
         {trustMetrics.map((metric) => (
@@ -370,13 +380,14 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="service-programs-heading">AI Product Platform Modules</h2>
         <p>
-          Structured programme tiers combine product engineering, automation, qualitative insight, governance, and
-          on-prem/on-edge pipelines so healthcare teams receive continuously operated AI capabilities.
+          CerviGuard and healthcare analytics remain the active primary wedge. Additional modules are sequenced as phased
+          roadmap tracks to preserve delivery focus.
         </p>
       </div>
       <div className="service-programs">
         {managedPrograms.map((program) => (
           <article key={program.title} className="service-program">
+            <p className="kicker">{program.status}</p>
             <h3>{program.title}</h3>
             <p>{program.description}</p>
             <ul>
@@ -415,6 +426,11 @@ const Home = () => (
         </div>
       </div>
     </section>
+
+    <DiligenceLinksSection
+      headingId="home-diligence-links"
+      description="Enterprise buyers can review commercial structure, proof, regulatory posture, trust baselines, and cloud architecture in dedicated routes."
+    />
 
     <section className="surface-card" aria-labelledby="data-heading">
       <div className="section-heading">
