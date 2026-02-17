@@ -9,31 +9,32 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'CerviGuard', href: '/cerviguard' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'How to Buy', href: '/how-to-buy' },
-  { label: 'Proof', href: '/proof' },
-  { label: 'Regulatory', href: '/regulatory' },
-  { label: 'Trust', href: '/trust' },
+  { label: 'Products & More', href: '/products' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/blog' }
 ];
 
 const footerQuickLinks = [
+  { label: 'Products & More', href: '/products' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'How to Buy', href: '/how-to-buy' },
   { label: 'Proof', href: '/proof' },
   { label: 'Regulatory', href: '/regulatory' },
-  { label: 'Trust', href: '/trust' },
-  { label: 'Cloud Architecture', href: '/cloud-architecture' }
+  { label: 'Trust', href: '/trust' }
 ];
 
 const Layout = ({ children, hostId = 'unknown' }) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const productsAndMoreRoutes = ['/products', '/pricing', '/how-to-buy', '/proof', '/regulatory', '/trust', '/cloud-architecture'];
 
   const isLinkActive = (href) => {
-    if (href === '/blog' || href === '/trust') {
+    if (href === '/blog') {
       return router.pathname.startsWith(href);
+    }
+
+    if (href === '/products') {
+      return productsAndMoreRoutes.some((route) => router.pathname === route || router.pathname.startsWith(`${route}/`));
     }
 
     return router.pathname === href;

@@ -358,7 +358,7 @@ const CerviGuard = () => (
 
     <DiligenceLinksSection
       headingId="cerviguard-diligence-links"
-      description="Use these linked routes to review commercial, proof, regulatory, trust, and architecture layers around CerviGuard."
+      description="Use this section to review Pricing, How to Buy, Proof, Regulatory, and Trust around CerviGuard."
     />
 
     <section className="surface-card spotlight closing" aria-labelledby="cerviguard-cta-heading">
