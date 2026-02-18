@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
+import RepoIconLinks from '../components/RepoIconLinks';
 
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
@@ -229,14 +230,7 @@ const CerviGuard = () => (
           >
             Download MDR Draft PDF
           </a>
-          <a
-            href="https://github.com/SmartCloverAI/CerviGuard"
-            className="button secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Explore GitHub Project
-          </a>
+          <RepoIconLinks githubHref="https://github.com/SmartCloverAI/CerviGuard" labelPrefix="CerviGuard repository links" />
           <Link href="/contact" className="button tertiary">
             Request Product Demo
           </Link>
@@ -382,14 +376,7 @@ const CerviGuard = () => (
           <Link href="/products" className="button secondary">
             Review Product Portfolio
           </Link>
-          <a
-            href="https://github.com/SmartCloverAI/CerviGuard"
-            className="button tertiary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Review Technical Repository
-          </a>
+          <RepoIconLinks githubHref="https://github.com/SmartCloverAI/CerviGuard" labelPrefix="Technical repository links" />
         </div>
       </div>
       <div className="spotlight-media">

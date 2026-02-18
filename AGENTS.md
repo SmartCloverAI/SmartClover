@@ -1000,3 +1000,30 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: `/services` page source remains in-repo as compatibility route content while runtime redirects enforce canonical `/products`; a future cleanup may remove the duplicate source route entirely.
+
+### [2026-02-18 06:26 UTC] TYPE: change
+- Author: Codex
+- Summary: Replaced CerviGuard GitHub text buttons with compact icon-only GitHub buttons and added adjacent Hugging Face smiley icon buttons linking to `https://huggingface.co/smartclover`.
+- Evidence: `components/RepoIconLinks.jsx`, `pages/cerviguard.jsx`, `styles/globals.css`; verification commands `rg -n "github.com|RepoIconLinks" pages components --glob '!pages/api/**'`, `npm run lint`, `npm run build`.
+- Impact: External source/research actions now use a cleaner icon affordance while keeping both GitHub and Hugging Face destinations directly accessible from the same CTA clusters.
+- Follow-up: Reuse `RepoIconLinks` for future GitHub button additions to keep icon behavior consistent.
+
+### [2026-02-18 06:26 UTC] ADVERSARIAL-CHECK
+- Scope: GitHub/Hugging Face CTA icon conversion on CerviGuard page plus shared icon-button styling.
+- BUILDER Intent + Change:
+  - Added a reusable `RepoIconLinks` component that renders a GitHub icon button and a Hugging Face smiley button.
+  - Replaced both existing GitHub text buttons on `pages/cerviguard.jsx` with the new icon pair.
+  - Added dedicated icon-button styling in global CSS with hover/focus-visible affordances.
+- CRITIC Findings:
+  - Icon-only links can become ambiguous without explicit accessibility labels.
+  - New icon styles could conflict with existing CTA flow or spacing in responsive layouts.
+  - Hugging Face URL could be incorrectly scoped per instance if duplicated manually.
+- BUILDER Response / Refinements:
+  - Added explicit `aria-label` and `title` attributes for both icon links.
+  - Used a compact inline-flex pair and existing CTA container flow to preserve layout consistency.
+  - Centralized Hugging Face destination in component constant (`https://huggingface.co/smartclover`) to avoid drift.
+- Verification:
+  - `rg -n "github.com|RepoIconLinks" pages components --glob '!pages/api/**'` -> pass (CerviGuard button instances now routed through `RepoIconLinks`; other GitHub mentions remain non-button text links).
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Other pages still contain inline text GitHub links (not buttons); if UX policy later requires icon-only treatment everywhere, those sections should be migrated in a follow-up pass.
