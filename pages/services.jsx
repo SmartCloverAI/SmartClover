@@ -66,12 +66,12 @@ const modules = [
 const Services = () => (
   <>
     <Head>
-      <title>Services and Product Operations | SmartClover</title>
+      <title>Product Operations | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover healthcare AI product operations page covering primary CerviGuard wedge, roadmap tracks, and enterprise onboarding model for SaaS/PaaS delivery."
+        content="SmartClover healthcare AI product operations page covering primary CerviGuard wedge, roadmap tracks, and enterprise onboarding model for platform delivery."
       />
-      <link rel="canonical" href={`${siteUrl}/services`} />
+      <link rel="canonical" href={`${siteUrl}/products`} />
     </Head>
 
     <header className="page-header">
@@ -199,7 +199,7 @@ const Services = () => (
 
     <DiligenceLinksSection
       headingId="services-diligence-links"
-      description="Evaluate Pricing, How to Buy, Proof, Regulatory, and Trust directly from the services context."
+      description="Evaluate Pricing, How to Buy, Proof, Regulatory, and Trust directly from the product operations context."
     />
   </>
 );

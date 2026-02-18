@@ -155,7 +155,7 @@ const softwareSchema = {
     'De-identified cervical image case intake',
     'AI-assisted transformation-zone and lesion classification',
     'Case tracking and follow-up workflows',
-    'Audit-ready metadata and human-in-the-loop review'
+    'Audit-ready metadata and clinician review checkpoints'
   ],
   screenshot: screenshotGallery.map((shot) => `${siteUrl}${shot.src}`),
   offers: deploymentModes.map((mode) => ({
@@ -379,8 +379,8 @@ const CerviGuard = () => (
           <Link href="/contact" className="button primary">
             Talk to Product Team
           </Link>
-          <Link href="/services" className="button secondary">
-            Review Platform Operating Model
+          <Link href="/products" className="button secondary">
+            Review Product Portfolio
           </Link>
           <a
             href="https://github.com/SmartCloverAI/CerviGuard"

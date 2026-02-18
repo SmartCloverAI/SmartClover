@@ -4,7 +4,7 @@ import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
 
 const siteUrl = 'https://smartclover.ro';
-const pageTitle = 'SmartClover | AI-Centric Healthcare SaaS/PaaS Product Company';
+const pageTitle = 'SmartClover | AI-Centric Healthcare Product Company';
 const pageDescription =
   'SmartClover is an AI-centric healthcare product company operating two directions: classical imaging and structured-data inferential/predictive analytics (including the MDR Class I CerviGuard companion app), and generative SaaS systems for prophylaxis communication plus qualitative research automation.';
 
@@ -46,9 +46,9 @@ const techPartners = [
     description: 'Accelerated training and fine-tuning of domain-specific models unlock near real-time healthcare insights.'
   },
   {
-    title: 'Your AI, Your Data Deployments',
+    title: 'Sovereign Deployment Frameworks',
     description:
-      'On-prem and on-edge execution frameworks deliver "your AI, your Data", "your App, your Data", and "your AI, your eSource" outcomes with ledger immutability and modern CI/CD pipelines.'
+      'On-prem and on-edge execution frameworks support sovereign AI, app, and eSource operations with ledger immutability and modern CI/CD pipelines.'
   },
   {
     title: 'Healthcare Research Network',
@@ -135,7 +135,7 @@ const faqItems = [
   {
     question: 'Is SmartClover a consultancy?',
     answer:
-      'No. SmartClover is a healthcare AI product company delivering SaaS/PaaS platforms and managed product operations, not consultancy or outsourcing.'
+      'No. SmartClover is a healthcare AI product company delivering managed platforms and product operations, not consultancy or outsourcing.'
   },
   {
     question: 'How are SmartClover products delivered?',
@@ -240,7 +240,7 @@ const Home = () => (
         name="robots"
         content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
-      <meta name="keywords" content="healthcare AI SaaS, healthcare AI PaaS, AI healthcare products, SmartClover, human-in-the-loop AI" />
+      <meta name="keywords" content="healthcare AI SaaS, healthcare AI PaaS, AI healthcare products, SmartClover, responsible AI" />
       <meta name="author" content="SmartClover" />
       <link rel="canonical" href={`${siteUrl}/`} />
       <meta property="og:type" content="website" />
@@ -258,17 +258,17 @@ const Home = () => (
 
     <header className="surface-card hero" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <span className="tagline">Healthcare AI Products · Human-in-the-Loop · Sovereign Deployments</span>
+        <span className="tagline">Healthcare AI Products · Clinician-Governed · Sovereign Deployments</span>
         <h1 id="hero-title">SmartClover</h1>
         <div className="hero-intro-card" aria-label="SmartClover overview">
           <p className="hero-intro-lead">
-            SmartClover is an AI-centric healthcare product company building and operating digital-native SaaS/PaaS
+            SmartClover is an AI-centric healthcare product company building and operating digital-native
             applications.
           </p>
           <ul className="hero-intro-points">
             <li>Research, resilience, and prevention workflows with sovereign deployment controls.</li>
             <li>
-              &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; operating principles.
+              Sovereign operating principles across AI, application, and eSource layers.
             </li>
             <li>
               Two directions: classical imaging + structured-data predictive analytics, and generative SaaS for
@@ -280,14 +280,11 @@ const Home = () => (
           <Link href="#contact" className="button primary">
             Request Demo
           </Link>
-          <Link href="/services" className="button secondary">
+          <Link href="/products" className="button secondary">
             Learn More
           </Link>
           <Link href="/cerviguard" className="button secondary">
             Explore CerviGuard
-          </Link>
-          <Link href="/products" className="button secondary">
-            Products & More
           </Link>
           <Link
             href="/docs/SmartClover_1pagepitchdeck.pdf"
@@ -331,8 +328,7 @@ const Home = () => (
         <h2 id="service-company-heading">Digital Product Operating Model</h2>
         <p>
           SmartClover delivers outcomes through a product-first model. Every deployment combines platform engineering,
-          operations, and accountable governance anchored in &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI,
-          your eSource&quot; principles.
+          operations, and accountable governance anchored in sovereign AI, application, and eSource control principles.
         </p>
       </div>
       <div className="feature-grid three-up">
@@ -540,7 +536,7 @@ const Home = () => (
           <Link href="mailto:andreea@smartclover.ro" className="button primary">
             Contact Us
           </Link>
-          <Link href="/services" className="button secondary">
+          <Link href="/products" className="button secondary">
             View Portfolio
           </Link>
         </div>

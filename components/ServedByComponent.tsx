@@ -45,7 +45,7 @@ const ServedBy = ({ hostId }: ServedByProps) => {
 
   return (
     <div>
-      Your AI, your Data edge node proudly serving this site:
+      Edge node serving this site:
       <span className="font-semibold ml-1">{resolvedHostId}</span>
     </div>
   );
