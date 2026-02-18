@@ -89,7 +89,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
         </div>
         <ServedBy hostId={hostId} />
         <p>
-          © {new Date().getFullYear()} SmartClover. v2.1
+          © {new Date().getFullYear()} SmartClover. v2.7
           <br />
           Creativity · Digitalization · Human-in-the-loop AI for Good
         </p>
