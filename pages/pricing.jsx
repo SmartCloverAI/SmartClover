@@ -49,7 +49,7 @@ const Pricing = () => (
       <title>Pricing and Packaging | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover pricing and packaging overview for B2B healthcare SaaS/PaaS adoption, including pilot, production, and enterprise package boundaries with RFQ-only commercial policy."
+        content="SmartClover pricing and packaging overview for B2B healthcare platform adoption, including pilot, production, and enterprise package boundaries with RFQ-only commercial policy."
       />
     </Head>
 

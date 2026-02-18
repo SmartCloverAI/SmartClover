@@ -6,7 +6,7 @@ const Cybersecurity = () => (
       <title>Healthcare Cybersecurity | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover protects healthcare organisations with AI-enhanced cybersecurity layers that secure digital-native SaaS/PaaS healthcare platforms."
+        content="SmartClover protects healthcare organisations with AI-enhanced cybersecurity layers that secure digital-native healthcare platforms."
       />
     </Head>
 

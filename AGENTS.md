@@ -971,3 +971,32 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: External detection/provenance standards and detector performance evolve quickly; `WORK/07_UPDATE.md` should be refreshed when major benchmark/spec updates are published.
+
+### [2026-02-18 06:15 UTC] TYPE: change
+- Author: Codex
+- Summary: Executed `WORK/08_UPDATE.md` by canonicalizing user-facing routing to `/products`, correcting orphan hash navigation, and pruning repeated phrase usage (`SaaS/PaaS`, `human-in-the-loop`, `your AI, your Data`) to once-per-page maxima on flagged routes.
+- Evidence: `next.config.js`, `pages/index.jsx`, `pages/about.jsx`, `pages/cerviguard.jsx`, `components/Layout.jsx`, `components/ServedByComponent.tsx`, `pages/values.jsx`, `pages/services.jsx`, `pages/pricing.jsx`, `pages/cybersecurity.jsx`; verification commands `rg -nP "href=\\{?['\\\"][^'\\\"]*#[^'\\\"]*['\\\"]\\}?" pages components`, `rg -n "/services#|href=\\\"/services|href=\\'/services" pages components --glob '!pages/api/**'`, phrase-density per-page count scan.
+- Impact: Navigation and CTA paths now consistently promote a single canonical product hub, broken in-page routing was removed, and repetitive slogan density was materially reduced to improve professionalism and readability.
+- Follow-up: none
+
+### [2026-02-18 06:15 UTC] ADVERSARIAL-CHECK
+- Scope: implementation of `WORK/08_UPDATE.md` routing/copy/hash fixes across shared layout components and high-traffic pages.
+- BUILDER Intent + Change:
+  - Aligned CTA and hash routing to `/products` and added `/services -> /products` permanent redirect in Next.js config.
+  - Fixed broken hash target by moving the About-page flagship link to an existing Products section id.
+  - Removed repeated occurrences of key phrases in flagged routes/components while keeping one contextual usage where useful.
+- CRITIC Findings:
+  - Redirect-only canonicalization can still leave stale `/services` links if not fully grepped across routes/components.
+  - Phrase cleanup can accidentally over-prune meaning if all occurrences are removed instead of reduced.
+  - Hash updates can remain invalid if destination ids are renamed or mismatched.
+- BUILDER Response / Refinements:
+  - Ran dedicated `/services` link scans and confirmed no CTA/hash references remain in page/component code.
+  - Kept one targeted occurrence per phrase on pages where semantic clarity still benefits from explicit wording.
+  - Revalidated hash references and ensured About now points to existing `products-portfolio-heading`.
+- Verification:
+  - `rg -nP "href=\\{?['\\\"][^'\\\"]*#[^'\\\"]*['\\\"]\\}?" pages components --glob '!pages/api/**'` -> pass (only valid hash targets remained: `#contact`, `#products-more-links`, `/products#products-portfolio-heading`).
+  - `rg -n "/services#|href=\\\"/services|href=\\'/services" pages components --glob '!pages/api/**'` -> pass (no matches).
+  - `for f in pages/*.jsx pages/trust/*.jsx; do ... done` phrase-density scan -> pass (no page exceeded one occurrence for `SaaS/PaaS`, `human-in-the-loop`, or `your AI, your Data`).
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: `/services` page source remains in-repo as compatibility route content while runtime redirects enforce canonical `/products`; a future cleanup may remove the duplicate source route entirely.

@@ -28,9 +28,9 @@ const healthcareDirections = [
       'Imaging and structured-data inferential/predictive analytics for screening, triage support, and follow-up coordination.'
   },
   {
-    title: 'Direction 2: Generative SaaS systems',
+    title: 'Direction 2: Generative SaaS/PaaS systems',
     description:
-      'SaaS products for prophylaxis communication, stakeholder interaction, qualitative questionnaire design, and aggregated insight analysis.'
+      'SaaS (including on-edge) products for prophylaxis communication, stakeholder interaction, qualitative questionnaire design, and aggregated insight analysis.'
   }
 ];
 

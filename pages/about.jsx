@@ -5,7 +5,7 @@ import Link from 'next/link';
 const referenceGroups = [
   {
     title: 'Products, platforms, and models',
-    description: 'Public entry points for SmartClover healthcare SaaS/PaaS products and model releases.',
+    description: 'Public entry points for SmartClover healthcare platforms and model releases.',
     links: [
       {
         label: 'CerviGuard product walkthrough',
@@ -49,7 +49,7 @@ const aiHealthcareDirections = [
       'Clinical inferential and predictive analytics across imaging and structured datasets, anchored by CerviGuard as an MDR Class I cervical cancer screening companion app.'
   },
   {
-    title: 'Direction 2: Generative SaaS + Qualitative Research Automation',
+    title: 'Direction 2: Generative SaaS/PaaS + Qualitative Research Automation',
     description:
       'Generative systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
   }
@@ -128,7 +128,7 @@ const About = () => (
           <span>Creativity keeps us curious, imaginative, and ready to experiment with empathy.</span>
           <span>Digitalization transforms complex processes into clear, resilient experiences.</span>
           <span>
-            Human-in-the-loop AI ensures clinicians, educators, and researchers retain control over the systems they use.
+            Clinician-guided AI ensures clinicians, educators, and researchers retain control over the systems they use.
           </span>
         </div>
       </div>
@@ -147,9 +147,8 @@ const About = () => (
       <div className="spotlight-content">
         <h2 id="about-deployments">Your AI, your Data deployment model</h2>
         <p>
-          SmartClover delivers &quot;your AI, your Data&quot;, &quot;your App, your Data&quot;, and &quot;your AI, your eSource&quot; infrastructure
-          so SaaS/PaaS applications run on-prem and on-edge, close to the clinical and educational teams who depend on
-          them.
+          SmartClover delivers infrastructure patterns for AI, application, and eSource layers so platform applications run
+          on-prem and on-edge, close to the clinical and educational teams who depend on them.
         </p>
         <p>
           Immutable ledgers, modern CI/CD, and deterministic rollout controls keep every platform release resilient beyond a
@@ -204,7 +203,7 @@ const About = () => (
         <a href="/docs/smartclover-cerviguard-citations.bib" className="button secondary" download>
           Download .bib
         </a>
-        <Link href="/services#cerviguard-flagship" className="button tertiary">
+        <Link href="/products#products-portfolio-heading" className="button tertiary">
           View flagship product details
         </Link>
       </div>
