@@ -1,21 +1,28 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
 
 const portfolioTracks = [
   {
-    status: 'Primary wedge (active)',
+    status: 'Active product',
     title: 'CerviGuard clinical platform',
     description:
       'MDR Class I companion-app positioning for cervical-screening workflows, with human-in-the-loop clinical decisions.'
   },
   {
-    status: 'Roadmap expansion',
-    title: 'Digital resilience module track',
-    description: 'Cybersecurity and operational-resilience modules sequenced after primary healthcare wedge scaling.'
+    status: 'Active product',
+    title: 'DataGems synthetic-data workspace',
+    description:
+      'Distributed-decentralized synthetic-data application using SLM-first generation with optional external APIs.'
   },
   {
-    status: 'Roadmap expansion',
+    status: 'Roadmap track',
+    title: 'Digital resilience module track',
+    description: 'Cybersecurity and operational-resilience modules sequenced after core healthcare-product scaling.'
+  },
+  {
+    status: 'Roadmap track',
     title: 'Creative education module track',
     description: 'EQ-focused generative learning products positioned as phased portfolio expansion.'
   }
@@ -34,13 +41,61 @@ const healthcareDirections = [
   }
 ];
 
+const dataGemsHighlights = [
+  {
+    title: 'Distributed-decentralized execution',
+    description:
+      'DataGems runs synthetic-data generation jobs across distributed peers rather than relying on a single centralized runtime.'
+  },
+  {
+    title: 'SLM-first generation with API optionality',
+    description:
+      'The app uses SLMs by default and can integrate external APIs when needed to produce high-quality synthetic data for domain-specific model training and test-data preparation.'
+  }
+];
+
+const dataGemsShots = [
+  {
+    src: '/images/datagems/datagems-screen-dashboard.png',
+    width: 903,
+    height: 583,
+    alt: 'DataGems dashboard with totals for jobs, records, active runs, and failures.',
+    title: 'Dashboard metrics',
+    description: 'Operational overview for generated records, running jobs, failure counts, and last job timing.'
+  },
+  {
+    src: '/images/datagems/datagems-screen-job-form.png',
+    width: 903,
+    height: 584,
+    alt: 'DataGems generation job form with fields for title, description, instructions, and record count.',
+    title: 'Generation job setup',
+    description: 'Job drafting flow with schema guidance, instruction fields, and advanced generation controls.'
+  },
+  {
+    src: '/images/datagems/datagems-screen-schema-peer-stats.png',
+    width: 903,
+    height: 583,
+    alt: 'DataGems schema output view and peer statistics table for distributed job execution.',
+    title: 'Schema output and peer stats',
+    description: 'Generated schema payload plus peer-level execution status, result CID tracking, and timestamps.'
+  },
+  {
+    src: '/images/datagems/datagems-screen-sign-in.png',
+    width: 903,
+    height: 491,
+    alt: 'DataGems sign-in and account creation interface.',
+    title: 'Workspace sign-in',
+    description: 'Entry point for authenticated access before running distributed synthetic-data generation jobs.'
+  }
+];
+
 const Products = () => (
   <>
     <Head>
       <title>Products & More | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover product portfolio with primary CerviGuard wedge and roadmap module tracks, aligned to healthcare AI commercialization sequence."
+        content="SmartClover product portfolio with active CerviGuard and DataGems apps, including distributed-decentralized SLM-driven synthetic data generation with optional external APIs."
       />
     </Head>
 
@@ -48,9 +103,8 @@ const Products = () => (
       <span className="tagline">Products & More</span>
       <h1>Product portfolio with one compact diligence hub</h1>
       <p>
-        SmartClover leads with CerviGuard as the active healthcare wedge. Adjacent tracks are preserved as roadmap
-        expansion modules to keep operational focus and proof density, while commercial and compliance pages are grouped
-        in one section.
+        SmartClover currently operates CerviGuard and DataGems, while additional modules stay on a staged roadmap.
+        Commercial and compliance pages are grouped in one section for faster qualification.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -82,7 +136,7 @@ const Products = () => (
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Portfolio Status</span>
-        <h2 id="products-portfolio-heading">Active wedge plus roadmap tracks</h2>
+        <h2 id="products-portfolio-heading">Active products and roadmap tracks</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (
@@ -97,16 +151,75 @@ const Products = () => (
 
     <section className="surface-card" aria-labelledby="products-proof-heading">
       <div className="section-heading">
-        <h2 id="products-proof-heading">Flagship product evidence context</h2>
+        <h2 id="products-proof-heading">Live product evidence context</h2>
       </div>
       <p>
-        The live pilot at <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">cerviguard.link</a>{' '}
-        and public repository at{' '}
+        Live application access is available at{' '}
+        <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">cerviguard.link</a> and{' '}
+        <a href="https://datagems.app" target="_blank" rel="noopener noreferrer">datagems.app</a>, with public repositories at{' '}
         <a href="https://github.com/SmartCloverAI/CerviGuard" target="_blank" rel="noopener noreferrer">
           SmartCloverAI/CerviGuard
         </a>{' '}
-        are complemented by dedicated pricing, onboarding, proof, regulatory, and trust pages grouped below.
+        and{' '}
+        <a href="https://github.com/SmartCloverAI/DataGems" target="_blank" rel="noopener noreferrer">
+          SmartCloverAI/DataGems
+        </a>. Dedicated pricing, onboarding, proof, regulatory, and trust pages are grouped below.
       </p>
+    </section>
+
+    <section className="surface-card datagems-spotlight" aria-labelledby="products-datagems-heading">
+      <div className="section-heading">
+        <h2 id="products-datagems-heading">DataGems features in practice</h2>
+        <p>
+          DataGems is a distributed-decentralized synthetic-data application that uses SLMs, with optional external API
+          integration, to generate high-quality data primarily for domain-specific model training and also for test-data
+          preparation in downstream systems.
+        </p>
+      </div>
+      <div className="cta-links">
+        <a href="https://datagems.app" className="button primary" target="_blank" rel="noopener noreferrer">
+          Open DataGems
+        </a>
+        <a
+          href="https://github.com/SmartCloverAI/DataGems"
+          className="icon-link-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open DataGems GitHub repository"
+          title="Open DataGems GitHub repository"
+        >
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.24.49-2.71-1.08-2.71-1.08-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.8.06 1.23.82 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.79-.2-3.67-.89-3.67-3.96 0-.87.31-1.58.82-2.13-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.81a7.6 7.6 0 0 1 4 0c1.53-1.02 2.2-.81 2.2-.81.44 1.1.16 1.92.08 2.12.51.55.82 1.26.82 2.13 0 3.08-1.89 3.76-3.69 3.96.29.25.55.74.55 1.5l-.01 2.22c0 .21.14.45.55.38A8 8 0 0 0 8 0Z" />
+          </svg>
+        </a>
+      </div>
+      <div className="feature-grid two-up datagems-card-grid">
+        {dataGemsHighlights.map((item) => (
+          <article key={item.title} className="feature">
+            <h3 className="feature-title">{item.title}</h3>
+            <p className="feature-description">{item.description}</p>
+          </article>
+        ))}
+      </div>
+      <div className="datagems-shot-grid">
+        {dataGemsShots.map((shot) => (
+          <article key={shot.src} className="datagems-shot-card">
+            <div className="datagems-shot-media">
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                width={shot.width}
+                height={shot.height}
+                sizes="(max-width: 879px) 100vw, 46vw"
+              />
+            </div>
+            <div className="datagems-shot-meta">
+              <h3>{shot.title}</h3>
+              <p>{shot.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <DiligenceLinksSection

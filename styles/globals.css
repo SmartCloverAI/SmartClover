@@ -984,6 +984,60 @@ footer p {
   color: var(--text-muted);
 }
 
+.datagems-spotlight {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(15, 120, 141, 0.15), transparent 42%),
+    rgba(255, 255, 255, 0.95);
+}
+
+.datagems-card-grid {
+  margin: 1.2rem 0 1rem;
+}
+
+.datagems-shot-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.datagems-shot-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 120, 141, 0.2);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.datagems-shot-media {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(15, 120, 141, 0.15);
+  background: rgba(241, 250, 252, 0.8);
+}
+
+.datagems-shot-media img,
+.datagems-shot-media span {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.datagems-shot-meta {
+  padding: 0.95rem 1.05rem 1.1rem;
+}
+
+.datagems-shot-meta h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.03rem;
+}
+
+.datagems-shot-meta p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.93rem;
+}
+
 .served-by {
   width: min(960px, calc(100% - 2.5rem));
   margin: 0 auto 2.5rem;
@@ -1262,6 +1316,10 @@ footer p {
   }
 
   .cerviguard-flow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .datagems-shot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

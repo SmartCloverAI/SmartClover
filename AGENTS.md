@@ -1027,3 +1027,160 @@ No modification batch is complete until this entry is appended.
   - `npm run lint` -> pass (`next lint` reported no warnings/errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: Other pages still contain inline text GitHub links (not buttons); if UX policy later requires icon-only treatment everywhere, those sections should be migrated in a follow-up pass.
+
+### [2026-02-20 20:52 UTC] TYPE: change
+- Author: Codex
+- Summary: Added DataGems as an explicit supporting SmartClover product inside `Products & More`, including app/repo CTAs, two capability cards, and two integrated screenshots sourced from `docs/DataGems.pdf`.
+- Evidence: `pages/products.jsx`, `styles/globals.css`, `public/images/datagems/datagems-shot-1.png`, `public/images/datagems/datagems-shot-2.png`; extraction command `python3 - <<'PY' ... pypdfium2 ...` from `docs/DataGems.pdf`.
+- Impact: `Products & More` now presents DataGems as a minor but important active app with concrete visual proof, instead of only highlighting CerviGuard and roadmap tracks.
+- Follow-up: Refresh DataGems screenshots when `docs/DataGems.pdf` or live DataGems UI materially changes.
+
+### [2026-02-20 20:52 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems integration into `/products` with screenshot assets and supporting styles (`pages/products.jsx`, `styles/globals.css`, `public/images/datagems/*`).
+- BUILDER Intent + Change:
+  - Added DataGems to portfolio status cards as an active supporting product.
+  - Added a dedicated DataGems section with `datagems.app` and `SmartCloverAI/DataGems` links, two support cards, and two screenshot cards.
+  - Added new CSS blocks for DataGems spotlight styling and responsive screenshot-grid behavior.
+- CRITIC Findings:
+  - DataGems screenshots could be missing/low quality if PDF extraction failed.
+  - New screenshot cards could break mobile responsiveness or introduce horizontal overflow.
+  - New section copy/links could drift from product facts if app/repo URLs or description were inconsistent.
+- BUILDER Response / Refinements:
+  - Extracted PDF pages to image assets with `pypdfium2` and kept only two curated screenshots under `public/images/datagems/`.
+  - Added explicit `next/image` `sizes` and responsive grid CSS; verified `320px` viewport has no overflow.
+  - Added direct CTAs to `https://datagems.app` and `https://github.com/SmartCloverAI/DataGems` and aligned section copy to "minor but important" supporting-app positioning.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; `/products` generated).
+  - `npx playwright screenshot --device='Desktop Chrome' http://127.0.0.1:3010/products /tmp/products-datagems-desktop.png` -> pass.
+  - `npx playwright screenshot --viewport-size='390,844' http://127.0.0.1:3010/products /tmp/products-datagems-mobile.png` -> pass.
+  - `node (Playwright 320px overflow check on /products)` -> pass (`no-overflow`).
+- Residual Risk: Screenshot provenance is currently tied to `docs/DataGems.pdf`; if the live app evolves before the PDF is refreshed, visuals may temporarily lag current UI.
+
+### [2026-02-20 21:03 UTC] TYPE: change
+- Author: Codex
+- Summary: Refined DataGems presentation on `/products` by replacing composite screenshot panels with clean single-screen captures and shifting copy from hierarchy labels to feature-led messaging.
+- Evidence: `pages/products.jsx`, `styles/globals.css`, `public/images/datagems/datagems-screen-dashboard.png`, `public/images/datagems/datagems-screen-job-form.png`; extraction/cropping via `python3` (Pillow) from `docs/DataGems.pdf`.
+- Impact: DataGems now reads as a concrete capability module with clearer UI evidence and less awkward visual density in `Products & More`.
+- Follow-up: Refresh DataGems screen crops whenever `docs/DataGems.pdf` is updated or live UI changes materially.
+
+### [2026-02-20 21:03 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems image normalization and wording de-hierarchization on `/products` (`pages/products.jsx`, `styles/globals.css`, `public/images/datagems/*`).
+- BUILDER Intent + Change:
+  - Split each PDF-derived composite image into focused single-screen captures (dashboard, generation form, schema/peer stats, sign-in).
+  - Replaced "flagship/supporting" wording in visible DataGems section content with feature-focused language.
+  - Added DataGems screenshot-grid refinements (`align-items`, spacing) to avoid awkward stretched cards.
+- CRITIC Findings:
+  - Composite screenshots obscured UI details and made the section feel visually cluttered.
+  - DataGems copy still felt too taxonomy-driven instead of capability-driven.
+  - Cookie modal could mask true section render quality if screenshots were captured without dismissal.
+- BUILDER Response / Refinements:
+  - Produced separate screen crops and validated visual clarity with `view_image` review.
+  - Reworked headings/descriptions to emphasize job setup, monitoring visibility, and governed access.
+  - Captured clean desktop/mobile screenshots after explicitly dismissing consent overlay.
+- Verification:
+  - `npm run lint` -> pass.
+  - `npm run build` -> pass.
+  - `node (Playwright desktop/mobile clean captures after Accept all on /products)` -> pass.
+  - `node (Playwright 320px overflow check on /products)` -> pass (`no-overflow`).
+- Residual Risk: Four-screen layout was clearer but still longer than requested "couple" footprint, requiring one more refinement pass.
+
+### [2026-02-20 21:03 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems final density tuning to "couple cards + couple screenshots" plus copy cleanup (`pages/products.jsx`, `public/images/datagems/*`).
+- BUILDER Intent + Change:
+  - Reduced DataGems section to two feature cards and two key screenshots (dashboard + generation job setup).
+  - Removed remaining visible wedge-style phrasing from active portfolio descriptions and tightened DataGems heading/intro copy.
+  - Kept DataGems links and source note while clarifying screenshot refinement source (`docs/DataGems.pdf`).
+- CRITIC Findings:
+  - Initial fine-tune introduced a JSX syntax error in `dataGemsShots` definition.
+  - Long heading/paragraph wrapping on narrow screens risked readability drift.
+  - Unused intermediate screenshot assets could clutter active visual inventory.
+- BUILDER Response / Refinements:
+  - Fixed JSX parser error immediately and re-ran lint/build.
+  - Shortened heading to `DataGems features in practice` and tightened supporting text.
+  - Moved unused intermediate DataGems screen files to `/tmp/datagems-legacy` and kept only active screenshots in `public/images/datagems/`.
+- Verification:
+  - `npm run lint` -> fail first (parser error) then pass after fix.
+  - `npm run build` -> pass.
+  - `node (Playwright iter2 desktop/mobile/320 clean captures after consent on /products)` -> pass (`no-overflow` on all tested viewports).
+- Residual Risk: The fixed cookie-settings pill can still overlap bottom-right content at very small viewport snapshots, though section layout itself remains overflow-safe.
+
+### [2026-02-20 21:08 UTC] TYPE: change
+- Author: Codex
+- Summary: Removed the awkward DataGems source-note sentence from `/products` and restored full DataGems visual coverage by displaying all four extracted interface screens.
+- Evidence: `pages/products.jsx`, `styles/globals.css`, `public/images/datagems/datagems-screen-dashboard.png`, `public/images/datagems/datagems-screen-job-form.png`, `public/images/datagems/datagems-screen-schema-peer-stats.png`, `public/images/datagems/datagems-screen-sign-in.png`.
+- Impact: DataGems section now reads cleaner and more professional while showing the complete intended screen set.
+- Follow-up: Keep all DataGems screen cards updated when `docs/DataGems.pdf` changes.
+
+### [2026-02-20 21:08 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems section polish and full-screen restoration on `/products` (`pages/products.jsx`, `styles/globals.css`, `public/images/datagems/*`).
+- BUILDER Intent + Change:
+  - Removed the sentence `Screens were isolated from docs/DataGems.pdf ...` from the DataGems section.
+  - Reintroduced schema/peer-stats and sign-in screenshots so all four DataGems screens are rendered.
+  - Removed now-unused `.datagems-source-note` CSS block.
+- CRITIC Findings:
+  - Source-note sentence looked unprofessional and cluttered the section.
+  - Only two DataGems screenshots were visible, not full screen coverage.
+  - Re-adding screens could regress mobile layout density or trigger overflow.
+- BUILDER Response / Refinements:
+  - Deleted the note paragraph entirely from page markup.
+  - Restored both missing screenshots into `public/images/datagems/` and re-added them to `dataGemsShots`.
+  - Re-validated rendered shot-card count via Playwright on desktop and mobile.
+- Verification:
+  - `npm run lint` -> pass.
+  - `npm run build` -> pass.
+  - `node (Playwright desktop/mobile /products check with consent dismissed)` -> pass (`shot-cards=4`, `no-overflow` on both viewports).
+- Residual Risk: Mobile screenshots in automation still use Chromium emulation rather than Safari/WebKit.
+
+### [2026-02-21 00:37 UTC] TYPE: change
+- Author: Codex
+- Summary: Updated DataGems CTAs in `Products & More` to keep direct app access and add an explicit GitHub icon repository link.
+- Evidence: `pages/products.jsx` DataGems CTA row and GitHub icon anchor (`aria-label`: `Open DataGems GitHub repository`); verification screenshots `/tmp/products-datagems-icon-desktop.png` and `/tmp/products-datagems-icon-mobile.png`.
+- Impact: DataGems section now exposes both required destinations (live app + repo) with icon-based repo affordance consistent with site styling.
+- Follow-up: none
+
+### [2026-02-21 00:37 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems CTA link affordance update in `/products` (`pages/products.jsx`).
+- BUILDER Intent + Change:
+  - Kept `Open DataGems` app button unchanged.
+  - Replaced text `View DataGems Repo` button with a GitHub icon link using existing `.icon-link-button` style.
+- CRITIC Findings:
+  - Icon-only repo link could be ambiguous without accessible labeling.
+  - CTA row spacing could regress on mobile once icon button is introduced.
+  - Link requirement could still fail if icon anchor is missing or duplicated.
+- BUILDER Response / Refinements:
+  - Added `aria-label` and `title` (`Open DataGems GitHub repository`) on the icon anchor.
+  - Validated rendered desktop/mobile section captures after consent dismissal.
+  - Verified exactly one DataGems GitHub icon link is present on `/products` in runtime checks.
+- Verification:
+  - `npm run lint` -> pass.
+  - `npm run build` -> pass.
+  - `node (Playwright desktop/mobile /products check)` -> pass (`github-icon-links=1` on both viewports).
+- Residual Risk: None specific to DataGems CTA; general cookie-settings fixed chip can still overlap bottom-right content on very small mobile snapshots.
+
+### [2026-02-21 00:55 UTC] TYPE: change
+- Author: Codex
+- Summary: Re-scoped DataGems descriptions in `Products & More` to match actual application scope: distributed-decentralized operation, SLM-first generation with optional external APIs, and synthetic-data outcomes focused on domain-model training plus system test-data preparation.
+- Evidence: `pages/products.jsx` (DataGems portfolio description, DataGems feature cards, DataGems section intro, metadata description, and screen-card copy).
+- Impact: DataGems public narrative now avoids out-of-scope messaging and aligns with intended technical/product purpose.
+- Follow-up: Keep DataGems wording synchronized with capability changes in the DataGems repo/app.
+
+### [2026-02-21 00:55 UTC] ADVERSARIAL-CHECK
+- Scope: DataGems scope-alignment copy pass on `/products` (`pages/products.jsx`) with regression validation.
+- BUILDER Intent + Change:
+  - Rewrote DataGems copy to explicitly state distributed-decentralized architecture and SLM-first generation with optional external APIs.
+  - Updated benefit framing to prioritize domain-specific model training and secondary test-data preparation use cases.
+  - Kept all four DataGems screens and app/repo links intact.
+- CRITIC Findings:
+  - Prior DataGems copy included governance/access framing that could be interpreted as out-of-scope for the app’s primary purpose.
+  - Product-card descriptions lacked explicit SLM and external-API optionality language.
+  - Scope rewrite could accidentally remove required links/screens introduced in earlier iterations.
+- BUILDER Response / Refinements:
+  - Replaced out-of-scope phrasing with direct technical-scope language in intro/cards/portfolio text.
+  - Added explicit SLM + optional external API terminology in both feature card and section-level summary.
+  - Revalidated that all four screen cards and the app plus GitHub links remain present.
+- Verification:
+  - `npm run lint` -> pass.
+  - `npm run build` -> pass.
+  - `node (Playwright desktop/mobile section captures on /products after consent dismissal)` -> pass (scope text and CTA/icon layout verified visually).
+- Residual Risk: Scope language is now aligned to current user-provided definition; if DataGems capability boundaries change, copy can drift without periodic review.
