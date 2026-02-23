@@ -43,14 +43,14 @@ const healthcareDirections = [
 
 const dataGemsHighlights = [
   {
-    title: 'Distributed-decentralized execution',
+    title: 'Privacy centered distributed-decentralized execution',
     description:
-      'DataGems runs synthetic-data generation jobs across distributed peers rather than relying on a single centralized runtime.'
+      'DataGems allows partners to execute synthetic-data generation processes across distributed nodes, thereby eliminating the reliance on a singular, centralized runtime environment. SmartClover operates as a client utilizing the services offered by our partners through this system, with the partners contributing confidential data and expertise to the DataGems platform.'
   },
   {
-    title: 'SLM-first generation with API optionality',
+    title: 'Low-power low-compute SLM-first generation',
     description:
-      'The app uses SLMs by default and can integrate external APIs when needed to produce high-quality synthetic data for domain-specific model training and test-data preparation.'
+      'The system uses SLMs by default and can integrate external APIs when needed to produce high-quality synthetic data for domain-specific model training and test-data preparation, enabling multiple "live data factory" services providers.'
   }
 ];
 
@@ -85,7 +85,7 @@ const dataGemsShots = [
     height: 491,
     alt: 'DataGems sign-in and account creation interface.',
     title: 'Workspace sign-in',
-    description: 'Entry point for authenticated access before running distributed synthetic-data generation jobs.'
+    description: 'Provides basic tenant authenticated access before running distributed synthetic-data generation jobs.'
   }
 ];
 
@@ -103,8 +103,8 @@ const Products = () => (
       <span className="tagline">Products & More</span>
       <h1>Product portfolio with one compact diligence hub</h1>
       <p>
-        SmartClover currently operates CerviGuard and DataGems, while additional modules stay on a staged roadmap.
-        Commercial and compliance pages are grouped in one section for faster qualification.
+        SmartClover currently operates and actively develops CerviGuard, our flagship product, and provides specialized 
+        Data Science and Advanced Analytics services to a diverse portfolio of partners across various industries.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -149,31 +149,17 @@ const Products = () => (
       </div>
     </section>
 
-    <section className="surface-card" aria-labelledby="products-proof-heading">
-      <div className="section-heading">
-        <h2 id="products-proof-heading">Live product evidence context</h2>
-      </div>
-      <p>
-        Live application access is available at{' '}
-        <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">cerviguard.link</a> and{' '}
-        <a href="https://datagems.app" target="_blank" rel="noopener noreferrer">datagems.app</a>, with public repositories at{' '}
-        <a href="https://github.com/SmartCloverAI/CerviGuard" target="_blank" rel="noopener noreferrer">
-          SmartCloverAI/CerviGuard
-        </a>{' '}
-        and{' '}
-        <a href="https://github.com/SmartCloverAI/DataGems" target="_blank" rel="noopener noreferrer">
-          SmartCloverAI/DataGems
-        </a>. Dedicated pricing, onboarding, proof, regulatory, and trust pages are grouped below.
-      </p>
-    </section>
-
     <section className="surface-card datagems-spotlight" aria-labelledby="products-datagems-heading">
       <div className="section-heading">
         <h2 id="products-datagems-heading">DataGems features in practice</h2>
         <p>
-          DataGems is a distributed-decentralized synthetic-data application that uses SLMs, with optional external API
-          integration, to generate high-quality data primarily for domain-specific model training and also for test-data
-          preparation in downstream systems.
+          SmartClover is a significant consumer and procurer of synthetic data for its proprietary products, which led to 
+          the establishment of DataGems, a pilot application for distributed-decentralized synthetic data generation, enabling 
+          our partners to utilize SLMs, with optional external API integration, to produce high-quality data primarily for 
+          domain-specific model training and also for test-data preparation in subsequent systems. SmartClover collaborates 
+          closely with partners to establish and execute DataGems generation jobs, operating as the solution architect and producer, 
+          while the partner functions as the "live data factory" services provider. Commercial deployment of DataGems is exclusively 
+          available to our data creation partners.
         </p>
       </div>
       <div className="cta-links">

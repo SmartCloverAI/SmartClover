@@ -51,7 +51,7 @@ const aiHealthcareDirections = [
   {
     title: 'Direction 2: Generative SaaS/PaaS + Qualitative Research Automation',
     description:
-      'Generative systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
+      'Currently under research, we envision generative systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
   }
 ];
 
