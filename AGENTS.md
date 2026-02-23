@@ -1184,3 +1184,19 @@ No modification batch is complete until this entry is appended.
   - `npm run build` -> pass.
   - `node (Playwright desktop/mobile section captures on /products after consent dismissal)` -> pass (scope text and CTA/icon layout verified visually).
 - Residual Risk: Scope language is now aligned to current user-provided definition; if DataGems capability boundaries change, copy can drift without periodic review.
+
+### [2026-02-23 10:52 UTC] ADVERSARIAL-CHECK
+- Scope: JSX lint-blocking entity fix on `/products` (`pages/products.jsx`) and required process logging update (`AGENTS.md`).
+- BUILDER Intent + Change:
+  - Fixed production compile failure caused by unescaped double quotes in JSX text at the DataGems description block.
+  - Replaced `"live data factory"` with `&quot;live data factory&quot;` in `pages/products.jsx`.
+- CRITIC Findings:
+  - `react/no-unescaped-entities` from Next.js lint step blocks `next build` if raw quotes remain in JSX text.
+  - A narrow fix could still leave other unescaped entities in the same file if not revalidated.
+- BUILDER Response / Refinements:
+  - Applied entity escaping at the exact failing sentence in `pages/products.jsx`.
+  - Re-ran full lint and production build to ensure no remaining compile blockers.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings/errors).
+  - `npm run build` -> pass (Next.js build completed; `/products` generated successfully).
+- Residual Risk: None for this specific lint failure; future copy edits in JSX can reintroduce unescaped entity issues if not linted.

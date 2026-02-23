@@ -158,7 +158,7 @@ const Products = () => (
           our partners to utilize SLMs, with optional external API integration, to produce high-quality data primarily for 
           domain-specific model training and also for test-data preparation in subsequent systems. SmartClover collaborates 
           closely with partners to establish and execute DataGems generation jobs, operating as the solution architect and producer, 
-          while the partner functions as the "live data factory" services provider. Commercial deployment of DataGems is exclusively 
+          while the partner functions as the &quot;live data factory&quot; services provider. Commercial deployment of DataGems is exclusively 
           available to our data creation partners.
         </p>
       </div>
