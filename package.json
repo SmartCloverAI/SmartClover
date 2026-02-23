@@ -1,6 +1,6 @@
 {
   "name": "smartclover-webpage",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
