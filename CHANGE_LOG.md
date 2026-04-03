@@ -353,3 +353,119 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run lint` -> pass (`next lint` reported no warnings or errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: `version.json` is now a required release artifact; if it is deleted, renamed, or given invalid JSON, builds will fail until it is restored.
+
+### [2026-04-03 05:32 UTC] TYPE: correction
+- Author: Codex
+- Summary: Corrected the live-deployment interpretation in `PLAN.md`: the public site currently shows footer version `v2.10`, upgrades the footer host label to `smart-01` after hydration via `/api/host-id`, uses a mixed static-friendly Pages Router shape rather than one uniform export mode, and still lacks a live `sitemap.xml`.
+- Evidence: `PLAN.md`; live checks `https://smartclover.ro/`, `https://smartclover.ro/trust`, `https://smartclover.ro/api/host-id`, `https://smartclover.ro/robots.txt`, `https://smartclover.ro/sitemap.xml`; browser verification with Playwright against `https://smartclover.ro/` and `https://smartclover.ro/trust`.
+- Impact: Future planning now distinguishes raw prerendered HTML from hydrated runtime truth, avoids overstating the deployment as a pure export, and captures the broader live metadata and crawlability gaps that still need remediation.
+- Follow-up: use the new live-deployment audit checklist pattern before making further planning claims about the public site.
+- Related Entry: [2026-04-03 04:11 UTC] TYPE: discovery
+
+### [2026-04-03 05:32 UTC] ADVERSARIAL-CHECK
+- Scope: end-to-end live-site re-audit and `PLAN.md` corrections for deployment shape, footer/runtime behavior, metadata gaps, crawl policy, and planning workflow.
+- BUILDER Intent + Change:
+  - Re-audited the live `smartclover.ro` deployment instead of relying on the earlier planning snapshot.
+  - Updated `PLAN.md` to reflect the current live footer version, raw-versus-hydrated host-id behavior, mixed static-friendly Next.js Pages Router delivery, broader metadata gaps, current `robots.txt` posture, and missing live `sitemap.xml`.
+  - Added explicit live-deployment audit requirements to the plan outputs, checking methods, and immediate next steps so future planning work validates raw HTML, hydrated browser state, and runtime endpoints separately.
+  - Expanded metadata acceptance targets to include Trust and aligned success wording with the intended `ai-input` policy.
+- CRITIC Findings:
+  - The earlier plan conflated the prerendered footer placeholder `unknown` with the hydrated runtime footer state.
+  - Describing the whole live site as one static export mode overstated the deployment shape because the blog is SSG while many marketing routes expose `nextExport` / `autoExport` HTML.
+  - The live crawlability gaps were understated: `ai-input` is absent, major AI crawlers are blocked, and `sitemap.xml` is missing.
+  - Metadata gaps were broader than previously recorded, extending beyond About, Products, and Blog to Trust and other public routes.
+- BUILDER Response / Refinements:
+  - Verified raw responses with `curl`, verified hydrated footer behavior with Playwright, and checked `/api/host-id`, `robots.txt`, and `sitemap.xml` directly.
+  - Rewrote the live-findings and diagnosis sections in `PLAN.md` so they record current public behavior precisely and note the raw-versus-hydrated distinction explicitly.
+  - Added a repeatable live-audit workflow to `PLAN.md` so future plan revisions are anchored to the live deployment rather than a single incomplete fetch mode.
+  - Tightened the metadata and crawlability acceptance language to match the refreshed live audit.
+- Verification:
+  - `curl -sS https://smartclover.ro/api/host-id` -> pass (`{"hostId":"smart-01"}`).
+  - `node - <<'NODE' ... playwright ... NODE` -> pass (hydrated footer on `/` and `/trust` showed host id `smart-01` and version `v2.10`).
+  - `curl -sSI https://smartclover.ro/sitemap.xml` -> pass (live response was HTTP 404, confirming missing sitemap).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Live metadata coverage and crawler policy can still drift independently of repo changes if edge-level deployment configuration changes outside this repository.
+
+### [2026-04-03 05:36 UTC] TYPE: decision
+- Author: Codex
+- Summary: Locked the discoverability policy more explicitly in `PLAN.md`: robots/content signals/crawler settings must be open in practice, not merely intended in docs and not left partially closed by edge-level defaults.
+- Evidence: `PLAN.md`; user correction in-session; live `https://smartclover.ro/robots.txt` showing current `ai-train=no` plus blocked major AI crawlers.
+- Impact: Future refactor and deployment work must treat open crawlability as a concrete release requirement, not a soft preference or later cleanup item.
+- Follow-up: implement the live edge/config changes needed to publish the open posture together with a live `sitemap.xml`.
+
+### [2026-04-03 05:36 UTC] ADVERSARIAL-CHECK
+- Scope: discoverability-policy tightening in `PLAN.md` for robots/content signals/crawler openness and related acceptance criteria.
+- BUILDER Intent + Change:
+  - Tightened `PLAN.md` so the live crawl posture is explicitly required to be open by default.
+  - Clarified that the live deployment must not remain partially closed through edge-level overrides, inherited bot blocks, or mismatched robots/content-signal settings.
+  - Updated the deployment-correction language, acceptance criteria, risks, and immediate next steps so “open in practice” is part of completion, not just aspiration.
+- CRITIC Findings:
+  - The prior wording still allowed too much ambiguity: a reader could treat `search=yes` plus blocked AI crawlers as “close enough.”
+  - If the plan only described intended values without saying the posture must be open in practice, future work could leave Cloudflare or other edge rules partially closed.
+  - Without pushing this into acceptance criteria and next steps, the policy could still be deferred.
+- BUILDER Response / Refinements:
+  - Added explicit “open by default” and “open in practice” wording in the discoverability policy and phase-exit criteria.
+  - Made the deployment-correction step state that major AI crawlers should not remain blocked by default unless a later documented policy intentionally changes that.
+  - Added closed-posture drift as an explicit risk and made opening the live crawl posture part of the concrete next-step task list.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The plan is now explicit, but the live site will remain partially closed until the edge-level robots/content-signal/crawler configuration is actually changed.
+
+### [2026-04-03 06:34 UTC] TYPE: decision
+- Author: Codex
+- Summary: Locked authenticated CerviGuard and DataGems access into the website-refactor workflow: agents must use the locally stored `.env` credentials during development to gather current first-party screenshots, workflow details, and product facts, while keeping secrets and sensitive app data out of docs, logs, and published assets.
+- Evidence: `AGENTS.md`, `PLAN.md`; local checks `ls -a .env .env.local` and a non-secret `.env` presence scan confirming both `CERVIGUARD` and `DATAGEMS` entries exist.
+- Impact: Future content, imagery, and product-detail work is now anchored to current authenticated product reality instead of stale website copy or unauthenticated captures.
+- Follow-up: Use authenticated walkthroughs to build the first screenshot/workflow inventory before the next major Home, CerviGuard, or Products refactor batch.
+
+### [2026-04-03 06:34 UTC] ADVERSARIAL-CHECK
+- Scope: authenticated-app evidence workflow update in `AGENTS.md` and `PLAN.md`.
+- BUILDER Intent + Change:
+  - Updated `AGENTS.md` so structural work affecting product content, screenshots, workflows, or product-detail claims must use authenticated CerviGuard and DataGems access during development.
+  - Added durable secret-handling and screenshot-curation guardrails to `AGENTS.md` for local `.env` credentials and sensitive in-app data.
+  - Updated `PLAN.md` so authenticated CerviGuard/DataGems access, screenshot inventory creation, and first-party app evidence are explicit non-negotiables, image-work tasks, phase outputs, checking methods, and immediate next steps.
+- CRITIC Findings:
+  - Without a durable rule, future agents could keep relying on stale public-site screenshots or generic copy instead of the real applications.
+  - Adding app-access expectations without secret-handling guidance would create leak risk around `.env` credentials and captured in-app data.
+  - If the requirement lived only in one doc, execution drift would remain likely between durable playbook guidance and active refactor planning.
+- BUILDER Response / Refinements:
+  - Added the requirement to both `AGENTS.md` and `PLAN.md` so it affects both long-term workflow and the active refactor plan.
+  - Kept the evidence wording explicit: authenticated first-party application evidence is preferred over stale or unauthenticated captures.
+  - Added guardrails against exposing secrets and sensitive account or patient-like data in screenshots, docs, logs, commits, or generated artifacts.
+- Verification:
+  - `ls -a .env .env.local` -> pass (`.env` exists locally).
+  - `python - <<'PY' ... PY` -> pass (non-secret scan confirmed `.env` contains both CerviGuard and DataGems-related entries without printing values).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The workflow is now explicit, but screenshot quality and data-sensitivity handling will still depend on careful human review each time authenticated app captures are taken.
+
+### [2026-04-03 09:10 UTC] TYPE: decision
+- Author: Codex
+- Summary: Finalized `PLAN.md` as the execution-ready refactor contract by locking the site objective stack, CTA hierarchy, route keep/merge map, page roles, product-status wording, proof requirements, visual requirements, execution phases, and launch gates based on the user's end-to-end objective clarifications.
+- Evidence: `PLAN.md`; local route inventory via `find pages -maxdepth 2 -type f | sort`; page inspections for `pages/services.jsx`, `pages/cloud-architecture.jsx`, `pages/decentralized.jsx`, `pages/cybersecurity.jsx`, `pages/values.jsx`; in-session user clarifications on objectives, audiences, route decisions, proof model, and launch posture.
+- Impact: Implementation can now proceed without further strategic ambiguity about what the site is optimizing for, which routes are staying or merging, what proof must be shown, and what counts as done for launch.
+- Follow-up: Start Phase 0 by creating the evidence register, migration register, and authenticated screenshot inventory, then execute the shell/Home/About/Contact batch first.
+
+### [2026-04-03 09:10 UTC] ADVERSARIAL-CHECK
+- Scope: final `PLAN.md` rewrite into an execution-ready refactor plan.
+- BUILDER Intent + Change:
+  - Rewrote `PLAN.md` from a planning-heavy draft into an execution contract centered on the user's clarified business objectives.
+  - Locked `Book demo` as the primary CTA, `Contact` as the main conversion hub, `Products` as the destination for merged product/architecture content, `Trust` as the diligence hub, and `About` as the founder-led credibility page.
+  - Added explicit route decisions for kept, merged, and retained trust-subpage surfaces so no public route is left implicit.
+  - Added concrete proof requirements, mandatory visual assets, cautious claim categories, page-level objectives, page-level done criteria, and launch gates including metadata and crawlability requirements.
+- CRITIC Findings:
+  - The prior plan still allowed too much strategic interpretation around the primary conversion path, especially between `Contact` and `CerviGuard`.
+  - Several live public routes had not been explicitly assigned to keep, merge, or retire destinations, which made the non-loss rule hard to enforce.
+  - The first-release scope included `Pricing`, `How to Buy`, and `Blog`, but the initial rewrite did not yet give them explicit page-level done criteria.
+  - Without explicit product-status language and proof requirements, execution could still drift toward polished but weakly evidenced messaging.
+- BUILDER Response / Refinements:
+  - Locked the CTA hierarchy and page-role model so `Contact` owns conversion while `CerviGuard` remains the flagship proof page.
+  - Added an explicit route map and merge-retire rule covering `Proof`, `Regulatory`, `Services`, `Cloud Architecture`, `Decentralized`, `Cybersecurity`, and `Values`.
+  - Added page-level done criteria for `Pricing`, `How to Buy`, and `Blog` so every first-release page now has a completion standard.
+  - Added explicit status wording for `CerviGuard` and `DataGems`, plus concrete proof and visual requirements anchored to authentic first-party artifacts.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: The plan is now execution-ready, but delivery quality still depends on disciplined upkeep of the evidence and migration registers and on capturing high-quality authenticated product visuals before page implementation proceeds.

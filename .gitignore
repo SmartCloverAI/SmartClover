@@ -11,3 +11,5 @@ yarn-error.log*
 .env
 
 WORK/
+
+LOCAL_PROMPT.md

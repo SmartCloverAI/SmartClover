@@ -38,6 +38,7 @@ If the task is strategic and `RESEARCH.md` or `PLAN.md` is missing or stale, upd
    - evidence requirements for claims,
    - image strategy and missing assets,
    - verification criteria.
+   If product content, screenshots, workflows, or product-detail claims are affected, access the authenticated CerviGuard and DataGems applications during development before finalizing copy or visuals.
 5. Execute changes in focused batches.
 6. After each meaningful modification batch, run the exact loop in `## 16) BUILDER-CRITIC Loop`.
 7. Append required `TYPE:*` and `ADVERSARIAL-CHECK` entries to `CHANGE_LOG.md`.
@@ -135,6 +136,7 @@ If a template requires paid licensing or a new CMS dependency, document that tra
 ## 10) Content, Claims, and Source Discipline
 - Every material healthcare, research, security, regulatory, or product claim must be backed by a verifiable source or first-party evidence artifact.
 - Prefer primary sources when available: product repos, product URLs, regulatory docs, DOI/PMID records, standards docs, or first-party screenshots.
+- When SmartClover-controlled applications are available, prefer authenticated first-party application evidence over stale website copy or unauthenticated marketing captures.
 - If a claim cannot be verified, downgrade it, qualify it, or remove it.
 - Avoid vague superlatives such as "state-of-the-art", "leading", or "advanced" unless the comparison basis is explicit and defensible.
 - Favor people-first, easy-to-read, well-organized content over keyword-heavy copy.
@@ -143,11 +145,12 @@ If a template requires paid licensing or a new CMS dependency, document that tra
 
 ## 11) Image and Media Discipline
 - Prefer this visual-source order:
-  1. authentic product screenshots,
+  1. authentic product screenshots captured from current authenticated CerviGuard and DataGems sessions when relevant,
   2. custom diagrams based on real workflows,
   3. licensed editorial or documentary photography,
   4. carefully selected stock,
   5. generative imagery only for clearly non-evidentiary supporting visuals.
+- For SmartClover website refactor work, authenticated CerviGuard and DataGems sessions are mandatory first-party visual sources when those products or workflows are described.
 - Do not use low-credibility generic AI imagery as proof on flagship, trust, regulatory, or product-detail pages.
 - Every non-decorative image must have meaningful alt text.
 - Every important image must be responsive, sharp on high-density displays, and appropriately cropped for mobile.
@@ -180,13 +183,16 @@ Pages that usually deserve highest polish:
 - `components/ServedByComponent.tsx` fetches `/api/host-id` at runtime and upgrades the display when available.
 - `/api/host-id` resolves: `EE_HOST_ID` -> `R1EN_HOST_ID` -> `NEXT_PUBLIC_EE_HOST_ID` -> `unknown`.
 - `/api/host-id` sets `Cache-Control: no-store, max-age=0`.
+- Local `.env` contains development credentials for authenticated access to the CerviGuard and DataGems applications.
 - Never commit `.env*` files.
+- Never print, paste, or store `.env` secrets in docs, screenshots, logs, commits, or generated artifacts.
 
 Known pitfalls:
 - Manual versioning is easy to miss: bump `version.json` only once per commit.
 - Host-id label may remain `unknown` if runtime env vars are not set by deployment.
 - Blog rendering depends on compatible `remark` and `remark-html` versions plus valid front matter.
 - Citation maintenance is manual: keep page claims and `public/docs/smartclover-cerviguard-citations.bib` synchronized.
+- Authenticated app screenshots can accidentally expose sensitive account, test, or patient-like data if not reviewed and curated before publication.
 - No active CI workflows currently exist in `.github/workflows/`; local validation is mandatory.
 - Do not commit generated artifacts such as `.next/`.
 
