@@ -1,171 +1,92 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
+import PageSeo, { siteUrl } from '../components/PageSeo';
 
-const siteUrl = 'https://smartclover.ro';
-const pageTitle = 'SmartClover | AI-Centric Healthcare Product Company';
-const pageDescription =
-  'SmartClover is an AI-centric healthcare product company operating two directions: classical imaging and structured-data inferential/predictive analytics (including the MDR Class I CerviGuard companion app), and generative SaaS systems for prophylaxis communication plus qualitative research automation.';
-
-const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
-
-const missionHighlights = [
+const proofCards = [
   {
-    title: 'Human-in-the-Loop Design',
-    description: 'Clinicians, educators, and domain experts shape every iteration with continuous feedback loops.'
-  },
-  {
-    title: 'Data Sovereignty by Default',
-    description: 'Private, decentralized edge deployments ensure sensitive data never leaves your environment.'
-  },
-  {
-    title: 'Transparent AI Governance',
-    description: 'Every recommendation retains provenance, audit logs, and evidence for rapid verification.'
-  }
-];
-
-const trustMetrics = [
-  {
-    value: 'Data sovereignty controls',
-    description: 'Client data stays inside secure environments, aligning with regulatory and patient expectations.'
-  },
-  {
-    value: 'Evidence-linked outputs',
-    description: 'Insights remain linked to primary evidence so clinical teams can validate AI-generated findings.'
-  },
-  {
-    value: 'Human decision authority',
-    description: 'Clinicians maintain final decision authority across research, security, and education workflows.'
-  }
-];
-
-const techPartners = [
-  {
-    title: 'NVIDIA GPUs & Deep Learning',
-    description: 'Accelerated training and fine-tuning of domain-specific models unlock near real-time healthcare insights.'
-  },
-  {
-    title: 'Sovereign Deployment Frameworks',
+    kicker: 'Live product',
+    title: 'CerviGuard is the flagship proof point.',
     description:
-      'On-prem and on-edge execution frameworks support sovereign AI, app, and eSource operations with ledger immutability and modern CI/CD pipelines.'
+      'The live product surface, public repository, and trust routes make the cervical screening story inspectable instead of abstract.'
   },
   {
-    title: 'Healthcare Research Network',
-    description: 'Romanian Cancer Society and clinical research institutions inform oncology product evidence and communication.'
+    kicker: 'Research continuity',
+    title: 'Founder and clinical research signals are public.',
+    description:
+      'Two PubMed anchors tie the company narrative back to Romanian cervical screening and follow-up research continuity.'
+  },
+  {
+    kicker: 'Trust routes',
+    title: 'Security, privacy, proof, and regulatory material stay visible.',
+    description:
+      'Serious evaluators can move from the homepage into trust, proof, pricing, and buying paths without hunting for context.'
   }
 ];
 
-const serviceIdentity = [
+const portfolioCards = [
   {
-    title: 'Own Product Portfolio',
-    description: 'SmartClover builds and operates its own production applications instead of one-off implementations.'
+    kicker: 'Flagship product',
+    title: 'CerviGuard',
+    description:
+      'A live product for structured cervical screening workflows, AI-assisted review, and clinician-led follow-up.'
   },
   {
-    title: 'SaaS/PaaS Revenue Model',
-    description: 'Subscription access and platform integrations pair governed usage with transparent operating SLAs.'
+    kicker: 'Live research pilot',
+    title: 'DataGems',
+    description:
+      'A live research pilot for governed synthetic-data generation using SLM-first execution with optional external APIs.'
   },
   {
-    title: 'Continuous Platform Operations',
-    description: 'Dedicated platform operations keep SmartClover products secure, reliable, and continuously improving.'
+    kicker: 'Public research directions',
+    title: 'Cancer prevention and decision support',
+    description:
+      'SmartClover publicly discusses cancer prevention, secondary prophylaxis, early detection, and treatment-optimization research as active directions, not as released products.'
   }
 ];
 
-const aiHealthcareDirections = [
+const timelineCards = [
   {
-    title: 'Direction 1: Classical Imaging + Structured Data Analytics',
+    kicker: '2017 publication',
+    title: 'Screening participation barriers documented',
     description:
-      'SmartClover deploys classical inferential and predictive AI for imaging and structured clinical datasets to support diagnosis and triage workflows.',
-    points: [
-      'Includes CerviGuard, our MDR Class I cervical cancer screening companion app',
-      'Combines imaging signals with structured data for transparent clinical support',
-      'Keeps clinicians in final control of every high-impact decision'
-    ]
+      'Social Science & Medicine published field research on Roma women and cervical screening participation in Romania, including Florian Nicula and Andreea Itu.'
   },
   {
-    title: 'Direction 2: Generative Healthcare Systems',
+    kicker: '2022 publication',
+    title: 'Follow-up barriers researched in remote communities',
     description:
-      'SmartClover builds generative systems delivered via SaaS for primary prophylaxis communication, stakeholder interaction, and qualitative research operations.',
-    points: [
-      'Designs qualitative study questionnaires with domain-aware prompting',
-      'Analyzes aggregated qualitative datasets with evidence-linked outputs',
-      'Supports communication and engagement workflows for prevention programmes'
-    ]
+      'BMJ Open published a protocol on facilitators and barriers to follow-up after abnormal cervical screening results, including Dr. Andreea Damian.'
+  },
+  {
+    kicker: '2024-2026 product build-out',
+    title: 'CerviGuard moved into a live pilot surface',
+    description:
+      'The public pilot, repository, and model hub now give SmartClover a concrete flagship proof layer instead of a roadmap-only story.'
+  },
+  {
+    kicker: 'Current company posture',
+    title: 'Trust and conversion routes are public',
+    description:
+      'Contact, pricing, how-to-buy, proof, regulatory, and trust routes stay visible so buyers, partners, and investors can evaluate fit quickly.'
   }
 ];
 
-const managedPrograms = [
+const pathCards = [
   {
-    status: 'Primary wedge',
-    title: 'Evidence-Linked Healthcare Research Platform',
-    description:
-      'Retrieval-augmented product modules that synthesize clinical notes, observational data, and medical literature into validated insights with predictive modelling built on state-of-the-art foundation models and time-series approaches.',
-    deliverables: [
-      'Early-detection intelligence with full evidence citations',
-      'Clinician co-designed annotation and review loops',
-      'Story-driven reports, dashboards, and educational briefs',
-      'Predictive modelling pipelines combining current SOTA architectures with multivariate time-series forecasting for clinical, operational, and educational scenarios'
-    ]
+    title: 'Book demo / Request pilot',
+    description: 'For clinics, hospitals, and operators evaluating CerviGuard or governed product rollout.',
+    href: '/contact#inquiry-form'
   },
   {
-    status: 'Roadmap expansion track',
-    title: 'Digital Resilience Platform for Healthcare',
-    description:
-      'AI-augmented monitoring roadmap that protects patient data, IoT estates, and hospital infrastructure with CRA-aligned anomaly detection and immutable ledger-backed audit trails.',
-    deliverables: [
-      'Noise-reduced alerting and contextual incident playbooks',
-      'On-prem and on-edge deployments that preserve data residency and sovereignty',
-      'Immutable ledger logging for compliance, modern CI/CD, and executive reporting'
-    ]
+    title: 'Research partnership',
+    description: 'For institutions exploring prevention, qualitative research, or model-development collaboration.',
+    href: '/contact#inquiry-form'
   },
   {
-    status: 'Roadmap expansion track',
-    title: 'Creative Education Experience Platform',
-    description:
-      'Generative storytelling roadmap for emotional intelligence in children within governed, educator-led spaces.',
-    deliverables: [
-      'Adaptive narratives tuned to emotional learning goals',
-      'Governed content pipelines with human review checkpoints',
-      'Impact dashboards for parents, teachers, and researchers'
-    ]
-  }
-];
-
-const faqItems = [
-  {
-    question: 'Is SmartClover a consultancy?',
-    answer:
-      'No. SmartClover is a healthcare AI product company delivering managed platforms and product operations, not consultancy or outsourcing.'
-  },
-  {
-    question: 'How are SmartClover products delivered?',
-    answer:
-      'Each product line is delivered through SaaS or private deployment tracks with managed platform operations and governance reviews.'
-  },
-  {
-    question: 'What are SmartClover\'s two AI healthcare directions?',
-    answer:
-      'Direction one is classical imaging + structured-data inferential and predictive analytics, including the MDR Class I CerviGuard companion app. Direction two is generative SaaS systems for primary prophylaxis communication, stakeholder interaction, questionnaire design, and aggregated qualitative-data analysis.'
-  },
-  {
-    question: 'Can AI crawlers and datasets reuse SmartClover content?',
-    answer:
-      'Yes. This site exposes machine-readable structured data, rich text, and transparent licensing statements so responsible AI crawlers can extract accurate context.'
-  }
-];
-
-const dataSolutions = [
-  {
-    title: 'Data Analysis',
-    description: 'Machine learning algorithms uncover deep insights and recommendations for data-driven teams.'
-  },
-  {
-    title: 'Predictive Intelligence',
-    description: 'Domain-tuned models forecast trends and outcomes for healthcare product workflows.'
-  },
-  {
-    title: 'Reusable AI Modules',
-    description: 'Productized modules accelerate rollout across screening, monitoring, and reporting scenarios.'
+    title: 'Investor inquiry',
+    description: 'For investors or accelerators reviewing SmartClover as a real healthcare AI company with public proof.',
+    href: '/contact#inquiry-form'
   }
 ];
 
@@ -175,373 +96,265 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'SmartClover is an AI-centric healthcare product company running two directions: classical imaging and structured-data analytics (including CerviGuard MDR Class I) plus generative SaaS systems for communication and qualitative research automation.',
+    'Founder-led healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, grounded in public cervical screening research continuity and trust-ready delivery.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
+  founder: {
+    '@type': 'Person',
+    name: 'Dr. Andreea Damian'
+  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Strada Cernauti 17-21',
     addressLocality: 'Cluj-Napoca',
     addressCountry: 'RO'
   },
-  makesOffer: managedPrograms.map((program) => ({
-    '@type': 'Service',
-    name: program.title,
-    description: program.description
-  })),
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'SmartClover Healthcare AI Product Portfolio',
-    itemListElement: managedPrograms.map((program) => ({
-      '@type': 'OfferCatalog',
-      name: program.title,
-      itemListElement: program.deliverables.map((item) => ({
-        '@type': 'Service',
-        name: item
-      }))
-    }))
-  }
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.question.trim(),
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'andreea@smartclover.ro',
+      url: `${siteUrl}/contact`
     }
-  }))
+  ]
 };
-
-const governancePillars = [
-  {
-    title: 'Governance Control',
-    description: 'Applications stay anchored to your policies, eliminating run-time surprises and shadow AI.'
-  },
-  {
-    title: 'Data Ownership',
-    description: 'Data never leaves your defined trust boundary; clinicians and security leaders retain custody.'
-  },
-  {
-    title: 'Permissioned Access',
-    description: 'Edge nodes execute workloads you approve, with transparent audit trails for every event.'
-  }
-];
 
 const Home = () => (
   <>
-    <Head>
-      <title>{pageTitle}</title>
-      <meta name="description" content={pageDescription} />
-      <meta
-        name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      />
-      <meta name="keywords" content="healthcare AI SaaS, healthcare AI PaaS, AI healthcare products, SmartClover, responsible AI" />
-      <meta name="author" content="SmartClover" />
-      <link rel="canonical" href={`${siteUrl}/`} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDescription} />
-      <meta property="og:url" content={`${siteUrl}/`} />
-      <meta property="og:image" content={`${siteUrl}/images/hero-gradient-workspace.png`} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content={`${siteUrl}/images/hero-gradient-workspace.png`} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(faqSchema) }} />
-    </Head>
+    <PageSeo
+      title="SmartClover | Healthcare AI With Live Product Proof"
+      description="SmartClover is a founder-led healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, with public trust routes and publication-linked research continuity."
+      path="/"
+      image="/images/cerviguard/cerviguard-dashboard.png"
+      jsonLd={organizationSchema}
+    />
 
-    <header className="surface-card hero" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <span className="tagline">Healthcare AI Products · Clinician-Governed · Sovereign Deployments</span>
-        <h1 id="hero-title">SmartClover</h1>
-        <div className="hero-intro-card" aria-label="SmartClover overview">
-          <p className="hero-intro-lead">
-            SmartClover is an AI-centric healthcare product company building and operating digital-native
-            applications.
-          </p>
-          <ul className="hero-intro-points">
-            <li>Research, resilience, and prevention workflows with sovereign deployment controls.</li>
+    <section className="hero-shell" aria-labelledby="home-hero-title">
+      <div className="hero-grid">
+        <div className="hero-panel">
+          <div className="hero-kicker-row">
+            <span className="tagline">Founder-led healthcare AI company</span>
+            <span className="proof-pill">
+              <strong>CerviGuard</strong> live product
+            </span>
+            <span className="proof-pill">
+              <strong>DataGems</strong> live research pilot
+            </span>
+          </div>
+
+          <div className="hero-copy">
+            <h1 id="home-hero-title" className="hero-title">
+              Live cervical screening software, active research pilots, and public trust routes.
+            </h1>
+            <p>
+              SmartClover is a Cluj-Napoca healthcare AI company building CerviGuard as its flagship live product and
+              DataGems as a live research pilot. The company narrative is tied to public cervical screening research,
+              visible product surfaces, and a trust-ready buying path rather than anonymous AI-marketing claims.
+            </p>
+          </div>
+
+          <div className="hero-action-row">
+            <Link href="/contact#inquiry-form" className="button primary">
+              Book demo
+            </Link>
+            <Link href="/cerviguard" className="button secondary">
+              Explore CerviGuard
+            </Link>
+            <Link href="/trust" className="button tertiary">
+              Open trust center
+            </Link>
+          </div>
+
+          <ul className="hero-evidence-list">
             <li>
-              Sovereign operating principles across AI, application, and eSource layers.
+              <strong>Product proof:</strong>
+              live product surface at{' '}
+              <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
+                cerviguard.link
+              </a>{' '}
+              plus public repository and model hub references.
             </li>
             <li>
-              Two directions: classical imaging + structured-data predictive analytics, and generative SaaS for
-              prophylaxis communication plus qualitative research automation.
+              <strong>Research continuity:</strong>
+              PubMed anchors from 2017 and 2022 tie the company story back to cervical screening and follow-up work.
+            </li>
+            <li>
+              <strong>Trust orientation:</strong>
+              privacy, security, incident response, pricing, buying, proof, and regulatory routes remain public.
             </li>
           </ul>
         </div>
-        <div className="cta-links">
-          <Link href="#contact" className="button primary">
-            Request Demo
-          </Link>
-          <Link href="/products" className="button secondary">
-            Learn More
-          </Link>
-          <Link href="/cerviguard" className="button secondary">
-            Explore CerviGuard
-          </Link>
-          <Link
-            href="/docs/SmartClover_1pagepitchdeck.pdf"
-            className="button tertiary"
-            target="_blank"
-            rel="noopener"
-          >
-            Download One-Pager
-          </Link>
+
+        <div className="detail-panel">
+          <div className="visual-frame">
+            <Image
+              src="/images/cerviguard/cerviguard-dashboard.png"
+              alt="CerviGuard dashboard showing case distribution and operational overview"
+              width={1600}
+              height={1100}
+              priority
+              sizes="(max-width: 1080px) 100vw, 42vw"
+            />
+          </div>
+          <div className="visual-caption">
+            <strong>Authentic flagship proof</strong>
+            <span>
+              The homepage now leads with a real CerviGuard product surface instead of decorative placeholder imagery.
+            </span>
+          </div>
+
+          <div className="metric-grid">
+            <article className="metric-card">
+              <strong>1</strong>
+              <p>flagship live product publicly visible through CerviGuard.</p>
+            </article>
+            <article className="metric-card">
+              <strong>1</strong>
+              <p>live research pilot publicly visible through DataGems.</p>
+            </article>
+            <article className="metric-card">
+              <strong>2</strong>
+              <p>publication anchors already visible through public PubMed references.</p>
+            </article>
+          </div>
         </div>
       </div>
-      <div className="hero-media">
-        <Image
-          src="/images/hero-gradient-workspace.png"
-          alt="Modern healthcare technology interface with AI elements"
-          width={620}
-          height={620}
-          sizes="(max-width: 879px) 100vw, 46vw"
-          priority
-        />
-      </div>
-    </header>
-
-    <section className="surface-card mission" aria-labelledby="mission-title">
-      <div className="section-heading">
-        <h2 id="mission-title">Our Mission</h2>
-        <p>We pair responsible computation with domain evidence so AI becomes a trusted product layer in healthcare.</p>
-      </div>
-      <div className="pillars-grid">
-        {missionHighlights.map((highlight) => (
-          <div key={highlight.title} className="pillar-card">
-            <h3>{highlight.title}</h3>
-            <p>{highlight.description}</p>
-          </div>
-        ))}
-      </div>
     </section>
 
-    <section className="surface-card" aria-labelledby="service-company-heading">
+    <section className="surface-card proof-panel" aria-labelledby="home-proof-heading">
       <div className="section-heading">
-        <h2 id="service-company-heading">Digital Product Operating Model</h2>
+        <h2 id="home-proof-heading">Why the first screen now carries real proof</h2>
         <p>
-          SmartClover delivers outcomes through a product-first model. Every deployment combines platform engineering,
-          operations, and accountable governance anchored in sovereign AI, application, and eSource control principles.
+          The homepage has one job: establish that SmartClover is a real healthcare AI company with a real flagship
+          product, research continuity, and a visible diligence path.
         </p>
       </div>
-      <div className="feature-grid three-up">
-        {serviceIdentity.map((item) => (
-          <div key={item.title} className="feature">
-            <h3 className="feature-title">{item.title}</h3>
-            <p className="feature-description">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="trust-heading">
-      <div className="section-heading">
-        <h2 id="trust-heading">Trust Commitments</h2>
-        <p>Every SmartClover deployment is governed by documented controls and publication-safe trust commitments.</p>
-      </div>
-      <div className="stat-blocks">
-        {trustMetrics.map((metric) => (
-          <div key={metric.value} className="stat">
-            {metric.value}
-            <small>{metric.description}</small>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="ai-directions-heading">
-      <div className="section-heading">
-        <h2 id="ai-directions-heading">Two Healthcare AI Product Directions</h2>
-        <p>
-          SmartClover&apos;s digital-product strategy combines classical clinical analytics with generative SaaS systems for
-          prevention communication and research intelligence.
-        </p>
-      </div>
-      <div className="feature-grid two-up">
-        {aiHealthcareDirections.map((direction) => (
-          <article key={direction.title} className="feature">
-            <h3 className="feature-title">{direction.title}</h3>
-            <p className="feature-description">{direction.description}</p>
-            <ul>
-              {direction.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
+      <div className="story-grid">
+        {proofCards.map((item) => (
+          <article key={item.title} className="story-card">
+            <p className="kicker">{item.kicker}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
           </article>
         ))}
       </div>
     </section>
 
-    <section className="surface-card" aria-labelledby="service-programs-heading">
+    <section className="surface-card" aria-labelledby="home-portfolio-heading">
       <div className="section-heading">
-        <h2 id="service-programs-heading">AI Product Platform Modules</h2>
+        <h2 id="home-portfolio-heading">A flagship-first company that still looks like a company</h2>
         <p>
-          CerviGuard and healthcare analytics remain the active primary wedge. Additional modules are sequenced as phased
-          roadmap tracks to preserve delivery focus.
+          CerviGuard remains the strongest proof point, but the wider platform, research, and diligence surfaces stay
+          visible so SmartClover does not read like a single-page shell.
         </p>
       </div>
-      <div className="service-programs">
-        {managedPrograms.map((program) => (
-          <article key={program.title} className="service-program">
-            <p className="kicker">{program.status}</p>
-            <h3>{program.title}</h3>
-            <p>{program.description}</p>
-            <ul>
-              {program.deliverables.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+      <div className="story-grid">
+        {portfolioCards.map((item) => (
+          <article key={item.title} className="story-card">
+            <p className="kicker">{item.kicker}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+      <div className="inline-link-row">
+        <Link href="/products" className="button secondary">
+          View product portfolio
+        </Link>
+        <Link href="/pricing" className="button tertiary">
+          See pricing approach
+        </Link>
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="home-credibility-heading">
+      <div className="founder-grid">
+        <div className="story-card">
+          <p className="kicker">Founder and research credibility</p>
+          <h2 id="home-credibility-heading">SmartClover ties product work to named people, publications, and public artifacts.</h2>
+          <p>
+            The company narrative is anchored to founder Dr. Andreea Damian, publication continuity that includes
+            earlier work published as Andreea Itu, and cervical screening research involving Dr. Florian Nicula. That is
+            materially stronger than generic “AI for healthcare” copy without named accountability.
+          </p>
+          <div className="key-points">
+            <span>PubMed 35197342 links directly to Romanian follow-up research in remote communities.</span>
+            <span>PubMed 28460211 links directly to barriers in cervical screening participation in Romania.</span>
+            <span>CerviGuard, GitHub, Hugging Face, and trust routes keep the company inspectable.</span>
+          </div>
+          <div className="inline-link-row">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/35197342/" target="_blank" rel="noopener noreferrer" className="button secondary">
+              Open 2022 PubMed record
+            </a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28460211/" target="_blank" rel="noopener noreferrer" className="button tertiary">
+              Open 2017 PubMed record
+            </a>
+          </div>
+        </div>
+
+        <div className="detail-panel">
+          <div className="visual-frame">
+            <Image
+              src="/images/research-lab.png"
+              alt="Research workspace supporting SmartClover's publication-linked credibility"
+              width={1024}
+              height={1024}
+              sizes="(max-width: 1080px) 100vw, 40vw"
+            />
+          </div>
+          <div className="visual-caption">
+            <strong>Named credibility, not anonymous branding</strong>
+            <span>The company story stays tied to research continuity, public routes, and accountable operators.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="surface-card" aria-labelledby="home-timeline-heading">
+      <div className="section-heading">
+        <h2 id="home-timeline-heading">A compact public timeline for serious visitors</h2>
+        <p>
+          Instead of vague origin language, the homepage now shows the public milestones that connect research,
+          productization, and diligence-ready company behavior.
+        </p>
+      </div>
+      <div className="timeline-grid">
+        {timelineCards.map((item) => (
+          <article key={item.title} className="timeline-card">
+            <p className="kicker">{item.kicker}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
           </article>
         ))}
       </div>
     </section>
 
-    <section className="surface-card spotlight" aria-labelledby="research-heading">
-      <div className="spotlight-media">
-        <Image
-          src="/images/research-lab.png"
-          alt="Healthcare researchers reviewing advanced analytics"
-          width={620}
-          height={620}
-          sizes="(max-width: 879px) 100vw, 46vw"
-        />
-      </div>
-      <div className="spotlight-content">
-        <h2 id="research-heading">Healthcare Research Product Layer</h2>
+    <section className="surface-card" aria-labelledby="home-paths-heading">
+      <div className="section-heading">
+        <h2 id="home-paths-heading">Clear next steps for buyers, partners, and investors</h2>
         <p>
-          Retrieval-augmented large language models surface evidence-backed healthcare research with a specialised focus
-          on early detection and prevention programmes for chronic diseases.
+          The site keeps one primary CTA, but it still makes the audience-specific paths explicit for serious
+          conversations.
         </p>
-        <ul>
-          <li>Augmented analysis pipelines link every insight to source data so clinicians can verify recommendations.</li>
-          <li>Co-designed workflows keep humans central, aligning recommendations with care standards and policy.</li>
-        </ul>
-        <div className="cta-links">
-          <Link href="/blog" className="button secondary">
-            Explore Research Updates
-          </Link>
-        </div>
+      </div>
+      <div className="path-grid">
+        {pathCards.map((item) => (
+          <article key={item.title} className="path-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <Link href={item.href} className="button tertiary">
+              Go to contact hub
+            </Link>
+          </article>
+        ))}
       </div>
     </section>
 
     <DiligenceLinksSection
       headingId="home-diligence-links"
-      description="Enterprise buyers can review Pricing, How to Buy, Proof, Regulatory, and Trust from one compact section."
+      heading="Public diligence and buying routes"
+      description="Use these routes to review proof, regulatory posture, trust, pricing, and procurement context before outreach."
     />
-
-    <section className="surface-card" aria-labelledby="data-heading">
-      <div className="section-heading">
-        <h2 id="data-heading">AI-Powered Data Solutions</h2>
-        <p>We design resilient analytics engines that move from descriptive dashboards to predictive foresight.</p>
-      </div>
-      <Image
-        src="/images/analytics-dashboard.png"
-        alt="Futuristic healthcare analytics dashboard"
-        width={640}
-        height={300}
-        className="section-illustration"
-        sizes="(max-width: 879px) 100vw, 860px"
-      />
-      <div className="feature-grid three-up">
-        {dataSolutions.map((item) => (
-          <div key={item.title} className="feature">
-            <h3 className="feature-title">{item.title}</h3>
-            <p className="feature-description">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section className="surface-card spotlight" aria-labelledby="governance-heading">
-      <div className="spotlight-media">
-        <Image
-          src="/images/governance-network.png"
-          alt="Secure healthcare data network with encrypted connections"
-          width={620}
-          height={620}
-          sizes="(max-width: 879px) 100vw, 46vw"
-        />
-      </div>
-      <div className="spotlight-content">
-        <h2 id="governance-heading">Your AI, Your Data</h2>
-        <p>
-          We keep workloads transparent, permissioned, and evidence-linked with ledger immutability, modern CI/CD, and
-          on-prem/on-edge execution so healthcare leaders retain full governance.
-        </p>
-        <div className="feature-grid three-up compact">
-          {governancePillars.map((item) => (
-            <div key={item.title} className="feature">
-              <h3 className="feature-title">{item.title}</h3>
-              <p className="feature-description">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="partnership-heading">
-      <div className="section-heading">
-        <h2 id="partnership-heading">Technology Foundations & Research Network</h2>
-        <p>Infrastructure providers and research institutions reinforce ethical, sovereign healthcare AI across product lines.</p>
-      </div>
-      <div className="pillars-grid">
-        {techPartners.map((partner) => (
-          <div key={partner.title} className="pillar-card">
-            <h3>{partner.title}</h3>
-            <p>{partner.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="faq-heading">
-      <div className="section-heading">
-        <h2 id="faq-heading">SmartClover Product FAQs</h2>
-        <p>Clear, crawler-friendly answers to how our healthcare AI products and platforms operate.</p>
-      </div>
-      <dl className="faq-list">
-        {faqItems.map((item) => (
-          <div key={item.question} className="faq-item">
-            <dt>{item.question}</dt>
-            <dd>{item.answer}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-
-    <section className="surface-card spotlight closing" id="contact" aria-labelledby="collaborate-heading">
-      <div className="spotlight-media">
-        <Image
-          src="/images/partnership-handshake.png"
-          alt="Healthcare and technology teams reviewing AI product outcomes"
-          width={560}
-          height={560}
-          sizes="(max-width: 879px) 100vw, 44vw"
-        />
-      </div>
-      <div className="spotlight-content">
-        <h2 id="collaborate-heading">Ready to Launch with SmartClover Products?</h2>
-        <p>
-          Evaluate CerviGuard and other SmartClover AI product lines with a rollout model that matches your governance,
-          deployment, and clinical workflow requirements.
-        </p>
-        <div className="cta-links">
-          <Link href="mailto:andreea@smartclover.ro" className="button primary">
-            Contact Us
-          </Link>
-          <Link href="/products" className="button secondary">
-            View Portfolio
-          </Link>
-        </div>
-      </div>
-    </section>
   </>
 );
 

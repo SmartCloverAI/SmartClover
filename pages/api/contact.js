@@ -73,6 +73,7 @@ export default async function handler(req, res) {
   const fullName = clean(payload.fullName, 140);
   const email = clean(payload.email, 180);
   const organization = clean(payload.organization, 180);
+  const inquiryType = clean(payload.inquiryType, 140);
   const role = clean(payload.role, 140);
   const organizationType = clean(payload.organizationType, 140);
   const useCase = clean(payload.useCase, 2000);
@@ -81,7 +82,7 @@ export default async function handler(req, res) {
   const complianceRequirements = clean(payload.complianceRequirements, 2000);
   const consentAccepted = Boolean(payload.consentAccepted);
 
-  if (!fullName || !email || !organization || !useCase || !complianceRequirements || !consentAccepted) {
+  if (!inquiryType || !fullName || !email || !organization || !useCase || !complianceRequirements || !consentAccepted) {
     return res.status(400).json({ error: 'Missing required fields.' });
   }
 
@@ -91,10 +92,11 @@ export default async function handler(req, res) {
 
   const recipient = process.env.SMARTCLOVER_CONTACT_INBOX || 'andreea@smartclover.ro';
   const timestamp = new Date().toISOString();
-  const subject = `SmartClover qualification request - ${organization}`;
+  const subject = `SmartClover inquiry - ${inquiryType} - ${organization}`;
 
   const lines = [
     `Timestamp: ${timestamp}`,
+    `Inquiry type: ${inquiryType}`,
     `Full name: ${fullName}`,
     `Email: ${email}`,
     `Organization: ${organization}`,

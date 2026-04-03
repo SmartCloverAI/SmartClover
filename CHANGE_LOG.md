@@ -469,3 +469,61 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run lint` -> pass (`next lint` reported no warnings or errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
 - Residual Risk: The plan is now execution-ready, but delivery quality still depends on disciplined upkeep of the evidence and migration registers and on capturing high-quality authenticated product visuals before page implementation proceeds.
+
+### [2026-04-03 09:24 UTC] TYPE: change
+- Author: Codex
+- Summary: Started Phase 0 execution by creating a repo-level evidence register and migration register, capturing authenticated CerviGuard/DataGems screenshot inventory into ignored `WORK/` storage, and adding repo-owned `robots.txt` plus `sitemap.xml` foundations for the intended open-discovery posture.
+- Evidence: `EVIDENCE_REGISTER.md`, `MIGRATION_REGISTER.md`, `public/robots.txt`, `public/sitemap.xml`, `WORK/evidence-captures/2026-04-03/*`, commands `npm run lint`, `npm run build`.
+- Impact: The refactor now has durable claim/migration tracking, current first-party product evidence references, and initial crawlability artifacts inside the repo instead of relying only on plan text or edge-only behavior.
+- Follow-up: Rebuild the shared shell and the first page batch (`/`, `/about`, `/contact`) against these registers, then keep the evidence and migration files updated as merge work proceeds.
+
+### [2026-04-03 09:24 UTC] ADVERSARIAL-CHECK
+- Scope: Phase 0 execution artifacts and discoverability foundation (`EVIDENCE_REGISTER.md`, `MIGRATION_REGISTER.md`, `public/robots.txt`, `public/sitemap.xml`).
+- BUILDER Intent + Change:
+  - Created the first durable evidence register with verified, qualified, and missing-asset entries across Home, About, CerviGuard, Products, Trust, Contact, Pricing, How to Buy, and Blog.
+  - Created the first migration register covering every kept, merged, and retained trust route plus current blocking gaps.
+  - Captured authenticated CerviGuard and DataGems screenshots into ignored `WORK/evidence-captures/2026-04-03/` storage for current first-party product evidence.
+  - Added repo-owned `robots.txt` and `sitemap.xml` files aligned with the intended open-discovery posture.
+- CRITIC Findings:
+  - The new `sitemap.xml` is manual, so route drift risk remains until generation is automated or it is actively maintained.
+  - `robots.txt` expresses the intended posture in the repo, but the live site can still disagree if Cloudflare or other edge settings override it.
+  - Authenticated screenshots were captured successfully, but some contain real in-app data and therefore cannot be published blindly.
+- BUILDER Response / Refinements:
+  - Recorded the screenshot-publication risk directly in `EVIDENCE_REGISTER.md` and marked sensitive captures as `qualified` rather than immediately reusable.
+  - Included the exact missing-asset blockers in `MIGRATION_REGISTER.md` so founder photo, workflow diagram, and architecture diagram gaps stay visible during implementation.
+  - Verified the sitemap XML structure locally and kept the change scoped to repo-owned artifacts without claiming that live edge behavior is already fixed.
+- Verification:
+  - `python - <<'PY' ... ET.fromstring(Path('public/sitemap.xml').read_text()) ... PY` -> pass (parsed sitemap successfully with 18 URLs).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+- Residual Risk: Live crawlability can still remain partially closed until deployment-level settings match the new repo artifacts, and the captured product screenshots still need manual curation before any public asset refresh.
+
+### [2026-04-03 09:37 UTC] TYPE: change
+- Author: Codex
+- Summary: Rebuilt the shared site shell plus the first execution batch of pages (`/`, `/about`, `/contact`), added a reusable SEO helper, modernized the navigation/footer around the locked CTA hierarchy, and updated the contact intake flow to support explicit demo, research, investor, and general inquiry routing.
+- Evidence: `components/Layout.jsx`, `components/PageSeo.jsx`, `components/ServedByComponent.tsx`, `pages/_app.jsx`, `styles/refactor.css`, `pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `pages/api/contact.js`, local QA captures under `WORK/qa/2026-04-03/`, commands `npm run lint`, `npm run build`, Playwright local smoke checks against `http://localhost:3000/`, `/about`, and `/contact`.
+- Impact: The refactor has now moved beyond planning artifacts into a modernized public shell and a first-wave page system that makes the flagship product, founder/research credibility, and segmented contact conversion path legible on both desktop and mobile.
+- Follow-up: Rebuild `CerviGuard` and `Products` next, then merge `Services`, `Cloud Architecture`, `Decentralized`, and `Cybersecurity` content into `/products` while keeping the evidence and migration registers current.
+
+### [2026-04-03 09:37 UTC] ADVERSARIAL-CHECK
+- Scope: shared shell, SEO helper, and first execution-page batch (`components/Layout.jsx`, `components/PageSeo.jsx`, `components/ServedByComponent.tsx`, `pages/_app.jsx`, `styles/refactor.css`, `pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `pages/api/contact.js`).
+- BUILDER Intent + Change:
+  - Rebuilt the shared navigation and footer around the locked information architecture, public diligence links, and `Book demo` primary CTA.
+  - Added a reusable `PageSeo` helper so the first rewritten pages share canonical, OG, Twitter, and JSON-LD handling.
+  - Rewrote Home to lead with authentic flagship proof, explicit research continuity, a compact public timeline, and visible investor/research paths.
+  - Rewrote About to merge values into a founder-led credibility page with named publication continuity and company-history framing.
+  - Rewrote Contact into a segmented inquiry hub and updated the API payload to carry inquiry type through routing.
+- CRITIC Findings:
+  - The first mobile browser smoke test exposed a real regression: the consent panel intercepted clicks on the nav toggle, making the menu unusable on first visit.
+  - About still lacks an approved founder photo, so the page can be founder-led in copy but not yet fully founder-led in visual proof.
+  - Home and Contact now look materially stronger, but the rest of the site is still visually mixed until later phases bring CerviGuard, Products, Trust, Pricing, and Blog into the same system.
+- BUILDER Response / Refinements:
+  - Raised the shell stacking context in `styles/refactor.css` so the header and mobile nav sit above the consent panel; reran the mobile smoke check and confirmed the menu opens correctly.
+  - Kept the founder-visual gap explicit in `EVIDENCE_REGISTER.md` and used research/product imagery instead of inventing a fake portrait.
+  - Scoped the first-wave rewrite to the shell plus Home/About/Contact so the rest of the site remains functional while later batches absorb the remaining routes.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated).
+  - `node - <<'NODE' ... playwright desktop smoke on /, /about, /contact ... NODE` -> pass (desktop checks confirmed expected `h1` content and visible `Book demo` CTA; captures saved under `WORK/qa/2026-04-03/`).
+  - `node - <<'NODE' ... playwright mobile smoke on / and /contact ... NODE` -> pass (mobile nav opened successfully after the stacking fix and the contact form heading rendered correctly).
+- Residual Risk: Founder photo, workflow diagram, and architecture diagram are still missing; untouched routes still carry the older visual language until subsequent phases complete the migration.

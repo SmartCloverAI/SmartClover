@@ -44,9 +44,9 @@ const ServedBy = ({ hostId }: ServedByProps) => {
   }, []);
 
   return (
-    <div>
+    <div className="served-by-copy">
       Edge node serving this site:
-      <span className="font-semibold ml-1">{resolvedHostId}</span>
+      <span className="served-by-value">{resolvedHostId}</span>
     </div>
   );
 };
