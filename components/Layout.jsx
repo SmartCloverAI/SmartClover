@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import versionData from '../version.json';
 import ConsentManager from './ConsentManager';
 import ServedBy from './ServedByComponent';
 
@@ -89,7 +90,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
         </div>
         <ServedBy hostId={hostId} />
         <p>
-          © {new Date().getFullYear()} SmartClover. v2.9
+          © {new Date().getFullYear()} SmartClover. v{versionData.version}
           <br />
           Creativity · Digitalization · Responsible AI for Good
         </p>
