@@ -240,6 +240,48 @@ const About = () => (
       </div>
     </section>
 
+    <section className="surface-card" aria-labelledby="about-gep-heading">
+      <div className="section-heading">
+        <h2 id="about-gep-heading">Founder-led representation still needs public policy and accountability.</h2>
+        <p>
+          SmartClover is already led by a female founder and CEO. The public Gender Equality Plan turns that reality into
+          a documented commitment on recruitment, leadership, organisational culture, monitoring, training, and measures
+          against gender-based violence and sexual harassment.
+        </p>
+      </div>
+      <div className="story-grid">
+        <article className="story-card">
+          <p className="kicker">Public governance artifact</p>
+          <h3>Gender Equality Plan 2026-2028</h3>
+          <p>
+            The plan is published as a formal document and as a readable public route so partners, funders, and future
+            team members can review SmartClover's equality commitments in the open.
+          </p>
+        </article>
+        <article className="story-card">
+          <p className="kicker">Why it matters</p>
+          <h3>Founder identity is not treated as a substitute for process.</h3>
+          <p>
+            SmartClover explicitly links founder-led credibility to concrete governance: annual monitoring, inclusive
+            recruitment practice, awareness training, and a defined reporting route for misconduct concerns.
+          </p>
+        </article>
+      </div>
+      <div className="cta-links">
+        <Link href="/gender-equality-plan" className="button secondary">
+          Open Gender Equality Plan
+        </Link>
+        <a
+          href="/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf"
+          className="button tertiary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download GEP PDF
+        </a>
+      </div>
+    </section>
+
     <section className="surface-card" aria-labelledby="about-next-step-heading">
       <div className="section-heading">
         <h2 id="about-next-step-heading">Where to go next</h2>

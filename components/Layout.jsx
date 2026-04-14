@@ -41,6 +41,8 @@ const footerGroups = [
       { label: 'CerviGuard live pilot', href: 'https://cerviguard.link', external: true },
       { label: 'CerviGuard GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard', external: true },
       { label: 'SmartClover Hugging Face', href: 'https://huggingface.co/smartclover', external: true },
+      { label: 'Gender Equality Plan', href: '/gender-equality-plan' },
+      { label: 'GEP PDF', href: '/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf', external: true },
       { label: 'Contact SmartClover', href: '/contact' }
     ]
   }

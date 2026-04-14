@@ -335,6 +335,34 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - Second hash: `203692f099a6a50e190c1f6d34d46764c8074159abd37c46bda4b0b723be5b97`
   - `cmp -s public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf /tmp/gep-before.pdf && echo same` -> `same`
 - Residual Risk: The pre-script still shells out to Playwright's browser installer; if Chromium packaging changes upstream, this step may need a refresh.
+
+### [2026-04-14 12:06 UTC] TYPE: change
+- Author: Codex
+- Summary: Surfaced the public GEP across the About page, Trust center, and footer public-artifacts navigation.
+- Evidence: `components/Layout.jsx`, `pages/about.jsx`, `pages/trust/index.jsx`, `CHANGE_LOG.md`, `version.json`; live checks against `http://localhost:3000/about`, `http://localhost:3000/trust`, `http://localhost:3000/gender-equality-plan`, and `http://localhost:3000/gep`.
+- Impact: The GEP is now discoverable from the main company narrative, the trust surface, and the footer artifact list instead of only through the direct route.
+- Follow-up: Keep these placement links aligned with any future route or PDF path changes.
+
+### [2026-04-14 12:06 UTC] ADVERSARIAL-CHECK
+- Scope: GEP placement batch across About, Trust, and footer navigation (`components/Layout.jsx`, `pages/about.jsx`, `pages/trust/index.jsx`, `CHANGE_LOG.md`, `version.json`).
+- BUILDER Intent + Change:
+  - Added the GEP and GEP PDF to the footer's `Public Artifacts` group.
+  - Added a trust-center card for the public GEP.
+  - Added an About-page section that frames the public GEP as the policy complement to founder-led credibility.
+  - Bumped the repository version from `3.6` to `3.7`.
+- CRITIC Findings:
+  - Footer and About copy both reference the same public artifact, so a future rename would need coordinated updates to avoid a dead link.
+  - The new About section is intentionally opinionated; if the company story changes, it should be revised alongside the GEP copy rather than left stale.
+- BUILDER Response / Refinements:
+  - Verified the placement in a live dev server rather than relying on static source inspection alone.
+  - Confirmed `/gep` still redirects to `/gender-equality-plan`.
+  - Kept the change to presentation and navigation only, without altering the PDF pipeline or route architecture.
+- Verification:
+  - `npm run lint` -> baseline ESLint config failure as expected.
+  - `npm run build` -> baseline ESLint config failure reported, then build completed successfully.
+  - `npx next build --no-lint` -> pass.
+  - Live checks -> `/about`, `/trust`, and `/gender-equality-plan` rendered expected GEP content; footer included `Gender Equality Plan` and `GEP PDF`; `GET /gep` returned `308 Permanent Redirect` to `/gender-equality-plan`.
+- Residual Risk: The repo-level ESLint config issue remains unrelated and noisy, so standard lint/build output will continue to show the existing baseline failure until that is fixed separately.
 - Verification:
   - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
   - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)

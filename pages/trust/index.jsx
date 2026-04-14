@@ -26,6 +26,11 @@ const trustRoutes = [
     href: '/trust/incident-response',
     title: 'Incident Response',
     description: 'Severity model, response lifecycle, and corrective-action governance.'
+  },
+  {
+    href: '/gender-equality-plan',
+    title: 'Gender Equality Plan',
+    description: 'Public GEP covering governance, monitoring, training, inclusive recruitment, and anti-harassment measures.'
   }
 ];
 
