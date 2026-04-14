@@ -363,6 +363,28 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npx next build --no-lint` -> pass.
   - Live checks -> `/about`, `/trust`, and `/gender-equality-plan` rendered expected GEP content; footer included `Gender Equality Plan` and `GEP PDF`; `GET /gep` returned `308 Permanent Redirect` to `/gender-equality-plan`.
 - Residual Risk: The repo-level ESLint config issue remains unrelated and noisy, so standard lint/build output will continue to show the existing baseline failure until that is fixed separately.
+
+### [2026-04-14 12:08 UTC] TYPE: change
+- Author: Codex
+- Summary: Repositioned the About-page GEP section so it sits directly after the founder section and before the timeline section.
+- Evidence: `pages/about.jsx`, `CHANGE_LOG.md`, `version.json`; verification command `nl -ba pages/about.jsx | sed -n '130,240p'`.
+- Impact: The About page now presents the GEP immediately after the founder narrative, matching the required content order and reviewer expectation.
+- Follow-up: Keep the GEP section anchored between founder context and timeline context on future About edits.
+
+### [2026-04-14 12:08 UTC] ADVERSARIAL-CHECK
+- Scope: About-page section-order correction batch (`pages/about.jsx`, `CHANGE_LOG.md`, `version.json`).
+- BUILDER Intent + Change:
+  - Moved the existing GEP section block so it follows the founder section directly and precedes the timeline section.
+  - Updated the repository version from `3.7` to `3.8`.
+- CRITIC Findings:
+  - The content itself was already correct, so the only risk was misplacing the section and leaving the page structure inconsistent with the spec.
+  - Reordering this block had to preserve the existing copy and CTA targets exactly.
+- BUILDER Response / Refinements:
+  - Verified the section order with line-numbered source output.
+  - Left the section text unchanged and moved only the block position.
+- Verification:
+  - `nl -ba pages/about.jsx | sed -n '130,240p'` -> GEP section now appears directly after the founder section and before the timeline section.
+- Residual Risk: None beyond the existing repo-level ESLint baseline issue, which is unrelated to this placement correction.
 - Verification:
   - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
   - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)
