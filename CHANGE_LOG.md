@@ -238,6 +238,76 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
 - BUILDER Intent + Change:
   - Replaced the paid `Oatmeal` baseline with the free `Portfolio Starter Kit` baseline.
   - Re-reviewed the plan for consistency under the no-cost constraint.
+
+### [2026-04-14 07:22 UTC] TYPE: decision
+- Author: Codex
+- Summary: Approved a SmartClover-specific Gender Equality Plan design with a canonical `/gender-equality-plan` route, `/gep` alias, signed PDF artifact, and founder/trust/footer distribution model.
+- Evidence: `docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md`; approved user decisions for signatory, title, language, period, and placement.
+- Impact: GEP implementation can now proceed from a durable design artifact instead of ad hoc page copy, reducing compliance drift between web route, PDF, and site navigation.
+- Follow-up: write the implementation plan, then build the public page, PDF pipeline, and multi-location links.
+
+### [2026-04-14 07:22 UTC] ADVERSARIAL-CHECK
+- Scope: Gender Equality Plan design specification and planning record (`docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Wrote the approved SmartClover GEP design into a durable repo spec.
+  - Locked the route, PDF artifact, content structure, measures, targets, and site placement decisions.
+- CRITIC Findings:
+  - Early draft wording still contained two vague phrases that could leave implementation choices underspecified.
+  - A generic university-style GEP structure would have been a poor fit for a small founder-led healthcare company.
+- BUILDER Response / Refinements:
+  - Replaced vague footer-placement wording with the explicit `Public Artifacts` footer group target.
+  - Replaced vague data-handling wording with `lawfully recorded with minimal necessary handling`.
+  - Kept targets process-based and proportionate to SmartClover's likely scale rather than inventing quota-style commitments.
+- Verification:
+  - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
+  - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)
+- Residual Risk: Final legal or grant-review preferences may still require wording adjustments in the formal PDF before publication.
+
+### [2026-04-14 07:38 UTC] TYPE: change
+- Author: Codex
+- Summary: Added the executable implementation plan for the SmartClover Gender Equality Plan feature, covering the canonical markdown source, public route, `/gep` redirect, PDF pipeline, placement across About/Trust/Footer, and verification steps.
+- Evidence: `docs/superpowers/plans/2026-04-14-gender-equality-plan.md`; approved design spec in `docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md`.
+- Impact: Implementation can now proceed task-by-task without re-deciding architecture, route names, artifact paths, or content structure.
+- Follow-up: choose execution mode and implement the plan.
+
+### [2026-04-14 07:38 UTC] ADVERSARIAL-CHECK
+- Scope: Gender Equality Plan implementation plan artifact (`docs/superpowers/plans/2026-04-14-gender-equality-plan.md`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Converted the approved design into an execution-ready implementation plan with explicit files, code snippets, verification commands, and commit boundaries.
+  - Kept the implementation architecture anchored to one canonical markdown source to prevent web/PDF drift.
+- CRITIC Findings:
+  - The first plan draft hardcoded a Playwright version even though dependency resolution is time-sensitive and should come from `npm install`.
+  - The plan needed to acknowledge that the repo currently has no signature image asset and no automated frontend test framework.
+- BUILDER Response / Refinements:
+  - Removed the hardcoded Playwright version and made the plan rely on `npm install --save-dev playwright` plus a deterministic `package.json` script addition.
+  - Added explicit implementation notes for the typed signatory block, build-based verification, and exclusion of `.superpowers/` artifacts.
+- Verification:
+  - `rg -n "playwright\\\": \\^|/gender-equality-plan|/gep|SmartClover_Gender_Equality_Plan_2026_2028\\.pdf|GENDER_EQUALITY_PLAN_2026_2028\\.md" docs/superpowers/plans/2026-04-14-gender-equality-plan.md` -> pass (all canonical paths and artifact names are consistent; no hardcoded Playwright version remains)
+  - `rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/plans/2026-04-14-gender-equality-plan.md` -> pass for actionable content (the only match is the self-review sentence explaining that those placeholders were intentionally avoided)
+- Residual Risk: The plan assumes build-and-smoke verification rather than a new automated test framework, so execution still depends on disciplined manual route checks.
+
+### [2026-04-14 10:18 UTC] TYPE: change
+- Author: Codex
+- Summary: Added local workspace artifact ignores for `.worktrees/` and `.superpowers/` so the SmartClover repo can safely host a project-local worktree for GEP implementation.
+- Evidence: `.gitignore`; `git check-ignore -v .worktrees`; `git status --short --branch`.
+- Impact: Project-local worktrees can now be created without polluting repo status, and brainstorming/session artifacts no longer appear as accidental untracked files.
+- Follow-up: create the isolated `.worktrees/` feature workspace and execute the GEP plan there.
+
+### [2026-04-14 10:18 UTC] ADVERSARIAL-CHECK
+- Scope: local workspace ignore hardening for worktree-based GEP execution (`.gitignore`, `version.json`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Added `.worktrees` to repo ignore rules because the chosen execution mode requires a project-local worktree.
+  - Added `.superpowers` to repo ignore rules because brainstorming/server artifacts were already appearing as untracked local files.
+- CRITIC Findings:
+  - Creating `.worktrees/` without an ignore rule would risk accidental tracking of a full nested checkout.
+  - Leaving `.superpowers/` unignored would keep polluting `git status` during browser-companion and plan execution work.
+- BUILDER Response / Refinements:
+  - Added both ignore entries near the top of `.gitignore` with no broader ignore changes.
+  - Bumped `version.json` for the setup commit to follow repo commit policy.
+- Verification:
+  - `git check-ignore -v .worktrees` -> pass (returns `.gitignore` rule for `.worktrees`)
+  - `git check-ignore -v .superpowers` -> pass (returns `.gitignore` rule for `.superpowers`)
+- Residual Risk: The implementation plan's version-bump examples now need to be rebased from the new `3.1` starting point before task execution.
   - Added explicit discoverability policy for `search=yes`, `ai-input=yes`, `ai-train=yes`, crawler friendliness, `robots.txt`, sitemap, canonical coverage, OG/Twitter coverage, and JSON-LD parity.
 - CRITIC Findings:
   - A no-cost baseline could weaken the visual ambition if the plan focused only on SEO and metadata instead of design quality.
