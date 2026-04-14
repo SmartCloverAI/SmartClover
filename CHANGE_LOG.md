@@ -284,6 +284,31 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `rg -n "source: '/gep'|destination: '/gender-equality-plan'" next.config.js` -> matched the redirect on lines 12-13.
   - `npx next build --no-lint` -> pass, with `/gender-equality-plan` generated as an SSG page.
 - Residual Risk: The repo still has the shared ESLint `next` config resolution issue, so standard build output remains noisy until that baseline problem is fixed separately.
+
+### [2026-04-14 11:54 UTC] TYPE: change
+- Author: Codex
+- Summary: Added a deterministic Playwright-based PDF generator and published the public GEP PDF artifact at `/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`.
+- Evidence: `scripts/generate-gep-pdf.mjs`, `package.json`, `package-lock.json`, `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`; commands `npm install --save-dev playwright`, `npx playwright install chromium`, `npm run generate:gep-pdf`, `test -f public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf && ls -lh public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`.
+- Impact: The public GEP page CTA now resolves to a generated asset instead of a missing file, and the PDF can be regenerated deterministically from the markdown source.
+- Follow-up: Re-run the generator whenever the source markdown changes.
+
+### [2026-04-14 11:54 UTC] ADVERSARIAL-CHECK
+- Scope: public GEP PDF pipeline batch (`scripts/generate-gep-pdf.mjs`, `package.json`, `package-lock.json`, `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`, `CHANGE_LOG.md`, `version.json`).
+- BUILDER Intent + Change:
+  - Installed Playwright as a dev dependency and added a package script for deterministic GEP PDF generation.
+  - Generated the public PDF artifact from `docs/GENDER_EQUALITY_PLAN_2026_2028.md` and stored it under `public/docs`.
+  - Bumped the repository version from `3.4` to `3.5`.
+- CRITIC Findings:
+  - The generator writes a preview HTML file to `/tmp`, which could be overlooked in future cleanup or debugging sessions.
+  - The PDF pipeline depends on the markdown front matter remaining stable; changes to title or path metadata could alter the output or break the CTA.
+- BUILDER Response / Refinements:
+  - Kept the implementation deterministic and source-driven rather than introducing runtime fetches or browser navigation.
+  - Verified the generated PDF exists at the exact public path linked by the page.
+  - Limited package.json editing to the scripts addition while letting npm manage the dependency and lockfile updates.
+- Verification:
+  - `npm run generate:gep-pdf` -> pass, generated `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`.
+  - `test -f public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf && ls -lh public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf` -> pass, file present at 65K.
+- Residual Risk: The preview HTML in `/tmp` is intentionally transient; if future debugging needs it, it must be regenerated locally.
 - Verification:
   - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
   - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)
