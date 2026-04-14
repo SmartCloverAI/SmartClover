@@ -199,7 +199,7 @@ const About = () => (
           <h3>Gender Equality Plan 2026-2028</h3>
           <p>
             The plan is published as a formal document and as a readable public route so partners, funders, and future
-            team members can review SmartClover's equality commitments in the open.
+            team members can review SmartClover&apos;s equality commitments in the open.
           </p>
         </article>
         <article className="story-card">
