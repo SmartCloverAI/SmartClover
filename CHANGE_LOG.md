@@ -309,6 +309,32 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run generate:gep-pdf` -> pass, generated `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`.
   - `test -f public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf && ls -lh public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf` -> pass, file present at 65K.
 - Residual Risk: The preview HTML in `/tmp` is intentionally transient; if future debugging needs it, it must be regenerated locally.
+
+### [2026-04-14 12:02 UTC] TYPE: change
+- Author: Codex
+- Summary: Hardened the GEP PDF generator so repeated runs produce byte-identical output and automated Chromium installation is part of the executable workflow.
+- Evidence: `scripts/generate-gep-pdf.mjs`, `package.json`, `package-lock.json`, `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`; verification commands `npm run generate:gep-pdf`, `sha256sum public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`, `cmp -s public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf /tmp/gep-before.pdf && echo same`.
+- Impact: The public PDF can now be regenerated safely without hash drift, and clean checkouts no longer depend on a remembered manual browser-install step.
+- Follow-up: Regenerate the PDF only when the markdown source changes.
+
+### [2026-04-14 12:02 UTC] ADVERSARIAL-CHECK
+- Scope: reproducibility and runnable-flow refinement for the GEP PDF pipeline (`scripts/generate-gep-pdf.mjs`, `package.json`, `package-lock.json`, `public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf`, `CHANGE_LOG.md`, `version.json`).
+- BUILDER Intent + Change:
+  - Added a post-render normalization pass using `pdf-lib` to rewrite Chromium output with fixed metadata and stable serialization.
+  - Moved Chromium installation into the `pregenerate:gep-pdf` npm lifecycle step so `npm run generate:gep-pdf` is self-sufficient.
+  - Removed the hardcoded `/tmp` preview artifact because it was only a debugging aid.
+- CRITIC Findings:
+  - A PDF rewrite layer introduces another moving part, so it needed an actual hash comparison rather than a visual check.
+  - The new pre-script adds a browser-install step to every run path, which is slightly slower but avoids hidden setup state.
+- BUILDER Response / Refinements:
+  - Verified identical SHA-256 hashes across two consecutive generation runs.
+  - Confirmed `cmp -s` reported the generated file and the saved first-run copy as identical.
+  - Kept the implementation local to the repo by using a declared npm dependency instead of a global Python package.
+- Verification:
+  - First hash: `203692f099a6a50e190c1f6d34d46764c8074159abd37c46bda4b0b723be5b97`
+  - Second hash: `203692f099a6a50e190c1f6d34d46764c8074159abd37c46bda4b0b723be5b97`
+  - `cmp -s public/docs/SmartClover_Gender_Equality_Plan_2026_2028.pdf /tmp/gep-before.pdf && echo same` -> `same`
+- Residual Risk: The pre-script still shells out to Playwright's browser installer; if Chromium packaging changes upstream, this step may need a refresh.
 - Verification:
   - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
   - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)

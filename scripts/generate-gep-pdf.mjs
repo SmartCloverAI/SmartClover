@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import { chromium } from 'playwright';
+import { PDFDocument } from 'pdf-lib';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +14,6 @@ const repoRoot = path.resolve(__dirname, '..');
 const inputPath = path.join(repoRoot, 'docs', 'GENDER_EQUALITY_PLAN_2026_2028.md');
 const outputDir = path.join(repoRoot, 'public', 'docs');
 const outputPdfPath = path.join(outputDir, 'SmartClover_Gender_Equality_Plan_2026_2028.pdf');
-const outputHtmlPath = path.join('/tmp', 'SmartClover_Gender_Equality_Plan_2026_2028.preview.html');
 
 const source = await readFile(inputPath, 'utf8');
 const { data, content } = matter(source);
@@ -146,7 +146,6 @@ const html = `<!doctype html>
 </html>`;
 
 await mkdir(outputDir, { recursive: true });
-await writeFile(outputHtmlPath, html, 'utf8');
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage();
@@ -167,5 +166,22 @@ await page.pdf({
   }
 });
 await browser.close();
+
+const generatedPdf = await readFile(outputPdfPath);
+const stablePdf = await PDFDocument.load(generatedPdf);
+
+stablePdf.setTitle(data.title);
+stablePdf.setAuthor(data.owner);
+stablePdf.setCreator('Chromium');
+stablePdf.setProducer('pdf-lib');
+stablePdf.setSubject(data.description);
+stablePdf.setCreationDate(new Date(data.effectiveDate));
+stablePdf.setModificationDate(new Date(data.effectiveDate));
+
+const stableBytes = await stablePdf.save({
+  useObjectStreams: false
+});
+
+await writeFile(outputPdfPath, stableBytes);
 
 console.log(`Generated PDF: ${outputPdfPath}`);
