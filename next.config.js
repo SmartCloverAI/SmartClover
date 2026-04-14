@@ -7,6 +7,11 @@ const nextConfig = {
         source: '/services',
         destination: '/products',
         permanent: true
+      },
+      {
+        source: '/gep',
+        destination: '/gender-equality-plan',
+        permanent: true
       }
     ];
   }

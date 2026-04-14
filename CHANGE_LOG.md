@@ -258,6 +258,32 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - Replaced vague footer-placement wording with the explicit `Public Artifacts` footer group target.
   - Replaced vague data-handling wording with `lawfully recorded with minimal necessary handling`.
   - Kept targets process-based and proportionate to SmartClover's likely scale rather than inventing quota-style commitments.
+
+### [2026-04-14 11:48 UTC] TYPE: change
+- Author: Codex
+- Summary: Published the canonical public Gender Equality Plan route at `/gender-equality-plan` and added a permanent `/gep` redirect to it.
+- Evidence: `next.config.js`, `pages/gender-equality-plan.jsx`, `version.json`; verification commands `npm run build`, `rg -n "source: '/gep'|destination: '/gender-equality-plan'" next.config.js`, `npx next build --no-lint`.
+- Impact: The GEP now has a stable public URL with a short redirect alias, and the page renders directly from the checked-in markdown source.
+- Follow-up: Keep the markdown source and public route aligned if the plan text is revised.
+
+### [2026-04-14 11:48 UTC] ADVERSARIAL-CHECK
+- Scope: canonical GEP route and `/gep` redirect batch (`next.config.js`, `pages/gender-equality-plan.jsx`, `CHANGE_LOG.md`, `version.json`).
+- BUILDER Intent + Change:
+  - Added a permanent redirect from `/gep` to `/gender-equality-plan`.
+  - Added a static page that reads `docs/GENDER_EQUALITY_PLAN_2026_2028.md` at build time and exposes the plan as public HTML with SEO metadata.
+  - Bumped the repository version from `3.3` to `3.4`.
+- CRITIC Findings:
+  - `npm run build` still surfaces the pre-existing ESLint config failure (`Failed to load config "next" to extend from`), which could be mistaken for a regression if the baseline is not noted.
+  - The public page depends on front-matter fields in the markdown file; any future rename there would break static generation.
+- BUILDER Response / Refinements:
+  - Verified the new route with `npx next build --no-lint`, which completed successfully and included `/gender-equality-plan` in the generated routes.
+  - Confirmed the redirect string in `next.config.js` with `rg`.
+  - Kept the page implementation narrow and source-driven instead of adding PDF generation or navigation changes.
+- Verification:
+  - `npm run build` -> logged the existing ESLint config load failure, then completed the production build successfully.
+  - `rg -n "source: '/gep'|destination: '/gender-equality-plan'" next.config.js` -> matched the redirect on lines 12-13.
+  - `npx next build --no-lint` -> pass, with `/gender-equality-plan` generated as an SSG page.
+- Residual Risk: The repo still has the shared ESLint `next` config resolution issue, so standard build output remains noisy until that baseline problem is fixed separately.
 - Verification:
   - `test -f docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md && echo exists` -> pass (`exists`)
   - `if rg -n "TBD|TODO|implement later|fill in details|appropriate|edge cases|similar to" docs/superpowers/specs/2026-04-14-gender-equality-plan-design.md > /tmp/gep_spec_scan.txt; then cat /tmp/gep_spec_scan.txt; else echo clean; fi` -> pass (`clean`)
