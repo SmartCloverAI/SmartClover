@@ -1,7 +1,16 @@
 import { NextResponse } from 'next/server';
 
 const excludedPrefixes = ['/_next', '/api', '/images', '/.well-known'];
-const excludedExactPaths = new Set(['/favicon.ico', '/favicon.png', '/robots.txt', '/sitemap.xml', '/openapi.json']);
+const excludedExactPaths = new Set([
+  '/favicon.ico',
+  '/favicon.png',
+  '/robots.txt',
+  '/sitemap.xml',
+  '/openapi.json',
+  '/mcp',
+  '/llms.txt',
+  '/llms-full.txt'
+]);
 
 const requestWantsMarkdown = (request) => {
   const accept = request.headers.get('accept') || '';

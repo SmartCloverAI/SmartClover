@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "node --test tests/*.test.mjs",
     "pregenerate:gep-pdf": "playwright install chromium",
     "generate:gep-pdf": "node scripts/generate-gep-pdf.mjs"
   },

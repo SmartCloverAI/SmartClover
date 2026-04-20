@@ -481,8 +481,13 @@ Metadata parity must be restored across:
 - How to Buy
 - Blog index and blog posts
 
-### 13.4 Optional additions
-- `llms.txt` / `llms-full.txt` style AI-facing content map if useful later.
+### 13.4 Agent-centric optimization scope
+- Publish `llms.txt` and `llms-full.txt` as live AI-facing route and artifact maps.
+- Keep markdown negotiation, API catalog, and agent-skills discovery live and truthful.
+- Add a basic read-only MCP server on the same `smartclover.ro` website runtime at `/mcp` rather than as a separate sidecar.
+- Scope that MCP server to public SmartClover facts, product summaries, trust artifacts, and qualification routes only.
+- Publish `/.well-known/mcp/server-card.json` only when the live `/mcp` endpoint exists.
+- Do not publish fake OAuth discovery, protected-resource metadata, or write-capable MCP tools until SmartClover has real protected flows to back them.
 
 ## 14) Execution Phases
 

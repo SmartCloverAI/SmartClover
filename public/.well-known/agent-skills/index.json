@@ -4,9 +4,9 @@
     {
       "name": "public-api",
       "type": "skill-md",
-      "description": "Use SmartClover's public website APIs for service status, runtime host inspection, markdown negotiation, and structured contact intake.",
+      "description": "Use SmartClover's public website APIs, llms artifacts, and read-only MCP endpoint instead of scraping rendered pages when machine-readable public data is available.",
       "url": "/.well-known/agent-skills/public-api/SKILL.md",
-      "digest": "sha256:e99dcee56ceba85ccba6a54c097fdd2fa813ce22e52a6a652b63e969d382818f"
+      "digest": "sha256:8840f9e4c7ee65633b3af43c4c54cb4bb99457e29e5947aac3e70e696aec023e"
     },
     {
       "name": "site-navigation",

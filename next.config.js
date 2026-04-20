@@ -32,6 +32,26 @@ const nextConfig = {
       }
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/mcp',
+        destination: '/api/mcp'
+      },
+      {
+        source: '/llms.txt',
+        destination: '/api/llms'
+      },
+      {
+        source: '/llms-full.txt',
+        destination: '/api/llms?full=1'
+      },
+      {
+        source: '/.well-known/mcp/server-card.json',
+        destination: '/api/mcp-server-card'
+      }
+    ];
+  },
   async headers() {
     return [
       {

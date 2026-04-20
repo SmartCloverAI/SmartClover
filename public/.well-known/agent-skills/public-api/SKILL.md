@@ -1,13 +1,16 @@
 ---
 name: public-api
-description: Use SmartClover's public website APIs for service status, runtime host inspection, markdown negotiation, and structured contact intake.
+description: Use SmartClover's public website APIs, llms artifacts, and read-only MCP endpoint instead of scraping rendered pages when machine-readable public data is available.
 ---
 
 # SmartClover Public API Skill
 
-Use this skill when an agent needs to interact with SmartClover's public website APIs instead of scraping the rendered pages.
+Use this skill when an agent needs to interact with SmartClover's public machine-readable surfaces instead of scraping the rendered pages.
 
 ## Available endpoints
+
+- `POST https://smartclover.ro/mcp`
+  Read-only Streamable HTTP MCP endpoint for SmartClover public company facts, product summaries, trust artifacts, and qualification routes.
 
 - `GET https://smartclover.ro/api/status`
   Returns a simple health payload with `status`, `service`, `version`, `checkedAt`, and the list of public endpoints.
@@ -17,6 +20,15 @@ Use this skill when an agent needs to interact with SmartClover's public website
 
 - `POST https://smartclover.ro/api/contact`
   Submits the same structured inquiry payload used by the public contact form.
+
+- `GET https://smartclover.ro/.well-known/mcp/server-card.json`
+  Returns the discovery metadata published for the live read-only MCP server.
+
+- `GET https://smartclover.ro/llms.txt`
+  Returns a concise plain-text map of SmartClover public routes, artifacts, and agent-facing entry points.
+
+- `GET https://smartclover.ro/llms-full.txt`
+  Returns an extended plain-text map with compact summaries of public SmartClover materials.
 
 ## Contact API rules
 

@@ -784,3 +784,39 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run lint` -> pass (`next lint` reported no warnings or errors).
   - `npm run build` -> pass (Next.js production build completed successfully; all routes generated, including the agent-readiness additions from the corrected batch).
 - Residual Risk: none beyond the need to keep future version increments inside the same change batch.
+
+### [2026-04-20 11:49 UTC] TYPE: change
+- Author: Codex
+- Summary: Promoted agent-centric optimization from discovery-only artifacts to a truthful in-site protocol surface by adding `llms.txt`, `llms-full.txt`, a read-only `/mcp` endpoint, a live MCP server card, and updated docs/discovery metadata around that public machine-readable surface.
+- Evidence: `PLAN.md`, `README.md`, `next.config.js`, `middleware.js`, `pages/api/llms.js`, `pages/api/mcp.js`, `pages/api/mcp-server-card.js`, `pages/docs/api.jsx`, `lib/agent-artifacts.mjs`, `lib/mcp-server.mjs`, `public/.well-known/api-catalog`, `public/.well-known/agent-skills/*`, `_TODOs/SMARTCLOVER_READ_ONLY_MCP.md`, commands `npm test`, `npm run lint`, `npm run build`, local `curl` checks against `/llms.txt`, `/llms-full.txt`, `/.well-known/mcp/server-card.json`, and `/mcp`.
+- Impact: SmartClover now exposes an honest read-only MCP transport inside the same website runtime, so publishing MCP discovery metadata is now justified. The public machine-readable surface now covers route maps, trust artifacts, product summaries, and qualification context without pretending to support OAuth or protected capabilities.
+- Follow-up: Deploy and verify the live edge behavior for `/mcp`, server-card discovery, and whether external scanners recognize the new MCP surface as intended.
+
+### [2026-04-20 11:49 UTC] ADVERSARIAL-CHECK
+- Scope: agent-centric optimization batch (`PLAN.md`, `README.md`, `next.config.js`, `middleware.js`, `pages/api/llms.js`, `pages/api/mcp.js`, `pages/api/mcp-server-card.js`, `pages/docs/api.jsx`, `lib/agent-artifacts.mjs`, `lib/mcp-server.mjs`, `public/.well-known/api-catalog`, `public/.well-known/agent-skills/*`, `_TODOs/SMARTCLOVER_READ_ONLY_MCP.md`).
+- BUILDER Intent + Change:
+  - Rewrote the plan so agent-centric optimization explicitly includes `llms.txt`, `llms-full.txt`, and a basic read-only `/mcp` endpoint inside the SmartClover website runtime.
+  - Added a checked-in public resource catalog for SmartClover facts, product summaries, trust artifacts, and qualification routes.
+  - Implemented a minimal read-only MCP JSON-RPC surface with `initialize`, `ping`, `resources/list`, `resources/read`, and empty prompt/tool listings.
+  - Published a live server card only because the `/mcp` endpoint now exists, and updated docs, API catalog, README, and agent-skill metadata to point at the new public machine-readable routes.
+- CRITIC Findings:
+  - A server card would still be misleading if the `/mcp` route were only planned or half-implemented.
+  - Rewrites can look correct in code while failing at runtime, especially for non-HTML root paths like `/mcp` and `/llms.txt`.
+  - A “minimal MCP server” can easily drift into fake capability claims if it advertises tools, auth, or protected metadata that are not actually present.
+  - The resource catalog could become a second, stale copy of site truth if it is not intentionally constrained to high-value public summaries.
+- BUILDER Response / Refinements:
+  - Kept the MCP surface strictly read-only and limited it to public resources with no write tools, no OAuth discovery, and no protected-resource metadata.
+  - Added unit tests for the resource catalog, llms outputs, initialization payload, and resource read/list protocol behavior before wiring the public routes.
+  - Verified the rewritten public URLs against a running local production server rather than stopping at build success.
+  - Scoped the resource catalog to compact summaries and canonical URLs instead of trying to mirror full page content.
+- Verification:
+  - `npm test` -> pass (`node --test tests/*.test.mjs` reported 7/7 tests passing for resource and MCP helpers).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully with the new API routes and rewrites).
+  - `curl -sS http://127.0.0.1:3021/llms.txt` -> pass (returned the short public route/artifact map).
+  - `curl -sS http://127.0.0.1:3021/llms-full.txt` -> pass (returned the extended resource summary map).
+  - `curl -sS http://127.0.0.1:3021/.well-known/mcp/server-card.json` -> pass (returned live read-only MCP discovery metadata).
+  - `curl -sS http://127.0.0.1:3021/mcp -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"curl","version":"1.0.0"}}}'` -> pass (returned the negotiated protocol version and read-only capabilities).
+  - `curl -sS http://127.0.0.1:3021/mcp -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":2,"method":"resources/list","params":{}}'` -> pass (returned the public resource catalog).
+  - `curl -sS http://127.0.0.1:3021/mcp -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":3,"method":"resources/read","params":{"uri":"smartclover://products/cerviguard"}}'` -> pass (returned the markdown resource body for the requested URI).
+- Residual Risk: The server card format is still ecosystem-convention territory rather than a frozen core MCP spec, and live edge deployment still needs post-deploy validation because upstream behavior could differ from the local Next.js server.
