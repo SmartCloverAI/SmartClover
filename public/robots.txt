@@ -4,7 +4,4 @@ Allow: /
 Sitemap: https://smartclover.ro/sitemap.xml
 
 # SmartClover intended open-discovery posture
-search: yes
-ai-input: yes
-ai-train: yes
-
+Content-Signal: ai-train=yes, search=yes, ai-input=yes

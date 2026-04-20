@@ -1,0 +1,242 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SmartClover Public Website API",
+    "version": "1.0.0",
+    "description": "Public operational and contact-intake APIs exposed by smartclover.ro."
+  },
+  "servers": [
+    {
+      "url": "https://smartclover.ro"
+    }
+  ],
+  "externalDocs": {
+    "description": "Human-readable API documentation",
+    "url": "https://smartclover.ro/docs/api"
+  },
+  "paths": {
+    "/api/status": {
+      "get": {
+        "summary": "Get site status",
+        "operationId": "getSiteStatus",
+        "responses": {
+          "200": {
+            "description": "Current public site status and exposed endpoints.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/host-id": {
+      "get": {
+        "summary": "Get runtime host identifier",
+        "operationId": "getHostId",
+        "responses": {
+          "200": {
+            "description": "Runtime host identifier used in the footer banner.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HostIdResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "summary": "Submit a structured SmartClover inquiry",
+        "operationId": "submitContactInquiry",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The inquiry was accepted and either routed to a webhook or prepared for email fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactSuccessResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing fields or invalid email format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests from the same client window.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ok"
+          },
+          "service": {
+            "type": "string",
+            "example": "smartclover-website"
+          },
+          "version": {
+            "type": "string",
+            "example": "3.8"
+          },
+          "checkedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["status", "service", "version", "checkedAt", "endpoints"]
+      },
+      "HostIdResponse": {
+        "type": "object",
+        "properties": {
+          "hostId": {
+            "type": "string",
+            "example": "smart-01"
+          }
+        },
+        "required": ["hostId"]
+      },
+      "ContactRequest": {
+        "type": "object",
+        "properties": {
+          "inquiryType": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "organizationType": {
+            "type": "string"
+          },
+          "useCase": {
+            "type": "string"
+          },
+          "deploymentPreference": {
+            "type": "string"
+          },
+          "timeline": {
+            "type": "string"
+          },
+          "complianceRequirements": {
+            "type": "string"
+          },
+          "consentAccepted": {
+            "type": "boolean"
+          },
+          "website": {
+            "type": "string",
+            "description": "Honeypot field. Leave empty for legitimate requests."
+          }
+        },
+        "required": [
+          "inquiryType",
+          "fullName",
+          "email",
+          "organization",
+          "useCase",
+          "complianceRequirements",
+          "consentAccepted"
+        ]
+      },
+      "ContactSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "relayStatus": {
+            "type": "string",
+            "enum": ["webhook", "manual"]
+          },
+          "mailtoUrl": {
+            "type": "string"
+          }
+        },
+        "required": ["message", "relayStatus", "mailtoUrl"]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": ["error"]
+      }
+    }
+  }
+}

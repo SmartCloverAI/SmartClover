@@ -1,0 +1,67 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://smartclover.ro/api/status",
+      "service-desc": [
+        {
+          "href": "https://smartclover.ro/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://smartclover.ro/docs/api#status-api",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://smartclover.ro/api/status",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://smartclover.ro/api/host-id",
+      "service-desc": [
+        {
+          "href": "https://smartclover.ro/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://smartclover.ro/docs/api#host-id-api",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://smartclover.ro/api/status",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://smartclover.ro/api/contact",
+      "service-desc": [
+        {
+          "href": "https://smartclover.ro/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://smartclover.ro/docs/api#contact-api",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://smartclover.ro/api/status",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

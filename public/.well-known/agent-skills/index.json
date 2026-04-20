@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "public-api",
+      "type": "skill-md",
+      "description": "Use SmartClover's public website APIs for service status, runtime host inspection, markdown negotiation, and structured contact intake.",
+      "url": "/.well-known/agent-skills/public-api/SKILL.md",
+      "digest": "sha256:e99dcee56ceba85ccba6a54c097fdd2fa813ce22e52a6a652b63e969d382818f"
+    },
+    {
+      "name": "site-navigation",
+      "type": "skill-md",
+      "description": "Navigate SmartClover's public product, trust, diligence, and contact routes without guessing from the UI.",
+      "url": "/.well-known/agent-skills/site-navigation/SKILL.md",
+      "digest": "sha256:0fb2017092b90805c5632c3dbd6ac554a061241272e6389609789c6f803966d8"
+    }
+  ]
+}

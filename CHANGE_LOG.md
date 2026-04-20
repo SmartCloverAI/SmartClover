@@ -724,3 +724,63 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `node - <<'NODE' ... playwright desktop smoke on /, /about, /contact ... NODE` -> pass (desktop checks confirmed expected `h1` content and visible `Book demo` CTA; captures saved under `WORK/qa/2026-04-03/`).
   - `node - <<'NODE' ... playwright mobile smoke on / and /contact ... NODE` -> pass (mobile nav opened successfully after the stacking fix and the contact form heading rendered correctly).
 - Residual Risk: Founder photo, workflow diagram, and architecture diagram are still missing; untouched routes still carry the older visual language until subsequent phases complete the migration.
+
+### [2026-04-20 08:02 UTC] TYPE: change
+- Author: Codex
+- Summary: Added agent-discovery and agent-consumption foundations to the SmartClover website: homepage `Link` headers, repo-owned Content Signals, API catalog and OpenAPI description, human-readable API docs, markdown negotiation fallback, agent-skills discovery artifacts, a public status endpoint, and progressive WebMCP tool registration for core site actions.
+- Evidence: `next.config.js`, `middleware.js`, `pages/api/markdown.js`, `pages/api/status.js`, `pages/docs/api.jsx`, `components/WebMcpProvider.jsx`, `components/Layout.jsx`, `public/robots.txt`, `public/openapi.json`, `public/.well-known/api-catalog`, `public/.well-known/agent-skills/*`, commands `npm run lint`, `npm run build`, local `curl` checks against `/`, `/docs/api`, `/.well-known/api-catalog`, `/.well-known/agent-skills/index.json`, `/api/status`, and `Accept: text/markdown`.
+- Impact: SmartClover now publishes machine-readable discovery artifacts and can return markdown for HTML routes without relying exclusively on Cloudflare's zone-level conversion feature, while avoiding dishonest publication of OAuth or MCP metadata for capabilities the site does not yet expose.
+- Follow-up: Deploy and verify the live `smartclover.ro` edge behavior, especially homepage headers, markdown negotiation, and whether Cloudflare-level settings still override the repo-owned `robots.txt` posture.
+
+### [2026-04-20 08:02 UTC] ADVERSARIAL-CHECK
+- Scope: agent-readiness implementation batch (`next.config.js`, `middleware.js`, `pages/api/markdown.js`, `pages/api/status.js`, `pages/docs/api.jsx`, `components/WebMcpProvider.jsx`, `components/Layout.jsx`, `public/robots.txt`, `public/openapi.json`, `public/.well-known/api-catalog`, `public/.well-known/agent-skills/*`).
+- BUILDER Intent + Change:
+  - Added homepage `Link` headers advertising the API catalog, OpenAPI service description, and human-readable API docs.
+  - Replaced the informal `robots.txt` AI-use lines with a proper `Content-Signal` directive.
+  - Published an API catalog, OpenAPI document, API docs route, and `/api/status` endpoint for the site's real public API surface.
+  - Added markdown negotiation using middleware plus a server-side HTML-to-Markdown conversion route, returning `text/markdown`, `Vary: Accept`, `Content-Signal`, and `x-markdown-tokens`.
+  - Published actual agent-skills artifacts and wired progressive WebMCP registration for route and artifact navigation plus direct access to the contact form.
+- CRITIC Findings:
+  - The public site still does not expose protected APIs or an OAuth authorization server, so publishing `/.well-known/openid-configuration` or `/.well-known/oauth-protected-resource` here would be false metadata.
+  - The site still does not expose an HTTP MCP transport endpoint, so adding an MCP server card would be misleading rather than helpful.
+  - WebMCP remains early-preview browser functionality, so the registration code can compile and ship safely but cannot be fully exercised in a normal stable-browser verification loop here.
+  - Markdown conversion quality is good enough for agent consumption, but it is derived from rendered HTML and therefore not as clean as a first-party edge conversion or a route-native markdown source.
+- BUILDER Response / Refinements:
+  - Kept OAuth discovery, OAuth protected-resource metadata, and MCP server-card publication out of the repo batch and documented them as non-applicable until the corresponding capabilities exist.
+  - Used real public endpoints (`/api/contact`, `/api/host-id`, `/api/status`) as the catalog basis instead of inventing a separate API product surface.
+  - Added spacing normalization in the markdown conversion path and removed the `/docs` bypass so `/docs/api` also negotiates to markdown.
+  - Implemented WebMCP as progressive enhancement supporting both the older `provideContext()` shape and the newer `registerTool()` shape so it does not break non-supporting browsers.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; middleware, dynamic API routes, and the new `/docs/api` route all built successfully).
+  - `curl -sSI http://127.0.0.1:3020/` -> pass (homepage returned `Link` headers for `api-catalog`, `service-desc`, and `service-doc`).
+  - `curl -sS -H 'Accept: text/markdown' -D - http://127.0.0.1:3020/ -o /tmp/smartclover-home.md` -> pass (returned `content-type: text/markdown`, `content-signal: ai-train=yes, search=yes, ai-input=yes`, and `x-markdown-tokens`).
+  - `curl -sS -H 'Accept: text/markdown' http://127.0.0.1:3020/docs/api` -> pass (API docs route also returned markdown output).
+  - `curl -sS -D - http://127.0.0.1:3020/.well-known/api-catalog -o /tmp/sc-api-catalog` -> pass (returned `application/linkset+json` with the RFC 9727 profile).
+  - `curl -sS http://127.0.0.1:3020/.well-known/agent-skills/index.json` -> pass (returned a v0.2.0 skills index with SHA-256 digests).
+  - `curl -sS http://127.0.0.1:3020/api/status` -> pass (returned a healthy JSON status payload with public endpoints).
+- Residual Risk: Live production still needs post-deploy verification because Cloudflare or upstream edge settings can override repo-owned headers and `robots.txt`, and the WebMCP code path remains dependent on early-preview browser support.
+
+### [2026-04-20 08:33 UTC] TYPE: correction
+- Author: Codex
+- Summary: Corrected the omitted release-version increment from the 2026-04-20 agent-readiness change batch by bumping `version.json` from `3.8` to `3.9`.
+- Evidence: `version.json`, `CHANGE_LOG.md`, prior 2026-04-20 agent-readiness batch in this log.
+- Impact: The repository now matches its stated policy that each change batch must include a deliberate version increment before completion.
+- Follow-up: Apply the version bump in the same edit batch as future code changes rather than as a corrective follow-up.
+- Related Entry: [2026-04-20 08:02 UTC] TYPE: change
+
+### [2026-04-20 08:33 UTC] ADVERSARIAL-CHECK
+- Scope: corrective version bump for the 2026-04-20 agent-readiness batch (`version.json`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Incremented the site release version from `3.8` to `3.9`.
+  - Logged the omission as a correction instead of silently rewriting the earlier entry.
+- CRITIC Findings:
+  - The previous batch violated the repo's explicit versioning rule by changing behavior without incrementing `version.json`.
+  - Applying the version bump as a separate corrective batch means the live footer version and the change log were briefly out of sync with the actual code delta.
+- BUILDER Response / Refinements:
+  - Recorded the miss explicitly in `CHANGE_LOG.md` to preserve traceability.
+  - Updated `version.json` immediately so the repo state now conforms to policy before any further work.
+- Verification:
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; all routes generated, including the agent-readiness additions from the corrected batch).
+- Residual Risk: none beyond the need to keep future version increments inside the same change batch.
