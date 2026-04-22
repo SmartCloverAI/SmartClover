@@ -820,3 +820,32 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `curl -sS http://127.0.0.1:3021/mcp -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":2,"method":"resources/list","params":{}}'` -> pass (returned the public resource catalog).
   - `curl -sS http://127.0.0.1:3021/mcp -X POST -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":3,"method":"resources/read","params":{"uri":"smartclover://products/cerviguard"}}'` -> pass (returned the markdown resource body for the requested URI).
 - Residual Risk: The server card format is still ecosystem-convention territory rather than a frozen core MCP spec, and live edge deployment still needs post-deploy validation because upstream behavior could differ from the local Next.js server.
+
+### [2026-04-22 17:57 UTC] TYPE: change
+- Author: Codex
+- Summary: Reframed the public home, about, contact, and footer copy to remove informal "company story" phrasing and align the site with a more formal corporate tone; added a regression test for the flagged fragments.
+- Evidence: `pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `components/Layout.jsx`, `tests/public-copy-tone.test.mjs`; commands `node --test tests/public-copy-tone.test.mjs`, `npm test`, `npm run lint`, `npm run build`, and a local Playwright smoke check for `/`, `/about`, and `/contact`.
+- Impact: Public-facing messaging now presents leadership, research continuity, and conversion paths in a more enterprise-ready way without dropping named accountability or evidence-backed founder context.
+- Follow-up: Keep future homepage and about-page copy aligned with this more formal tone, and extend the tone-regression test if similar anti-patterns reappear.
+
+### [2026-04-22 17:57 UTC] ADVERSARIAL-CHECK
+- Scope: enterprise-tone copy refinement for the public home, about, contact, and footer surfaces plus a tone regression test (`pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `components/Layout.jsx`, `tests/public-copy-tone.test.mjs`).
+- BUILDER Intent + Change:
+  - Replaced self-referential phrases such as "company story", "real company", "single-page shell", and "serious visitors/evaluators" with more formal business language.
+  - Kept named founder and publication references, but reframed them as leadership, publication continuity, and due-diligence support rather than personal-branding language.
+  - Added `tests/public-copy-tone.test.mjs` to block the original informal fragments from reappearing.
+- CRITIC Findings:
+  - Reducing founder emphasis too aggressively would weaken the plan's requirement for identifiable leadership and public research continuity.
+  - Broad copy rewrites could make the site feel generic if the specific evidence links and named references were stripped out.
+  - Similar phrasing could remain in adjacent public routes if the anti-pattern list were too narrow.
+- BUILDER Response / Refinements:
+  - Preserved explicit references to Dr. Andreea Damian, Andreea Itu, and Dr. Florian Nicula while changing the framing around them.
+  - Replaced meta-marketing copy with company-profile, diligence, and commercial-language alternatives that remain specific to SmartClover.
+  - Ran a repo-wide `rg` sweep after editing and kept the regression test focused on the exact phrases that motivated the batch.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (new tone regression passed after the copy edits).
+  - `npm test` -> pass (`node --test tests/*.test.mjs` reported 8/8 tests passing).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; changed routes built cleanly).
+  - `node --input-type=module <<'EOF' ... EOF` -> pass (Playwright smoke check confirmed `/`, `/about`, and `/contact` rendered the updated headings in desktop and iPhone 12 viewports).
+- Residual Risk: Some lower-priority legacy routes may still warrant future tone review if they are promoted more prominently in navigation or campaigns.

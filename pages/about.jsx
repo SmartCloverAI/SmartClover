@@ -29,7 +29,7 @@ const valueCards = [
   {
     title: 'Creativity',
     description:
-      'SmartClover keeps room for original thinking, but the work has to survive contact with real buyers, researchers, and clinical operators.'
+      'SmartClover makes room for original thinking, but each initiative still has to withstand review by buyers, researchers, and clinical operators.'
   },
   {
     title: 'Digitalization',
@@ -46,21 +46,21 @@ const valueCards = [
 const operatingPrinciples = [
   {
     kicker: 'Product ownership',
-    title: 'Build products, not vague service sprawl.',
+    title: 'Build products with defined scope.',
     description:
-      'SmartClover uses product surfaces, public repositories, and defined operating boundaries instead of selling abstract AI capacity.'
+      'SmartClover uses product surfaces, public repositories, and defined operating boundaries instead of positioning itself as a generic AI vendor.'
   },
   {
     kicker: 'Evidence before claims',
-    title: 'Named sources beat generic superlatives.',
+    title: 'Named sources support high-stakes claims.',
     description:
-      'The company story stays tied to citations, current product proof, and dated trust material wherever claims become high-stakes.'
+      'Citations, current product proof, and dated trust material support public claims where accuracy matters most.'
   },
   {
     kicker: 'Trust-aware deployment',
-    title: 'Deployment language stays grounded.',
+    title: 'Deployment language stays specific.',
     description:
-      'Security, privacy, governance, and procurement routes remain visible so serious evaluators can pressure-test the company early.'
+      'Security, privacy, governance, and procurement routes remain visible so evaluators can review the company early.'
   }
 ];
 
@@ -73,21 +73,21 @@ const companyTimeline = [
   },
   {
     kicker: 'Productization',
-    title: 'CerviGuard became the flagship operating wedge',
+    title: 'CerviGuard established the flagship product line',
     description:
-      'The company moved from abstract intent into a real product surface with live workflow evidence and a public implementation trail.'
+      'The company moved from research intent into a live product surface with workflow evidence and a public implementation trail.'
   },
   {
     kicker: 'Company shape',
-    title: 'SmartClover expanded into a broader platform story',
+    title: 'SmartClover expanded into a broader platform profile',
     description:
-      'DataGems, trust routes, pricing, buying, and blog surfaces keep the public company narrative broader than one page or one screenshot.'
+      'DataGems, trust routes, pricing, buying, and blog surfaces present the company as a broader operating platform.'
   },
   {
     kicker: 'Current stance',
-    title: 'Founder-led and diligence-aware',
+    title: 'Named leadership and diligence readiness',
     description:
-      'The site now emphasizes named leadership, public artifacts, and realistic delivery posture instead of faceless AI-marketing language.'
+      'The site emphasizes named leadership, public artifacts, and a realistic delivery posture across the company profile.'
   }
 ];
 
@@ -98,7 +98,7 @@ const aboutSchema = [
     name: 'About SmartClover',
     url: `${siteUrl}/about`,
     description:
-      'Founder-led healthcare AI company page covering SmartClover history, publication continuity, operating principles, and values.'
+      'Healthcare AI company page covering SmartClover leadership, publication continuity, operating principles, and values.'
   },
   {
     '@context': 'https://schema.org',
@@ -116,8 +116,8 @@ const aboutSchema = [
 const About = () => (
   <>
     <PageSeo
-      title="About SmartClover | Founder-Led Healthcare AI"
-      description="Founder-led healthcare AI company with public cervical screening research continuity, visible product artifacts, and accountable product-delivery principles."
+      title="About SmartClover | Leadership and Publication Continuity"
+      description="Healthcare AI company with public cervical screening research continuity, visible product artifacts, and accountable product-delivery principles."
       path="/about"
       image="/images/research-lab.png"
       jsonLd={aboutSchema}
@@ -125,11 +125,11 @@ const About = () => (
 
     <header className="page-header">
       <span className="tagline">About SmartClover</span>
-      <h1>Founder-led healthcare AI with publication continuity and accountable product delivery.</h1>
+      <h1>Leadership, publication continuity, and accountable product delivery.</h1>
       <p>
-        SmartClover is built to look and act like a real company: named leadership, public research continuity, visible
-        product artifacts, and trust-aware delivery language. The goal is not to sound larger than reality. The goal is
-        to make the real company legible.
+        SmartClover presents named leadership, public research continuity, visible product artifacts, and trust-aware
+        delivery language in one company profile. The objective is clear representation of the business, products, and
+        operating posture.
       </p>
     </header>
 
@@ -137,21 +137,20 @@ const About = () => (
       <div className="founder-grid">
         <div className="story-card">
           <p className="kicker">Founder and research continuity</p>
-          <h2 id="about-founder-heading">Dr. Andreea Damian anchors the public company story.</h2>
+          <h2 id="about-founder-heading">Founding leadership and publications anchor the public company profile.</h2>
           <p>
-            SmartClover ties its public healthcare narrative to named research and a visible flagship product. Founder
+            SmartClover links its public healthcare positioning to named research and a visible flagship product.
             Dr. Andreea Damian appears in public literature directly and also through earlier work published under the
-            name Andreea Itu. That continuity matters because it connects the company’s cervical screening direction to
-            identifiable prior work instead of anonymous marketing positioning.
+            name Andreea Itu. That continuity connects the company&apos;s cervical screening direction to identifiable prior
+            work.
           </p>
           <p>
-            Dr. Florian Nicula also appears in the public research continuity that informs the screening and follow-up
-            context. Together, those anchors make the company’s healthcare focus easier to evaluate for clinicians,
-            partners, and investors.
+            Dr. Florian Nicula also appears in the public research record that informs the screening and follow-up
+            context. Together, these references give clinicians, partners, and investors a clearer basis for evaluation.
           </p>
           <div className="key-points">
-            <span>Named people and publications are visible before any deep diligence call.</span>
-            <span>The flagship product has a live public surface, not just conceptual copy.</span>
+            <span>Named leadership and publications are visible before deeper diligence.</span>
+            <span>The flagship product has a live public surface with supporting artifacts.</span>
             <span>Trust, pricing, procurement, and regulatory routes remain reachable from the same public site.</span>
           </div>
         </div>
@@ -160,15 +159,15 @@ const About = () => (
           <div className="visual-frame">
             <Image
               src="/images/research-lab.png"
-              alt="Research and product workspace representing SmartClover's founder-led credibility"
+              alt="Research and product workspace representing SmartClover leadership and publication continuity"
               width={1024}
               height={1024}
               sizes="(max-width: 1080px) 100vw, 40vw"
             />
           </div>
           <div className="visual-caption">
-            <strong>Public proof over abstract positioning</strong>
-            <span>About now centers named research continuity, public assets, and concrete operating posture.</span>
+            <strong>Public evidence and operating context</strong>
+            <span>About centers named research continuity, public assets, and a clear operating posture.</span>
           </div>
           <ul className="list-reset">
             {founderAnchors.map((item) => (
@@ -186,11 +185,11 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-gep-heading">
       <div className="section-heading">
-        <h2 id="about-gep-heading">Founder-led representation still needs public policy and accountability.</h2>
+        <h2 id="about-gep-heading">Leadership representation is backed by public policy and accountability.</h2>
         <p>
-          SmartClover is already led by a female founder and CEO. The public Gender Equality Plan turns that reality into
-          a documented commitment on recruitment, leadership, organisational culture, monitoring, training, and measures
-          against gender-based violence and sexual harassment.
+          SmartClover is led by a female founder and CEO. The public Gender Equality Plan documents commitments on
+          recruitment, leadership, organisational culture, monitoring, training, and measures against gender-based
+          violence and sexual harassment.
         </p>
       </div>
       <div className="story-grid">
@@ -204,10 +203,10 @@ const About = () => (
         </article>
         <article className="story-card">
           <p className="kicker">Why it matters</p>
-          <h3>Founder identity is not treated as a substitute for process.</h3>
+          <h3>Leadership identity is supported by process.</h3>
           <p>
-            SmartClover explicitly links founder-led credibility to concrete governance: annual monitoring, inclusive
-            recruitment practice, awareness training, and a defined reporting route for misconduct concerns.
+            SmartClover links leadership credibility to concrete governance: annual monitoring, inclusive recruitment
+            practice, awareness training, and a defined reporting route for misconduct concerns.
           </p>
         </article>
       </div>
@@ -228,10 +227,9 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-history-heading">
       <div className="section-heading">
-        <h2 id="about-history-heading">A public timeline that connects research, productization, and company shape</h2>
+        <h2 id="about-history-heading">Public timeline connecting research, productization, and company development</h2>
         <p>
-          The site no longer asks visitors to infer history from scattered references. The main public continuity points
-          are visible in one place.
+          The main public continuity points are presented in one place.
         </p>
       </div>
       <div className="timeline-grid">
@@ -247,10 +245,9 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-values-heading">
       <div className="section-heading">
-        <h2 id="about-values-heading">Values from the old standalone route now live here, where people expect them</h2>
+        <h2 id="about-values-heading">Core values integrated into the company profile</h2>
         <p>
-          Values matter more when they are attached to a founder, a product, and a visible operating model rather than
-          left on an isolated route.
+          Values matter most when they are attached to leadership, products, and a visible operating model.
         </p>
       </div>
       <div className="story-grid">
@@ -267,8 +264,7 @@ const About = () => (
       <div className="section-heading">
         <h2 id="about-principles-heading">How SmartClover wants to operate</h2>
         <p>
-          The company’s public tone should feel human and credible, but the underlying operating principles still need
-          to be explicit.
+          The public profile should remain clear and businesslike, and the operating principles should remain explicit.
         </p>
       </div>
       <div className="story-grid">

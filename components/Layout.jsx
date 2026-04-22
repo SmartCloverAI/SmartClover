@@ -135,7 +135,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                 <h2>Healthcare AI with one live flagship product, one live research pilot, and public diligence routes.</h2>
                 <p>
                   CerviGuard remains the flagship proof point. DataGems remains the live research pilot. Trust, pricing,
-                  buying, and contact paths stay public so serious evaluators can move quickly.
+                  buying, and contact paths stay public so buyers, partners, and investors can review the company quickly.
                 </p>
                 <div className="cta-links">
                   <Link href="/contact#inquiry-form" className="button primary">
