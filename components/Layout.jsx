@@ -92,7 +92,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                   <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
                   <span className="nav-brand-block">
                     <span className="nav-brand-text">SmartClover</span>
-                    <span className="nav-brand-subtitle">Healthcare AI products and trust-ready delivery</span>
+                    <span className="nav-brand-subtitle">Healthcare AI products and governed deployment</span>
                   </span>
                 </Link>
                 <button
@@ -132,10 +132,10 @@ const Layout = ({ children, hostId = 'unknown' }) => {
             <div className="site-footer-top">
               <div className="site-footer-intro">
                 <span className="tagline">SmartClover</span>
-                <h2>Healthcare AI with one live flagship product, one live research pilot, and public diligence routes.</h2>
+                <h2>Healthcare AI products, research programmes, and transparent commercial access.</h2>
                 <p>
-                  CerviGuard remains the flagship proof point. DataGems remains the live research pilot. Trust, pricing,
-                  buying, and contact paths stay public so buyers, partners, and investors can review the company quickly.
+                  CerviGuard is the flagship product. DataGems remains the live research pilot. Trust, pricing, buying,
+                  and contact pages provide direct access to product, governance, and commercial information.
                 </p>
                 <div className="cta-links">
                   <Link href="/contact#inquiry-form" className="button primary">
@@ -172,7 +172,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
               <ServedBy hostId={hostId} />
               <p className="site-footer-meta">
                 © {new Date().getFullYear()} SmartClover. v{versionData.version}
-                <span>Creativity · Digitalization · Responsible AI for Good</span>
+                <span>Clinical software · Research continuity · Responsible AI</span>
               </p>
             </div>
           </div>

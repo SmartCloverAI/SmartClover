@@ -849,3 +849,32 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run build` -> pass (Next.js production build completed successfully; changed routes built cleanly).
   - `node --input-type=module <<'EOF' ... EOF` -> pass (Playwright smoke check confirmed `/`, `/about`, and `/contact` rendered the updated headings in desktop and iPhone 12 viewports).
 - Residual Risk: Some lower-priority legacy routes may still warrant future tone review if they are promoted more prominently in navigation or campaigns.
+
+### [2026-04-22 18:38 UTC] TYPE: change
+- Author: Codex
+- Summary: Completed a second enterprise-tone pass across the public site and edited the remaining internal, overly local, or improvised phrasing on home, about, products, CerviGuard, proof, trust, services, contact, shared shell copy, and three public blog posts; expanded the tone regression to cover these patterns.
+- Evidence: subagent audits for core pages and secondary public routes; `pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `pages/products.jsx`, `pages/cerviguard.jsx`, `pages/proof.jsx`, `pages/services.jsx`, `pages/trust/security.jsx`, `components/Layout.jsx`, `components/DiligenceLinksSection.jsx`, `posts/cybersecurity-healthcare-ledger.md`, `posts/healthcare-ai-research.md`, `posts/cerviguard-remote-screening-foundations.md`, `tests/public-copy-tone.test.mjs`; commands `node --test tests/public-copy-tone.test.mjs`, `npm test`, `npm run lint`, `npm run build`, and local Playwright smoke checks across changed routes and blog posts.
+- Impact: The public website now reads more like a focused healthcare AI business and less like an internal startup draft, while preserving named leadership, research continuity, and evidence-backed product context.
+- Follow-up: Keep extending the tone-regression test when new public routes or blog posts introduce internal jargon, overly local framing, or placeholder-style copy.
+
+### [2026-04-22 18:38 UTC] ADVERSARIAL-CHECK
+- Scope: second enterprise-tone refinement for public routes, shared shell copy, and selected blog posts (`pages/index.jsx`, `pages/about.jsx`, `pages/contact.jsx`, `pages/products.jsx`, `pages/cerviguard.jsx`, `pages/proof.jsx`, `pages/services.jsx`, `pages/trust/security.jsx`, `components/Layout.jsx`, `components/DiligenceLinksSection.jsx`, `posts/cybersecurity-healthcare-ledger.md`, `posts/healthcare-ai-research.md`, `posts/cerviguard-remote-screening-foundations.md`, `tests/public-copy-tone.test.mjs`).
+- BUILDER Intent + Change:
+  - Used two subagent reviews plus a local sweep to identify remaining phrases that sounded informal, city-first, internally framed, or not enterprise-ready.
+  - Replaced those phrases with more standard business, product, trust, and research language while keeping claims grounded in public evidence already present on the site.
+  - Expanded `tests/public-copy-tone.test.mjs` so the newly flagged phrases remain blocked in future edits.
+- CRITIC Findings:
+  - Rewriting too aggressively could have introduced broader positioning claims such as international scope that are not explicitly evidenced in the repo.
+  - Portfolio and blog rewrites risked flattening technical specificity if they removed too much of the product and research context.
+  - Trust-center and proof pages could easily drift into softer marketing copy instead of maintaining diligence utility.
+- BUILDER Response / Refinements:
+  - Used `Romania-based` rather than stronger geographic claims and kept structured address metadata untouched.
+  - Preserved substantive product, regulatory, and research details while removing only the internal or awkward phrasing around them.
+  - Kept trust and proof pages factual and review-oriented, changing tone and terminology without loosening disclosure discipline.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (expanded tone regression passed after the second-pass edits).
+  - `npm test` -> pass (`node --test tests/*.test.mjs` reported 8/8 tests passing).
+  - `npm run lint` -> pass (`next lint` reported no warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed successfully; changed pages and blog routes built cleanly).
+  - `node --input-type=module <<'EOF' ... EOF` -> pass (Playwright smoke checks confirmed updated copy rendered on desktop for `/`, `/about`, `/products`, `/cerviguard`, `/contact`, `/proof`, `/trust/security`, and the three edited blog posts, plus mobile for `/`, `/about`, `/products`, `/cerviguard`, and `/contact`).
+- Residual Risk: Other low-traffic legacy routes may still benefit from future tone cleanup if they become more prominent in the main navigation or campaign flows.

@@ -6,7 +6,7 @@ import PageSeo, { siteUrl } from '../components/PageSeo';
 const proofCards = [
   {
     kicker: 'Live product',
-    title: 'CerviGuard is the flagship proof point.',
+    title: 'CerviGuard is the flagship product.',
     description:
       'The live product surface, public repository, and trust routes make the cervical screening platform easy to evaluate.'
   },
@@ -14,7 +14,7 @@ const proofCards = [
     kicker: 'Research continuity',
     title: 'Leadership and clinical research signals are public.',
     description:
-      'Two PubMed references connect the company profile to Romanian cervical screening and follow-up research continuity.'
+      'Two PubMed references connect SmartClover to Romanian cervical screening and follow-up research continuity.'
   },
   {
     kicker: 'Trust routes',
@@ -96,7 +96,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, grounded in public cervical screening research continuity and trust-ready delivery.',
+    'Romania-based healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, supported by public research continuity and transparent commercial access.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
@@ -123,7 +123,7 @@ const Home = () => (
   <>
     <PageSeo
       title="SmartClover | Healthcare AI With Live Product Proof"
-      description="SmartClover is a healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, with public trust routes and publication-linked research continuity."
+      description="SmartClover is a Romania-based healthcare AI company building CerviGuard as a live product and DataGems as a live research pilot, with public trust routes and publication-linked research continuity."
       path="/"
       image="/images/cerviguard/cerviguard-dashboard.png"
       jsonLd={organizationSchema}
@@ -147,9 +147,10 @@ const Home = () => (
               Live cervical screening software, active research pilots, and public trust routes.
             </h1>
             <p>
-              SmartClover is a Cluj-Napoca healthcare AI company building CerviGuard as its flagship live product and
+              SmartClover is a Romania-based healthcare AI company building CerviGuard as its flagship live product and
               DataGems as a live research pilot. Named leadership, public cervical screening research, visible product
-              surfaces, and diligence-ready commercial routes support the company profile.
+              surfaces, and clear commercial routes support evaluation by clinical, research, and investment
+              stakeholders.
             </p>
           </div>
 
@@ -198,7 +199,7 @@ const Home = () => (
           </div>
           <div className="visual-caption">
             <strong>Authentic flagship proof</strong>
-            <span>The homepage leads with a CerviGuard product surface rather than placeholder imagery.</span>
+            <span>The live CerviGuard workspace demonstrates case review, operational oversight, and product maturity.</span>
           </div>
 
           <div className="metric-grid">
@@ -221,10 +222,10 @@ const Home = () => (
 
     <section className="surface-card proof-panel" aria-labelledby="home-proof-heading">
       <div className="section-heading">
-        <h2 id="home-proof-heading">Why the homepage leads with verifiable proof</h2>
+        <h2 id="home-proof-heading">Product evidence and evaluation routes</h2>
         <p>
-          The homepage establishes SmartClover as an operating healthcare AI company with a flagship product, research
-          continuity, and a visible diligence path.
+          SmartClover presents a flagship product, public research continuity, and direct access to trust and commercial
+          materials for external review.
         </p>
       </div>
       <div className="story-grid">
@@ -242,7 +243,7 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="home-portfolio-heading">A flagship product within a broader company platform</h2>
         <p>
-          CerviGuard remains the strongest proof point, while the wider platform, research, and diligence surfaces keep
+          CerviGuard remains the primary commercial product, while the wider platform, research, and diligence surfaces keep
           the full company offering visible.
         </p>
       </div>
@@ -302,7 +303,7 @@ const Home = () => (
           </div>
           <div className="visual-caption">
             <strong>Leadership and publication continuity</strong>
-            <span>The company profile stays tied to research continuity, public routes, and accountable operators.</span>
+            <span>Public research continuity, product access, and trust materials remain visible to external evaluators.</span>
           </div>
         </div>
       </div>
@@ -311,7 +312,7 @@ const Home = () => (
     <section className="surface-card" aria-labelledby="home-timeline-heading">
       <div className="section-heading">
         <h2 id="home-timeline-heading">Public timeline of research, productization, and company development</h2>
-        <p>The homepage shows the public milestones that connect research, productization, and diligence-ready company behavior.</p>
+        <p>The homepage shows the public milestones that connect research, productization, and transparent company execution.</p>
       </div>
       <div className="timeline-grid">
         {timelineCards.map((item) => (

@@ -16,7 +16,7 @@ const inquiryPaths = [
   {
     label: 'Investor inquiry',
     title: 'Investor inquiry',
-    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover as a company.'
+    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover&apos;s platform, governance, and commercial readiness.'
   },
   {
     label: 'General contact',
@@ -76,7 +76,7 @@ const trustLinks = [
   },
   {
     title: 'Pricing',
-    description: 'RFQ-led packaging logic and commercial framing.',
+    description: 'Pricing structure, packaging, and procurement approach.',
     href: '/pricing'
   },
   {
@@ -190,7 +190,7 @@ const Contact = () => {
     <>
       <PageSeo
         title="Contact SmartClover | Demo, Research, And Investor Inquiries"
-        description="Contact SmartClover through a structured intake for demo requests, research partnerships, investor conversations, and trust-aware product evaluation."
+        description="Contact SmartClover through a structured intake for demo requests, research partnerships, investor conversations, and product evaluation."
         path="/contact"
         image="/images/cerviguard/cerviguard-dashboard.png"
         jsonLd={contactSchema}
@@ -433,7 +433,7 @@ const Contact = () => {
             </ol>
             <p className="small-note">
               Response expectation: qualified inbound requests should usually receive a human reply within one business
-              day during business hours in Europe/Bucharest.
+              day.
             </p>
           </aside>
 

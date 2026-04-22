@@ -10,7 +10,9 @@ const bannedCopyByFile = {
     'anonymous marketing positioning',
     'Founder-led representation still needs public policy and accountability.',
     'Founder identity is not treated as a substitute for process.',
-    'Values from the old standalone route now live here, where people expect them'
+    'Values from the old standalone route now live here, where people expect them',
+    'in one company profile',
+    'public company profile'
   ],
   'pages/index.jsx': [
     'company narrative is tied to public cervical screening research',
@@ -20,13 +22,58 @@ const bannedCopyByFile = {
     'single-page shell',
     'anonymous AI-marketing claims',
     'A compact public timeline for serious visitors',
-    'Named credibility, not anonymous branding'
+    'Named credibility, not anonymous branding',
+    'SmartClover is a Cluj-Napoca healthcare AI company',
+    'flagship proof point',
+    'homepage leads with verifiable proof',
+    'The homepage establishes SmartClover',
+    'company profile',
+    'accountable operators'
   ],
-  'pages/contact.jsx': ['so serious visitors do not have to guess where to start', 'buried in generic contact copy'],
-  'components/Layout.jsx': ['serious evaluators can move quickly']
+  'pages/contact.jsx': [
+    'so serious visitors do not have to guess where to start',
+    'buried in generic contact copy',
+    'evaluating SmartClover as a company',
+    'RFQ-led packaging logic and commercial framing',
+    'Europe/Bucharest'
+  ],
+  'components/Layout.jsx': [
+    'serious evaluators can move quickly',
+    'trust-ready delivery',
+    'one live flagship product, one live research pilot, and public diligence routes',
+    'Creativity · Digitalization · Responsible AI for Good'
+  ],
+  'pages/products.jsx': [
+    'Products & More',
+    'one compact diligence hub',
+    'our flagship product',
+    'diverse portfolio of partners across various industries',
+    'significant consumer and procurer',
+    '"live data factory" services provider'
+  ],
+  'pages/cerviguard.jsx': ['our broader two-direction healthcare AI product strategy', 'generative SaaS systems'],
+  'pages/services.jsx': ['primary CerviGuard wedge', 'Primary wedge (active)'],
+  'pages/proof.jsx': [
+    'SMARTCLOVER SRL launch phase and online-platform preparation',
+    'next-generation prophylaxis management for gynecological oncological pathologies',
+    'Phase 1 proof artifacts',
+    'KPI-definition structure',
+    'denominator/date-window approvals'
+  ],
+  'pages/trust/security.jsx': ['publication-safe security controls for procurement orientation'],
+  'posts/cybersecurity-healthcare-ledger.md': [
+    'zero-censorship AI',
+    'unverifiable in the best way possible - tamper-proof'
+  ],
+  'posts/healthcare-ai-research.md': ['Humans are not built to scan millions of records at speed, but large language models are.'],
+  'posts/cerviguard-remote-screening-foundations.md': [
+    'What CerviGuard Proposes',
+    'remote-area prophylaxis and cervical screening missions',
+    'The proposal is practical'
+  ]
 };
 
-test('public marketing copy avoids informal website-story phrasing', () => {
+test('public marketing and editorial copy avoids informal or internal-facing phrasing', () => {
   for (const [filePath, bannedFragments] of Object.entries(bannedCopyByFile)) {
     const source = readFileSync(filePath, 'utf8');
 

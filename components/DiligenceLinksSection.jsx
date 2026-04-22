@@ -30,8 +30,8 @@ const diligenceLinks = [
 
 const DiligenceLinksSection = ({
   headingId,
-  heading = 'Products & More',
-  description = 'Use this compact section to review Pricing, How to Buy, Proof, Regulatory, and Trust before onboarding.'
+  heading = 'Commercial and diligence routes',
+  description = 'Use this section to review Pricing, How to Buy, Proof, Regulatory, and Trust before onboarding.'
 }) => (
   <section className="surface-card" aria-labelledby={headingId}>
     <div className="section-heading">

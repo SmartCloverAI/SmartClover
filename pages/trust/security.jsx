@@ -38,8 +38,8 @@ const Security = () => (
       <span className="tagline">Trust Center</span>
       <h1>Security overview (Draft baseline)</h1>
       <p>
-        This page summarizes publication-safe security controls for procurement orientation. It intentionally avoids
-        unsupported certification claims.
+        This page provides a high-level security summary for due-diligence review. It intentionally avoids unsupported
+        certification claims.
       </p>
     </header>
 

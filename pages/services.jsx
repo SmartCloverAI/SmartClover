@@ -35,7 +35,7 @@ const aiDirections = [
 
 const modules = [
   {
-    status: 'Primary wedge (active)',
+    status: 'Flagship product (active)',
     title: 'CerviGuard and clinical analytics operations',
     points: [
       'MDR Class I companion-app positioning with clinician-led oversight',
@@ -69,14 +69,14 @@ const Services = () => (
       <title>Product Operations | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover healthcare AI product operations page covering primary CerviGuard wedge, roadmap tracks, and enterprise onboarding model for platform delivery."
+        content="SmartClover healthcare AI product operations page covering the flagship CerviGuard product line, roadmap tracks, and enterprise onboarding."
       />
       <link rel="canonical" href={`${siteUrl}/products`} />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Product Operations</span>
-      <h1>Healthcare AI product operations with a primary CerviGuard wedge</h1>
+      <h1>Healthcare AI product operations anchored by CerviGuard</h1>
       <p>
         SmartClover commercial operations prioritize CerviGuard and associated clinical analytics workflows. Additional
         modules are staged as roadmap expansions to preserve execution focus and measurable adoption.

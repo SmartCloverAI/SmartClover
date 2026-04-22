@@ -7,7 +7,7 @@ import RepoIconLinks from '../components/RepoIconLinks';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
 const pageDescription =
-  'CerviGuard is SmartClover\'s MDR Class I cervical cancer screening companion app, part of a two-direction healthcare AI product strategy spanning classical analytics and generative SaaS systems.';
+  'CerviGuard is SmartClover\'s MDR Class I cervical cancer screening companion app for structured intake, AI-assisted review, and clinician-led follow-up.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -31,14 +31,14 @@ const featurePillars = [
 
 const aiHealthcareDirections = [
   {
-    title: 'Direction 1: Classical Imaging + Structured Data Analytics',
+    title: 'Clinical analytics platform',
     description:
-      'CerviGuard is the implementation of SmartClover\'s classical inferential/predictive healthcare AI direction for diagnosis-support workflows.'
+      'CerviGuard leads SmartClover&apos;s clinical analytics work with structured workflows for screening, triage support, and follow-up.'
   },
   {
-    title: 'Direction 2: Generative Healthcare SaaS Systems',
+    title: 'Prevention communication and research tools',
     description:
-      'SmartClover also focuses on the R&D of generative SaaS systems for primary prophylaxis communication, stakeholder interaction, qualitative questionnaire design, and aggregated-data analysis.'
+      'Related SmartClover work extends into prevention communication, stakeholder interaction, qualitative questionnaire design, and aggregated-data analysis.'
   }
 ];
 
@@ -193,11 +193,11 @@ const CerviGuard = () => (
 
     <header className="page-header">
       <span className="tagline">CerviGuard</span>
-      <h1>CerviGuard: AI-centric cervical screening platform for digital-native care teams</h1>
+      <h1>CerviGuard: AI-supported cervical screening platform for digital care teams</h1>
       <p>
         CerviGuard is SmartClover&apos;s flagship MDR Class I cervical cancer screening companion app for structured intake,
-        AI-assisted analysis, and clinician-led follow-up. It is part of our broader two-direction healthcare AI product
-        strategy spanning the current classical inferential analytics approach as well as our research efforts in the area of generative SaaS systems.
+        AI-assisted analysis, and clinician-led follow-up. It is designed for screening teams that need secure
+        workflows, traceable case review, and governed deployment options.
       </p>
     </header>
 
@@ -253,10 +253,10 @@ const CerviGuard = () => (
 
     <section className="surface-card" aria-labelledby="cerviguard-directions-heading">
       <div className="section-heading">
-        <h2 id="cerviguard-directions-heading">How CerviGuard Fits SmartClover&apos;s Two AI Directions</h2>
+        <h2 id="cerviguard-directions-heading">How CerviGuard fits within the SmartClover portfolio</h2>
         <p>
-          CerviGuard anchors the classical analytics direction while SmartClover&apos;s generative SaaS products extend
-          prevention communication and qualitative research capabilities.
+          CerviGuard is the primary clinical product line, while related SmartClover work extends into prevention
+          communication and research workflows.
         </p>
       </div>
       <div className="feature-grid two-up">

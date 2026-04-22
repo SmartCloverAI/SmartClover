@@ -15,14 +15,14 @@ const timeline = [
   },
   {
     period: '2024',
-    event: 'SMARTCLOVER SRL launch phase and online-platform preparation',
+    event: 'Company launch and platform preparation',
     evidence: 'Company launch milestones and online product transition documented in internal/public planning artifacts.'
   },
   {
     period: '2025',
     event: 'TealGuard partnership milestone',
     evidence:
-      'In 2025, SmartClover signed a partnership for the TealGuard project, focused on next-generation prophylaxis management for gynecological oncological pathologies.'
+      'In 2025, SmartClover signed a partnership for the TealGuard project, focused on prevention management and gynecologic oncology workflows.'
   }
 ];
 
@@ -67,14 +67,14 @@ const Proof = () => (
       <span className="tagline">Proof</span>
       <h1>Evidence baseline for product and commercialization diligence</h1>
       <p>
-        This page provides Phase 1 proof artifacts: timeline milestones, pilot context, and KPI-definition structure.
-        Numeric KPI publication remains gated until denominator/date-window approvals are complete.
+        This page provides the current public evidence set: milestone timeline, pilot context, and KPI framework.
+        Numeric KPI publication remains gated until cohort definitions and reporting windows are finalized.
       </p>
     </header>
 
     <section className="surface-card" aria-labelledby="proof-status-heading">
       <div className="status-badge-list" id="proof-status-heading">
-        <span className="status-badge">Document status: Phase 1 public baseline</span>
+        <span className="status-badge">Document status: Current public baseline</span>
         <span className="status-badge">Last updated: 2026-02-17</span>
         <span className="status-badge">Owner: Product + Commercial + Data</span>
       </div>
@@ -104,7 +104,7 @@ const Proof = () => (
         <h2 id="methodology-heading">Pilot context and methodology notes</h2>
       </div>
       <ul>
-        <li>Pilot evidence is currently published as narrative timeline plus methodological framing.</li>
+        <li>Pilot evidence is currently published through milestone and methodology summaries.</li>
         <li>Outcome publication requires fixed cohort windows and approved numerator/denominator definitions.</li>
         <li>Clinical interpretation remains clinician-led and human-in-the-loop.</li>
       </ul>
@@ -112,7 +112,7 @@ const Proof = () => (
 
     <section className="surface-card" aria-labelledby="kpi-heading">
       <div className="section-heading">
-        <h2 id="kpi-heading">KPI disclosure template (values pending publication)</h2>
+        <h2 id="kpi-heading">KPI framework (values pending publication)</h2>
       </div>
       <div className="table-scroll">
         <table className="info-table">

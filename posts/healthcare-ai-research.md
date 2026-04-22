@@ -4,7 +4,7 @@ date: "2024-05-05"
 excerpt: "How SmartClover applies large language models to chronic disease research while keeping clinicians in the loop."
 ---
 
-Healthcare research faces an overwhelming volume of literature, patient data, and genomic signals. Humans are not built to scan millions of records at speed, but large language models are. At SmartClover, we combine clinician expertise with generative AI that can process large datasets, identify patterns, and surface hypotheses for further investigation.
+Healthcare research faces an overwhelming volume of literature, patient data, and genomic signals. Large language models can help teams review large volumes faster, but expert validation remains essential. At SmartClover, we combine clinician expertise with generative AI that can process large datasets, identify patterns, and surface hypotheses for further investigation.
 
 Our latest projects focus on chronic disease prevention, including cervical cancer screening programmes. We train retrieval-augmented models on interview transcripts, focus-group notes, and community health records similar to those documented in the Social Science & Medicine study on Roma women&apos;s participation in cervical cancer screening in Romania ([Andreassen et al., 2017](https://pubmed.ncbi.nlm.nih.gov/28460211/); [DOI](https://doi.org/10.1016/j.socscimed.2017.04.040)), co-authored by Dr. Florian Nicula and including Andreea Itu (the publication name used by SmartClover founder Dr. Andreea Damian in earlier work). That qualitative dataset captured first-hand accounts of mistrust, cultural stigma, and logistical barriers gathered through semi-structured interviews.
 

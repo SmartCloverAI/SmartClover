@@ -43,14 +43,14 @@ const healthcareDirections = [
 
 const dataGemsHighlights = [
   {
-    title: 'Privacy centered distributed-decentralized execution',
+    title: 'Privacy-centered distributed execution',
     description:
-      'DataGems allows partners to execute synthetic-data generation processes across distributed nodes, thereby eliminating the reliance on a singular, centralized runtime environment. SmartClover operates as a client utilizing the services offered by our partners through this system, with the partners contributing confidential data and expertise to the DataGems platform.'
+      'DataGems allows approved partners to run synthetic-data generation across distributed nodes without relying on a single centralized runtime.'
   },
   {
-    title: 'Low-power low-compute SLM-first generation',
+    title: 'SLM-first generation with optional API support',
     description:
-      'The system uses SLMs by default and can integrate external APIs when needed to produce high-quality synthetic data for domain-specific model training and test-data preparation, enabling multiple "live data factory" services providers.'
+      'The platform uses SLMs by default and can integrate external APIs when needed for domain-specific model training and test-data preparation.'
   }
 ];
 
@@ -92,26 +92,26 @@ const dataGemsShots = [
 const Products = () => (
   <>
     <Head>
-      <title>Products & More | SmartClover</title>
+      <title>Products | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover product portfolio with active CerviGuard and DataGems apps, including distributed-decentralized SLM-driven synthetic data generation with optional external APIs."
+        content="SmartClover product portfolio covering CerviGuard, DataGems, and healthcare AI roadmap tracks."
       />
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Products & More</span>
-      <h1>Product portfolio with one compact diligence hub</h1>
+      <span className="tagline">Products</span>
+      <h1>Product portfolio and supporting diligence routes</h1>
       <p>
-        SmartClover currently operates and actively develops CerviGuard, our flagship product, and provides specialized 
-        Data Science and Advanced Analytics services to a diverse portfolio of partners across various industries.
+        SmartClover&apos;s product portfolio is led by CerviGuard, with DataGems operating as a live research pilot and
+        additional modules sequenced around the healthcare platform roadmap.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
           Open CerviGuard
         </Link>
         <Link href="#products-more-links" className="button secondary">
-          Open Products & More
+          Review supporting routes
         </Link>
         <Link href="/contact" className="button tertiary">
           Contact
@@ -153,13 +153,11 @@ const Products = () => (
       <div className="section-heading">
         <h2 id="products-datagems-heading">DataGems features in practice</h2>
         <p>
-          SmartClover is a significant consumer and procurer of synthetic data for its proprietary products, which led to 
-          the establishment of DataGems, a pilot application for distributed-decentralized synthetic data generation, enabling 
-          our partners to utilize SLMs, with optional external API integration, to produce high-quality data primarily for 
-          domain-specific model training and also for test-data preparation in subsequent systems. SmartClover collaborates 
-          closely with partners to establish and execute DataGems generation jobs, operating as the solution architect and producer, 
-          while the partner functions as the &quot;live data factory&quot; services provider. Commercial deployment of DataGems is exclusively 
-          available to our data creation partners.
+          DataGems is a live research pilot for governed synthetic-data generation across distributed environments.
+          Approved partners can run SLM-first generation workflows, with optional external API support, for
+          domain-specific model training and test-data preparation. SmartClover works with participating partners on job
+          design, execution governance, and output review. Commercial deployment is currently limited to approved data
+          creation partners.
         </p>
       </div>
       <div className="cta-links">
@@ -210,8 +208,8 @@ const Products = () => (
 
     <DiligenceLinksSection
       headingId="products-more-links"
-      heading="Products & More"
-      description="Review Pricing, How to Buy, Proof, Regulatory, and Trust from one compact section before starting qualification."
+      heading="Commercial and diligence routes"
+      description="Review Pricing, How to Buy, Proof, Regulatory, and Trust before starting qualification."
     />
   </>
 );

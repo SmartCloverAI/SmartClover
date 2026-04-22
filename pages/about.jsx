@@ -48,7 +48,7 @@ const operatingPrinciples = [
     kicker: 'Product ownership',
     title: 'Build products with defined scope.',
     description:
-      'SmartClover uses product surfaces, public repositories, and defined operating boundaries instead of positioning itself as a generic AI vendor.'
+      'SmartClover uses product surfaces, public repositories, and defined operating boundaries instead of presenting itself as a broad, unscoped AI consultancy.'
   },
   {
     kicker: 'Evidence before claims',
@@ -87,7 +87,7 @@ const companyTimeline = [
     kicker: 'Current stance',
     title: 'Named leadership and diligence readiness',
     description:
-      'The site emphasizes named leadership, public artifacts, and a realistic delivery posture across the company profile.'
+      'The public site emphasizes named leadership, public artifacts, and a realistic delivery posture across the business.'
   }
 ];
 
@@ -127,17 +127,17 @@ const About = () => (
       <span className="tagline">About SmartClover</span>
       <h1>Leadership, publication continuity, and accountable product delivery.</h1>
       <p>
-        SmartClover presents named leadership, public research continuity, visible product artifacts, and trust-aware
-        delivery language in one company profile. The objective is clear representation of the business, products, and
-        operating posture.
+        SmartClover is led by identifiable leadership and supported by public research continuity, visible product
+        artifacts, and governance materials. This page summarizes the company&apos;s operating context, evidence base, and
+        delivery posture.
       </p>
     </header>
 
     <section className="surface-card" aria-labelledby="about-founder-heading">
       <div className="founder-grid">
         <div className="story-card">
-          <p className="kicker">Founder and research continuity</p>
-          <h2 id="about-founder-heading">Founding leadership and publications anchor the public company profile.</h2>
+          <p className="kicker">Leadership and research continuity</p>
+          <h2 id="about-founder-heading">Leadership and publications support the public record.</h2>
           <p>
             SmartClover links its public healthcare positioning to named research and a visible flagship product.
             Dr. Andreea Damian appears in public literature directly and also through earlier work published under the
@@ -167,7 +167,7 @@ const About = () => (
           </div>
           <div className="visual-caption">
             <strong>Public evidence and operating context</strong>
-            <span>About centers named research continuity, public assets, and a clear operating posture.</span>
+            <span>This section brings together research continuity, public assets, and operating context in one place.</span>
           </div>
           <ul className="list-reset">
             {founderAnchors.map((item) => (
@@ -245,7 +245,7 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-values-heading">
       <div className="section-heading">
-        <h2 id="about-values-heading">Core values integrated into the company profile</h2>
+        <h2 id="about-values-heading">Core values integrated into the business overview</h2>
         <p>
           Values matter most when they are attached to leadership, products, and a visible operating model.
         </p>
@@ -262,9 +262,10 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-principles-heading">
       <div className="section-heading">
-        <h2 id="about-principles-heading">How SmartClover wants to operate</h2>
+        <h2 id="about-principles-heading">Operating principles</h2>
         <p>
-          The public profile should remain clear and businesslike, and the operating principles should remain explicit.
+          SmartClover states these principles publicly so partners can understand how products are built, deployed, and
+          governed.
         </p>
       </div>
       <div className="story-grid">
