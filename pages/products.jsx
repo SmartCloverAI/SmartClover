@@ -5,13 +5,13 @@ import DiligenceLinksSection from '../components/DiligenceLinksSection';
 
 const portfolioTracks = [
   {
-    status: 'Active product',
+    status: 'Live product',
     title: 'CerviGuard clinical platform',
     description:
       'MDR Class I companion-app positioning for cervical-screening workflows, with human-in-the-loop clinical decisions.'
   },
   {
-    status: 'Active product',
+    status: 'Live research pilot',
     title: 'DataGems synthetic-data workspace',
     description:
       'Distributed-decentralized synthetic-data application using SLM-first generation with optional external APIs.'
@@ -69,7 +69,7 @@ const dataGemsShots = [
     height: 584,
     alt: 'DataGems generation job form with fields for title, description, instructions, and record count.',
     title: 'Generation job setup',
-    description: 'Job drafting flow with schema guidance, instruction fields, and advanced generation controls.'
+    description: 'Job drafting flow with schema guidance, instruction fields, and configured generation controls.'
   },
   {
     src: '/images/datagems/datagems-screen-schema-peer-stats.png',
@@ -136,7 +136,7 @@ const Products = () => (
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Portfolio Status</span>
-        <h2 id="products-portfolio-heading">Active products and roadmap tracks</h2>
+        <h2 id="products-portfolio-heading">Product, pilot, and roadmap tracks</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (

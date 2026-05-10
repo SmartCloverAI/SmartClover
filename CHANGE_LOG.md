@@ -878,3 +878,40 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run build` -> pass (Next.js production build completed successfully; changed pages and blog routes built cleanly).
   - `node --input-type=module <<'EOF' ... EOF` -> pass (Playwright smoke checks confirmed updated copy rendered on desktop for `/`, `/about`, `/products`, `/cerviguard`, `/contact`, `/proof`, `/trust/security`, and the three edited blog posts, plus mobile for `/`, `/about`, `/products`, `/cerviguard`, and `/contact`).
 - Residual Risk: Other low-traffic legacy routes may still benefit from future tone cleanup if they become more prominent in the main navigation or campaign flows.
+
+### [2026-05-10 17:54 UTC] TYPE: change
+- Author: Codex + S-WRITER
+- Summary: Applied a surgical public-copy pass to remove awkward, generic, or over-strong wording from SmartClover website routes while preserving verified product and regulatory constraints.
+- Evidence: `pages/cerviguard.jsx`, `pages/cloud-architecture.jsx`, `pages/cybersecurity.jsx`, `pages/decentralized.jsx`, `pages/products.jsx`, `pages/values.jsx`; commands `node --test tests/public-copy-tone.test.mjs`, `npm test`, `npm run lint`, `npm run build`.
+- Impact: Public copy now better distinguishes product facts, pilot status, draft regulatory positioning, cybersecurity direction, and governance claims without adding unsupported assertions.
+- Follow-up: Use the VC-EXPERT remediation plan to address remaining investor-readiness gaps before directing investors to the site.
+
+### [2026-05-10 17:54 UTC] TYPE: insight
+- Author: Codex + VC-EXPERT
+- Summary: Diligence review rates the website as promising but risky for investors; the principal blockers are regulatory substantiation, clinical outcome proof, trust/security evidence depth, stale pitch-deck positioning, and commercial traction proof.
+- Evidence: `pages/cerviguard.jsx`, `pages/regulatory.jsx`, `pages/proof.jsx`, `pages/trust/index.jsx`, `pages/trust/security.jsx`, `pages/pricing.jsx`, `pages/api/contact.js`, `docs/SmartClover_1pagepitchdeck.pdf`, `docs/MDR_1_PROPOSAL.md`, `EVIDENCE_REGISTER.md`; live checks of `https://smartclover.ro/`, `/proof`, and `/regulatory`.
+- Impact: Future SmartClover website work should prioritize investor-grade evidence packets and claim reconciliation over broad design polish.
+- Follow-up: Replace or unpublish stale pitch-deck artifacts, reconcile MDR language against final regulatory status, and add public or NDA-gated evidence for clinical, security, and commercial claims.
+
+### [2026-05-10 17:54 UTC] ADVERSARIAL-CHECK
+- Scope: S-WRITER copy pass and VC-EXPERT diligence review (`pages/cerviguard.jsx`, `pages/cloud-architecture.jsx`, `pages/cybersecurity.jsx`, `pages/decentralized.jsx`, `pages/products.jsx`, `pages/values.jsx`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Used the portable `S-WRITER` personality to tighten awkward public copy and remove unsupported or over-broad marketing language.
+  - Used the portable `VC-EXPERT` personality to evaluate the public website as an investor diligence surface and identify remediation priorities.
+- CRITIC Findings:
+  - MDR Class I wording could still read too strongly unless the draft/self-assessment status remains visible near primary product claims.
+  - Public proof pages still contain pending KPI values and an externally uncorroborated TealGuard partnership milestone.
+  - The public one-page pitch deck still conflicts with the current healthcare-AI-platform positioning and contains unsupported absolute percentage claims.
+  - Trust/security pages remain draft-oriented and high-level for enterprise or investor diligence.
+- BUILDER Response / Refinements:
+  - Rephrased CerviGuard MDR references as positioning rather than final approval language.
+  - Corrected DataGems status to `Live research pilot` where it was presented as an active product.
+  - Removed an unsourced cybersecurity breach-cost figure and reframed cybersecurity copy as a governed product/security track.
+  - Verified live `/proof` and `/regulatory` currently report v3.11, so no current route-version drift finding is carried forward.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (1/1).
+  - `npm test` -> pass (8/8).
+  - `npm run lint` -> pass (no ESLint warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
+  - `git diff --check` -> pass.
+- Residual Risk: Investor-grade evidence gaps remain unresolved until regulatory/QMS artifacts, clinical/pilot outcomes, security documentation, and updated pitch materials are produced or published.

@@ -69,8 +69,8 @@ const CloudArchitecture = () => (
       <span className="tagline">Cloud Architecture</span>
       <h1>Permissioned hybrid cloud-edge architecture for healthcare AI workloads</h1>
       <p>
-        SmartClover combines tenant-designated edge execution with hybrid cloud coordination. This architecture is cloud+
-        edge by design: data-boundary control is preserved while cloud primitives support scale, governance, and
+        SmartClover combines tenant-designated edge execution with hybrid cloud coordination. This architecture is
+        cloud-edge by design: data-boundary control is preserved while cloud primitives support scale, governance, and
         observability.
       </p>
     </header>

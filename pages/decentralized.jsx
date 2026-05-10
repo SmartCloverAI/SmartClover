@@ -8,7 +8,7 @@ const Decentralized = () => (
       <title>Your AI, your eSource | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover keeps healthcare AI and research platforms inside your governance boundary with verifiable deployment controls and audit-ready evidence."
+        content="SmartClover describes governed healthcare AI deployment with explicit data boundaries, verifiable controls, and audit evidence."
       />
     </Head>
 
@@ -34,12 +34,12 @@ const Decentralized = () => (
         <p>
           Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; control planes that you designate, so AI
           product platforms operate on on-prem and on-edge infrastructure with cloud coordination layers that match your
-          residency, privacy, and procurement requirements. You always know where eSource data is processed.
+          residency, privacy, and procurement requirements. The goal is to keep eSource processing locations explicit.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
           <span>Role-based controls decide which teams can push updates and who signs off on changes.</span>
-          <span>Automated delivery never takes custody of your data or credentials.</span>
+          <span>Delivery automation is designed not to take custody of your data or credentials.</span>
         </div>
       </div>
       <div className="spotlight-media">
@@ -55,15 +55,16 @@ const Decentralized = () => (
 
     <section className="surface-card spotlight" aria-labelledby="decentralized-immutability">
       <div className="spotlight-content">
-        <h2 id="decentralized-immutability">Audit-ready evidence without extra busywork</h2>
+        <h2 id="decentralized-immutability">Audit evidence from deployment traces</h2>
         <p>
-          Every deployment writes to an append-only delivery public ledger log, producing timestamps and build fingerprints ready for
-          clinical audits or security reviews. Investigators see exactly what ran and why decisions were made.
+          Deployment events are written to an append-only public ledger for delivery traces, producing timestamps and
+          build fingerprints for clinical audits or security reviews. Investigators can review what ran and why decisions
+          were made.
         </p>
         <div className="key-points">
           <span>Trace updates from research notebooks to production models with human-readable context.</span>
           <span>Healthcare compliance teams receive exportable evidence for sponsor and regulator reviews.</span>
-          <span>Every build artifact is fingerprinted, preventing unexpected changes from reaching production.</span>
+          <span>Build artifacts are fingerprinted to help prevent unexpected changes from reaching production.</span>
         </div>
       </div>
       <div className="spotlight-media">
@@ -82,12 +83,12 @@ const Decentralized = () => (
         <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
           Policy templates are built into product releases so participation rules remain aligned with sponsor and
-          regulator obligations. Teams operate confidently without surrendering control to a central data silo.
+          regulator obligations. Teams operate under defined rules without surrendering control to a central data silo.
         </p>
         <div className="key-points">
           <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
           <span>Stakeholders can independently verify compliance across participating sites.</span>
-          <span>Redundant nodes keep product platforms responsive during maintenance or regional outages.</span>
+          <span>Redundant nodes support product responsiveness during maintenance or regional outages.</span>
         </div>
         <div className="cta-links">
           <Link href="/contact" className="button secondary">

@@ -7,7 +7,7 @@ import RepoIconLinks from '../components/RepoIconLinks';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
 const pageDescription =
-  'CerviGuard is SmartClover\'s MDR Class I cervical cancer screening companion app for structured intake, AI-assisted review, and clinician-led follow-up.';
+  'CerviGuard is positioned as SmartClover\'s MDR Class I cervical cancer screening companion app for structured intake, AI-assisted review, and clinician-led follow-up.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -18,7 +18,7 @@ const featurePillars = [
       'Structured case intake, triage prioritization, and follow-up tracking keep screening operations consistent across distributed teams.'
   },
   {
-    title: 'MDR Class I Diagnostic Support',
+    title: 'MDR Class I Companion-App Positioning',
     description:
       'CerviGuard is positioned as an MDR Class I cervical cancer screening companion app with transparent confidence outputs and clinician-led decisions.'
   },
@@ -46,7 +46,7 @@ const screenshotGallery = [
   {
     title: 'Secure sign-in workspace',
     description:
-      'Role-based access ensures only authorized users can enter the pilot environment and operate case workflows.',
+      'Role-based access limits pilot access to authorized users who operate case workflows.',
     src: '/images/cerviguard/cerviguard-login.png',
     alt: 'CerviGuard secure sign-in screen',
     width: 1600,
@@ -151,7 +151,7 @@ const softwareSchema = {
   },
   description: pageDescription,
   featureList: [
-    'MDR Class I cervical cancer screening companion app',
+    'Positioned as an MDR Class I cervical cancer screening companion app',
     'Secure authentication and role-based access',
     'De-identified cervical image case intake',
     'AI-assisted transformation-zone and lesion classification',
@@ -195,7 +195,7 @@ const CerviGuard = () => (
       <span className="tagline">CerviGuard</span>
       <h1>CerviGuard: AI-supported cervical screening platform for digital care teams</h1>
       <p>
-        CerviGuard is SmartClover&apos;s flagship MDR Class I cervical cancer screening companion app for structured intake,
+        CerviGuard is positioned as SmartClover&apos;s flagship MDR Class I cervical cancer screening companion app for structured intake,
         AI-assisted analysis, and clinician-led follow-up. It is designed for screening teams that need secure
         workflows, traceable case review, and governed deployment options.
       </p>
@@ -216,7 +216,7 @@ const CerviGuard = () => (
           <span>MDR Class I positioning reinforces CerviGuard as a clinical companion, not an autonomous decision maker.</span>
           <span>Clinical teams stay in command with human-in-the-loop review at every high-impact decision.</span>
           <span>Role-based access and case traceability support accountable operations in regulated settings.</span>
-          <span>Product delivery supports SaaS and PaaS models without sacrificing data governance control.</span>
+          <span>Product delivery supports SaaS and PaaS models while keeping data governance controls in scope.</span>
         </div>
         <div className="cta-links">
           <a href="https://cerviguard.link" className="button primary" target="_blank" rel="noopener noreferrer">
@@ -332,8 +332,8 @@ const CerviGuard = () => (
       <div className="section-heading">
         <h2 id="cerviguard-deployment-heading">Digital-native SaaS/PaaS deployment model</h2>
         <p>
-          SmartClover positions CerviGuard as both a product and platform, enabling rapid adoption while preserving
-          governance and integration control.
+          SmartClover positions CerviGuard as both a product and platform, enabling staged adoption while keeping
+          governance and integration control in scope.
         </p>
       </div>
       <div className="feature-grid three-up">
