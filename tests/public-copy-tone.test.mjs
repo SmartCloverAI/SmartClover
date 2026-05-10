@@ -2,6 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
+const normalizeCopy = (value) => value.replace(/\s+/g, ' ').trim();
+
+const extractHomeHeroCopy = (source) => {
+  const match = source.match(/<div className="hero-copy">([\s\S]*?)<div className="hero-action-row">/);
+
+  assert.ok(match, 'pages/index.jsx should contain a hero-copy block before the hero-action-row block');
+
+  return normalizeCopy(match[1]);
+};
+
 const bannedCopyByFile = {
   'pages/about.jsx': [
     'Dr. Andreea Damian anchors the public company story.',
@@ -28,7 +38,13 @@ const bannedCopyByFile = {
     'homepage leads with verifiable proof',
     'The homepage establishes SmartClover',
     'company profile',
-    'accountable operators'
+    'accountable operators',
+    'Named leadership',
+    'visible product surfaces',
+    'support evaluation',
+    'stakeholders',
+    'product maturity',
+    'evaluation routes'
   ],
   'pages/contact.jsx': [
     'so serious visitors do not have to guess where to start',
@@ -84,5 +100,18 @@ test('public marketing and editorial copy avoids informal or internal-facing phr
         `${filePath} still includes informal public copy: ${fragment}`
       );
     }
+  }
+});
+
+test('homepage hero speaks in client-facing product and workflow language', () => {
+  const source = readFileSync('pages/index.jsx', 'utf8');
+  const heroCopy = extractHomeHeroCopy(source);
+
+  for (const requiredFragment of ['CerviGuard', 'cervical-screening teams', 'clinician-led', 'workflow']) {
+    assert.equal(
+      heroCopy.includes(requiredFragment),
+      true,
+      `homepage hero should include client-facing product language: ${requiredFragment}`
+    );
   }
 });

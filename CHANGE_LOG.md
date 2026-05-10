@@ -915,3 +915,32 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
   - `git diff --check` -> pass.
 - Residual Risk: Investor-grade evidence gaps remain unresolved until regulatory/QMS artifacts, clinical/pilot outcomes, security documentation, and updated pitch materials are produced or published.
+
+### [2026-05-10 20:54 UTC] TYPE: change
+- Author: Codex
+- Summary: Remediated the homepage first-viewport copy regression that made SmartClover sound like an AI self-assessment instead of a client-facing healthcare AI company.
+- Evidence: `pages/index.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`; red-green command `node --test tests/public-copy-tone.test.mjs`; full validation commands `npm test`, `npm run lint`, `npm run build`, homepage Playwright smoke checks.
+- Impact: The homepage hero now leads with CerviGuard, cervical-screening teams, clinician-led workflow language, and DataGems as the secondary research pilot while blocking evaluator-language regressions.
+- Follow-up: Future S-WRITER or VC-EXPERT reviews must include the homepage first viewport unless explicitly scoped out.
+
+### [2026-05-10 20:54 UTC] ADVERSARIAL-CHECK
+- Scope: homepage first-viewport copy and copy-regression tests (`pages/index.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`, `CHANGE_LOG.md`).
+- BUILDER Intent + Change:
+  - Replaced the evaluator-style homepage hero paragraph with client-facing product language centered on CerviGuard as workflow software for cervical-screening teams.
+  - Updated homepage SEO/schema descriptions, the hero heading, visual caption, and first proof-section intro to avoid analyst-speak while preserving evidence-backed product status.
+  - Extended `tests/public-copy-tone.test.mjs` to ban the specific failure mode and require the hero to include CerviGuard, cervical-screening teams, clinician-led language, and workflow language.
+- CRITIC Findings:
+  - Claim safety alone caused the earlier regression; tests needed to block formal but lifeless phrases such as `Named leadership`, `visible product surfaces`, `support evaluation`, and `stakeholders`.
+  - The homepage still must not imply commercial traction, clinical validation, final regulatory status, or security certification.
+  - Browser smoke checks must scope the CTA selector to the hero because the page intentionally contains multiple `Book demo` links.
+- BUILDER Response / Refinements:
+  - Kept the copy specific to observable product status: CerviGuard is live, DataGems is a live research pilot, and the workflow is clinician-led.
+  - Avoided new claims about pilots, revenue, clinical outcomes, final MDR status, partnerships, or certifications.
+  - Reran the smoke check with a hero-scoped CTA selector after the first unscoped selector matched nav, hero, and footer CTAs.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> fail before production edit, catching `Named leadership` and missing `cervical-screening teams`; pass after edit (2/2).
+  - `npm test` -> pass (9/9).
+  - `npm run lint` -> pass (no ESLint warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
+  - Playwright homepage smoke check against local production server on desktop and mobile -> pass after hero-scoped CTA selector.
+- Residual Risk: This is a surgical homepage-first fix; lower-priority routes may still contain over-formal review language if promoted into campaign or investor journeys later.
