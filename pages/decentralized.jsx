@@ -87,7 +87,7 @@ const Decentralized = () => (
         </p>
         <div className="key-points">
           <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
-          <span>Stakeholders can independently verify compliance across participating sites.</span>
+          <span>Participating teams can independently verify compliance across sites.</span>
           <span>Redundant nodes support product responsiveness during maintenance or regional outages.</span>
         </div>
         <div className="cta-links">

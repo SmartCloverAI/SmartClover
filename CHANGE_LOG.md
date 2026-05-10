@@ -944,3 +944,40 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
   - Playwright homepage smoke check against local production server on desktop and mobile -> pass after hero-scoped CTA selector.
 - Residual Risk: This is a surgical homepage-first fix; lower-priority routes may still contain over-formal review language if promoted into campaign or investor journeys later.
+
+### [2026-05-10 21:41 UTC] TYPE: change
+- Author: Codex + CQ-VERIFIER + CONTENT-VALIDATOR
+- Summary: Started `CONTENT_FIX_PLAN.md` execution by creating durable content governance artifacts, removing the Home/About citation-continuity regression, cleaning matching machine-readable and editorial surfaces, and expanding tests to block evaluator-language and redaction regressions.
+- Evidence: `CONTENT_INVENTORY.md`, `CONTENT_REDACTION_REGISTER.md`, `CONTENT_REWRITE_REVIEW.md`, `pages/index.jsx`, `pages/about.jsx`, `lib/agent-artifacts.mjs`, `posts/healthcare-ai-research.md`, `posts/cerviguard-remote-screening-foundations.md`, `public/.well-known/agent-skills/*`, `tests/public-copy-tone.test.mjs`, `version.json`; commands `node --test tests/public-copy-tone.test.mjs`, `npm test`, `npm run lint`, `npm run build`, local production Playwright/curl smoke checks.
+- Impact: Prior redactions are now durable enough to be tested across pages, components, lib-generated LLMS/MCP content, posts, `.well-known` agent files, and OpenAPI text, reducing the chance that review-style credibility copy reappears in public website content.
+- Follow-up: Continue `CONTENT_FIX_PLAN.md` batches for product, trust/proof/regulatory, pricing/contact, blog, machine-readable artifacts, and stale PDF/pitch surfaces.
+
+### [2026-05-10 21:41 UTC] ADVERSARIAL-CHECK
+- Scope: first `CONTENT_FIX_PLAN.md` implementation batch covering Home/About content regression, content governance artifacts, machine-readable summaries, public blog redaction cleanup, `.well-known` agent text, tone tests, and `version.json`.
+- BUILDER Intent + Change:
+  - Removed the homepage paragraph that used earlier-name continuity and third-party researcher references as credibility copy.
+  - Rewrote the About first screen and founder section to use direct founder, product, audience, and workflow language.
+  - Added `CONTENT_INVENTORY.md`, `CONTENT_REDACTION_REGISTER.md`, and `CONTENT_REWRITE_REVIEW.md`.
+  - Updated `lib/agent-artifacts.mjs`, `llms` source text, and `.well-known` site-navigation language so machine-readable outputs no longer preserve the stale evaluator framing.
+  - Removed redacted citation-continuity explanations from two public blog posts.
+  - Expanded `tests/public-copy-tone.test.mjs` to scan public source surfaces with normalized text so JSX entities and line breaks cannot hide banned phrases.
+  - Incremented `version.json` from `3.13` to `3.14` for this website commit.
+- CRITIC Findings:
+  - CQ-VERIFIER found that the initial Home/About state still contained the exact `Andreea Itu`, `Dr. Florian Nicula`, `public record`, `publication continuity`, `named accountability`, and visible-artifact failure modes.
+  - CONTENT-VALIDATOR found the current tests were too exact-fragment/file-specific and did not protect `lib/agent-artifacts.mjs` or `.well-known` machine-readable surfaces.
+  - A broad source scan found two older blog posts still contained the redacted name-continuity explanation.
+  - Normalized testing exposed additional public-source leaks such as `Stakeholders` and `Public Artifacts`.
+- BUILDER Response / Refinements:
+  - Rewrote Home/About and machine-readable content around CerviGuard, DataGems, research context, and concrete visitor routes.
+  - Added content inventory, redaction register, and review log artifacts to make future review scope durable.
+  - Removed redacted name-continuity language from the two affected blog posts rather than leaving it for a later route batch.
+  - Updated `.well-known` site-navigation copy and digest after editing the skill file.
+  - Replaced remaining banned public-source phrases found by the new broad test.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (4/4 tests).
+  - `rg -in "public profile references|publication continuity|identifiable prior work|public record|named accountability|support evaluation|stakeholders|product maturity|visible product artifacts|diligence-ready|trust-ready|company profile|external evaluators|evaluation routes|delivery posture|operating context|public artifacts|public trust routes for diligence|diligence readiness|public healthcare positioning|named leadership|serious evaluators|earlier work published|Andreea Itu|Florian Nicula|support due diligence" pages components lib posts public/.well-known public/openapi.json || true` -> pass (no matches).
+  - `npm test` -> pass (11/11 tests).
+  - `npm run lint` -> pass (no ESLint warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
+  - Local production Playwright/curl smoke checks on `/`, `/about`, `/llms.txt`, `/llms-full.txt`, and `.well-known` agent-skill files -> pass; `/api/status` returned version `3.14`.
+- Residual Risk: Broader product, trust/proof/regulatory, contact, pricing, and PDF/pitch-deck surfaces still need their planned content-quality review batches; this batch only fixed the current regression family and the public surfaces needed to block it.

@@ -11,9 +11,9 @@
     {
       "name": "site-navigation",
       "type": "skill-md",
-      "description": "Navigate SmartClover's public product, trust, diligence, and contact routes without guessing from the UI.",
+      "description": "Navigate SmartClover's public product, trust, pricing, and contact routes without guessing from the UI.",
       "url": "/.well-known/agent-skills/site-navigation/SKILL.md",
-      "digest": "sha256:0fb2017092b90805c5632c3dbd6ac554a061241272e6389609789c6f803966d8"
+      "digest": "sha256:6091158d1025ed01f760bf2440b6c106a5d0308f17a006a6b1f26a8818a9a189"
     }
   ]
 }

@@ -23,9 +23,9 @@ This project draws on Romanian field screening and follow-up research in underse
 The same problem patterns are documented in peer-reviewed studies that inform the product direction:
 
 1. [PubMed 28460211](https://pubmed.ncbi.nlm.nih.gov/28460211/)
-   Qualitative research on Roma women's participation in cervical cancer screening in Romania (Social Science & Medicine, 2017), including co-authorship by Dr. Florian Nicula and Andreea Itu (publication name used earlier by Dr. Andreea Damian).
+   Qualitative research on Roma women's participation in cervical cancer screening in Romania (Social Science & Medicine, 2017).
 2. [PubMed 35197342](https://pubmed.ncbi.nlm.nih.gov/35197342/)
-   BMJ Open protocol on facilitators and barriers to follow-up after abnormal cervical screening in remote Romanian communities (2022), co-authored by Dr. Andreea Damian.
+   BMJ Open protocol on facilitators and barriers to follow-up after abnormal cervical screening in remote Romanian communities (2022).
 
 These studies help define where a digital clinical workflow has the highest impact: continuity of follow-up, transparent review steps, and stronger coordination between clinical and operational actors.
 

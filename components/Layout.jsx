@@ -37,7 +37,7 @@ const footerGroups = [
     ]
   },
   {
-    title: 'Public Artifacts',
+    title: 'Public resources',
     links: [
       { label: 'CerviGuard live pilot', href: 'https://cerviguard.link', external: true },
       { label: 'CerviGuard GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard', external: true },

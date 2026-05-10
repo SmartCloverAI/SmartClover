@@ -20,7 +20,7 @@ const founderAnchors = [
   },
   {
     title: 'SmartClover citations file',
-    description: 'Reusable BibTeX source for public citation continuity.',
+    description: 'Reusable BibTeX source for the public research references used by the site.',
     href: '/docs/smartclover-cerviguard-citations.bib'
   }
 ];
@@ -29,7 +29,7 @@ const valueCards = [
   {
     title: 'Creativity',
     description:
-      'SmartClover makes room for original thinking, but each initiative still has to withstand review by buyers, researchers, and clinical operators.'
+      'SmartClover makes room for original thinking, but the work has to be useful for clinicians, researchers, and operating teams.'
   },
   {
     title: 'Digitalization',
@@ -54,22 +54,22 @@ const operatingPrinciples = [
     kicker: 'Evidence before claims',
     title: 'Named sources support high-stakes claims.',
     description:
-      'Citations, current product proof, and dated trust material support public claims where accuracy matters most.'
+      'Citations, current product proof, and dated trust material sit close to claims where accuracy matters most.'
   },
   {
     kicker: 'Trust-aware deployment',
     title: 'Deployment language stays specific.',
     description:
-      'Security, privacy, governance, and procurement routes remain visible so evaluators can review the company early.'
+      'Security, privacy, governance, and procurement routes are written for clinics, research teams, procurement reviewers, and investors.'
   }
 ];
 
 const companyTimeline = [
   {
-    kicker: 'Research continuity',
-    title: 'Publication-linked cervical screening work',
+    kicker: 'Research context',
+    title: 'Cervical-screening work shaped the company focus',
     description:
-      'Public research from 2017 and 2022 provides a visible continuity line into SmartClover’s healthcare focus.'
+      'Public research from 2017 and 2022 gives context for SmartClover\'s focus on screening participation and follow-up.'
   },
   {
     kicker: 'Productization',
@@ -79,15 +79,15 @@ const companyTimeline = [
   },
   {
     kicker: 'Company shape',
-    title: 'SmartClover expanded into a broader platform profile',
+    title: 'SmartClover added DataGems and trust pages',
     description:
-      'DataGems, trust routes, pricing, buying, and blog surfaces present the company as a broader operating platform.'
+      'DataGems, trust routes, pricing, buying, and blog pages make the wider company easier to review.'
   },
   {
     kicker: 'Current stance',
-    title: 'Named leadership and diligence readiness',
+    title: 'Clear paths for serious conversations',
     description:
-      'The public site emphasizes named leadership, public artifacts, and a realistic delivery posture across the business.'
+      'Clinics, research teams, procurement reviewers, and investors can choose the route that fits their question.'
   }
 ];
 
@@ -98,7 +98,7 @@ const aboutSchema = [
     name: 'About SmartClover',
     url: `${siteUrl}/about`,
     description:
-      'Healthcare AI company page covering SmartClover leadership, publication continuity, operating principles, and values.'
+      'Healthcare AI company page covering SmartClover leadership, CerviGuard, research context, operating principles, and values.'
   },
   {
     '@context': 'https://schema.org',
@@ -116,8 +116,8 @@ const aboutSchema = [
 const About = () => (
   <>
     <PageSeo
-      title="About SmartClover | Leadership and Publication Continuity"
-      description="Healthcare AI company with public cervical screening research continuity, visible product artifacts, and accountable product-delivery principles."
+      title="About SmartClover | Healthcare AI For Cervical Screening"
+      description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows and DataGems as a live research pilot."
       path="/about"
       image="/images/research-lab.png"
       jsonLd={aboutSchema}
@@ -125,33 +125,32 @@ const About = () => (
 
     <header className="page-header">
       <span className="tagline">About SmartClover</span>
-      <h1>Leadership, publication continuity, and accountable product delivery.</h1>
+      <h1>A founder-led healthcare AI company building CerviGuard.</h1>
       <p>
-        SmartClover is led by identifiable leadership and supported by public research continuity, visible product
-        artifacts, and governance materials. This page summarizes the company&apos;s operating context, evidence base, and
-        delivery posture.
+        SmartClover is led by Dr. Andreea Damian in Cluj-Napoca, Romania. The company builds CerviGuard for
+        cervical-screening workflows and keeps product, trust, pricing, and buying information available for clinics,
+        research teams, procurement reviewers, and investors.
       </p>
     </header>
 
     <section className="surface-card" aria-labelledby="about-founder-heading">
       <div className="founder-grid">
         <div className="story-card">
-          <p className="kicker">Leadership and research continuity</p>
-          <h2 id="about-founder-heading">Leadership and publications support the public record.</h2>
+          <p className="kicker">Founder and product focus</p>
+          <h2 id="about-founder-heading">SmartClover is built around cervical-screening workflows.</h2>
           <p>
-            SmartClover links its public healthcare positioning to named research and a visible flagship product.
-            Dr. Andreea Damian appears in public literature directly and also through earlier work published under the
-            name Andreea Itu. That continuity connects the company&apos;s cervical screening direction to identifiable prior
-            work.
+            Dr. Andreea Damian leads SmartClover with CerviGuard as the flagship product. The company focuses on
+            structured intake, AI-assisted review, triage coordination, and clinician-led follow-up for cervical
+            screening teams.
           </p>
           <p>
-            Dr. Florian Nicula also appears in the public research record that informs the screening and follow-up
-            context. Together, these references give clinicians, partners, and investors a clearer basis for evaluation.
+            The research links on this page provide context on screening participation and follow-up barriers in
+            Romania. They are kept as references, not as a substitute for current product proof.
           </p>
           <div className="key-points">
-            <span>Named leadership and publications are visible before deeper diligence.</span>
-            <span>The flagship product has a live public surface with supporting artifacts.</span>
-            <span>Trust, pricing, procurement, and regulatory routes remain reachable from the same public site.</span>
+            <span>CerviGuard is the live product at the center of the company story.</span>
+            <span>DataGems remains a live research pilot, not the main commercial product.</span>
+            <span>Trust, pricing, procurement, and regulatory pages are reachable from the same public site.</span>
           </div>
         </div>
 
@@ -159,15 +158,15 @@ const About = () => (
           <div className="visual-frame">
             <Image
               src="/images/research-lab.png"
-              alt="Research and product workspace representing SmartClover leadership and publication continuity"
+              alt="Research and product workspace representing SmartClover's cervical-screening focus"
               width={1024}
               height={1024}
               sizes="(max-width: 1080px) 100vw, 40vw"
             />
           </div>
           <div className="visual-caption">
-            <strong>Public evidence and operating context</strong>
-            <span>This section brings together research continuity, public assets, and operating context in one place.</span>
+            <strong>Research references and product routes</strong>
+            <span>Use these links for research context, product access, and citation details.</span>
           </div>
           <ul className="list-reset">
             {founderAnchors.map((item) => (

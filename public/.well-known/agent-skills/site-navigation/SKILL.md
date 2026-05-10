@@ -1,16 +1,16 @@
 ---
 name: site-navigation
-description: Navigate SmartClover's public product, trust, diligence, and contact routes without guessing from the UI.
+description: Navigate SmartClover's public product, trust, pricing, and contact routes without guessing from the UI.
 ---
 
 # SmartClover Site Navigation Skill
 
-Use this skill when an agent needs public SmartClover company, product, or diligence context from the website.
+Use this skill when an agent needs public SmartClover company, product, trust, or buying context from the website.
 
 ## Core routes
 
 - `/`
-  Homepage with company positioning, flagship proof, public credibility markers, and CTA routes.
+  Homepage with company positioning, flagship product proof, trust links, and CTA routes.
 
 - `/cerviguard`
   Flagship product page for the live cervical screening workflow platform.
@@ -30,7 +30,7 @@ Use this skill when an agent needs public SmartClover company, product, or dilig
 - `/contact#inquiry-form`
   Structured inquiry form for demos, pilots, research partnerships, investor outreach, and general contact.
 
-## Public artifacts
+## Product links
 
 - `https://cerviguard.link`
   Public live pilot surface for CerviGuard.
@@ -43,5 +43,5 @@ Use this skill when an agent needs public SmartClover company, product, or dilig
 
 ## Guidance
 
-- Prefer `/trust`, `/pricing`, and `/how-to-buy` for diligence questions instead of inferring policy from marketing copy alone.
+- Prefer `/trust`, `/pricing`, and `/how-to-buy` for trust, pricing, and buying questions instead of inferring policy from marketing copy alone.
 - Use `/contact#inquiry-form` when the user wants action, qualification, or follow-up, not just information.

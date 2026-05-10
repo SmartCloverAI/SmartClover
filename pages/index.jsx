@@ -11,10 +11,10 @@ const proofCards = [
       'The live product surface, public repository, and trust routes make the cervical screening workflow visible from the first visit.'
   },
   {
-    kicker: 'Research continuity',
-    title: 'Leadership and clinical research signals are public.',
+    kicker: 'Research context',
+    title: 'Cervical-screening research is easy to find.',
     description:
-      'Two PubMed references connect SmartClover to Romanian cervical screening and follow-up research continuity.'
+      'Two PubMed references are linked for visitors who want context on cervical screening participation and follow-up work in Romania.'
   },
   {
     kicker: 'Trust routes',
@@ -50,13 +50,13 @@ const timelineCards = [
     kicker: '2017 publication',
     title: 'Screening participation barriers documented',
     description:
-      'Social Science & Medicine published field research on Roma women and cervical screening participation in Romania, including Florian Nicula and Andreea Itu.'
+      'Social Science & Medicine published field research on Roma women and cervical screening participation in Romania.'
   },
   {
     kicker: '2022 publication',
     title: 'Follow-up barriers researched in remote communities',
     description:
-      'BMJ Open published a protocol on facilitators and barriers to follow-up after abnormal cervical screening results, including Dr. Andreea Damian.'
+      'BMJ Open published a protocol on facilitators and barriers to follow-up after abnormal cervical screening results in remote Romanian communities.'
   },
   {
     kicker: '2024-2026 product build-out',
@@ -66,9 +66,9 @@ const timelineCards = [
   },
   {
     kicker: 'Current company posture',
-    title: 'Trust and conversion routes are public',
+    title: 'Clear routes for buyers, partners, and investors',
     description:
-      'Contact, pricing, how-to-buy, proof, regulatory, and trust routes stay visible so buyers, partners, and investors can evaluate fit quickly.'
+      'Contact, pricing, how-to-buy, proof, regulatory, and trust routes help each visitor decide where to start.'
   }
 ];
 
@@ -96,7 +96,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Healthcare AI company building CerviGuard for cervical-screening workflows, with DataGems as a live research pilot and public trust routes for diligence.',
+    'Healthcare AI company building CerviGuard for cervical-screening workflows, with DataGems as a live research pilot and public trust routes for clinics, partners, and investors.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
@@ -123,7 +123,7 @@ const Home = () => (
   <>
     <PageSeo
       title="SmartClover | Healthcare AI With Live Product Proof"
-      description="SmartClover builds CerviGuard, a live product for cervical-screening teams, with DataGems as a live research pilot and public trust routes for diligence."
+      description="SmartClover builds CerviGuard, a live product for cervical-screening teams, with DataGems as a live research pilot and public trust routes for clinics, partners, and investors."
       path="/"
       image="/images/cerviguard/cerviguard-dashboard.png"
       jsonLd={organizationSchema}
@@ -175,8 +175,8 @@ const Home = () => (
               plus public repository and model hub references.
             </li>
             <li>
-              <strong>Research continuity:</strong>
-              PubMed references from 2017 and 2022 document continuity with cervical screening and follow-up research.
+              <strong>Research context:</strong>
+              PubMed references from 2017 and 2022 provide context on cervical screening participation and follow-up work.
             </li>
             <li>
               <strong>Trust orientation:</strong>
@@ -223,7 +223,7 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="home-proof-heading">Product evidence and working routes</h2>
         <p>
-          SmartClover links the live CerviGuard workflow to public research continuity, trust material, and direct
+          SmartClover links the live CerviGuard workflow to research context, trust material, and direct
           commercial paths for clinics, research partners, and investors.
         </p>
       </div>
@@ -242,7 +242,7 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="home-portfolio-heading">A flagship product within a broader company platform</h2>
         <p>
-          CerviGuard remains the primary commercial product, while the wider platform, research, and diligence surfaces keep
+          CerviGuard remains the primary commercial product, while the wider platform, research, and trust surfaces keep
           the full company offering visible.
         </p>
       </div>
@@ -269,16 +269,16 @@ const Home = () => (
       <div className="founder-grid">
         <div className="story-card">
           <p className="kicker">Founder and research credibility</p>
-          <h2 id="home-credibility-heading">Leadership, publications, and public artifacts support due diligence.</h2>
+          <h2 id="home-credibility-heading">Built around cervical-screening work, not generic AI positioning.</h2>
           <p>
-            SmartClover&apos;s public profile references founder Dr. Andreea Damian, publication continuity that includes
-            earlier work published as Andreea Itu, and cervical screening research involving Dr. Florian Nicula. These
-            references provide named accountability for the company&apos;s healthcare focus.
+            Founder Dr. Andreea Damian leads SmartClover from Cluj-Napoca with CerviGuard as the flagship product.
+            The research links below are kept as context for the cervical-screening problem space; current product
+            details come from CerviGuard, product, and trust pages.
           </p>
           <div className="key-points">
-            <span>PubMed 35197342 links directly to Romanian follow-up research in remote communities.</span>
-            <span>PubMed 28460211 links directly to barriers in cervical screening participation in Romania.</span>
-            <span>CerviGuard, GitHub, Hugging Face, and trust routes support direct evaluation.</span>
+            <span>PubMed 35197342 covers follow-up barriers after abnormal cervical screening results.</span>
+            <span>PubMed 28460211 covers barriers to cervical screening participation in Romania.</span>
+            <span>CerviGuard, GitHub, Hugging Face, and trust routes are available before outreach.</span>
           </div>
           <div className="inline-link-row">
             <a href="https://pubmed.ncbi.nlm.nih.gov/35197342/" target="_blank" rel="noopener noreferrer" className="button secondary">
@@ -294,15 +294,15 @@ const Home = () => (
           <div className="visual-frame">
             <Image
               src="/images/research-lab.png"
-              alt="Research workspace supporting SmartClover's publication-linked credibility"
+              alt="Research workspace representing SmartClover's cervical-screening context"
               width={1024}
               height={1024}
               sizes="(max-width: 1080px) 100vw, 40vw"
             />
           </div>
           <div className="visual-caption">
-            <strong>Leadership and publication continuity</strong>
-            <span>Public research continuity, product access, and trust materials remain visible to external evaluators.</span>
+            <strong>Research context and product proof</strong>
+            <span>Research links, product access, and trust materials give visitors concrete places to continue.</span>
           </div>
         </div>
       </div>
@@ -344,7 +344,7 @@ const Home = () => (
 
     <DiligenceLinksSection
       headingId="home-diligence-links"
-      heading="Public diligence and buying routes"
+      heading="Trust, proof, and buying routes"
       description="Use these routes to review proof, regulatory posture, trust, pricing, and procurement context before outreach."
     />
   </>
