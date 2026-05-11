@@ -4,7 +4,7 @@ date: "2025-11-03"
 excerpt: "CerviGuard combines secure clinical workflows with AI-assisted triage, grounded in lessons from field screening and follow-up research in underserved communities."
 ---
 
-CerviGuard is SmartClover's flagship healthcare AI project for cervical cancer prevention and follow-up. The product direction is practical: provide clinicians with a secure workspace where AI can support case triage and workflow management, while medical teams remain in final control of decisions.
+CerviGuard is SmartClover's flagship workflow product for cervical-screening teams. The product direction is practical: provide clinicians with a secure workspace where AI can support case triage and workflow management, while medical teams remain in final control of decisions.
 
 - Live product workspace: [cerviguard.link](https://cerviguard.link)
 - Public implementation repository: [SmartCloverAI/CerviGuard](https://github.com/SmartCloverAI/CerviGuard)
@@ -12,9 +12,9 @@ CerviGuard is SmartClover's flagship healthcare AI project for cervical cancer p
 
 ## Operational model
 
-CerviGuard establishes a clinical operating model where de-identified cervical image intake, AI-assisted interpretation, and role-based follow-up are connected in one reviewable workflow. Instead of fragmented files and ad-hoc communication, teams can use one traceable path from intake to follow-up planning.
+CerviGuard establishes a clinical operating model where structured cervical case-material intake, AI-assisted image-signal review, and role-based follow-up are connected in one reviewable workflow. Instead of fragmented files and ad-hoc communication, teams can use one traceable path from intake to follow-up planning.
 
-The objective is not to replace clinical judgment. The objective is to reduce missed follow-up signals, improve consistency in triage support, and keep evidence visible at decision points so clinicians can act faster and with better context.
+The objective is not to replace clinical judgment. The objective is to make follow-up signals easier to review, keep triage support consistent, and keep context visible for clinician decisions.
 
 ## Why this is tied to field screening and follow-up research
 
@@ -27,8 +27,12 @@ The same problem patterns are documented in peer-reviewed studies that inform th
 2. [PubMed 35197342](https://pubmed.ncbi.nlm.nih.gov/35197342/)
    BMJ Open protocol on facilitators and barriers to follow-up after abnormal cervical screening in remote Romanian communities (2022).
 
-These studies help define where a digital clinical workflow has the highest impact: continuity of follow-up, transparent review steps, and stronger coordination between clinical and operational actors.
+These studies help define where a digital clinical workflow can be most useful: continuity of follow-up, transparent review steps, and stronger coordination between clinical and operational actors.
 
 ## Current direction
 
-CerviGuard is being developed as a secure clinical system where technology supports teams that already carry responsibility for patient pathways. The objective is to turn field-informed screening and follow-up lessons into daily operational capability, not just research output.
+CerviGuard is being developed as a clinical workflow product where technology supports teams that already carry responsibility for patient pathways. The objective is to turn field-informed screening and follow-up lessons into daily operational capability, not just research output.
+
+For current product detail and public evidence context, review [CerviGuard](/cerviguard), [Proof](/proof), and the [Security baseline](/trust/security).
+
+Last reviewed: 2026-05-11.

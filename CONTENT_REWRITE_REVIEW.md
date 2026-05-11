@@ -147,3 +147,73 @@ Required changes before publish:
 Residual risks:
 - Visual support for the article is still a separate NapkinAI batch.
 - Existing blog posts still need the separate keep/rewrite/remove review in Task 6B.
+
+## Blog Editorial Target List
+
+| Post | Current role | Target reader | Keep/rewrite/remove | Failure class | Replacement intent | Verification |
+| --- | --- | --- | --- | --- | --- | --- |
+| `posts/cerviguard-remote-screening-foundations.md` | CerviGuard field/research context | Clinical and research readers | Keep, light rewrite | Slight overstatement around impact and missing recency note | Keep field-research grounding while avoiding outcome implication and adding review date | Tone tests and source scan pass |
+| `posts/cybersecurity-healthcare-ledger.md` | Cybersecurity and resilience context | Healthcare IT/security readers | Rewrite targeted paragraphs | HTML-break formatting, broad security phrasing, and service-scope ambiguity | Present healthcare cybersecurity/resilience as scoped service work with authorized personnel, partner products, agentic engineering, and architecture boundaries | Tone tests and source scan pass |
+| `posts/healthcare-ai-research.md` | Healthcare AI research context | Research partners | Rewrite | Unsupported current-work claims about training, community records, knowledge graphs, and answer-level traceability | Reframe as research principle: reviewable evidence, source-linked hypotheses, CerviGuard workflow design, and DataGems research preparation | Tone tests block old unsupported fragments |
+| `posts/on-prem-ledger-ci-cd.md` | Cloud-on-edge deployment context | IT/security and technical buyers | Rewrite targeted paragraphs | HTML-break formatting and potentially broad deployment/compliance language | Preserve permissioned cloud-on-edge, encryption, reduced centralization, immutable anchoring, and traceable records with contract/environment scoping | Tone tests and source scan pass |
+
+## Batch Review: Existing Blog Posts
+
+Files reviewed:
+- `posts/cerviguard-remote-screening-foundations.md`
+- `posts/cybersecurity-healthcare-ledger.md`
+- `posts/healthcare-ai-research.md`
+- `posts/on-prem-ledger-ci-cd.md`
+
+First-principles findings:
+- Each post should answer a practical reader question: how CerviGuard uses field lessons, how healthcare AI security work is scoped, how permissioned deployment boundaries work, or how research ideas stay tied to evidence.
+- Blog copy should not claim current model training, answer traceability, compliance readiness, or operational outcomes without a source.
+
+Evidence findings:
+- PubMed and BMJ Open links support cervical-screening and follow-up context.
+- User-confirmed architecture supports permissioned cloud-on-edge, end-to-end encrypted sensitive flows, reduced centralization, immutable anchoring, and traceable deployment records when scoped to the approved deployment model.
+- User-confirmed cybersecurity/resilience services may reference authorized/certified personnel, partner security products, and agentic engineering workflows when scoped.
+
+Evidence map for this batch:
+
+| Claim area | Evidence / approval source | Allowed public wording | Boundary |
+| --- | --- | --- | --- |
+| Cervical-screening research context | PubMed 28460211 and PubMed 35197342 | Research informs screening and follow-up workflow questions | Do not claim product performance or clinical outcomes |
+| CerviGuard workflow | Public CerviGuard route, product screenshots, and existing SmartClover product pages | Structured intake, AI-assisted review, triage coordination, clinician-led follow-up | Avoid diagnosis, treatment, approval, or outcome claims |
+| Cloud-on-edge service capability | User-confirmed corrected finding in `CONTENT_FIX_PLAN.md`; current `/cloud-architecture`, `/decentralized`, and `/services` pages | Permissioned cloud-on-edge deployment patterns, edge/on-prem execution, cloud coordination, traceable records | Provider-neutral; contract/environment scoped |
+| Encryption / non-centralization / immutable anchoring | User-confirmed architecture finding in `CONTENT_FIX_PLAN.md`; current `/cloud-architecture` and `/trust/security` pages | Sensitive flows can be end-to-end encrypted; clinical payload data is not centralized by default; immutable anchoring can support deployment evidence | Do not imply universal compliance, breach prevention, or all-deployment guarantees |
+| Cybersecurity/resilience service model | User-confirmed corrected finding in `CONTENT_FIX_PLAN.md`; current `/cybersecurity` and `/services` pages | Services can include authorized/certified personnel, partner security products, and agentic engineering workflows | Do not claim SmartClover itself is certified unless exact certification evidence is approved |
+
+Redaction findings:
+- No post should reintroduce earlier publication-name continuity, named-coauthor credibility copy, or provider-specific cloud-on-edge naming.
+
+S-WRITER findings:
+- Replace AI-explainer prose and unsupported "we train" claims with operator language about reviewable evidence and bounded workflows.
+- Remove `</br></br>` paragraph formatting from edited posts.
+- After review, replace remaining outcome-adjacent CerviGuard phrasing and internal lines such as `DataGems belongs in the research track` and `This deployment model aligns with our operating principle`.
+
+VC-EXPERT findings:
+- Unsupported data/model claims in `healthcare-ai-research.md` create investor and buyer risk because they imply proprietary data access and system capability that the current evidence register does not establish.
+- Security and deployment posts should keep true differentiators but avoid universal compliance, breach-prevention, or autonomous-security implications.
+- Add internal links so buyer readers can move from editorial posts to the relevant product, trust, cybersecurity, and cloud-architecture pages.
+
+CQ-VERIFIER findings:
+- Add a `Last reviewed: 2026-05-11.` note to posts with healthcare, AI, security, or regulatory context.
+- Add positive assertions for revised blog purpose and negative assertions for old unsupported fragments.
+
+CONTENT-VALIDATOR findings:
+- Run the same local gate and online verification loop as the DataGems batch, with a new version number and a separate commit.
+
+Client/buyer findings:
+- Research partners need practical evidence discipline.
+- Clinical readers need product boundaries.
+- IT/security readers need deployment scope and responsibility boundaries.
+
+Required changes before publish:
+- Rewrite only the target posts listed above.
+- Extend blog tests for rejected unsupported research claims and required scoped service language.
+- Add evidence mapping for cloud-on-edge, encryption, non-centralization, immutable anchoring, traceable records, authorized/certified personnel, partner products, and agentic engineering scope.
+- Increment `version.json`, append `CHANGE_LOG.md`, commit, push, wait for online update, and verify changed blog URLs.
+
+Residual risks:
+- NapkinAI blog visuals are still planned separately; no generated visuals are included in this text-only blog batch.

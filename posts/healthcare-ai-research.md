@@ -1,13 +1,28 @@
 ---
-title: "Accelerating Healthcare Research with Responsible AI"
+title: "Healthcare AI Research Needs Reviewable Evidence"
 date: "2024-05-05"
-excerpt: "How SmartClover applies large language models to chronic disease research while keeping clinicians in the loop."
+excerpt: "How SmartClover connects healthcare AI research to source evidence, clinical review, and workflow design."
 ---
 
-Healthcare research faces an overwhelming volume of literature, patient data, and genomic signals. Large language models can help teams review large volumes faster, but expert validation remains essential. At SmartClover, we combine clinician expertise with generative AI that can process large datasets, identify patterns, and surface hypotheses for further investigation.
+Healthcare AI research moves slowly for a good reason: every useful idea has to survive evidence review, clinical context, and patient-safety questions before it can influence care.
 
-Our latest projects focus on chronic disease prevention, including cervical cancer screening programmes. We train retrieval-augmented models on interview transcripts, focus-group notes, and community health records similar to those documented in the Social Science & Medicine study on Roma women's participation in cervical cancer screening in Romania ([Andreassen et al., 2017](https://pubmed.ncbi.nlm.nih.gov/28460211/); [DOI](https://doi.org/10.1016/j.socscimed.2017.04.040)). That qualitative dataset captured first-hand accounts of mistrust, cultural stigma, and logistical barriers gathered through semi-structured interviews.
+SmartClover's healthcare AI work is anchored in cervical-screening and follow-up questions. We use published research to understand where screening pathways break down, what teams need to review, and which workflow steps should stay visible to clinicians.
 
-We also reference field protocols such as the BMJ Open study examining facilitators and barriers to follow-up after abnormal cervical cancer screening results in remote Romanian communities ([Nyanchoka et al., 2022](https://pubmed.ncbi.nlm.nih.gov/35197342/); [BMJ Open full record](https://bmjopen.bmj.com/content/12/2/e053954)). That research design collects longitudinal interview data, care pathway documentation, and clinician feedback loops to highlight where patients disengage. By mirroring that data structure inside SmartClover's knowledge graph, we can generate prompts that surface missed follow-up appointments, design targeted outreach scripts, and test hypothetical policy adjustments before pilot programmes launch.
+Two public references are especially useful:
 
-Across both streams, our deployment stack keeps every insight traceable. Each answer includes the underlying interview excerpt, clinic log, or epidemiological statistic so cross-disciplinary teams can trace how an AI-generated hypothesis emerged. Clinicians remain responsible for final interpretation and next-step decisions.
+1. [PubMed 28460211](https://pubmed.ncbi.nlm.nih.gov/28460211/) documents qualitative research on participation in cervical cancer screening among Roma women in Romania.
+2. [PubMed 35197342](https://pubmed.ncbi.nlm.nih.gov/35197342/) describes a BMJ Open study protocol on barriers and facilitators to follow-up after abnormal cervical screening results in remote Romanian communities.
+
+These sources do not prove product performance. They help define the operating questions behind [CerviGuard](/cerviguard): intake, review, triage coordination, and clinician-led follow-up.
+
+Large language models can support research work when the task is bounded: literature review, note organization, hypothesis drafting, retrieval over approved source material, or preparation of review packs. That support should stay clearly separated from diagnosis, treatment direction, or clinical evidence about product performance.
+
+The rule is simple: research support is not clinical instruction.
+
+Any AI-supported research workflow we publish should produce output a clinician, researcher, or reviewer can challenge. Where did the statement come from? Which source supports it? What is missing? What should remain a human judgment?
+
+That is also why [DataGems](/blog/datagems-synthetic-data-workflows) supports research preparation work. Synthetic examples can help teams rehearse schemas and pipelines before sensitive data is appropriate, but they do not replace real-world clinical evidence.
+
+For SmartClover, responsible healthcare AI research means keeping source material, model output, workflow decisions, and human review close enough that a team can inspect the path from question to next action.
+
+Last reviewed: 2026-05-11.

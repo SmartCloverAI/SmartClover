@@ -117,3 +117,34 @@
   - `git diff --check` -> pass, no whitespace errors.
   - `rg -n "HIPAA compliant|GDPR compliant|EHDS compliant|guarantees privacy|DataGems anonymizes patient data|DataGems is HIPAA compliant|DataGems provides differential privacy|DataGems guarantees privacy|DataGems creates clinically validated datasets|DataGems replaces real-world data|DataGems is a medical device|DataGems supports clinical diagnosis|diagnostic system|100%|guaranteed|guarantee|public profile|support evaluation|center of the company story|not the main commercial product|remains a live research pilot|publicly visible through|current company posture|human-in-the-loop|every deployment satisfies healthcare compliance|before data ever leaks|cannot silently remove|single product promise|Ratio1|approved peers|SLM-first generation|governed experimentation|governed synthetic-data|unlock|transform|seamless|revolutionary|game-changing|privacy-safe|100 percent" posts/datagems-synthetic-data-workflows.md pages/products.jsx pages components lib public/.well-known` -> pass, no matches.
 - Residual Risk: Online deployment and blog URL verification are still required for version `3.21`; prior blog posts and NapkinAI graphics remain separate planned batches.
+
+### [2026-05-11 18:46 UTC] TYPE: change
+- Author: Codex
+- Summary: Completed the existing-blog review batch for CerviGuard field context, healthcare AI research, cybersecurity/resilience, and cloud-on-edge deployment posts.
+- Evidence: `posts/cerviguard-remote-screening-foundations.md`, `posts/healthcare-ai-research.md`, `posts/cybersecurity-healthcare-ledger.md`, `posts/on-prem-ledger-ci-cd.md`, `tests/public-copy-tone.test.mjs`, `CONTENT_REWRITE_REVIEW.md`.
+- Impact: Older posts now avoid unsupported current-model/data claims, outcome-adjacent CerviGuard phrasing, broad cybersecurity promises, and HTML break formatting while preserving scoped cloud-on-edge and cybersecurity differentiators.
+- Follow-up: Commit, push, wait for version `3.22` online, verify all changed blog URLs, then continue with the NapkinAI visual batch.
+- Related Entry: 2026-05-11 18:32 UTC TYPE: change
+
+### [2026-05-11 18:46 UTC] ADVERSARIAL-CHECK
+- Scope: Existing blog posts under Task 6B.
+- BUILDER Intent + Change:
+  - Rewrote `healthcare-ai-research.md` from unsupported RAG/data claims into source-linked evidence and research-boundary language.
+  - Tightened `cerviguard-remote-screening-foundations.md` around workflow value rather than prevention/outcome claims.
+  - Rewrote `cybersecurity-healthcare-ledger.md` and `on-prem-ledger-ci-cd.md` with scoped architecture, security, and service language.
+  - Added internal links to product, cloud, cybersecurity, proof, and trust pages.
+- CRITIC Findings:
+  - Review agents flagged remaining outcome-adjacent CerviGuard claims, broad `secure clinical system` wording, and missing evidence mapping for cloud/cyber differentiators.
+  - Posts needed reader-value routing links and `Last reviewed` dates.
+- BUILDER Response / Refinements:
+  - Added an evidence map in `CONTENT_REWRITE_REVIEW.md` for cervical-screening references, CerviGuard workflow, cloud-on-edge service capability, architecture claims, and cybersecurity/resilience service scope.
+  - Preserved user-confirmed true differentiators while tying them to approved deployment models, scoped engagements, and contract/environment boundaries.
+  - Added tests that block the old unsupported fragments and require scoped blog language.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 14/14 tests passed.
+  - `npm test` -> pass, 14/14 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+  - `rg -n "process large datasets, identify patterns|We train retrieval-augmented models|community health records similar to those documented|SmartClover's knowledge graph|Each answer includes the underlying|clinicians in the loop|policy-controlled AI deployment with ledger-backed controls|role-based policy bundles define|approved edge/on-prem workers|flagship healthcare AI project for cervical cancer prevention|AI-assisted interpretation|reduce missed follow-up signals|SmartClover uses AI in research workflows|DataGems belongs in the research track|cybersecurity dashboards|SmartClover's role is to help keep those questions visible|This deployment model aligns with our operating principle|de-identified cervical image intake|secure clinical system|SLM-first generation|approved peers|Ratio1|guaranteed|every deployment satisfies healthcare compliance|before data ever leaks|cannot silently remove|single product promise|unlock|transform|seamless|revolutionary|game-changing|privacy-safe|100 percent|100%" posts` -> pass, no matches.
+- Residual Risk: Online deployment and blog URL verification are still required for version `3.22`; NapkinAI visuals remain a separate planned batch.

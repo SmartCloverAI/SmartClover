@@ -241,7 +241,26 @@ const globallyBannedFragments = [
   'DataGems creates clinically validated datasets',
   'DataGems replaces real-world data',
   'DataGems is a medical device',
-  'DataGems supports clinical diagnosis'
+  'DataGems supports clinical diagnosis',
+  'process large datasets, identify patterns, and surface hypotheses',
+  'We train retrieval-augmented models',
+  'community health records similar to those documented',
+  "SmartClover's knowledge graph",
+  'Each answer includes the underlying interview excerpt',
+  'clinicians in the loop',
+  'policy-controlled AI deployment with ledger-backed controls to protect clinical innovation',
+  'role-based policy bundles define which teams may launch new models',
+  'approved edge/on-prem workers',
+  'flagship healthcare AI project for cervical cancer prevention',
+  'AI-assisted interpretation',
+  'reduce missed follow-up signals',
+  'SmartClover uses AI in research workflows',
+  'DataGems belongs in the research track',
+  'cybersecurity dashboards',
+  "SmartClover's role is to help keep those questions visible",
+  'This deployment model aligns with our operating principle',
+  'de-identified cervical image intake',
+  'secure clinical system'
 ];
 
 test('public marketing and editorial copy avoids informal or internal-facing phrasing', () => {
@@ -406,6 +425,79 @@ test('DataGems blog uses workflow value and avoids portfolio-status narration', 
       normalizeForSearch(source).includes(normalizeForSearch(rejectedFragment)),
       false,
       `DataGems blog should not include draft positioning language: ${rejectedFragment}`
+    );
+  }
+});
+
+test('blog posts use scoped evidence and reader-value language', () => {
+  const healthcareResearch = normalizeCopy(readFileSync('posts/healthcare-ai-research.md', 'utf8'));
+  const cerviGuard = normalizeCopy(readFileSync('posts/cerviguard-remote-screening-foundations.md', 'utf8'));
+  const cybersecurity = normalizeCopy(readFileSync('posts/cybersecurity-healthcare-ledger.md', 'utf8'));
+  const cloudOnEdge = normalizeCopy(readFileSync('posts/on-prem-ledger-ci-cd.md', 'utf8'));
+
+  for (const requiredFragment of [
+    'Healthcare AI Research Needs Reviewable Evidence',
+    'research support is not clinical instruction',
+    'source material, model output, workflow decisions, and human review',
+    'Last reviewed: 2026-05-11'
+  ]) {
+    assert.equal(
+      healthcareResearch.includes(requiredFragment),
+      true,
+      `healthcare research post should include scoped evidence language: ${requiredFragment}`
+    );
+  }
+
+  assert.equal(
+    cerviGuard.includes('where a digital clinical workflow can be most useful'),
+    true,
+    'CerviGuard post should avoid strongest-impact wording'
+  );
+  assert.equal(
+    cerviGuard.includes('flagship workflow product for cervical-screening teams'),
+    true,
+    'CerviGuard post should avoid prevention-outcome product framing'
+  );
+  assert.equal(
+    cerviGuard.includes('[CerviGuard](/cerviguard)'),
+    true,
+    'CerviGuard post should link to current product context'
+  );
+  assert.equal(cerviGuard.includes('Last reviewed: 2026-05-11'), true, 'CerviGuard post should include review date');
+
+  for (const requiredFragment of [
+    'Cybersecurity and Resilience for Healthcare AI',
+    'authorized/certified personnel',
+    'partner security products',
+    'agentic engineering workflows',
+    'not universal compliance promises',
+    '[Healthcare Cybersecurity](/cybersecurity)',
+    '[Cloud Architecture](/cloud-architecture)',
+    '[Security baseline](/trust/security)',
+    'Last reviewed: 2026-05-11'
+  ]) {
+    assert.equal(
+      cybersecurity.includes(requiredFragment),
+      true,
+      `cybersecurity post should include scoped service language: ${requiredFragment}`
+    );
+  }
+
+  for (const requiredFragment of [
+    'permissioned cloud-on-edge deployment patterns',
+    'permissioned edge/on-prem workers',
+    'traceable deployment records',
+    'end-to-end encrypted',
+    'not centralized by default',
+    '[Cloud Architecture](/cloud-architecture)',
+    '[Decentralized Deployment](/decentralized)',
+    '[Security baseline](/trust/security)',
+    'Last reviewed: 2026-05-11'
+  ]) {
+    assert.equal(
+      cloudOnEdge.includes(requiredFragment),
+      true,
+      `cloud-on-edge post should include scoped architecture language: ${requiredFragment}`
     );
   }
 });
