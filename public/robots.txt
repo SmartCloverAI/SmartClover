@@ -2,6 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://smartclover.ro/sitemap.xml
-
-# SmartClover intended open-discovery posture
-Content-Signal: ai-train=yes, search=yes, ai-input=yes

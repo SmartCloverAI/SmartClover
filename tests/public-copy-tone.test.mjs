@@ -98,6 +98,8 @@ const bannedCopyByFile = {
   ],
   'pages/cerviguard.jsx': ['our broader two-direction healthcare AI product strategy', 'generative SaaS systems'],
   'pages/services.jsx': ['primary CerviGuard wedge', 'Primary wedge (active)'],
+  'pages/cloud-architecture.jsx': ['GCP alignment rationale'],
+  'pages/decentralized.jsx': ['public ledger for delivery traces', 'independently verify compliance'],
   'pages/proof.jsx': [
     'SMARTCLOVER SRL launch phase and online-platform preparation',
     'next-generation prophylaxis management for gynecological oncological pathologies',
@@ -170,6 +172,7 @@ const globallyBannedFragments = [
   'Request Diligence Review',
   'human-in-the-loop',
   'governed deployment options',
+  'governed deployment',
   'governed synthetic-data',
   'data governance controls in scope',
   'claim-to-artifact discipline',
@@ -181,10 +184,7 @@ const globallyBannedFragments = [
   'explainable AI outputs',
   'audit-ready metadata',
   'audit-ready workflow',
-  'end-to-end encryption',
-  'immutable traceability',
   'aligned with applicable NIS2/CRA expectations',
-  'no centralized clinical payload repository',
   'SmartClover&apos;s clinical analytics work',
   'rapid daily triage',
   'transformation-zone and lesion-class probabilities',
@@ -198,8 +198,23 @@ const globallyBannedFragments = [
   'Open Live Pilot',
   'approved MDR',
   'final MDR',
-  'certified',
-  'guaranteed'
+  'certified product',
+  'certified platform',
+  'certified company',
+  'certified compliance',
+  'guaranteed',
+  'Digital resilience module track',
+  'Roadmap expansion',
+  'commercial operations prioritize',
+  'blockchain-governed network',
+  'GCP alignment rationale',
+  'public ledger for delivery traces',
+  'participating teams can independently verify compliance',
+  'every deployment satisfies healthcare compliance',
+  'before data ever leaks',
+  'cannot silently remove',
+  'single product promise',
+  'Ratio1'
 ];
 
 test('public marketing and editorial copy avoids informal or internal-facing phrasing', () => {
@@ -346,4 +361,62 @@ test('pricing and buying pages explain RFQ scope and next steps', () => {
   for (const requiredFragment of ['first conversation to activation', 'security, legal, and governance checkpoints', 'Start Qualification']) {
     assert.equal(howToBuy.includes(requiredFragment), true, `how-to-buy page should include: ${requiredFragment}`);
   }
+});
+
+test('service capability pages preserve SmartClover product and service hierarchy', () => {
+  const services = normalizeCopy(readFileSync('pages/services.jsx', 'utf8'));
+  const cloud = normalizeCopy(readFileSync('pages/cloud-architecture.jsx', 'utf8'));
+  const cybersecurity = normalizeCopy(readFileSync('pages/cybersecurity.jsx', 'utf8'));
+  const decentralized = normalizeCopy(readFileSync('pages/decentralized.jsx', 'utf8'));
+
+  const cerviGuardIndex = services.indexOf('CerviGuard');
+  const dataGemsIndex = services.indexOf('DataGems');
+  const cloudOnEdgeIndex = services.indexOf('permissioned cloud-on-edge');
+  const cybersecurityIndex = services.indexOf('cybersecurity/resilience');
+
+  assert.notEqual(cerviGuardIndex, -1, 'services page should mention CerviGuard');
+  assert.notEqual(dataGemsIndex, -1, 'services page should mention DataGems');
+  assert.notEqual(cloudOnEdgeIndex, -1, 'services page should mention permissioned cloud-on-edge');
+  assert.notEqual(cybersecurityIndex, -1, 'services page should mention cybersecurity/resilience services');
+  assert.equal(cerviGuardIndex < dataGemsIndex, true, 'services page should keep CerviGuard before DataGems');
+  assert.equal(dataGemsIndex < cloudOnEdgeIndex, true, 'services page should keep DataGems before cloud-on-edge services');
+  assert.equal(
+    cloudOnEdgeIndex < cybersecurityIndex,
+    true,
+    'services page should keep cloud-on-edge services before cybersecurity/resilience services'
+  );
+
+  for (const requiredFragment of [
+    'Permissioned cloud-on-edge services for healthcare AI workloads',
+    'end-to-end encrypted',
+    'clinical payload data is not centralized',
+    'immutable trace events'
+  ]) {
+    assert.equal(cloud.includes(requiredFragment), true, `cloud architecture page should include: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of [
+    'Cybersecurity and resilience services for healthcare organizations',
+    'authorized/certified personnel',
+    'partner security products',
+    'agentic engineering workflows'
+  ]) {
+    assert.equal(cybersecurity.includes(requiredFragment), true, `cybersecurity page should include: ${requiredFragment}`);
+  }
+
+  assert.equal(
+    decentralized.includes('provider-neutral permissioned cloud-on-edge deployment'),
+    true,
+    'decentralized page should use provider-neutral cloud-on-edge language'
+  );
+});
+
+test('services route remains publicly reachable', () => {
+  const nextConfig = readFileSync('next.config.js', 'utf8');
+
+  assert.equal(
+    nextConfig.includes("source: '/services'"),
+    false,
+    'next.config.js should not redirect /services away from the service-capability page'
+  );
 });

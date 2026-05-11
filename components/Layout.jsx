@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import versionData from '../version.json';
 import ConsentManager from './ConsentManager';
 import ServedBy from './ServedByComponent';
-import WebMcpProvider from './WebMcpProvider';
 
 const navLinks = [
   { label: 'About', href: '/about' },
@@ -82,7 +81,6 @@ const Layout = ({ children, hostId = 'unknown' }) => {
 
   return (
     <>
-      <WebMcpProvider />
       <div className="site-shell">
         <header className="site-header">
           <nav className="nav-shell" aria-label="Primary">

@@ -5,7 +5,7 @@ const homepageLinkHeader = [
   '</docs/api>; rel="service-doc"; type="text/html"'
 ].join(', ');
 
-const cacheableAgentHeaders = [
+const cacheablePublicHeaders = [
   {
     key: 'Access-Control-Allow-Origin',
     value: '*'
@@ -21,11 +21,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/services',
-        destination: '/products',
-        permanent: true
-      },
-      {
         source: '/gep',
         destination: '/gender-equality-plan',
         permanent: true
@@ -33,24 +28,7 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      {
-        source: '/mcp',
-        destination: '/api/mcp'
-      },
-      {
-        source: '/llms.txt',
-        destination: '/api/llms'
-      },
-      {
-        source: '/llms-full.txt',
-        destination: '/api/llms?full=1'
-      },
-      {
-        source: '/.well-known/mcp/server-card.json',
-        destination: '/api/mcp-server-card'
-      }
-    ];
+    return [];
   },
   async headers() {
     return [
@@ -66,7 +44,7 @@ const nextConfig = {
       {
         source: '/openapi.json',
         headers: [
-          ...cacheableAgentHeaders,
+          ...cacheablePublicHeaders,
           {
             key: 'Content-Type',
             value: 'application/openapi+json; charset=utf-8'
@@ -76,30 +54,10 @@ const nextConfig = {
       {
         source: '/.well-known/api-catalog',
         headers: [
-          ...cacheableAgentHeaders,
+          ...cacheablePublicHeaders,
           {
             key: 'Content-Type',
             value: 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"; charset=utf-8'
-          }
-        ]
-      },
-      {
-        source: '/.well-known/agent-skills/index.json',
-        headers: [
-          ...cacheableAgentHeaders,
-          {
-            key: 'Content-Type',
-            value: 'application/json; charset=utf-8'
-          }
-        ]
-      },
-      {
-        source: '/.well-known/agent-skills/:skill/SKILL.md',
-        headers: [
-          ...cacheableAgentHeaders,
-          {
-            key: 'Content-Type',
-            value: 'text/markdown; charset=utf-8'
           }
         ]
       }

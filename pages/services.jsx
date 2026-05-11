@@ -7,58 +7,70 @@ const siteUrl = 'https://smartclover.ro';
 
 const servicePrinciples = [
   {
-    title: 'Product-owned delivery',
-    description: 'SmartClover operates owned healthcare products instead of project-by-project custom builds.'
+    title: 'CerviGuard-led product work',
+    description:
+      'We lead with CerviGuard: structured intake, AI-assisted review, triage coordination, and clinician-led follow-up for cervical-screening teams.'
   },
   {
-    title: 'Governed SaaS/PaaS rollout',
-    description: 'Each rollout defines scope boundaries, security/legal checkpoints, and measurable activation gates.'
+    title: 'Permissioned cloud-on-edge deployment',
+    description:
+      'Deployment conversations can include tenant boundaries, encryption controls, edge/on-prem execution, and traceable release records.'
   },
   {
-    title: 'Clinician-led operations',
-    description: 'Clinical teams remain decision owners while AI supports triage, follow-up, and operational consistency.'
+    title: 'Healthcare cybersecurity and resilience',
+    description:
+      'Security/resilience engagements are scoped for healthcare environments and delivered with authorized/certified personnel, partner security products, and agentic engineering support.'
   }
 ];
 
-const aiDirections = [
+const productTracks = [
   {
-    title: 'Direction 1: Classical imaging + structured analytics',
+    title: 'CerviGuard: screening workflow product',
     description:
-      'CerviGuard anchors this direction with inferential and predictive analytics for cervical-screening workflows.'
+      'Our flagship product helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage follow-up.'
   },
   {
-    title: 'Direction 2: Generative SaaS systems',
+    title: 'DataGems: synthetic-data research track',
     description:
-      'Generative systems support prevention communication, questionnaire design, and qualitative-data analysis.'
+      'DataGems supports controlled synthetic-data research workflows that stay separate from CerviGuard commercial claims.'
   }
 ];
 
-const modules = [
+const serviceCapabilities = [
   {
-    status: 'Flagship product (active)',
-    title: 'CerviGuard and clinical analytics operations',
+    status: 'Flagship product',
+    title: 'CerviGuard for cervical-screening teams',
     points: [
       'Draft MDR Class I self-assessment material with clinician-led oversight',
       'Secure workflow operations for case intake, triage, and follow-up',
-      'Governance-aligned deployment options across managed SaaS/private/hybrid tracks'
+      'Deployment options scoped through RFQ and security/legal review'
     ]
   },
   {
-    status: 'Roadmap expansion',
-    title: 'Digital resilience module track',
+    status: 'Live research track',
+    title: 'DataGems synthetic-data research',
     points: [
-      'Healthcare cybersecurity monitoring and governance workflows',
-      'Traceability-focused operations aligned with CRA/NIS2-oriented controls',
-      'Phased integration after primary cervical-screening commercialization milestones'
+      'Controlled synthetic-data workflows for research planning',
+      'Research status kept separate from clinical-product claims',
+      'Partner and publication discussions scoped through research review'
     ]
   },
   {
-    status: 'Roadmap expansion',
-    title: 'Creative education module track',
+    status: 'Service capability',
+    title: 'Permissioned cloud-on-edge deployment',
     points: [
-      'Generative storytelling flows for emotional-intelligence programmes',
-      'Educator-governed content pipelines and safety checkpoints',
-      'Phased release sequence after healthcare-core scaling objectives'
+      'Cloud-on-edge and on-prem execution options for healthcare AI workloads',
+      'End-to-end encrypted sensitive flows within approved deployment models',
+      'Immutable anchoring and traceable deployment records for audit and security review'
+    ]
+  },
+  {
+    status: 'Service capability',
+    title: 'Cybersecurity and resilience services',
+    points: [
+      'Healthcare-focused assessment, hardening, and resilience planning',
+      'Delivery with authorized/certified personnel and partner security products where scoped',
+      'Agentic engineering workflows for monitoring support, remediation support, documentation, and operational hardening'
     ]
   }
 ];
@@ -66,20 +78,20 @@ const modules = [
 const Services = () => (
   <>
     <Head>
-      <title>Product Operations | SmartClover</title>
+      <title>Services | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover healthcare AI product operations page covering the flagship CerviGuard product line, roadmap tracks, and enterprise onboarding."
+        content="SmartClover services covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
       />
-      <link rel="canonical" href={`${siteUrl}/products`} />
+      <link rel="canonical" href={`${siteUrl}/services`} />
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Product Operations</span>
-      <h1>Healthcare AI product operations anchored by CerviGuard</h1>
+      <span className="tagline">Services</span>
+      <h1>Healthcare AI products and service capabilities</h1>
       <p>
-        SmartClover commercial operations prioritize CerviGuard and associated clinical analytics workflows. Additional
-        modules are staged as roadmap expansions to preserve execution focus and measurable adoption.
+        SmartClover leads with CerviGuard for cervical-screening workflows. We also support DataGems research,
+        permissioned cloud-on-edge deployment, and cybersecurity/resilience services for healthcare organizations.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -96,13 +108,13 @@ const Services = () => (
 
     <section className="surface-card" aria-labelledby="services-directions-heading">
       <div className="section-heading">
-        <h2 id="services-directions-heading">Two AI directions, one commercialization sequence</h2>
+        <h2 id="services-directions-heading">Product and research tracks</h2>
       </div>
       <div className="feature-grid two-up">
-        {aiDirections.map((direction) => (
-          <article key={direction.title} className="feature">
-            <h3 className="feature-title">{direction.title}</h3>
-            <p className="feature-description">{direction.description}</p>
+        {productTracks.map((track) => (
+          <article key={track.title} className="feature">
+            <h3 className="feature-title">{track.title}</h3>
+            <p className="feature-description">{track.description}</p>
           </article>
         ))}
       </div>
@@ -114,7 +126,7 @@ const Services = () => (
         <h2 id="services-flagship-heading">CerviGuard is the operational starting point</h2>
       </div>
       <p>
-        CerviGuard is delivered as SmartClover&apos;s primary healthcare platform. The live product surface at{' '}
+        CerviGuard is delivered as SmartClover&apos;s primary healthcare product. The live product at{' '}
         <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
           cerviguard.link
         </a>{' '}
@@ -153,15 +165,15 @@ const Services = () => (
 
     <section className="surface-card" aria-labelledby="services-modules-heading">
       <div className="section-heading">
-        <h2 id="services-modules-heading">Module catalogue with status labels</h2>
+        <h2 id="services-modules-heading">Offer set and status</h2>
       </div>
       <div className="service-programs">
-        {modules.map((module) => (
-          <article key={module.title} className="service-program">
-            <p className="kicker">{module.status}</p>
-            <h3>{module.title}</h3>
+        {serviceCapabilities.map((capability) => (
+          <article key={capability.title} className="service-program">
+            <p className="kicker">{capability.status}</p>
+            <h3>{capability.title}</h3>
             <ul>
-              {module.points.map((point) => (
+              {capability.points.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
@@ -199,7 +211,7 @@ const Services = () => (
 
     <DiligenceLinksSection
       headingId="services-diligence-links"
-      description="Evaluate Pricing, How to Buy, Proof, Regulatory, and Trust directly from the product operations context."
+      description="Use Pricing, How to Buy, Proof, Regulatory, and Trust pages to review scope, evidence, and next steps."
     />
   </>
 );

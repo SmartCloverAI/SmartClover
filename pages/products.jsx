@@ -17,14 +17,16 @@ const portfolioTracks = [
       'Distributed-decentralized synthetic-data application using SLM-first generation with optional external APIs.'
   },
   {
-    status: 'Roadmap track',
-    title: 'Digital resilience module track',
-    description: 'Cybersecurity and operational-resilience modules sequenced after core healthcare-product scaling.'
+    status: 'Service capability',
+    title: 'Permissioned cloud-on-edge deployment',
+    description:
+      'Deployment support for healthcare AI workloads that need tenant boundaries, encryption controls, edge/on-prem execution, and traceable release records.'
   },
   {
-    status: 'Roadmap track',
-    title: 'Creative education module track',
-    description: 'EQ-focused generative learning products positioned as phased portfolio expansion.'
+    status: 'Service capability',
+    title: 'Healthcare cybersecurity and resilience',
+    description:
+      'Security/resilience services for healthcare organizations, delivered with authorized/certified personnel, partner security products, and agentic engineering workflows where scoped.'
   }
 ];
 
@@ -95,7 +97,7 @@ const Products = () => (
       <title>Products | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover product portfolio covering CerviGuard, DataGems, and healthcare AI roadmap tracks."
+        content="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
       />
     </Head>
 
@@ -104,7 +106,7 @@ const Products = () => (
       <h1>Product portfolio led by CerviGuard</h1>
       <p>
         SmartClover&apos;s product portfolio is led by CerviGuard, with DataGems operating as a live research pilot and
-        additional modules sequenced around the healthcare platform roadmap.
+        service capabilities for permissioned cloud-on-edge deployment and healthcare cybersecurity/resilience.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -136,7 +138,7 @@ const Products = () => (
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Portfolio Status</span>
-        <h2 id="products-portfolio-heading">Product, pilot, and roadmap tracks</h2>
+        <h2 id="products-portfolio-heading">Product, research, and service capabilities</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (

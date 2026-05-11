@@ -50,27 +50,6 @@ Check host-id endpoint (used by footer "served by" banner):
 curl -s http://localhost:3000/api/host-id
 ```
 
-Inspect the read-only MCP endpoint:
-
-```bash
-curl -s http://localhost:3000/mcp \
-  -X POST \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "initialize",
-    "params": {
-      "protocolVersion": "2025-11-25",
-      "capabilities": {},
-      "clientInfo": {
-        "name": "local-test",
-        "version": "1.0.0"
-      }
-    }
-  }'
-```
-
 Add a new blog post:
 
 ```md
@@ -101,11 +80,8 @@ Notes:
 - `npm run dev`: local development server with hot reload.
 - `npm run build`: optimized production build in `.next/` plus static generation for blog pages.
 - `npm run start`: serves the built app.
-- `npm test`: Node-based checks for public agent artifacts and MCP responses.
+- `npm test`: Node-based checks for public copy, content guardrails, and removed website discovery surfaces.
 - `/api/host-id`: JSON payload for runtime host label (cache disabled with `no-store`).
-- `/mcp`: read-only Streamable HTTP MCP endpoint exposed through the same site runtime.
-- `/.well-known/mcp/server-card.json`: machine-readable discovery metadata for the live `/mcp` endpoint.
-- `/llms.txt` and `/llms-full.txt`: plain-text maps of public routes, artifacts, and agent-facing entry points.
 
 ### Troubleshooting
 
@@ -126,8 +102,6 @@ Notes:
 
 - Next.js 14 Pages Router app with React 18.
 - Mostly static marketing routes under `pages/*.jsx`.
-- Read-only MCP endpoint at `pages/api/mcp.js`, exposed publicly as `/mcp` via rewrite.
-- llms and MCP discovery routes at `pages/api/llms.js` and `pages/api/mcp-server-card.js`.
 - Blog content pipeline:
   - source markdown in `posts/*.md`
   - parsed/sorted/compiled by `lib/posts.js`

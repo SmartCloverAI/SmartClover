@@ -5,20 +5,20 @@ import Link from 'next/link';
 const Decentralized = () => (
   <>
     <Head>
-      <title>Your AI, your eSource | SmartClover</title>
+      <title>Permissioned Cloud-On-Edge Deployment | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover describes governed healthcare AI deployment with explicit data boundaries, verifiable controls, and audit evidence."
+        content="SmartClover describes permissioned cloud-on-edge healthcare AI deployment with explicit data boundaries, traceable deployment records, and immutable anchoring."
       />
     </Head>
 
     <header className="page-header">
-      <span className="tagline">Your AI, your eSource</span>
-      <h1>Keep regulated AI under your direction</h1>
+      <span className="tagline">Permissioned Cloud-On-Edge</span>
+      <h1>Keep healthcare AI workloads under your boundary</h1>
       <p>
-        SmartClover pairs distributed ledger-based delivery with hybrid cloud-edge coordination so research teams retain
-        control of sensitive data, adapt models responsibly, and share evidence with regulators across SaaS/PaaS
-        healthcare product operations.
+        SmartClover uses provider-neutral permissioned cloud-on-edge deployment patterns so healthcare and research
+        teams can keep sensitive workloads within approved boundaries while cloud coordination supports release control,
+        observability, and traceable deployment records.
       </p>
       <p>
         <i>
@@ -32,14 +32,15 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
-          Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; control planes that you designate, so AI
-          product platforms operate on on-prem and on-edge infrastructure with cloud coordination layers that match your
-          residency, privacy, and procurement requirements. The goal is to keep eSource processing locations explicit.
+          Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; boundaries that you designate, so AI
+          product platforms can operate on approved on-prem and on-edge infrastructure with cloud coordination layers
+          matched to residency, privacy, and procurement requirements. The goal is to keep eSource processing locations
+          explicit.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
           <span>Role-based controls decide which teams can push updates and who signs off on changes.</span>
-          <span>Delivery automation is designed not to take custody of your data or credentials.</span>
+          <span>Delivery automation is designed to avoid taking custody of clinical payload data or credentials.</span>
         </div>
       </div>
       <div className="spotlight-media">
@@ -57,13 +58,13 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-immutability">Audit evidence from deployment traces</h2>
         <p>
-          Deployment events are written to an append-only public ledger for delivery traces, producing timestamps and
-          build fingerprints for clinical audits or security reviews. Investigators can review what ran and why decisions
-          were made.
+          Deployment events can be written to append-only records with immutable anchoring, producing timestamps and
+          build fingerprints for security review, audit preparation, and release investigation. Teams can review what was
+          released, when it changed, and which approval context applied.
         </p>
         <div className="key-points">
-          <span>Trace updates from research notebooks to production models with human-readable context.</span>
-          <span>Healthcare compliance teams receive exportable evidence for sponsor and regulator reviews.</span>
+          <span>Trace updates from source artifacts to production models with human-readable context.</span>
+          <span>Security and compliance teams receive exportable deployment evidence for internal or sponsor review.</span>
           <span>Build artifacts are fingerprinted to help prevent unexpected changes from reaching production.</span>
         </div>
       </div>
@@ -82,12 +83,13 @@ const Decentralized = () => (
       <div className="spotlight-content">
         <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
-          Policy templates are built into product releases so participation rules remain aligned with sponsor and
-          regulator obligations. Teams operate under defined rules without surrendering control to a central data silo.
+          Policy templates are built into product releases so participation rules remain aligned with sponsor
+          requirements, local governance, and security constraints. Teams operate under defined rules without
+          surrendering control to a central data silo.
         </p>
         <div className="key-points">
-          <span>Human approvals stay in the loop for high-impact releases and model changes.</span>
-          <span>Participating teams can independently verify compliance across sites.</span>
+          <span>Human approval remains required for high-impact releases and model changes.</span>
+          <span>Participating teams can review deployment evidence across sites.</span>
           <span>Redundant nodes support product responsiveness during maintenance or regional outages.</span>
         </div>
         <div className="cta-links">
@@ -95,7 +97,7 @@ const Decentralized = () => (
             Talk with SmartClover about deployment options
           </Link>
           <Link href="/cloud-architecture" className="button secondary">
-            Review Cloud + Edge Model
+            Review Cloud-On-Edge Model
           </Link>
           <Link href="/trust/security" className="button tertiary">
             Security Baseline

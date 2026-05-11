@@ -4,28 +4,33 @@ import Link from 'next/link';
 const serviceMap = [
   {
     domain: 'Compute and orchestration',
-    baseline: 'Permissioned on-edge/on-prem workers with hybrid cloud coordination components.',
-    gcpReference: 'Cloud orchestration components are mapped to GCP-managed compute families per deployment tier.'
+    baseline: 'Permissioned cloud-on-edge and on-prem workers with hybrid coordination components.',
+    deploymentRationale:
+      'Cloud coordination is scoped to orchestration, release control, observability, and operational governance.'
   },
   {
     domain: 'Data and storage boundaries',
     baseline: 'Clinical payload data remains tenant-local and encrypted within the approved deployment model.',
-    gcpReference: 'Control-plane metadata may use managed cloud storage patterns without centralizing clinical payload data.'
+    deploymentRationale:
+      'Control-plane metadata may use managed storage patterns without centralizing clinical payload data.'
   },
   {
     domain: 'AI and model operations',
     baseline: 'AI-assisted workflows run within authorized boundaries with human approval gates.',
-    gcpReference: 'Model lifecycle coordination aligns to managed AI service patterns where contractually approved.'
+    deploymentRationale:
+      'Model lifecycle coordination is enabled only where the contract and deployment boundary approve it.'
   },
   {
     domain: 'Security and identity',
     baseline: 'Role-based access, encryption control, and policy-constrained service communication.',
-    gcpReference: 'Identity, key, and policy controls follow cloud security pillar principles.'
+    deploymentRationale:
+      'Identity, key, and policy controls are selected per environment and reviewed during onboarding.'
   },
   {
     domain: 'Observability and audit',
     baseline: 'Append-only operational traces with immutable anchoring for audit integrity.',
-    gcpReference: 'Operational telemetry aligns with managed observability stacks for reliability governance.'
+    deploymentRationale:
+      'Operational telemetry supports reliability review, security review, and release traceability.'
   }
 ];
 
@@ -61,30 +66,30 @@ const CloudArchitecture = () => (
       <title>Cloud Architecture | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover cloud architecture baseline describing permissioned hybrid cloud-edge model, tenancy boundaries, reliability posture, and cost-control rationale."
+        content="SmartClover cloud architecture baseline describing permissioned cloud-on-edge services, tenancy boundaries, encryption, reliability posture, and traceable deployment records."
       />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Cloud Architecture</span>
-      <h1>Permissioned hybrid cloud-edge architecture for healthcare AI workloads</h1>
+      <h1>Permissioned cloud-on-edge services for healthcare AI workloads</h1>
       <p>
-        SmartClover combines tenant-designated edge execution with hybrid cloud coordination. This architecture is
-        cloud-edge by design: data-boundary control is preserved while cloud primitives support scale, governance, and
-        observability.
+        SmartClover supports tenant-designated edge and on-prem execution with hybrid cloud coordination. The model keeps
+        healthcare data boundaries explicit while cloud services support orchestration, observability, and release
+        control.
       </p>
     </header>
 
     <section className="surface-card" aria-labelledby="cloud-status-heading">
       <div className="status-badge-list" id="cloud-status-heading">
         <span className="status-badge">Document status: Draft for architecture/security review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Last updated: 2026-05-11</span>
         <span className="status-badge">Owner: Architecture + Security</span>
       </div>
       <blockquote>
-        SmartClover uses a permissioned hybrid architecture: clinical workloads run in authorized edge/on-prem
-        boundaries, sensitive flows are end-to-end encrypted, clinical payload data is not centralized, and immutable
-        trace events are anchored for auditable integrity.
+        SmartClover uses a permissioned cloud-on-edge architecture: clinical workloads run in authorized edge/on-prem
+        boundaries, sensitive flows are end-to-end encrypted, clinical payload data is not centralized by default, and
+        immutable trace events are anchored for auditable integrity.
       </blockquote>
     </section>
 
@@ -98,7 +103,7 @@ const CloudArchitecture = () => (
             <tr>
               <th>Domain</th>
               <th>Current architecture baseline</th>
-              <th>GCP alignment rationale</th>
+              <th>Deployment rationale</th>
             </tr>
           </thead>
           <tbody>
@@ -106,7 +111,7 @@ const CloudArchitecture = () => (
               <tr key={item.domain}>
                 <td>{item.domain}</td>
                 <td>{item.baseline}</td>
-                <td>{item.gcpReference}</td>
+                <td>{item.deploymentRationale}</td>
               </tr>
             ))}
           </tbody>
@@ -161,7 +166,7 @@ const CloudArchitecture = () => (
       </ul>
       <div className="cta-links">
         <Link href="/decentralized" className="button secondary">
-          Hybrid Governance Context
+          Cloud-On-Edge Context
         </Link>
         <Link href="/trust/security" className="button secondary">
           Security Baseline

@@ -2,29 +2,6 @@ import PageSeo from '../../components/PageSeo';
 
 const apiSections = [
   {
-    id: 'mcp-server',
-    route: '/mcp',
-    method: 'POST',
-    description:
-      'Read-only Streamable HTTP MCP endpoint for SmartClover public company facts, product summaries, trust artifacts, and qualification routes. Use JSON-RPC over HTTP POST. GET requests are intentionally not upgraded to SSE.',
-    example: `curl https://smartclover.ro/mcp \\
-  -X POST \\
-  -H 'Content-Type: application/json' \\
-  -d '{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "initialize",
-    "params": {
-      "protocolVersion": "2025-11-25",
-      "capabilities": {},
-      "clientInfo": {
-        "name": "example-client",
-        "version": "1.0.0"
-      }
-    }
-  }'`
-  },
-  {
     id: 'status-api',
     route: '/api/status',
     method: 'GET',
@@ -64,38 +41,11 @@ const apiSections = [
   }
 ];
 
-const agentArtifactSections = [
-  {
-    id: 'server-card',
-    route: '/.well-known/mcp/server-card.json',
-    method: 'GET',
-    description:
-      'Machine-readable discovery metadata for the SmartClover read-only MCP server. Published only because the live `/mcp` endpoint exists.',
-    example: `curl https://smartclover.ro/.well-known/mcp/server-card.json`
-  },
-  {
-    id: 'llms-txt',
-    route: '/llms.txt',
-    method: 'GET',
-    description:
-      'Short plain-text map of SmartClover public routes, artifacts, and agent-facing entry points for LLM and crawler consumption.',
-    example: `curl https://smartclover.ro/llms.txt`
-  },
-  {
-    id: 'llms-full-txt',
-    route: '/llms-full.txt',
-    method: 'GET',
-    description:
-      'Extended plain-text map with compact summaries of SmartClover public company, product, trust, and qualification artifacts.',
-    example: `curl https://smartclover.ro/llms-full.txt`
-  }
-];
-
 const ApiDocsPage = () => (
   <>
     <PageSeo
-      title="SmartClover API Docs | Public Website and MCP Surface"
-      description="Reference for SmartClover's public website APIs, llms.txt artifacts, and read-only MCP endpoint."
+      title="SmartClover API Docs | Public Website APIs"
+      description="Reference for SmartClover's public website status, host-id, and contact-intake APIs."
       path="/docs/api"
       image="/images/cerviguard/cerviguard-dashboard.png"
     />
@@ -111,12 +61,11 @@ const ApiDocsPage = () => (
           </div>
           <div className="hero-copy">
             <h1 id="api-docs-title" className="hero-title">
-              SmartClover exposes a small public website API surface plus a read-only MCP endpoint for public facts and trust artifacts.
+              SmartClover exposes a small public website API surface for status, runtime identity, and structured contact intake.
             </h1>
             <p>
-              This site does not currently publish protected APIs or OAuth discovery metadata. The public machine-readable
-              surface is limited to operational inspection endpoints, structured contact intake, plain-text agent maps,
-              and a read-only MCP server over public SmartClover materials.
+              This site does not currently publish protected APIs or OAuth discovery metadata. The public API surface is
+              limited to operational inspection endpoints and structured contact intake.
             </p>
           </div>
           <div className="hero-action-row">
@@ -126,20 +75,16 @@ const ApiDocsPage = () => (
             <a href="/.well-known/api-catalog" className="button secondary">
               Open API catalog
             </a>
-            <a href="/.well-known/mcp/server-card.json" className="button tertiary">
-              Open MCP server card
-            </a>
           </div>
         </div>
 
         <div className="detail-panel">
           <div className="story-card">
-            <p className="kicker">Negotiation support</p>
-            <h2>Agent-facing affordances</h2>
-            <p>HTML routes can return markdown when agents request <code>Accept: text/markdown</code>.</p>
+            <p className="kicker">API scope</p>
+            <h2>Public inspection only</h2>
             <p>
-              The site also exposes <code>llms.txt</code>, <code>llms-full.txt</code>, a read-only MCP endpoint at
-              <code>/mcp</code>, and a draft-style server card for discovery.
+              The OpenAPI description documents the status, host-id, and contact endpoints. Product application APIs
+              remain outside this public website surface.
             </p>
           </div>
         </div>
@@ -153,26 +98,6 @@ const ApiDocsPage = () => (
       </div>
       <div className="story-grid">
         {apiSections.map((section) => (
-          <article key={section.route} id={section.id} className="story-card">
-            <p className="kicker">
-              {section.method} <code>{section.route}</code>
-            </p>
-            <p>{section.description}</p>
-            <pre>
-              <code>{section.example}</code>
-            </pre>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section className="surface-card" aria-labelledby="api-docs-agent-artifacts">
-      <div className="section-heading">
-        <h2 id="api-docs-agent-artifacts">Agent artifacts</h2>
-        <p>These routes complement the OpenAPI surface for public discovery and read-only agent consumption.</p>
-      </div>
-      <div className="story-grid">
-        {agentArtifactSections.map((section) => (
           <article key={section.route} id={section.id} className="story-card">
             <p className="kicker">
               {section.method} <code>{section.route}</code>
