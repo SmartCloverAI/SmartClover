@@ -1,5 +1,33 @@
 # SmartClover Change Log
 
+### [2026-05-11 19:24 UTC] TYPE: change
+- Author: Codex
+- Summary: Aligned the OpenAPI status schema example with the current public site version and added a regression test for future version bumps.
+- Evidence: `public/openapi.json`, `tests/public-copy-tone.test.mjs`, `version.json`.
+- Impact: Machine-readable API documentation no longer carries a stale site-version example after content deployments.
+- Follow-up: Commit, push, wait for version `3.24` online, then verify `/api/status` and `/openapi.json`.
+- Related Entry: 2026-05-11 19:03 UTC TYPE: change
+
+### [2026-05-11 19:24 UTC] ADVERSARIAL-CHECK
+- Scope: Machine-readable public API consistency after content and visual batches.
+- BUILDER Intent + Change:
+  - Scanned API and well-known public artifacts for evaluator-language, redaction regressions, unsupported claims, and provider-specific wording.
+  - Updated the `StatusResponse.version.example` value in `public/openapi.json`.
+  - Added a test that requires the OpenAPI status version example to match `version.json`.
+- CRITIC Findings:
+  - No banned evaluator-language was found in `lib`, `pages/api`, `public/.well-known`, or `public/openapi.json`.
+  - The OpenAPI version example was stale (`3.8`) and could confuse automated consumers comparing `/api/status` to documentation.
+- BUILDER Response / Refinements:
+  - Kept the change narrow to the stale status example and test coverage.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 16/16 tests passed.
+  - `npm test` -> pass, 16/16 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `rg -n "named accountability|public profile references|support evaluation|stakeholders|product maturity|trust-ready|diligence-ready|company profile|visible product artifacts|public record|identifiable prior work|center of the company story|not the main commercial product|remains a live research pilot|current company posture|publicly visible through|company story|boutique AI studio|100%|guaranteed|certified (product|platform|company|compliance)|approved MDR|final MDR" lib pages/api public/.well-known public/openapi.json` -> pass, no matches.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online `/openapi.json` and `/api/status` checks are still required after deployment.
+
 ### [2026-05-11 19:03 UTC] TYPE: change
 - Author: Codex
 - Summary: Added locally hosted NapkinAI visual diagrams to the DataGems and CerviGuard blog posts plus the cloud architecture and healthcare cybersecurity service pages.

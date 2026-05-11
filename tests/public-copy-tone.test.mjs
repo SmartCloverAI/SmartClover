@@ -574,6 +574,17 @@ test('NapkinAI visuals are hosted locally and keep public claims scoped', () => 
   }
 });
 
+test('machine-readable status schema tracks the public site version', () => {
+  const { version } = JSON.parse(readFileSync('version.json', 'utf8'));
+  const openapi = JSON.parse(readFileSync('public/openapi.json', 'utf8'));
+
+  assert.equal(
+    openapi.components.schemas.StatusResponse.properties.version.example,
+    version,
+    'OpenAPI status response example should match version.json'
+  );
+});
+
 test('proof page separates public evidence from pending metrics', () => {
   const source = normalizeCopy(readFileSync('pages/proof.jsx', 'utf8'));
 
