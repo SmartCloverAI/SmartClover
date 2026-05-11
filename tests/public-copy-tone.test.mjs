@@ -196,6 +196,13 @@ const globallyBannedFragments = [
   'Public live pilot surface',
   'The public pilot',
   'Open Live Pilot',
+  'center of the company story',
+  'not the main commercial product',
+  'not presented as the main commercial product',
+  'remains a live research pilot',
+  'publicly visible through',
+  'current company posture',
+  'company story',
   'approved MDR',
   'final MDR',
   'certified product',
@@ -317,6 +324,29 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
   assert.notEqual(dataGemsIndex, -1, 'products page should mention DataGems');
   assert.equal(cerviGuardIndex < dataGemsIndex, true, 'CerviGuard should appear before DataGems');
   assert.equal(source.includes('Live research pilot'), true, 'DataGems should remain a live research pilot');
+
+  for (const requiredFragment of ['synthetic-data workflows', 'test schemas', 'export reviewable results']) {
+    assert.equal(source.includes(requiredFragment), true, `products page should describe DataGems reader value: ${requiredFragment}`);
+  }
+});
+
+test('home and about explain product proof through reader value, not internal status narration', () => {
+  const home = normalizeCopy(readFileSync('pages/index.jsx', 'utf8'));
+  const about = normalizeCopy(readFileSync('pages/about.jsx', 'utf8'));
+
+  for (const requiredFragment of [
+    'review CerviGuard through its live workspace, public repository, screenshots, and trust material',
+    'DataGems gives research partners a concrete surface for synthetic-data workflow discussions'
+  ]) {
+    assert.equal(home.includes(requiredFragment), true, `homepage should include reader-value proof language: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of [
+    'CerviGuard is our flagship workflow product for cervical-screening teams',
+    'DataGems supports the research side of our healthcare AI work'
+  ]) {
+    assert.equal(about.includes(requiredFragment), true, `about page should include reader-value product language: ${requiredFragment}`);
+  }
 });
 
 test('proof page separates public evidence from pending metrics', () => {

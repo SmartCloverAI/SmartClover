@@ -65,8 +65,8 @@ const timelineCards = [
       'The public product surface, repository, and model hub provide a concrete flagship proof layer with supporting artifacts.'
   },
   {
-    kicker: 'Current company posture',
-    title: 'Clear routes for buyers, partners, and investors',
+    kicker: 'Current routes',
+    title: 'Choose the right conversation',
     description:
       'Contact, pricing, how-to-buy, proof, regulatory, and trust routes help each visitor decide where to start.'
   }
@@ -204,15 +204,15 @@ const Home = () => (
           <div className="metric-grid">
             <article className="metric-card">
               <strong>1</strong>
-              <p>flagship live product publicly visible through CerviGuard.</p>
+              <p>Visitors can review CerviGuard through its live workspace, public repository, screenshots, and trust material.</p>
             </article>
             <article className="metric-card">
               <strong>1</strong>
-              <p>live research pilot publicly visible through DataGems.</p>
+              <p>DataGems gives research partners a concrete surface for synthetic-data workflow discussions.</p>
             </article>
             <article className="metric-card">
               <strong>2</strong>
-              <p>publication anchors already visible through public PubMed references.</p>
+              <p>PubMed references provide cervical-screening context for readers who want the research background.</p>
             </article>
           </div>
         </div>

@@ -155,9 +155,9 @@ const Products = () => (
       <div className="section-heading">
         <h2 id="products-datagems-heading">DataGems features in practice</h2>
         <p>
-          DataGems is a live research pilot for synthetic-data generation across distributed environments. SmartClover
-          discusses SLM-first generation workflows, optional external API support, job design, and output review with
-          research and data partners. It is not presented as the main commercial product.
+          DataGems helps research and data teams shape synthetic-data workflows, test schemas, track generation jobs,
+          and export reviewable results across distributed environments. We discuss SLM-first generation, optional
+          external API support, job design, and output review with research and data partners.
         </p>
       </div>
       <div className="cta-links">

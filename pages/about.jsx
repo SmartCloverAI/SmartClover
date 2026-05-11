@@ -148,8 +148,8 @@ const About = () => (
             Romania. They are kept as references, not as a substitute for current product proof.
           </p>
           <div className="key-points">
-            <span>CerviGuard is the live product at the center of the company story.</span>
-            <span>DataGems remains a live research pilot, not the main commercial product.</span>
+            <span>CerviGuard is our flagship workflow product for cervical-screening teams.</span>
+            <span>DataGems supports the research side of our healthcare AI work.</span>
             <span>Trust, pricing, procurement, and regulatory pages are reachable from the same public site.</span>
           </div>
         </div>
