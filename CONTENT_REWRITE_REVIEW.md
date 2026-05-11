@@ -217,3 +217,59 @@ Required changes before publish:
 
 Residual risks:
 - NapkinAI blog visuals are still planned separately; no generated visuals are included in this text-only blog batch.
+
+## Visual Target List: NapkinAI First Placement Batch
+
+| Placement | Selected asset | Rejected candidate issues | Public boundary |
+| --- | --- | --- | --- |
+| `posts/datagems-synthetic-data-workflows.md` | `public/images/blog/datagems-workflow-napkin_v1.0.png` | Some candidates added noisy branch labels, excessive whitespace, or small text. | Workflow, review, configured peer execution, and JSON/CSV export only; no privacy, anonymization, clinical-validation, or medical-device claims. |
+| `posts/cerviguard-remote-screening-foundations.md` | `public/images/blog/cerviguard-workflow-napkin_v1.0.png` | Some candidates used over-specific AI-analysis wording or rendered as a too-wide strip. | Structured intake, AI-assisted review, clinician review, triage coordination, clinician-led follow-up; no autonomous diagnosis or outcome claim. |
+| `pages/cloud-architecture.jsx` | `public/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png` | First candidates had a title typo, generic business-framework drift, or awkward composition. | Provider-neutral permissioned cloud-on-edge boundaries; no provider name, universal compliance, breach-prevention, or guaranteed outcome. |
+| `pages/cybersecurity.jsx` | `public/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png` | Some candidates were too wide or used generic third-party/security wording. | Authorized/certified personnel, partner security products, agentic engineering support, remediation, evidence review, and human oversight. |
+
+## Batch Review: NapkinAI Visuals
+
+Files reviewed:
+- `posts/datagems-synthetic-data-workflows.md`
+- `posts/cerviguard-remote-screening-foundations.md`
+- `pages/cloud-architecture.jsx`
+- `pages/cybersecurity.jsx`
+- `styles/globals.css`
+- `public/images/blog/`
+- `public/images/architecture/`
+
+First-principles findings:
+- A public visual should reduce buyer comprehension time. It should make the workflow or service boundary easier to see, not add new claims.
+- Visual text must be held to the same anti-slop standard as page copy: no filler labels, no self-assessment language, no hidden compliance promises.
+
+Evidence findings:
+- DataGems source evidence supports schema drafting, review, confirmed generation, configured peer execution, job-status review, and JSON/CSV export.
+- CerviGuard public copy supports structured intake, AI-assisted review, clinician review, triage coordination, and clinician-led follow-up.
+- User-confirmed architecture supports provider-neutral permissioned cloud-on-edge services, immutable anchoring, traceable deployment records, end-to-end encrypted sensitive flows, and limited centralization when scoped to the deployment model.
+- User-confirmed cybersecurity scope supports authorized/certified personnel, partner security products, and agentic engineering workflows under human oversight.
+
+S-WRITER findings:
+- The figures should use direct workflow nouns rather than analyst labels such as `public profile`, `company story`, or `main commercial product`.
+- Captions should explain reader value in one sentence and avoid describing the graphic as AI-generated content.
+
+VC-EXPERT findings:
+- The visual set strengthens investor and buyer comprehension by showing four practical operating surfaces: clinical workflow, research workflow, deployment boundaries, and security/resilience service loop.
+- The cloud and cybersecurity visuals should remain service capability visuals, not proof of universal compliance or breach prevention.
+
+CQ-VERIFIER findings:
+- All selected images are first-party hosted PNGs under `public/images/...`.
+- The test suite now blocks public-source exposure of transient NapkinAI API/download references.
+
+CONTENT-VALIDATOR findings:
+- Local tests must verify asset paths and captions before commit.
+- After push, online verification must confirm version `3.23`, route rendering, local image URLs, and absence of generated-download URLs in page HTML.
+
+Required changes before publish:
+- Add four locally hosted visual assets.
+- Add markdown image references to the two blog posts.
+- Add `next/image` figures and scoped captions to the cloud architecture and cybersecurity pages.
+- Extend tests for local visual assets and no exposed NapkinAI transient URLs.
+- Increment `version.json`, append `CHANGE_LOG.md`, commit, push, wait for online update, and verify changed routes.
+
+Residual risks:
+- The generated visuals are useful but visually conservative and blue-heavy. A later brand-design pass could commission custom brand-native diagrams if SmartClover wants a more distinctive visual system.

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Cybersecurity = () => (
@@ -32,6 +33,25 @@ const Cybersecurity = () => (
         We keep this work connected to real deployment boundaries: who can access systems, where sensitive flows run,
         which partner controls are in scope, and how response procedures remain reviewable by authorized teams.
       </p>
+    </section>
+
+    <section className="surface-card visual-card" aria-labelledby="cyber-resilience-loop-heading">
+      <div className="section-heading">
+        <h2 id="cyber-resilience-loop-heading">Service loop</h2>
+      </div>
+      <figure className="content-visual">
+        <Image
+          src="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
+          alt="Healthcare cybersecurity and resilience loop showing assessment, identity hardening, partner security configuration, agentic engineering support, remediation, and evidence review."
+          width={3188}
+          height={2764}
+          sizes="(max-width: 960px) 100vw, 900px"
+        />
+        <figcaption>
+          Engagements stay practical: assess the environment, harden access paths, configure partner controls, support
+          monitoring and documentation, remediate findings, and review evidence with authorized human oversight.
+        </figcaption>
+      </figure>
     </section>
 
     <section className="surface-card">

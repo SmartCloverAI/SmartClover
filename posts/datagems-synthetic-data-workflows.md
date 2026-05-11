@@ -16,6 +16,9 @@ Synthetic data is not magic, and we do not treat it as clinical proof or a way t
 
 That is why DataGems starts with workflow instead of hype.
 
+![DataGems workflow showing research question definition, schema drafting, human review, configured peer generation, job-status review, and JSON or CSV export.](/images/blog/datagems-workflow-napkin_v1.0.png)
+*A reviewable DataGems workflow keeps synthetic-data work scoped from schema definition through export.*
+
 In the current application, a user defines a generation job with a title, description, instructions, and record count. DataGems drafts a structured schema first. The user reviews the schema before confirming the job. Once confirmed, generation can run across configured peers, with progress, timing, generated-record counts, failure counts, and peer-level status persisted for review.
 
 When a job completes, results can be exported as JSON or CSV. That matters because synthetic data only becomes useful when teams can move it into the tools they already use: notebooks, analytics environments, test suites, dashboards, validation scripts, and internal review packs.

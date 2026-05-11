@@ -1,5 +1,37 @@
 # SmartClover Change Log
 
+### [2026-05-11 19:03 UTC] TYPE: change
+- Author: Codex
+- Summary: Added locally hosted NapkinAI visual diagrams to the DataGems and CerviGuard blog posts plus the cloud architecture and healthcare cybersecurity service pages.
+- Evidence: `posts/datagems-synthetic-data-workflows.md`, `posts/cerviguard-remote-screening-foundations.md`, `pages/cloud-architecture.jsx`, `pages/cybersecurity.jsx`, `public/images/blog/`, `public/images/architecture/`, `tests/public-copy-tone.test.mjs`.
+- Impact: Public content now has first-party hosted workflow and service visuals without transient NapkinAI URLs, provider-name exposure, or unsupported compliance, clinical-outcome, autonomous-security, or breach-prevention claims.
+- Follow-up: Commit, push, wait for version `3.23` online, then verify the four affected routes render the local images and scoped captions.
+- Related Entry: 2026-05-11 18:46 UTC TYPE: change
+
+### [2026-05-11 19:03 UTC] ADVERSARIAL-CHECK
+- Scope: NapkinAI visual batch under Task 6C.
+- BUILDER Intent + Change:
+  - Generated and reviewed visual candidates for DataGems workflow, CerviGuard workflow, cloud-on-edge boundaries, and healthcare cybersecurity/resilience.
+  - Hosted the selected PNG assets under `public/images/...` instead of referencing expiring API download URLs.
+  - Added blog image references, service-page `next/image` figures, captions, and visual styling.
+- CRITIC Findings:
+  - Several generated candidates were rejected for typos, generic framework drift, extra filler labels, cramped text, or over-broad AI/security phrasing.
+  - Public pages must not expose NapkinAI API URLs or temporary download references.
+  - Visual captions must keep the same claim boundaries as the surrounding copy.
+- BUILDER Response / Refinements:
+  - Regenerated the cloud-boundary visual with exact-label and provider-neutral constraints.
+  - Selected visuals that preserve current product/service boundaries and added tests for local hosting and scoped visual context.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 15/15 tests passed.
+  - `npm test` -> pass, 15/15 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `file public/images/blog/datagems-workflow-napkin_v1.0.png public/images/blog/cerviguard-workflow-napkin_v1.0.png public/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png public/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png` -> pass, all four assets are valid PNGs.
+  - `rg -n "api\\.napkin\\.ai|generated_files|download_url|/v1/visual/" posts pages components styles public/.well-known` -> pass, no matches.
+  - `rg -n "approved peers|cerviguard-screening-workflow|de-identified case material|fully compliant|breach-proof|guaranteed|guarantee|DataGems anonymizes|HIPAA compliant|clinical outcomes|100 percent" posts pages components public/.well-known` -> pass, no matches.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online deployment and live route rendering checks are still required before closing version `3.23`.
+
 ### [2026-05-11 18:10 UTC] TYPE: change
 - Author: Codex
 - Summary: Added content governance artifacts and completed the first introspection/reader-value copy sweep for Home, About, and Products.

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const serviceMap = [
@@ -91,6 +92,25 @@ const CloudArchitecture = () => (
         boundaries, sensitive flows are end-to-end encrypted, clinical payload data is not centralized by default, and
         immutable trace events are anchored for auditable integrity.
       </blockquote>
+    </section>
+
+    <section className="surface-card visual-card" aria-labelledby="cloud-boundaries-heading">
+      <div className="section-heading">
+        <h2 id="cloud-boundaries-heading">Deployment boundaries</h2>
+      </div>
+      <figure className="content-visual">
+        <Image
+          src="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
+          alt="Provider-neutral cloud-on-edge boundary diagram showing healthcare team and data, permissioned edge workers, cloud coordination, and immutable anchoring."
+          width={3216}
+          height={2712}
+          sizes="(max-width: 960px) 100vw, 900px"
+        />
+        <figcaption>
+          A provider-neutral view of how healthcare users, permissioned edge workers, cloud coordination, and traceable
+          deployment records fit together.
+        </figcaption>
+      </figure>
     </section>
 
     <section className="surface-card" aria-labelledby="service-map-heading">

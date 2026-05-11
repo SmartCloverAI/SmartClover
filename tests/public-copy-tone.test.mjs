@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const normalizeCopy = (value) =>
@@ -499,6 +499,78 @@ test('blog posts use scoped evidence and reader-value language', () => {
       true,
       `cloud-on-edge post should include scoped architecture language: ${requiredFragment}`
     );
+  }
+});
+
+test('NapkinAI visuals are hosted locally and keep public claims scoped', () => {
+  const requiredAssets = [
+    'public/images/blog/datagems-workflow-napkin_v1.0.png',
+    'public/images/blog/cerviguard-workflow-napkin_v1.0.png',
+    'public/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png',
+    'public/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png'
+  ];
+
+  for (const assetPath of requiredAssets) {
+    assert.equal(existsSync(assetPath), true, `expected hosted visual asset: ${assetPath}`);
+  }
+
+  const datagemsPost = normalizeCopy(readFileSync('posts/datagems-synthetic-data-workflows.md', 'utf8'));
+  const cerviguardPost = normalizeCopy(readFileSync('posts/cerviguard-remote-screening-foundations.md', 'utf8'));
+  const cloudPage = normalizeCopy(readFileSync('pages/cloud-architecture.jsx', 'utf8'));
+  const cyberPage = normalizeCopy(readFileSync('pages/cybersecurity.jsx', 'utf8'));
+
+  for (const requiredFragment of [
+    '/images/blog/datagems-workflow-napkin_v1.0.png',
+    'schema definition through export'
+  ]) {
+    assert.equal(datagemsPost.includes(requiredFragment), true, `DataGems post should include visual context: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of [
+    '/images/blog/cerviguard-workflow-napkin_v1.0.png',
+    'intake, review, triage coordination, and follow-up planning'
+  ]) {
+    assert.equal(cerviguardPost.includes(requiredFragment), true, `CerviGuard post should include visual context: ${requiredFragment}`);
+  }
+
+  assert.equal(
+    cloudPage.includes('/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png'),
+    true,
+    'cloud architecture page should reference the local cloud-on-edge visual'
+  );
+  assert.equal(
+    cloudPage.includes('Provider-neutral cloud-on-edge boundary diagram'),
+    true,
+    'cloud architecture visual should keep provider-neutral language'
+  );
+  assert.equal(
+    cyberPage.includes('/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png'),
+    true,
+    'cybersecurity page should reference the local resilience-loop visual'
+  );
+  assert.equal(
+    cyberPage.includes('authorized human oversight'),
+    true,
+    'cybersecurity visual caption should preserve human oversight'
+  );
+
+  const publicTextSources = [
+    ...collectTextFiles('pages'),
+    ...collectTextFiles('components'),
+    ...collectTextFiles('posts'),
+    ...collectTextFiles('styles')
+  ];
+
+  for (const filePath of publicTextSources) {
+    const source = normalizeForSearch(readFileSync(filePath, 'utf8'));
+
+    for (const rejectedFragment of ['api.napkin.ai', 'generated_files', 'download_url', '/v1/visual/']) {
+      assert.equal(
+        source.includes(rejectedFragment),
+        false,
+        `${filePath} should not expose transient NapkinAI API or download references: ${rejectedFragment}`
+      );
+    }
   }
 });
 

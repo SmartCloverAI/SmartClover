@@ -1279,6 +1279,26 @@ footer p {
   margin: 0 0 1.05rem;
 }
 
+.markdown-body img {
+  width: min(100%, 820px);
+  margin: 1.8rem auto 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.markdown-body p:has(> img) {
+  margin: 1.9rem 0 0.65rem;
+}
+
+.markdown-body p:has(> em:first-child:last-child) {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
 .markdown-body h2,
 .markdown-body h3 {
   margin: 2rem 0 1rem;
@@ -1295,6 +1315,31 @@ footer p {
 
 .markdown-body li + li {
   margin-top: 0.5rem;
+}
+
+.visual-card {
+  overflow: hidden;
+}
+
+.content-visual {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.content-visual img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.content-visual figcaption {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 @media (min-width: 880px) {
