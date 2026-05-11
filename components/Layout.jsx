@@ -132,8 +132,9 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                 <span className="tagline">SmartClover</span>
                 <h2>Healthcare AI for screening workflows and research.</h2>
                 <p>
-                  CerviGuard is the flagship product. DataGems remains the live research pilot. Trust, pricing, buying,
-                  and contact pages provide direct access to product, governance, and commercial information.
+                  CerviGuard leads our product work for cervical-screening teams. DataGems supports synthetic-data
+                  research workflows. Trust, pricing, buying, and contact pages provide direct access to product,
+                  governance, and commercial information.
                 </p>
                 <div className="cta-links">
                   <Link href="/contact#inquiry-form" className="button primary">

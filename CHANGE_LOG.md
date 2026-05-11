@@ -30,3 +30,30 @@
   - `git diff --check` -> pass, no whitespace errors.
   - `rg -n "center of the company story|not the main commercial product|remains a live research pilot|publicly visible through|current company posture|not presented as the main commercial product|company story" pages components lib posts public/.well-known` -> pass, no matches.
 - Residual Risk: Existing blog posts, DataGems publication, NapkinAI visuals, and online verification remain separate execution batches.
+
+### [2026-05-11 18:17 UTC] TYPE: change
+- Author: Codex
+- Summary: Fixed a footer status-management phrase found during online verification of version `3.18`.
+- Evidence: `components/Layout.jsx`, `tests/public-copy-tone.test.mjs`, `CONTENT_REWRITE_REVIEW.md`.
+- Impact: The footer now follows the same reader-value rule as Home, About, and Products, and tests block `DataGems remains the live research pilot`.
+- Follow-up: Re-validate, deploy as a new version, and verify online.
+- Related Entry: 2026-05-11 18:10 UTC TYPE: change
+
+### [2026-05-11 18:17 UTC] ADVERSARIAL-CHECK
+- Scope: Footer reader-value follow-up after online verification.
+- BUILDER Intent + Change:
+  - Replaced footer copy that described DataGems by internal status with copy that explains its research-workflow role.
+  - Added `remains the live research pilot` to the tone regression test.
+- CRITIC Findings:
+  - This was not caught by the first source scan because the phrase differed from the original target by one article.
+  - The footer appears on every route, so stale footer language has broad public impact.
+- BUILDER Response / Refinements:
+  - Extended the banned fragment list to cover both `remains a live research pilot` and `remains the live research pilot`.
+  - Added positive footer assertions for CerviGuard and DataGems reader-value language.
+- Verification:
+  - `npm test` -> pass, 12/12 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+  - `rg -n "center of the company story|not the main commercial product|not presented as the main commercial product|remains a live research pilot|remains the live research pilot|publicly visible through|current company posture|company story" pages components lib posts public/.well-known` -> pass, no matches.
+- Residual Risk: Broader blog and visual work remain separate batches.

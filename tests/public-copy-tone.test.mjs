@@ -200,6 +200,7 @@ const globallyBannedFragments = [
   'not the main commercial product',
   'not presented as the main commercial product',
   'remains a live research pilot',
+  'remains the live research pilot',
   'publicly visible through',
   'current company posture',
   'company story',
@@ -333,6 +334,7 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
 test('home and about explain product proof through reader value, not internal status narration', () => {
   const home = normalizeCopy(readFileSync('pages/index.jsx', 'utf8'));
   const about = normalizeCopy(readFileSync('pages/about.jsx', 'utf8'));
+  const layout = normalizeCopy(readFileSync('components/Layout.jsx', 'utf8'));
 
   for (const requiredFragment of [
     'review CerviGuard through its live workspace, public repository, screenshots, and trust material',
@@ -346,6 +348,13 @@ test('home and about explain product proof through reader value, not internal st
     'DataGems supports the research side of our healthcare AI work'
   ]) {
     assert.equal(about.includes(requiredFragment), true, `about page should include reader-value product language: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of [
+    'CerviGuard leads our product work for cervical-screening teams',
+    'DataGems supports synthetic-data research workflows'
+  ]) {
+    assert.equal(layout.includes(requiredFragment), true, `footer should include reader-value product language: ${requiredFragment}`);
   }
 });
 

@@ -57,3 +57,16 @@ Required changes before publish:
 
 Residual risks:
 - Broader blog and visual work remain separate batches.
+
+## Online Verification Finding: Footer Reader-Value Follow-Up
+
+Observed after deploying version `3.18`:
+
+| File | Existing fragment | Failure class | Replacement intent | Verification |
+| --- | --- | --- | --- | --- |
+| `components/Layout.jsx` | `DataGems remains the live research pilot.` | Status-management copy using the same `remains` pattern | Explain DataGems as supporting synthetic-data research workflows | Tone test blocks `remains the live research pilot`; online footer scan passes |
+
+Required follow-up:
+- Replace the footer sentence with reader-value copy.
+- Increment `version.json` again because the issue was found after online verification.
+- Commit, push, wait for deployment, and re-run online checks.
