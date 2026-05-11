@@ -224,7 +224,24 @@ const globallyBannedFragments = [
   'before data ever leaks',
   'cannot silently remove',
   'single product promise',
-  'Ratio1'
+  'Ratio1',
+  'not our flagship clinical product',
+  'CerviGuard remains the flagship product',
+  'belongs beside CerviGuard',
+  'not in front of it',
+  'shortcut around privacy law',
+  'governed experimentation',
+  'another pile of plausible-looking rows',
+  'approved peers',
+  'SLM-first generation',
+  'DataGems anonymizes patient data',
+  'DataGems is HIPAA compliant',
+  'DataGems provides differential privacy',
+  'DataGems guarantees privacy',
+  'DataGems creates clinically validated datasets',
+  'DataGems replaces real-world data',
+  'DataGems is a medical device',
+  'DataGems supports clinical diagnosis'
 ];
 
 test('public marketing and editorial copy avoids informal or internal-facing phrasing', () => {
@@ -357,6 +374,39 @@ test('home and about explain product proof through reader value, not internal st
     'DataGems supports synthetic-data research workflows'
   ]) {
     assert.equal(layout.includes(requiredFragment), true, `footer should include reader-value product language: ${requiredFragment}`);
+  }
+});
+
+test('DataGems blog uses workflow value and avoids portfolio-status narration', () => {
+  const source = normalizeCopy(readFileSync('posts/datagems-synthetic-data-workflows.md', 'utf8'));
+
+  for (const requiredFragment of [
+    'DataGems supports the research side of SmartClover',
+    'draft a schema',
+    'confirm generation',
+    'track progress',
+    'export results',
+    'not used to diagnose cases or direct patient care',
+    'controlled synthetic-data workflows',
+    'configured peers',
+    'internal inference path or saved external inference profiles',
+    'bounded research or data-workflow pilot'
+  ]) {
+    assert.equal(source.includes(requiredFragment), true, `DataGems blog should include: ${requiredFragment}`);
+  }
+
+  for (const rejectedFragment of [
+    'not our flagship clinical product',
+    'CerviGuard remains the flagship product',
+    'belongs beside CerviGuard',
+    'not in front of it',
+    'another pile of plausible-looking rows'
+  ]) {
+    assert.equal(
+      normalizeForSearch(source).includes(normalizeForSearch(rejectedFragment)),
+      false,
+      `DataGems blog should not include draft positioning language: ${rejectedFragment}`
+    );
   }
 });
 

@@ -14,7 +14,7 @@ const portfolioTracks = [
     status: 'Live research pilot',
     title: 'DataGems synthetic-data workspace',
     description:
-      'Distributed-decentralized synthetic-data application using SLM-first generation with optional external APIs.'
+      'Synthetic-data research workspace for schema drafting, configured generation jobs, peer-level status, and JSON/CSV exports.'
   },
   {
     status: 'Service capability',
@@ -50,9 +50,9 @@ const dataGemsHighlights = [
       'DataGems supports synthetic-data generation across distributed nodes without relying on a single centralized runtime.'
   },
   {
-    title: 'SLM-first generation with optional API support',
+    title: 'Internal and external inference options',
     description:
-      'The platform uses SLMs by default and can integrate external APIs when needed for domain-specific model training and test-data preparation.'
+      'DataGems can use its internal inference path or saved external inference profiles when a scoped research workflow needs a different model.'
   }
 ];
 
@@ -156,8 +156,8 @@ const Products = () => (
         <h2 id="products-datagems-heading">DataGems features in practice</h2>
         <p>
           DataGems helps research and data teams shape synthetic-data workflows, test schemas, track generation jobs,
-          and export reviewable results across distributed environments. We discuss SLM-first generation, optional
-          external API support, job design, and output review with research and data partners.
+          and export reviewable results across distributed environments. We discuss inference configuration, job design,
+          and output review with research and data partners.
         </p>
       </div>
       <div className="cta-links">

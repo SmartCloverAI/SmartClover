@@ -80,3 +80,70 @@ Observed after version `3.19` online checks:
 | `pages/index.jsx` | `CerviGuard remains the primary commercial product` | Internal product-status narration | Explain that CerviGuard is the product readers review first | Tone test blocks `remains the primary commercial product`; online `/` scan passes |
 | `pages/products.jsx` | `DataGems operating as a live research pilot` | Status-management copy | Explain that DataGems supports synthetic-data research workflows | Tone test blocks `operating as a live research pilot`; online `/products` scan passes |
 | `pages/about.jsx` | `DataGems as a live research pilot` in SEO description | Status-management metadata | Align metadata with reader-value DataGems language | Online `/about` metadata scan passes |
+
+## Surgical Target List: DataGems Blog Publication
+
+| File | Existing fragment | Failure class | Replacement intent | Verification |
+| --- | --- | --- | --- | --- |
+| `tasks/drafts/datagems_blog.md` | `not our flagship clinical product`, `CerviGuard remains the flagship product`, `belongs beside CerviGuard`, `not in front of it` | Internal portfolio-status narration | Publish only reader-value language about schema-first synthetic-data workflows | Tone test blocks rejected fragments; online blog scan passes |
+| `tasks/drafts/datagems_blog.md` | `approved peers` | Overstated governance wording | Use `configured peers`, matching the current peer configuration evidence | Tone test blocks `approved peers`; online blog scan passes |
+| `tasks/drafts/datagems_blog.md` and `pages/products.jsx` | `SLM-first generation` | Strategy claim not evidenced by the reviewed source files | Use current evidence for internal inference path and saved external inference profiles | Tone test blocks `SLM-first generation`; source scan passes |
+| `tasks/drafts/datagems_blog.md` | `governed synthetic-data workflows` / `governed experimentation` | Compliance-adjacent wording without formal governance evidence | Use controlled/reviewable workflow language and a bounded research-pilot CTA | Tone test blocks rejected phrases; online blog scan passes |
+| `posts/datagems-synthetic-data-workflows.md` | New public article | Publication candidate | Publish the approved article body only, without proposal notes, claim maps, or reviewer questions | Blog builds and live URL returns positive workflow matches |
+
+## Batch Review: DataGems Blog Draft
+
+Files reviewed:
+- `tasks/drafts/datagems_blog.md`
+- `DataGems/README.md`
+- `DataGems/app/(app)/page.tsx`
+- `DataGems/components/TasksPanel.tsx`
+- `DataGems/app/api/tasks/schema/route.ts`
+- `DataGems/app/api/tasks/confirm/route.ts`
+- `DataGems/lib/datagen/jobWorker.ts`
+- `DataGems/lib/datagen/exporters.ts`
+- `DataGems/app/api/tasks/[id]/export/route.ts`
+
+First-principles findings:
+- The reader problem is not "where DataGems sits in SmartClover's portfolio"; it is how a healthcare AI or research team can rehearse schemas, generation jobs, review, and exports before sensitive data is appropriate.
+- The article must explain the workflow and limits before discussing broader health-data policy.
+
+Evidence findings:
+- The DataGems application supports authenticated job creation, schema drafting, confirmation, configured peer execution, progress metrics, and JSON/CSV export.
+- Source evidence supports an internal inference path and optional saved external inference profiles, but does not support `SLM-first` strategy claims, compliance, clinical validation, anonymization, adoption, or customer traction claims.
+- NIST SP 800-226, EHDS, and EU AI Act references support cautious language around privacy, data reuse, risk management, data quality, and human oversight.
+
+Redaction findings:
+- No earlier publication-name, named-coauthor, founder-history, or credibility-theater content is needed for this blog post.
+- Provider-specific infrastructure names are unnecessary for the public article and should remain absent.
+
+S-WRITER findings:
+- Remove draft phrases that sound like internal positioning: `not our flagship clinical product`, `CerviGuard remains the flagship product`, `belongs beside CerviGuard`, and `not in front of it`.
+- Keep the article in SmartClover's voice: concrete, direct, research-partner-oriented, and bounded.
+- Replace `approved peers` with `configured peers`, and replace `SLM-first generation` with current evidence for internal inference plus saved external inference profiles.
+
+VC-EXPERT findings:
+- DataGems is commercially understandable as a research and data-workflow wedge if the article makes the problem concrete: schema discipline, integration rehearsal, traceable generation, review, and export.
+- The post should avoid suggesting DataGems is the lead product or a regulated clinical system.
+- Roadmap items such as dataset documentation, utility checks, privacy-risk review, and reviewer sign-off must be framed as next direction, not current shipped capability.
+
+CQ-VERIFIER findings:
+- The draft's strongest paragraphs are workflow-oriented. The weakest paragraphs manage internal product hierarchy and should not be published.
+- The final article should include explicit healthcare boundaries without letting disclaimers dominate the post.
+
+CONTENT-VALIDATOR findings:
+- Add tests for rejected draft language before publishing.
+- Verify local rendering through the existing Markdown blog pipeline, then verify the online URL after deployment.
+
+Client/buyer findings:
+- Research partners need to see the work they can discuss now: schema planning, generation-job design, progress review, export, and documentation of limits.
+- Investors should see a focused research workflow surface, not portfolio-status narration.
+
+Required changes before publish:
+- Create `posts/datagems-synthetic-data-workflows.md` with only the approved article body.
+- Extend `tests/public-copy-tone.test.mjs` to block rejected draft phrases and require DataGems workflow language.
+- Increment `version.json`, append `CHANGE_LOG.md`, commit, push, wait for the online version, and scan the live blog page.
+
+Residual risks:
+- Visual support for the article is still a separate NapkinAI batch.
+- Existing blog posts still need the separate keep/rewrite/remove review in Task 6B.
