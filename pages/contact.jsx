@@ -16,7 +16,7 @@ const inquiryPaths = [
   {
     label: 'Investor inquiry',
     title: 'Investor inquiry',
-    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover&apos;s platform, governance, and commercial readiness.'
+    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover\'s platform, governance, and commercial readiness.'
   },
   {
     label: 'General contact',
@@ -56,14 +56,14 @@ const timelineOptions = ['0-3 months', '3-6 months', '6-12 months', '12+ months'
 const nextSteps = [
   {
     title: '1. Qualification review',
-    description: 'We review the request, confirm fit, and route it to the right commercial, research, or diligence path.'
+    description: 'We review the request, confirm fit, and route it to the right commercial, research, or trust-review path.'
   },
   {
     title: '2. Human follow-up',
     description: 'Qualified inbound requests receive a human reply with the next proposed action, usually within one business day.'
   },
   {
-    title: '3. Demo, diligence, or scoped discussion',
+    title: '3. Demo, review, or scoped discussion',
     description: 'The next step becomes a demo, pilot discussion, research call, or investor conversation depending on the request type.'
   }
 ];
@@ -362,12 +362,12 @@ const Contact = () => {
                   required
                 />
                 <span className="field-hint">
-                  Example: cervical screening pilot scope, data-governance fit, research collaboration idea, or investor diligence focus.
+                  Example: cervical screening pilot scope, data-governance fit, research collaboration idea, or investor review focus.
                 </span>
               </label>
 
               <label className="field-span-2">
-                Trust, compliance, or diligence requirements *
+                Trust, compliance, or security requirements *
                 <textarea
                   value={form.complianceRequirements}
                   onChange={(event) => updateField('complianceRequirements', event.target.value)}

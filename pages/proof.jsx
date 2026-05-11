@@ -20,9 +20,9 @@ const timeline = [
   },
   {
     period: '2025',
-    event: 'TealGuard partnership milestone',
+    event: 'Public product evidence expanded',
     evidence:
-      'In 2025, SmartClover signed a partnership for the TealGuard project, focused on prevention management and gynecologic oncology workflows.'
+      'SmartClover expanded public product evidence through CerviGuard screenshots, product routes, and supporting trust pages.'
   }
 ];
 
@@ -53,21 +53,40 @@ const kpiDefinitions = [
   }
 ];
 
+const evidenceStatus = [
+  {
+    label: 'Verified public evidence',
+    detail: 'CerviGuard live surface, product screenshots, public repository, model/profile hub, and product route.'
+  },
+  {
+    label: 'Qualified public evidence',
+    detail: 'Draft regulatory material, security baseline pages, and methodology notes that require dated context.'
+  },
+  {
+    label: 'Evidence gaps',
+    detail: 'Clinical outcome percentages, commercial traction metrics, and final regulatory identifiers are not published yet.'
+  },
+  {
+    label: 'Pending metrics',
+    detail: 'KPI values remain withheld until cohort definitions, denominator rules, and reporting windows are finalized.'
+  }
+];
+
 const Proof = () => (
   <>
     <Head>
       <title>Proof | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover proof page with timeline milestones, pilot methodology notes, and KPI disclosure template with pending-publication safeguards."
+        content="SmartClover proof page with product timeline, pilot methodology notes, and KPI disclosure template with publication limits."
       />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Proof</span>
-      <h1>Evidence baseline for product and commercialization diligence</h1>
+      <h1>Evidence baseline for product review</h1>
       <p>
-        This page provides the current public evidence set: milestone timeline, pilot context, and KPI framework.
+        This page provides the current public evidence set: product timeline, pilot context, and KPI framework.
         Numeric KPI publication remains gated until cohort definitions and reporting windows are finalized.
       </p>
     </header>
@@ -82,6 +101,20 @@ const Proof = () => (
         Reported outcomes are cohort-specific, method-bounded, and include explicit limitations. KPI percentages will not
         be published without denominator and date-window context.
       </p>
+    </section>
+
+    <section className="surface-card" aria-labelledby="evidence-status-heading">
+      <div className="section-heading">
+        <h2 id="evidence-status-heading">Evidence status</h2>
+      </div>
+      <div className="feature-grid two-up">
+        {evidenceStatus.map((item) => (
+          <article key={item.label} className="feature">
+            <h3 className="feature-title">{item.label}</h3>
+            <p className="feature-description">{item.detail}</p>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section className="surface-card" aria-labelledby="timeline-heading">
@@ -106,7 +139,7 @@ const Proof = () => (
       <ul>
         <li>Pilot evidence is currently published through milestone and methodology summaries.</li>
         <li>Outcome publication requires fixed cohort windows and approved numerator/denominator definitions.</li>
-        <li>Clinical interpretation remains clinician-led and human-in-the-loop.</li>
+        <li>Clinicians review AI outputs before confirming follow-up actions.</li>
       </ul>
     </section>
 
@@ -148,7 +181,7 @@ const Proof = () => (
           Regulatory Layer
         </Link>
         <Link href="/contact" className="button primary">
-          Request Diligence Review
+          Discuss Evidence and Scope
         </Link>
       </div>
     </section>

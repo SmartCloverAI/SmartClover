@@ -68,7 +68,7 @@ const HowToBuy = () => (
       <span className="tagline">How to Buy</span>
       <h1>Procurement and onboarding flow for SmartClover products</h1>
       <p>
-        SmartClover uses a structured pre-sales to activation path designed for enterprise healthcare buying motions.
+        SmartClover uses a structured path from first conversation to activation for healthcare organizations.
         Commercial issuance is RFQ-based and paired with security, legal, and governance checkpoints.
       </p>
     </header>

@@ -12,7 +12,7 @@ CerviGuard is SmartClover's flagship healthcare AI project for cervical cancer p
 
 ## Operational model
 
-CerviGuard establishes a clinical operating model where de-identified cervical image intake, AI-assisted interpretation, and role-based follow-up are connected in one audit-ready workflow. Instead of fragmented files and ad-hoc communication, teams can use one traceable path from intake to follow-up planning.
+CerviGuard establishes a clinical operating model where de-identified cervical image intake, AI-assisted interpretation, and role-based follow-up are connected in one reviewable workflow. Instead of fragmented files and ad-hoc communication, teams can use one traceable path from intake to follow-up planning.
 
 The objective is not to replace clinical judgment. The objective is to reduce missed follow-up signals, improve consistency in triage support, and keep evidence visible at decision points so clinicians can act faster and with better context.
 
@@ -31,4 +31,4 @@ These studies help define where a digital clinical workflow has the highest impa
 
 ## Current direction
 
-CerviGuard is being developed as a secure, human-in-the-loop clinical system where technology supports teams that already carry responsibility for patient pathways. The objective is to turn field-informed screening and follow-up lessons into daily operational capability, not just research output.
+CerviGuard is being developed as a secure clinical system where technology supports teams that already carry responsibility for patient pathways. The objective is to turn field-informed screening and follow-up lessons into daily operational capability, not just research output.

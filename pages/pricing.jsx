@@ -32,7 +32,7 @@ const packages = [
     name: 'Enterprise Package',
     fit: 'Multi-entity programmes with governance, security, and procurement complexity.',
     includes: [
-      'Multi-stakeholder deployment governance and architecture alignment',
+      'Multi-team deployment governance and architecture alignment',
       'Contractual operating envelope for scale, resilience, and support',
       'Optional module planning for roadmap-aligned expansion'
     ],
@@ -55,7 +55,7 @@ const Pricing = () => (
 
     <header className="page-header">
       <span className="tagline">Pricing and Packaging</span>
-      <h1>Commercial structure for SmartClover healthcare SaaS/PaaS products</h1>
+      <h1>Quote-based pricing for SmartClover healthcare products</h1>
       <p>
         SmartClover operates a quote-based B2B model. Packages define delivery boundaries, onboarding scope, and
         operating responsibilities before any commercial commitment is issued.
@@ -67,12 +67,12 @@ const Pricing = () => (
         <h2 id="pricing-model-heading">Commercial model summary</h2>
       </div>
       <p>
-        All commercial fees are provided exclusively through a formal Request for Quotation (RFQ) process after scope
-        definition. This includes subscription, onboarding, integration, and optional module fees.
+        Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. This can
+        include subscription, onboarding, integration, and optional module fees.
       </p>
       <p>
-        SmartClover does not publish numeric list prices. Formal quotations are issued after qualifying scope, deployment
-        mode, governance requirements, and contractual boundaries.
+        SmartClover does not publish numeric list prices. Quotations are issued after the team confirms scope,
+        deployment mode, governance requirements, and contractual boundaries.
       </p>
     </section>
 

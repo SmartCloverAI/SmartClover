@@ -158,7 +158,47 @@ const globallyBannedFragments = [
   'evaluation routes',
   'serious evaluators',
   'diligence-ready',
-  'trust-ready'
+  'trust-ready',
+  'TealGuard partnership milestone',
+  'signed a partnership for the TealGuard project',
+  'Commercial and diligence routes',
+  'supporting diligence routes',
+  'diligence orientation',
+  'due-diligence review',
+  'product and commercialization diligence',
+  'Request Diligence Review',
+  'human-in-the-loop',
+  'governed deployment options',
+  'governed synthetic-data',
+  'data governance controls in scope',
+  'claim-to-artifact discipline',
+  'pending-publication safeguards',
+  'enterprise healthcare buying motions',
+  'Multi-stakeholder deployment governance',
+  'stakeholder interaction',
+  'product-grade UX',
+  'explainable AI outputs',
+  'audit-ready metadata',
+  'audit-ready workflow',
+  'end-to-end encryption',
+  'immutable traceability',
+  'aligned with applicable NIS2/CRA expectations',
+  'no centralized clinical payload repository',
+  'SmartClover&apos;s clinical analytics work',
+  'rapid daily triage',
+  'transformation-zone and lesion-class probabilities',
+  'approved partners',
+  'Commercial deployment is currently limited',
+  'The live pilot at',
+  'live pilot surface',
+  'live CerviGuard pilot',
+  'Public live pilot surface',
+  'The public pilot',
+  'Open Live Pilot',
+  'approved MDR',
+  'final MDR',
+  'certified',
+  'guaranteed'
 ];
 
 test('public marketing and editorial copy avoids informal or internal-facing phrasing', () => {
@@ -216,5 +256,78 @@ test('about first screen uses founder, product, audience, and workflow language'
       true,
       `about first screen should include concrete company language: ${requiredFragment}`
     );
+  }
+});
+
+test('CerviGuard page uses product-first and draft-qualified regulatory language', () => {
+  const source = normalizeCopy(readFileSync('pages/cerviguard.jsx', 'utf8'));
+
+  for (const requiredFragment of [
+    'live product',
+    'cervical-screening',
+    'clinician-led',
+    'workflow',
+    'draft MDR Class I self-assessment'
+  ]) {
+    assert.equal(
+      source.includes(requiredFragment),
+      true,
+      `CerviGuard page should include product/regulatory language: ${requiredFragment}`
+    );
+  }
+});
+
+test('products page keeps CerviGuard first and DataGems as a research pilot', () => {
+  const source = normalizeCopy(readFileSync('pages/products.jsx', 'utf8'));
+  const cerviGuardIndex = source.indexOf('CerviGuard');
+  const dataGemsIndex = source.indexOf('DataGems');
+
+  assert.notEqual(cerviGuardIndex, -1, 'products page should mention CerviGuard');
+  assert.notEqual(dataGemsIndex, -1, 'products page should mention DataGems');
+  assert.equal(cerviGuardIndex < dataGemsIndex, true, 'CerviGuard should appear before DataGems');
+  assert.equal(source.includes('Live research pilot'), true, 'DataGems should remain a live research pilot');
+});
+
+test('proof page separates public evidence from pending metrics', () => {
+  const source = normalizeCopy(readFileSync('pages/proof.jsx', 'utf8'));
+
+  for (const requiredFragment of [
+    'Evidence baseline for product review',
+    'current public evidence set',
+    'Verified public evidence',
+    'Qualified public evidence',
+    'Evidence gaps',
+    'Pending metrics',
+    'KPI framework',
+    'values pending publication',
+    'cohort definitions and reporting windows'
+  ]) {
+    assert.equal(source.includes(requiredFragment), true, `proof page should include: ${requiredFragment}`);
+  }
+});
+
+test('regulatory and security pages preserve draft status without certification claims', () => {
+  const regulatory = normalizeCopy(readFileSync('pages/regulatory.jsx', 'utf8'));
+  const security = normalizeCopy(readFileSync('pages/trust/security.jsx', 'utf8'));
+
+  for (const requiredFragment of ['Draft', 'draft MDR Class I self-assessment', 'pending legal/regulatory sign-off']) {
+    assert.equal(regulatory.includes(requiredFragment), true, `regulatory page should include: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of ['Draft baseline', 'not a certification claim', 'traceable event records']) {
+    assert.equal(security.includes(requiredFragment), true, `security page should include: ${requiredFragment}`);
+  }
+});
+
+test('pricing and buying pages explain RFQ scope and next steps', () => {
+  const pricing = normalizeCopy(readFileSync('pages/pricing.jsx', 'utf8'));
+  const howToBuy = normalizeCopy(readFileSync('pages/how-to-buy.jsx', 'utf8'));
+
+  for (const requiredFragment of ['Request for Quotation', 'does not publish numeric list prices', 'scope']) {
+    assert.equal(pricing.includes(requiredFragment), true, `pricing page should include: ${requiredFragment}`);
+  }
+
+  for (const requiredFragment of ['first conversation to activation', 'security, legal, and governance checkpoints', 'Start Qualification']) {
+    assert.equal(howToBuy.includes(requiredFragment), true, `how-to-buy page should include: ${requiredFragment}`);
   }
 });

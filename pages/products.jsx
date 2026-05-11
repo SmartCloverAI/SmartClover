@@ -8,7 +8,7 @@ const portfolioTracks = [
     status: 'Live product',
     title: 'CerviGuard clinical platform',
     description:
-      'MDR Class I companion-app positioning for cervical-screening workflows, with human-in-the-loop clinical decisions.'
+      'Cervical-screening workflow product with draft MDR Class I self-assessment material and clinician-reviewed AI outputs.'
   },
   {
     status: 'Live research pilot',
@@ -35,9 +35,9 @@ const healthcareDirections = [
       'Imaging and structured-data inferential/predictive analytics for screening, triage support, and follow-up coordination.'
   },
   {
-    title: 'Direction 2: Generative SaaS/PaaS systems',
+    title: 'Direction 2: Research and communication tools',
     description:
-      'SaaS (including on-edge) products for prophylaxis communication, stakeholder interaction, qualitative questionnaire design, and aggregated insight analysis.'
+      'Tools for prevention communication, qualitative questionnaire design, synthetic-data research, and aggregated insight analysis.'
   }
 ];
 
@@ -45,7 +45,7 @@ const dataGemsHighlights = [
   {
     title: 'Privacy-centered distributed execution',
     description:
-      'DataGems allows approved partners to run synthetic-data generation across distributed nodes without relying on a single centralized runtime.'
+      'DataGems supports synthetic-data generation across distributed nodes without relying on a single centralized runtime.'
   },
   {
     title: 'SLM-first generation with optional API support',
@@ -101,7 +101,7 @@ const Products = () => (
 
     <header className="page-header">
       <span className="tagline">Products</span>
-      <h1>Product portfolio and supporting diligence routes</h1>
+      <h1>Product portfolio led by CerviGuard</h1>
       <p>
         SmartClover&apos;s product portfolio is led by CerviGuard, with DataGems operating as a live research pilot and
         additional modules sequenced around the healthcare platform roadmap.
@@ -111,7 +111,7 @@ const Products = () => (
           Open CerviGuard
         </Link>
         <Link href="#products-more-links" className="button secondary">
-          Review supporting routes
+          Review product routes
         </Link>
         <Link href="/contact" className="button tertiary">
           Contact
@@ -153,11 +153,9 @@ const Products = () => (
       <div className="section-heading">
         <h2 id="products-datagems-heading">DataGems features in practice</h2>
         <p>
-          DataGems is a live research pilot for governed synthetic-data generation across distributed environments.
-          Approved partners can run SLM-first generation workflows, with optional external API support, for
-          domain-specific model training and test-data preparation. SmartClover works with participating partners on job
-          design, execution governance, and output review. Commercial deployment is currently limited to approved data
-          creation partners.
+          DataGems is a live research pilot for synthetic-data generation across distributed environments. SmartClover
+          discusses SLM-first generation workflows, optional external API support, job design, and output review with
+          research and data partners. It is not presented as the main commercial product.
         </p>
       </div>
       <div className="cta-links">
@@ -208,8 +206,8 @@ const Products = () => (
 
     <DiligenceLinksSection
       headingId="products-more-links"
-      heading="Commercial and diligence routes"
-      description="Review Pricing, How to Buy, Proof, Regulatory, and Trust before starting qualification."
+      heading="Commercial and trust routes"
+      description="Review pricing, buying steps, proof, regulatory context, and trust material before starting qualification."
     />
   </>
 );

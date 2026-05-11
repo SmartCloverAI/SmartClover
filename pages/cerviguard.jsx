@@ -7,7 +7,7 @@ import RepoIconLinks from '../components/RepoIconLinks';
 const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
 const pageDescription =
-  'CerviGuard is positioned as SmartClover\'s MDR Class I cervical cancer screening companion app for structured intake, AI-assisted review, and clinician-led follow-up.';
+  'CerviGuard is SmartClover\'s live cervical-screening workflow product for structured intake, AI-assisted review, and clinician-led follow-up, with draft MDR Class I self-assessment material published for review.';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
@@ -18,9 +18,9 @@ const featurePillars = [
       'Structured case intake, triage prioritization, and follow-up tracking keep screening operations consistent across distributed teams.'
   },
   {
-    title: 'MDR Class I Companion-App Positioning',
+    title: 'Draft MDR Class I self-assessment',
     description:
-      'CerviGuard is positioned as an MDR Class I cervical cancer screening companion app with transparent confidence outputs and clinician-led decisions.'
+      'SmartClover publishes a draft MDR Class I self-assessment while keeping CerviGuard positioned as clinician-led support, not autonomous diagnosis.'
   },
   {
     title: 'Digital-Native Delivery',
@@ -33,12 +33,12 @@ const aiHealthcareDirections = [
   {
     title: 'Clinical analytics platform',
     description:
-      'CerviGuard leads SmartClover&apos;s clinical analytics work with structured workflows for screening, triage support, and follow-up.'
+      'CerviGuard is the clinical analytics product for screening workflows, triage support, and follow-up.'
   },
   {
     title: 'Prevention communication and research tools',
     description:
-      'Related SmartClover work extends into prevention communication, stakeholder interaction, qualitative questionnaire design, and aggregated-data analysis.'
+      'Related SmartClover work extends into prevention communication, questionnaire design, and aggregated-data analysis for research teams.'
   }
 ];
 
@@ -55,7 +55,7 @@ const screenshotGallery = [
   {
     title: 'Operational dashboard',
     description:
-      'A live operational overview summarizes completed analyses and risk distribution for rapid daily triage.',
+      'A live operational overview shows completed analyses and risk distribution for daily triage review.',
     src: '/images/cerviguard/cerviguard-dashboard.png',
     alt: 'CerviGuard dashboard view with case overview cards',
     width: 1600,
@@ -82,7 +82,7 @@ const screenshotGallery = [
   {
     title: 'AI analysis detail',
     description:
-      'Per-case analysis displays metadata and confidence-scored signals to support transparent, reviewable decision making.',
+      'Per-case analysis displays metadata and confidence values for clinician review.',
     src: '/images/cerviguard/cerviguard-case-detail.png',
     alt: 'CerviGuard case detail page with AI analysis metadata',
     width: 1600,
@@ -107,7 +107,7 @@ const workflowSteps = [
   {
     title: '2. AI processing',
     description:
-      'CerviGuard computes transformation-zone and lesion-class probabilities, then writes traceable metadata.'
+      'CerviGuard records AI-assisted image signals and traceable metadata for clinical review.'
   },
   {
     title: '3. Clinical review',
@@ -151,12 +151,12 @@ const softwareSchema = {
   },
   description: pageDescription,
   featureList: [
-    'Positioned as an MDR Class I cervical cancer screening companion app',
+    'Draft MDR Class I self-assessment material published for review',
     'Secure authentication and role-based access',
     'De-identified cervical image case intake',
-    'AI-assisted transformation-zone and lesion classification',
+    'AI-assisted image-signal review',
     'Case tracking and follow-up workflows',
-    'Audit-ready metadata and clinician review checkpoints'
+    'Traceable metadata and clinician review checkpoints'
   ],
   screenshot: screenshotGallery.map((shot) => `${siteUrl}${shot.src}`),
   offers: deploymentModes.map((mode) => ({
@@ -195,32 +195,32 @@ const CerviGuard = () => (
       <span className="tagline">CerviGuard</span>
       <h1>CerviGuard: AI-supported cervical screening platform for digital care teams</h1>
       <p>
-        CerviGuard is positioned as SmartClover&apos;s flagship MDR Class I cervical cancer screening companion app for structured intake,
-        AI-assisted analysis, and clinician-led follow-up. It is designed for screening teams that need secure
-        workflows, traceable case review, and governed deployment options.
+        CerviGuard is SmartClover&apos;s live product for cervical-screening teams that need structured intake,
+        AI-assisted analysis, and clinician-led follow-up. The public regulatory material is a draft MDR Class I
+        self-assessment, not a final approval claim.
       </p>
     </header>
 
     <section className="surface-card flagship-highlight cerviguard-hero" aria-labelledby="cerviguard-hero-heading">
       <div className="cerviguard-hero-copy">
         <span className="flagship-kicker">Flagship Healthcare Product</span>
-        <h2 id="cerviguard-hero-heading">Built for secure, high-trust cervical screening operations</h2>
+        <h2 id="cerviguard-hero-heading">Built for secure cervical screening operations</h2>
         <p>
-          The live pilot at{' '}
+          The live product surface at{' '}
           <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
             cerviguard.link
           </a>{' '}
-          demonstrates an end-to-end workflow from secure login to AI-assisted case review and follow-up management.
+          shows a workflow from secure login to AI-assisted case review and follow-up management.
         </p>
         <div className="key-points">
-          <span>MDR Class I positioning reinforces CerviGuard as a clinical companion, not an autonomous decision maker.</span>
-          <span>Clinical teams stay in command with human-in-the-loop review at every high-impact decision.</span>
+          <span>Draft MDR Class I material frames CerviGuard as clinician-led support, not an autonomous decision maker.</span>
+          <span>Clinicians review AI outputs before confirming follow-up actions.</span>
           <span>Role-based access and case traceability support accountable operations in regulated settings.</span>
-          <span>Product delivery supports SaaS and PaaS models while keeping data governance controls in scope.</span>
+          <span>Product delivery supports SaaS and PaaS models with deployment-specific data controls.</span>
         </div>
         <div className="cta-links">
           <a href="https://cerviguard.link" className="button primary" target="_blank" rel="noopener noreferrer">
-            Open Live Pilot
+            Open Live Product
           </a>
           <a
             href="/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf"
@@ -272,7 +272,7 @@ const CerviGuard = () => (
     <section className="surface-card" aria-labelledby="cerviguard-pillars-heading">
       <div className="section-heading">
         <h2 id="cerviguard-pillars-heading">Platform highlights</h2>
-        <p>CerviGuard combines product-grade UX, explainable AI outputs, and deployment flexibility for healthcare teams.</p>
+        <p>CerviGuard combines clear case screens, AI result review, and deployment flexibility for healthcare teams.</p>
       </div>
       <div className="feature-grid three-up">
         {featurePillars.map((item) => (
@@ -288,8 +288,7 @@ const CerviGuard = () => (
       <div className="section-heading">
         <h2 id="cerviguard-gallery-heading">Inside the live application</h2>
         <p>
-          Screens below were captured from the live pilot on February 17, 2026 using a demo account configured with
-          de-identified training and pilot data.
+          Screens below use demo data and show the current public product workflow without patient-identifying details.
         </p>
       </div>
       <div className="cerviguard-shot-grid">
@@ -316,7 +315,7 @@ const CerviGuard = () => (
     <section className="surface-card" aria-labelledby="cerviguard-workflow-heading">
       <div className="section-heading">
         <h2 id="cerviguard-workflow-heading">Workflow from case intake to clinical follow-up</h2>
-        <p>Every stage is structured for operational clarity, transparent signals, and accountable human oversight.</p>
+        <p>Every stage is structured for operational clarity, clinician review, and case follow-up.</p>
       </div>
       <div className="cerviguard-flow-grid">
         {workflowSteps.map((step) => (
@@ -332,8 +331,8 @@ const CerviGuard = () => (
       <div className="section-heading">
         <h2 id="cerviguard-deployment-heading">Digital-native SaaS/PaaS deployment model</h2>
         <p>
-          SmartClover positions CerviGuard as both a product and platform, enabling staged adoption while keeping
-          governance and integration control in scope.
+          SmartClover offers CerviGuard as a product with deployment options, so teams can start with a defined
+          workflow and add integrations only when scope is clear.
         </p>
       </div>
       <div className="feature-grid three-up">
@@ -359,7 +358,7 @@ const CerviGuard = () => (
 
     <DiligenceLinksSection
       headingId="cerviguard-diligence-links"
-      description="Use this section to review Pricing, How to Buy, Proof, Regulatory, and Trust around CerviGuard."
+      description="Use these routes to review pricing, buying steps, proof, regulatory context, and trust material around CerviGuard."
     />
 
     <section className="surface-card spotlight closing" aria-labelledby="cerviguard-cta-heading">

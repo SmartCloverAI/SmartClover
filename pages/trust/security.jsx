@@ -7,16 +7,16 @@ const controls = [
     detail: 'Role-based authorization governs who can access workflows, environments, and high-impact operations.'
   },
   {
-    title: 'End-to-end encryption',
-    detail: 'Sensitive flows are protected with encryption controls across transit and approved storage boundaries.'
+    title: 'Encryption controls',
+    detail: 'Sensitive flows use encryption controls across transit and approved storage boundaries.'
   },
   {
     title: 'Data-boundary control',
-    detail: 'Clinical payload storage remains tenant-scoped with no centralized clinical payload repository.'
+    detail: 'Clinical payload storage is scoped by tenant and deployment model.'
   },
   {
-    title: 'Immutable traceability',
-    detail: 'Operational events are recorded with append-only traceability to support audit integrity and investigations.'
+    title: 'Traceable event records',
+    detail: 'Operational events are recorded so teams can investigate changes and support review.'
   },
   {
     title: 'Vulnerability and patch process',
@@ -30,7 +30,7 @@ const Security = () => (
       <title>Security | SmartClover Trust Center</title>
       <meta
         name="description"
-        content="Draft SmartClover security baseline covering access control, encryption, data boundaries, and immutable traceability with non-certification claim discipline."
+        content="Draft SmartClover security baseline covering access control, encryption controls, data boundaries, and traceable event records without certification claims."
       />
     </Head>
 
@@ -38,8 +38,8 @@ const Security = () => (
       <span className="tagline">Trust Center</span>
       <h1>Security overview (Draft baseline)</h1>
       <p>
-        This page provides a high-level security summary for due-diligence review. It intentionally avoids unsupported
-        certification claims.
+        This page provides a high-level security summary for procurement and security review. It intentionally avoids
+        unsupported certification claims.
       </p>
     </header>
 
@@ -50,8 +50,8 @@ const Security = () => (
         <span className="status-badge">Owner: Security + Legal</span>
       </div>
       <blockquote>
-        Security controls are aligned with applicable NIS2/CRA expectations and are implemented through permissioned
-        access, end-to-end encryption, and immutable traceability. This statement is not a certification claim.
+        SmartClover describes permissioned access, encryption controls, and traceable event records as the current
+        public security baseline. This statement is not a certification claim.
       </blockquote>
     </section>
 

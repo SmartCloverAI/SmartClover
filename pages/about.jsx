@@ -37,7 +37,7 @@ const valueCards = [
       'The company focuses on turning difficult workflows into maintainable digital systems rather than delivering one-off experiments.'
   },
   {
-    title: 'Human-in-the-loop AI for good',
+    title: 'Clinician-led AI for good',
     description:
       'Clinicians, researchers, and operators remain decision owners while AI accelerates triage, communication, and analysis.'
   }
@@ -282,8 +282,8 @@ const About = () => (
       <div className="section-heading">
         <h2 id="about-next-step-heading">Where to go next</h2>
         <p>
-          About establishes confidence. CerviGuard, Trust, and Contact turn that confidence into product evaluation,
-          diligence, and conversation.
+          About establishes confidence. CerviGuard, Trust, and Contact turn that confidence into product review,
+          trust review, and conversation.
         </p>
       </div>
       <div className="inline-link-row">

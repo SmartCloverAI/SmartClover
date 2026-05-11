@@ -38,7 +38,7 @@ const TermsOfService = () => (
       <span className="tagline">Trust Center</span>
       <h1>Terms of Service (Draft baseline)</h1>
       <p>
-        This public page summarizes the current terms baseline used for enterprise diligence. It is not a substitute for
+        This public page summarizes the current terms baseline used for procurement and legal review. It is not a substitute for
         signed contractual documents.
       </p>
     </header>

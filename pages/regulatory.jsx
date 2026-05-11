@@ -23,16 +23,16 @@ const Regulatory = () => (
       <title>Regulatory | SmartClover</title>
       <meta
         name="description"
-        content="Regulatory overview for CerviGuard intended use, MDR Class I positioning, jurisdiction scope, and post-market process summary with pending-publication safeguards."
+        content="Regulatory overview for CerviGuard intended use, draft MDR Class I self-assessment, jurisdiction scope, and post-market process summary with publication limits."
       />
     </Head>
 
     <header className="page-header">
       <span className="tagline">Regulatory</span>
-      <h1>CerviGuard regulatory posture and publication status</h1>
+      <h1>CerviGuard regulatory status and publication limits</h1>
       <p>
-        SmartClover publishes regulatory information with claim-to-artifact discipline. Statements on this page are
-        constrained to currently publishable information and explicitly mark pending-publication fields.
+        SmartClover publishes regulatory information only where it can be tied to public material. This page marks
+        draft and pending-publication fields plainly.
       </p>
     </header>
 
@@ -43,8 +43,8 @@ const Regulatory = () => (
         <span className="status-badge">Owner: Regulatory + Legal</span>
       </div>
       <p>
-        CerviGuard is positioned under MDR Class I with detailed declaration identifiers pending publication and final
-        legal/regulatory sign-off.
+        CerviGuard has draft MDR Class I self-assessment material published for review. Declaration identifiers and
+        final release metadata remain pending legal/regulatory sign-off.
       </p>
     </section>
 

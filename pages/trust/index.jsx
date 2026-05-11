@@ -40,7 +40,7 @@ const TrustCenter = () => (
       <title>Trust Center | SmartClover</title>
       <meta
         name="description"
-        content="SmartClover trust center with draft legal and security baseline documents for enterprise healthcare diligence workflows."
+        content="SmartClover trust center with draft legal, privacy, data-processing, incident-response, and security baseline documents for healthcare procurement review."
       />
     </Head>
 
@@ -48,8 +48,8 @@ const TrustCenter = () => (
       <span className="tagline">Trust Center</span>
       <h1>Trust, legal, and security baseline</h1>
       <p>
-        This trust center provides procurement-oriented baseline documents for privacy, terms, data processing, security,
-        and incident response. Draft labels are used where legal review is still in progress.
+        This trust center provides baseline documents for privacy, terms, data processing, security, and incident
+        response. Draft labels are used where legal review is still in progress.
       </p>
     </header>
 
@@ -60,8 +60,8 @@ const TrustCenter = () => (
         <span className="status-badge">Owner: Legal + Privacy + Security</span>
       </div>
       <p>
-        Use these pages for diligence orientation. Final policy text and contractual roles are confirmed during legal
-        review and RFQ onboarding.
+        Use these pages before procurement, security, or legal review. Final policy text and contractual roles are
+        confirmed during RFQ onboarding.
       </p>
     </section>
 

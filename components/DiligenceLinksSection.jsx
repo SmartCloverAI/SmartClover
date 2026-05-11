@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const diligenceLinks = [
+const reviewLinks = [
   {
     href: '/pricing',
     label: 'Pricing',
@@ -30,8 +30,8 @@ const diligenceLinks = [
 
 const DiligenceLinksSection = ({
   headingId,
-  heading = 'Commercial and diligence routes',
-  description = 'Use this section to review Pricing, How to Buy, Proof, Regulatory, and Trust before onboarding.'
+  heading = 'Commercial and trust routes',
+  description = 'Use these routes to review pricing, buying steps, proof, regulatory context, and trust material before onboarding.'
 }) => (
   <section className="surface-card" aria-labelledby={headingId}>
     <div className="section-heading">
@@ -39,7 +39,7 @@ const DiligenceLinksSection = ({
       <p>{description}</p>
     </div>
     <div className="diligence-link-grid">
-      {diligenceLinks.map((item) => (
+      {reviewLinks.map((item) => (
         <Link key={item.href} href={item.href} className="diligence-link-card">
           <span className="diligence-link-title">{item.label}</span>
           <span className="diligence-link-description">{item.description}</span>

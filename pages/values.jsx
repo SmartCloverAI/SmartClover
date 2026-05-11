@@ -36,7 +36,7 @@ const Values = () => (
     </section>
 
     <section className="surface-card">
-      <h2>Human-in-the-loop AI for good</h2>
+      <h2>Clinician-led AI for good</h2>
       <p>
         Clinicians, researchers, and operators remain responsible for high-impact decisions. SmartClover uses AI to
         support expert review, with impact judged by usefulness, transparency, and trust.

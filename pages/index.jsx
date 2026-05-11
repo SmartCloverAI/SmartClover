@@ -35,7 +35,7 @@ const portfolioCards = [
     kicker: 'Live research pilot',
     title: 'DataGems',
     description:
-      'A live research pilot for governed synthetic-data generation using SLM-first execution with optional external APIs.'
+      'A live research pilot for synthetic-data generation using SLM-first execution with optional external APIs.'
   },
   {
     kicker: 'Public research directions',
@@ -60,9 +60,9 @@ const timelineCards = [
   },
   {
     kicker: '2024-2026 product build-out',
-    title: 'CerviGuard moved into a live pilot surface',
+    title: 'CerviGuard moved into a live product surface',
     description:
-      'The public pilot, repository, and model hub provide a concrete flagship proof layer with supporting artifacts.'
+      'The public product surface, repository, and model hub provide a concrete flagship proof layer with supporting artifacts.'
   },
   {
     kicker: 'Current company posture',
@@ -75,7 +75,7 @@ const timelineCards = [
 const pathCards = [
   {
     title: 'Book demo / Request pilot',
-    description: 'For clinics, hospitals, and operators evaluating CerviGuard or governed product rollout.',
+    description: 'For clinics, hospitals, and operators evaluating CerviGuard or a scoped product rollout.',
     href: '/contact#inquiry-form'
   },
   {
@@ -85,7 +85,7 @@ const pathCards = [
   },
   {
     title: 'Investor inquiry',
-    description: 'For investors or accelerators reviewing SmartClover&apos;s healthcare AI platform, public proof, and commercial readiness.',
+    description: 'For investors or accelerators reviewing SmartClover\'s healthcare AI platform, public proof, and commercial readiness.',
     href: '/contact#inquiry-form'
   }
 ];
@@ -148,8 +148,8 @@ const Home = () => (
             </h1>
             <p>
               SmartClover builds CerviGuard, a live product for cervical-screening teams that need structured intake,
-              AI-assisted review, triage coordination, and clinician-led follow-up in one governed workflow. DataGems
-              supports the broader research track as a live pilot for governed synthetic-data work.
+              AI-assisted review, triage coordination, and clinician-led follow-up in one workflow. DataGems
+              supports the broader research track as a live pilot for synthetic-data work.
             </p>
           </div>
 

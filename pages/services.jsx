@@ -15,7 +15,7 @@ const servicePrinciples = [
     description: 'Each rollout defines scope boundaries, security/legal checkpoints, and measurable activation gates.'
   },
   {
-    title: 'Human-in-the-loop operations',
+    title: 'Clinician-led operations',
     description: 'Clinical teams remain decision owners while AI supports triage, follow-up, and operational consistency.'
   }
 ];
@@ -29,7 +29,7 @@ const aiDirections = [
   {
     title: 'Direction 2: Generative SaaS systems',
     description:
-      'Generative systems support prophylaxis communication, stakeholder interaction, questionnaire design, and qualitative-data analysis.'
+      'Generative systems support prevention communication, questionnaire design, and qualitative-data analysis.'
   }
 ];
 
@@ -38,7 +38,7 @@ const modules = [
     status: 'Flagship product (active)',
     title: 'CerviGuard and clinical analytics operations',
     points: [
-      'MDR Class I companion-app positioning with clinician-led oversight',
+      'Draft MDR Class I self-assessment material with clinician-led oversight',
       'Secure workflow operations for case intake, triage, and follow-up',
       'Governance-aligned deployment options across managed SaaS/private/hybrid tracks'
     ]
@@ -114,7 +114,7 @@ const Services = () => (
         <h2 id="services-flagship-heading">CerviGuard is the operational starting point</h2>
       </div>
       <p>
-        CerviGuard is delivered as SmartClover&apos;s primary healthcare platform. The live pilot at{' '}
+        CerviGuard is delivered as SmartClover&apos;s primary healthcare platform. The live product surface at{' '}
         <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
           cerviguard.link
         </a>{' '}

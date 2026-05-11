@@ -33,7 +33,7 @@ Use this skill when an agent needs public SmartClover company, product, trust, o
 ## Product links
 
 - `https://cerviguard.link`
-  Public live pilot surface for CerviGuard.
+  Public live product surface for CerviGuard.
 
 - `https://github.com/SmartCloverAI/CerviGuard`
   Public GitHub repository for CerviGuard.

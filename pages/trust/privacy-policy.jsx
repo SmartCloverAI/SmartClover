@@ -56,7 +56,7 @@ const PrivacyPolicy = () => (
       <span className="tagline">Trust Center</span>
       <h1>Privacy Policy (Draft for legal review)</h1>
       <p>
-        This page provides the current privacy-policy baseline for public diligence. Final legal wording and contractual
+        This page provides the current privacy-policy baseline for procurement and legal review. Final legal wording and contractual
         role allocation are confirmed during legal approval and onboarding.
       </p>
     </header>

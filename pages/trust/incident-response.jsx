@@ -18,7 +18,7 @@ const severityRows = [
 
 const lifecycle = [
   'Detection and initial triage with severity assignment.',
-  'Containment actions and stakeholder coordination.',
+  'Containment actions and customer coordination.',
   'Eradication and recovery with traceable execution records.',
   'Post-incident review, root-cause analysis, and corrective-action tracking.'
 ];

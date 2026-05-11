@@ -55,7 +55,7 @@ const tools = [
   {
     name: 'open_public_artifact',
     title: 'Open SmartClover public artifact',
-    description: 'Open an external SmartClover artifact such as the live CerviGuard pilot, GitHub repository, Hugging Face profile, or public PDF.',
+    description: 'Open an external SmartClover artifact such as the live CerviGuard product surface, GitHub repository, Hugging Face profile, or public PDF.',
     inputSchema: {
       type: 'object',
       properties: {

@@ -981,3 +981,42 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `npm run build` -> pass (Next.js production build completed; existing Browserslist `caniuse-lite` warning only).
   - Local production Playwright/curl smoke checks on `/`, `/about`, `/llms.txt`, `/llms-full.txt`, and `.well-known` agent-skill files -> pass; `/api/status` returned version `3.14`.
 - Residual Risk: Broader product, trust/proof/regulatory, contact, pricing, and PDF/pitch-deck surfaces still need their planned content-quality review batches; this batch only fixed the current regression family and the public surfaces needed to block it.
+
+### [2026-05-11 05:55 UTC] TYPE: change
+- Author: Codex + CQ-VERIFIER + CONTENT-VALIDATOR
+- Summary: Completed the product, trust, proof, regulatory, commercial, blog, WebMCP, `.well-known`, and agent-facing content-quality batch from `CONTENT_FIX_PLAN.md`, removing over-strong MDR/security/proof language, stale TealGuard and CerviGuard-pilot phrasing, diligence/evaluator voice, and unsupported product claims while adding parity tests for machine-readable artifacts.
+- Evidence: `CONTENT_REWRITE_REVIEW.md`, `components/Layout.jsx`, `components/DiligenceLinksSection.jsx`, `lib/agent-artifacts.mjs`, product/trust/proof/regulatory/pricing/contact route files, selected public blog posts, `tests/public-copy-tone.test.mjs`, `tests/agent-artifacts.test.mjs`, `version.json`; commands `node --test tests/public-copy-tone.test.mjs`, `node --test tests/agent-artifacts.test.mjs`, `npm test`, `npm run lint`, `npm run build`, `git diff --check`, source scans, and local production route/LLMS/MCP/Playwright smoke checks.
+- Impact: The public site now presents CerviGuard as the live product, DataGems as a live research pilot, regulatory status as draft/self-assessment material, proof as a separated evidence baseline with gaps, and security/trust material as a public baseline rather than certification-grade or investor-memo copy.
+- Follow-up: Push and verify live deployment at version `3.15`; stale public pitch-deck/PDF artifacts remain governed by the pitch-deck plan and require a separate replacement batch.
+- Related Entry: [2026-05-10 21:41 UTC] TYPE: change
+
+### [2026-05-11 05:55 UTC] ADVERSARIAL-CHECK
+- Scope: second `CONTENT_FIX_PLAN.md` implementation batch covering product, trust/proof/regulatory, pricing/how-to-buy/contact, public blog, shared layout, MCP/LLMS source text, tone tests, artifact parity tests, and `version.json`.
+- BUILDER Intent + Change:
+  - Rewrote CerviGuard, Products, Proof, Regulatory, Trust/Security, Pricing, How-to-Buy, Contact, Services, shared navigation/footer, and selected blog copy around direct product, clinical, procurement, research, and investor-review language.
+  - Removed TealGuard partnership claims, final-sounding MDR language, over-broad security claims, `human-in-the-loop`, diligence/evaluator phrasing, DataGems approved-partner language, and stale CerviGuard pilot labels.
+  - Expanded public-copy tests and added agent-artifact parity assertions so LLMS/MCP output preserves product status and claim-safety wording.
+  - Incremented `version.json` from `3.14` to `3.15` for this website commit.
+- CRITIC Findings:
+  - CQ-VERIFIER initially failed the batch on TealGuard, final-sounding MDR language, over-strong security/regulatory claims, diligence/evaluator voice, `human-in-the-loop`, DataGems traction wording, and unsupported CerviGuard output claims.
+  - CQ-VERIFIER post-edit review found residual `transformation-zone and lesion classification`, `transparent signals`, `reviewable AI outputs`, and CerviGuard `live pilot` language.
+  - CONTENT-VALIDATOR found the process incomplete until `CHANGE_LOG.md` and `CONTENT_REWRITE_REVIEW.md` were updated and machine-readable parity was covered by tests or explicit evidence.
+  - Local regression testing then exposed the same CerviGuard `live pilot` mismatch on the Services page.
+  - Final validation expanded the status sweep and found the same stale CerviGuard-pilot wording in Home proof copy, the CerviGuard CTA, WebMCP metadata, and `.well-known` site-navigation skill text.
+- BUILDER Response / Refinements:
+  - Replaced residual product-output claims with narrower metadata, confidence-value, AI result-review, clinician-review, and case-follow-up language.
+  - Changed CerviGuard public links and page copy from `live pilot` to `live product` or `live product surface` where the live CerviGuard surface is referenced.
+  - Updated `lib/agent-artifacts.mjs` so LLMS/MCP text no longer preserves stale `transparent signals` or CerviGuard-pilot wording.
+  - Updated the `.well-known` site-navigation skill and digest, and updated WebMCP tool metadata to match the public product status.
+  - Added tests blocking the new failure modes and asserting machine-readable product-status parity.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (9/9).
+  - `node --test tests/agent-artifacts.test.mjs` -> pass (8/8).
+  - `npm test` -> pass (17/17).
+  - `npm run lint` -> pass (no ESLint warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed; 29 static pages generated; existing Browserslist `caniuse-lite` warning only).
+  - `git diff --check` -> pass.
+  - Expanded source scan across pages, components, lib, posts, `.well-known`, and OpenAPI -> pass (no blocked fragments).
+  - `.well-known` agent-skill digest check -> pass after updating the site-navigation digest in `index.json`.
+  - Local production smoke on port `3028` -> pass; `/api/status` returned `3.15`, route and machine-readable scans were clean, MCP CerviGuard resource scan was clean, and Playwright desktop/mobile smoke showed `v3.15` on key pages.
+- Residual Risk: Stale PDF/pitch-deck artifacts remain outside this website-copy batch and must be replaced through the planned pitch-deck work before investor distribution.

@@ -37,6 +37,27 @@ test('llms outputs mention the MCP endpoint and key public surfaces', () => {
   assert.match(llmsFullTxt, /https:\/\/cerviguard\.link/);
 });
 
+test('agent-facing artifacts preserve product-status and claim-safety wording', () => {
+  const cerviguardResource = readPublicMcpResource('smartclover://products/cerviguard');
+  const generatedText = [
+    buildLlmsTxt(),
+    buildLlmsFullTxt(),
+    ...getPublicMcpResources().map((resource) => readPublicMcpResource(resource.uri)?.text ?? '')
+  ].join('\n');
+
+  assert.match(cerviguardResource.text, /flagship live product/);
+  assert.match(cerviguardResource.text, /metadata and confidence values for clinician review/);
+  assert.match(buildLlmsTxt(), /CerviGuard as its flagship live product/);
+  assert.match(buildLlmsTxt(), /CerviGuard live product surface/);
+  assert.match(buildLlmsTxt(), /DataGems as a live research pilot/);
+
+  assert.doesNotMatch(cerviguardResource.text, /CerviGuard live pilot|transparent signals|transformation-zone|lesion classification/i);
+  assert.doesNotMatch(
+    generatedText,
+    /human-in-the-loop|TealGuard partnership|diligence-ready|trust-ready|company profile|public record|support evaluation|stakeholders|approved MDR|final MDR|certified|guaranteed|end-to-end encryption|immutable traceability|aligned with applicable NIS2\/CRA expectations|no centralized clinical payload repository/i
+  );
+});
+
 test('initialize advertises a read-only resource server', () => {
   const response = handleMcpJsonRpcRequest({
     jsonrpc: '2.0',

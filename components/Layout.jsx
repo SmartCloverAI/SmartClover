@@ -27,7 +27,7 @@ const footerGroups = [
     ]
   },
   {
-    title: 'Diligence',
+    title: 'Review',
     links: [
       { label: 'Trust', href: '/trust' },
       { label: 'Pricing', href: '/pricing' },
@@ -39,7 +39,7 @@ const footerGroups = [
   {
     title: 'Public resources',
     links: [
-      { label: 'CerviGuard live pilot', href: 'https://cerviguard.link', external: true },
+      { label: 'CerviGuard live product', href: 'https://cerviguard.link', external: true },
       { label: 'CerviGuard GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard', external: true },
       { label: 'SmartClover Hugging Face', href: 'https://huggingface.co/smartclover', external: true },
       { label: 'Gender Equality Plan', href: '/gender-equality-plan' },
@@ -92,7 +92,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                   <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
                   <span className="nav-brand-block">
                     <span className="nav-brand-text">SmartClover</span>
-                    <span className="nav-brand-subtitle">Healthcare AI products and governed deployment</span>
+                    <span className="nav-brand-subtitle">Healthcare AI products and deployment options</span>
                   </span>
                 </Link>
                 <button
@@ -132,7 +132,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
             <div className="site-footer-top">
               <div className="site-footer-intro">
                 <span className="tagline">SmartClover</span>
-                <h2>Healthcare AI products, research programmes, and transparent commercial access.</h2>
+                <h2>Healthcare AI products, research programmes, and clear commercial routes.</h2>
                 <p>
                   CerviGuard is the flagship product. DataGems remains the live research pilot. Trust, pricing, buying,
                   and contact pages provide direct access to product, governance, and commercial information.

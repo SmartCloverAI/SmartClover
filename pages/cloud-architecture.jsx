@@ -9,7 +9,7 @@ const serviceMap = [
   },
   {
     domain: 'Data and storage boundaries',
-    baseline: 'Clinical payload data remains tenant-local and encrypted; no centralized clinical payload repository.',
+    baseline: 'Clinical payload data remains tenant-local and encrypted within the approved deployment model.',
     gcpReference: 'Control-plane metadata may use managed cloud storage patterns without centralizing clinical payload data.'
   },
   {
@@ -50,7 +50,7 @@ const reliabilityRows = [
 
 const costDrivers = [
   'Edge-local execution reduces repeated high-volume clinical data transfer overhead.',
-  'No centralized clinical payload repository limits central storage growth pressure.',
+  'Tenant-local clinical payload handling limits central storage growth pressure.',
   'Hybrid cloud components are scoped to coordination, governance, and observability.',
   'Capacity planning is tied to RFQ-defined workload envelopes and deployment tier.'
 ];
