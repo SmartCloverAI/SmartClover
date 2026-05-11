@@ -1020,3 +1020,36 @@ If an old entry is wrong, append a `TYPE: correction` entry instead of editing h
   - `.well-known` agent-skill digest check -> pass after updating the site-navigation digest in `index.json`.
   - Local production smoke on port `3028` -> pass; `/api/status` returned `3.15`, route and machine-readable scans were clean, MCP CerviGuard resource scan was clean, and Playwright desktop/mobile smoke showed `v3.15` on key pages.
 - Residual Risk: Stale PDF/pitch-deck artifacts remain outside this website-copy batch and must be replaced through the planned pitch-deck work before investor distribution.
+
+### [2026-05-11 07:17 UTC] TYPE: change
+- Author: Codex
+- Summary: Replaced the public SmartClover motto and homepage 10-second elevator pitch with the approved screening-workflow and research positioning, using first-party company voice and correcting the DataGems sentence grammar.
+- Evidence: `components/Layout.jsx`, `pages/index.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`; commands `node --test tests/public-copy-tone.test.mjs`, `npm test`, `npm run lint`, `npm run build`, `git diff --check`, local production route and Playwright smoke checks.
+- Impact: The first visible brand line and homepage intro now read as concise market-facing copy rather than placeholder product inventory.
+- Follow-up: Deploy and verify live version `3.16`.
+- Related Entry: [2026-05-11 05:55 UTC] TYPE: change
+
+### [2026-05-11 07:17 UTC] ADVERSARIAL-CHECK
+- Scope: homepage motto and hero elevator-pitch copy (`components/Layout.jsx`, `pages/index.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`).
+- BUILDER Intent + Change:
+  - Replaced `Healthcare AI products and deployment options` with `Healthcare AI for screening workflows and research` in the header brand subtitle and footer headline.
+  - Replaced the homepage intro with the approved two-sentence pitch: SmartClover builds healthcare AI where clinical work happens; CerviGuard is the flagship product; DataGems supports the synthetic-data research track.
+  - Updated homepage SEO/schema descriptions to align with the revised visible positioning.
+  - Added copy-regression assertions for the exact motto and elevator pitch.
+- CRITIC Findings:
+  - The submitted sentence `The DataGems supports...` would introduce a grammar defect; public copy should use `DataGems supports...`.
+  - Updating only visible JSX without a regression test would allow the dull motto or placeholder-style intro to return.
+  - Homepage metadata should not keep the older product-inventory framing after the visible hero changes.
+- BUILDER Response / Refinements:
+  - Applied the grammatical correction while preserving the requested meaning and first-party voice.
+  - Added the old motto to banned Layout copy and asserted the approved motto and elevator pitch in `tests/public-copy-tone.test.mjs`.
+  - Updated the homepage SEO and organization schema descriptions to match the new pitch.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass (9/9).
+  - `npm test` -> pass (17/17).
+  - `npm run lint` -> pass (no ESLint warnings or errors).
+  - `npm run build` -> pass (Next.js production build completed; 29 static pages generated; existing Browserslist `caniuse-lite` warning only).
+  - `git diff --check` -> pass.
+  - Local production smoke on port `3028` -> pass; `/api/status` returned `3.16`, homepage HTML and markdown contained the approved motto and elevator pitch.
+  - Local Playwright homepage smoke on desktop and mobile -> pass; title loaded, main content rendered, approved motto and pitch were visible, no framework overlay or relevant console issues, footer showed `v3.16`.
+- Residual Risk: none identified beyond post-deploy live verification.

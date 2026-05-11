@@ -96,7 +96,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Healthcare AI company building CerviGuard for cervical-screening workflows, with DataGems as a live research pilot and public trust routes for clinics, partners, and investors.',
+    'Healthcare AI company building CerviGuard for cervical-screening workflows where clinical work actually happens, with DataGems supporting synthetic-data research.',
   logo: `${siteUrl}/smartclover_logo.jpg`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
@@ -123,7 +123,7 @@ const Home = () => (
   <>
     <PageSeo
       title="SmartClover | Healthcare AI With Live Product Proof"
-      description="SmartClover builds CerviGuard, a live product for cervical-screening teams, with DataGems as a live research pilot and public trust routes for clinics, partners, and investors."
+      description="SmartClover builds healthcare AI where clinical work actually happens, led by CerviGuard for cervical-screening teams and DataGems for synthetic-data research."
       path="/"
       image="/images/cerviguard/cerviguard-dashboard.png"
       jsonLd={organizationSchema}
@@ -147,9 +147,9 @@ const Home = () => (
               Clinician-led AI workflow software for cervical screening.
             </h1>
             <p>
-              SmartClover builds CerviGuard, a live product for cervical-screening teams that need structured intake,
-              AI-assisted review, triage coordination, and clinician-led follow-up in one workflow. DataGems
-              supports the broader research track as a live pilot for synthetic-data work.
+              SmartClover builds healthcare AI where clinical work actually happens. Our flagship product, CerviGuard,
+              helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and
+              manage clinician-led follow-up. DataGems supports our synthetic-data research track.
             </p>
           </div>
 

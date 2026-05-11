@@ -85,7 +85,8 @@ const bannedCopyByFile = {
     'serious evaluators can move quickly',
     'trust-ready delivery',
     'one live flagship product, one live research pilot, and public diligence routes',
-    'Creativity \u00b7 Digitalization \u00b7 Responsible AI for Good'
+    'Creativity \u00b7 Digitalization \u00b7 Responsible AI for Good',
+    'Healthcare AI products and deployment options'
   ],
   'pages/products.jsx': [
     'Products & More',
@@ -232,6 +233,21 @@ test('public source surfaces block evaluator-language and redaction regressions'
 test('homepage hero speaks in client-facing product and workflow language', () => {
   const source = readFileSync('pages/index.jsx', 'utf8');
   const heroCopy = extractHomeHeroCopy(source);
+  const layoutCopy = normalizeCopy(readFileSync('components/Layout.jsx', 'utf8'));
+
+  assert.equal(
+    layoutCopy.includes('Healthcare AI for screening workflows and research'),
+    true,
+    'site motto should use the approved screening-and-research positioning'
+  );
+
+  assert.equal(
+    heroCopy.includes(
+      'SmartClover builds healthcare AI where clinical work actually happens. Our flagship product, CerviGuard, helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage clinician-led follow-up. DataGems supports our synthetic-data research track.'
+    ),
+    true,
+    'homepage hero should use the approved 10-second elevator pitch'
+  );
 
   for (const requiredFragment of ['CerviGuard', 'cervical-screening teams', 'clinician-led', 'workflow']) {
     assert.equal(
