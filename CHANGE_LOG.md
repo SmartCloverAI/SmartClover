@@ -1,5 +1,32 @@
 # SmartClover Change Log
 
+### [2026-05-11 19:32 UTC] TYPE: change
+- Author: Codex
+- Summary: Added the machine-readable status cleanup review and closure note to the content rewrite review log.
+- Evidence: `CONTENT_REWRITE_REVIEW.md`, `public/openapi.json`, `version.json`.
+- Impact: The review trail now records the final machine-readable cleanup batch and states the remaining PDF/deck risk explicitly.
+- Follow-up: Commit, push, wait for version `3.25` online, then verify `/api/status` and `/openapi.json`.
+- Related Entry: 2026-05-11 19:24 UTC TYPE: change
+
+### [2026-05-11 19:32 UTC] ADVERSARIAL-CHECK
+- Scope: Review-log closure for content-fix execution.
+- BUILDER Intent + Change:
+  - Added a `CONTENT_REWRITE_REVIEW.md` batch record for machine-readable status cleanup.
+  - Added a closure note that keeps PDF/deck review open instead of falsely closing the whole content plan.
+  - Updated the OpenAPI status version example and site version for this documentation batch.
+- CRITIC Findings:
+  - Without this entry, the changelog would show the machine-readable cleanup but the content rewrite review log would not.
+  - The plan should not be marked closed while public PDF/deck review remains pending.
+- BUILDER Response / Refinements:
+  - Kept the closure wording narrow: website-content batches are deployed; PDF/deck work remains active.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 16/16 tests passed.
+  - `npm test` -> pass, 16/16 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online `/api/status` and `/openapi.json` checks are still required after deployment.
+
 ### [2026-05-11 19:24 UTC] TYPE: change
 - Author: Codex
 - Summary: Aligned the OpenAPI status schema example with the current public site version and added a regression test for future version bumps.

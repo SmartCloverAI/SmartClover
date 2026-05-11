@@ -273,3 +273,54 @@ Required changes before publish:
 
 Residual risks:
 - The generated visuals are useful but visually conservative and blue-heavy. A later brand-design pass could commission custom brand-native diagrams if SmartClover wants a more distinctive visual system.
+
+## Batch Review: Machine-Readable Status Cleanup
+
+Files reviewed:
+- `lib/`
+- `pages/api/`
+- `public/.well-known/api-catalog`
+- `public/openapi.json`
+- `tests/public-copy-tone.test.mjs`
+
+First-principles findings:
+- Machine-readable public artifacts should help automated consumers understand the current public interface. They should not carry stale examples or marketing copy.
+
+Evidence findings:
+- The current public API surface is limited to status, host identifier, and contact intake endpoints.
+- The site repo does not currently expose `llms.txt`, `llms-full.txt`, MCP resource endpoints, or public agent-skill artifacts.
+
+Redaction findings:
+- No sensitive publication-name continuity, named-coauthor credibility copy, or earlier redacted public-profile language was present in the machine-readable files reviewed.
+
+S-WRITER findings:
+- No human-facing rewrite was needed. The only stale wording was a version example, not a public marketing paragraph.
+
+VC-EXPERT findings:
+- A stale status-version example is low severity, but keeping public API docs aligned reduces avoidable diligence friction for technical reviewers.
+
+CQ-VERIFIER findings:
+- `public/openapi.json` had `StatusResponse.version.example` set to an old value. This is now tested against `version.json`.
+
+CONTENT-VALIDATOR findings:
+- Local tests block future drift between `version.json` and the OpenAPI status response example.
+- Online verification confirmed `/api/status` and `/openapi.json` agree after deployment.
+
+Client/buyer findings:
+- Procurement, IT, and technical reviewers should see a consistent public site version across status and API documentation.
+
+Required changes before publish:
+- Update `public/openapi.json` status version example.
+- Add a regression test requiring it to match `version.json`.
+- Increment `version.json`, append `CHANGE_LOG.md`, commit, push, wait for online deployment, and verify `/api/status` plus `/openapi.json`.
+
+Residual risks:
+- If `llms.txt`, MCP resources, or public agent-skill artifacts are introduced later, Task 7 must be rerun because those surfaces do not exist in the current site repo.
+
+## Closure Note
+
+Current status after the website-content batches:
+- Service-capability, introspection, DataGems blog, existing blog, NapkinAI visuals, and machine-readable status cleanup batches have been executed and deployed.
+- Final verified public site version for this content-fix execution is recorded in `version.json` and `/api/status`.
+- The plan remains active for public PDF/deck review and replacement work governed by `PITCH_PLAN.md` and `SmartClover_PitchDeck/`.
+- The first NapkinAI visuals are acceptable and locally hosted, but a later custom visual-design pass can improve brand distinction and mobile label readability.
