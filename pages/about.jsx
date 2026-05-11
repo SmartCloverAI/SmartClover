@@ -117,7 +117,7 @@ const About = () => (
   <>
     <PageSeo
       title="About SmartClover | Healthcare AI For Cervical Screening"
-      description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows and DataGems as a live research pilot."
+      description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research workflows."
       path="/about"
       image="/images/research-lab.png"
       jsonLd={aboutSchema}

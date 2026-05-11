@@ -70,3 +70,13 @@ Required follow-up:
 - Replace the footer sentence with reader-value copy.
 - Increment `version.json` again because the issue was found after online verification.
 - Commit, push, wait for deployment, and re-run online checks.
+
+## Follow-Up Sweep: Nearby Status Wording
+
+Observed after version `3.19` online checks:
+
+| File | Existing fragment | Failure class | Replacement intent | Verification |
+| --- | --- | --- | --- | --- |
+| `pages/index.jsx` | `CerviGuard remains the primary commercial product` | Internal product-status narration | Explain that CerviGuard is the product readers review first | Tone test blocks `remains the primary commercial product`; online `/` scan passes |
+| `pages/products.jsx` | `DataGems operating as a live research pilot` | Status-management copy | Explain that DataGems supports synthetic-data research workflows | Tone test blocks `operating as a live research pilot`; online `/products` scan passes |
+| `pages/about.jsx` | `DataGems as a live research pilot` in SEO description | Status-management metadata | Align metadata with reader-value DataGems language | Online `/about` metadata scan passes |

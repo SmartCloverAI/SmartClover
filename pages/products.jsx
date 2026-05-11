@@ -105,8 +105,8 @@ const Products = () => (
       <span className="tagline">Products</span>
       <h1>Product portfolio led by CerviGuard</h1>
       <p>
-        SmartClover&apos;s product portfolio is led by CerviGuard, with DataGems operating as a live research pilot and
-        service capabilities for permissioned cloud-on-edge deployment and healthcare cybersecurity/resilience.
+        SmartClover&apos;s product portfolio is led by CerviGuard. DataGems supports synthetic-data research workflows,
+        while service capabilities cover permissioned cloud-on-edge deployment and healthcare cybersecurity/resilience.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">

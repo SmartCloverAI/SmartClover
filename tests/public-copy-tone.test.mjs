@@ -201,6 +201,8 @@ const globallyBannedFragments = [
   'not presented as the main commercial product',
   'remains a live research pilot',
   'remains the live research pilot',
+  'remains the primary commercial product',
+  'operating as a live research pilot',
   'publicly visible through',
   'current company posture',
   'company story',

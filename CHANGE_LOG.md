@@ -57,3 +57,31 @@
   - `git diff --check` -> pass, no whitespace errors.
   - `rg -n "center of the company story|not the main commercial product|not presented as the main commercial product|remains a live research pilot|remains the live research pilot|publicly visible through|current company posture|company story" pages components lib posts public/.well-known` -> pass, no matches.
 - Residual Risk: Broader blog and visual work remain separate batches.
+
+### [2026-05-11 18:22 UTC] TYPE: change
+- Author: Codex
+- Summary: Removed nearby product-status narration from Home, Products, and About metadata after the `3.19` online sweep.
+- Evidence: `pages/index.jsx`, `pages/products.jsx`, `pages/about.jsx`, `tests/public-copy-tone.test.mjs`, `CONTENT_REWRITE_REVIEW.md`.
+- Impact: Public copy now explains that CerviGuard is the product readers review first and DataGems supports synthetic-data research workflows, instead of narrating internal commercial hierarchy.
+- Follow-up: Re-validate, deploy as a new version, and verify online.
+- Related Entry: 2026-05-11 18:17 UTC TYPE: change
+
+### [2026-05-11 18:22 UTC] ADVERSARIAL-CHECK
+- Scope: Nearby status wording in Home, Products, and About metadata.
+- BUILDER Intent + Change:
+  - Replaced `CerviGuard remains the primary commercial product` with reader-value wording.
+  - Replaced `DataGems operating as a live research pilot` and related metadata with synthetic-data research workflow language.
+  - Added regression tests for the exact newly discovered phrases.
+- CRITIC Findings:
+  - The original scan was too narrow and allowed semantically similar status wording to remain.
+  - Metadata needed the same reader-value alignment as visible page copy.
+- BUILDER Response / Refinements:
+  - Extended tests to block nearby phrases, not just the original exact text.
+  - Updated metadata and visible page copy together.
+- Verification:
+  - `npm test` -> pass, 12/12 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed; Browserslist database warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+  - `rg -n "center of the company story|not the main commercial product|not presented as the main commercial product|remains a live research pilot|remains the live research pilot|remains the primary commercial product|operating as a live research pilot|publicly visible through|current company posture|company story" pages components lib posts public/.well-known` -> pass, no matches.
+- Residual Risk: Blog posts and visual graph work remain separate batches.

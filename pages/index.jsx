@@ -242,8 +242,8 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="home-portfolio-heading">A flagship product within a broader company platform</h2>
         <p>
-          CerviGuard remains the primary commercial product, while the wider platform, research, and trust surfaces keep
-          the full company offering visible.
+          CerviGuard is the product teams review first. DataGems, research, and trust surfaces show the broader
+          SmartClover work around it.
         </p>
       </div>
       <div className="story-grid">
