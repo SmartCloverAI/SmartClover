@@ -1,5 +1,35 @@
 # SmartClover Change Log
 
+### [2026-06-15 10:26 UTC] TYPE: change
+- Author: Codex
+- Summary: Published the NIS2COMPASS blog article from the supplied article package with scoped readiness-evidence language, local visual assets, and release version `3.26`.
+- Evidence: `posts/nis2compass-verifiable-cybersecurity-proof.md`, `public/images/blog/nis2compass-collaboration-flow.png`, `public/images/blog/nis2compass-evidence-flow.png`, `tests/public-copy-tone.test.mjs`, `public/openapi.json`, `version.json`.
+- Impact: The public blog now announces the SmartClover and AI STM Learning NIS2COMPASS work without relying on package-local image paths, compliance-certification claims, or AI-generated-sounding audit guarantee language.
+- Follow-up: Commit, push, wait for version `3.26` online, then verify `/api/status` and the new blog route.
+- Related Entry: 2026-05-11 19:32 UTC TYPE: change
+
+### [2026-06-15 10:26 UTC] ADVERSARIAL-CHECK
+- Scope: NIS2COMPASS blog launch.
+- BUILDER Intent + Change:
+  - Converted the supplied article into a public SmartClover blog post with a clear NIS2 readiness-evidence frame.
+  - Hosted the selected collaboration and evidence-flow images locally under `public/images/blog/`.
+  - Added regression coverage for the new post, local assets, version-schema alignment, and risky compliance phrases.
+- CRITIC Findings:
+  - The supplied hero image included embedded "Achieving NIS2 Compliance" wording, which could read as an achieved compliance claim; it was not used in the public post.
+  - The raw article contained phrases such as "may still fail the compliance test", "legally meaningful", and "audit-ready proof"; those were replaced with reviewable-evidence language.
+  - Blog Markdown cannot safely reference package-local `images/...` paths because rendered article URLs live under `/blog/`; all public image references must be absolute site paths.
+- BUILDER Response / Refinements:
+  - Reframed the announcement as a project and methodology overview, added an explicit "not legal advice" statement, and kept AI support subordinate to human review.
+  - Added `tests/public-copy-tone.test.mjs` coverage for required NIS2COMPASS anchors and rejected overclaim/package-local fragments.
+  - Bumped `version.json` and `public/openapi.json` once to `3.26` for this release.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 17/17 tests passed.
+  - `npm test` -> pass, 17/17 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed and generated `/blog/nis2compass-verifiable-cybersecurity-proof`.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online deployment propagation and live route rendering still need verification after push.
+
 ### [2026-05-11 19:32 UTC] TYPE: change
 - Author: Codex
 - Summary: Added the machine-readable status cleanup review and closure note to the content rewrite review log.

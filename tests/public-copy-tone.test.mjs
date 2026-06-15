@@ -429,6 +429,53 @@ test('DataGems blog uses workflow value and avoids portfolio-status narration', 
   }
 });
 
+test('NIS2COMPASS blog launches with scoped evidence language and local visuals', () => {
+  const source = normalizeCopy(readFileSync('posts/nis2compass-verifiable-cybersecurity-proof.md', 'utf8'));
+  const normalizedSource = normalizeForSearch(source);
+
+  for (const assetPath of [
+    'public/images/blog/nis2compass-collaboration-flow.png',
+    'public/images/blog/nis2compass-evidence-flow.png'
+  ]) {
+    assert.equal(existsSync(assetPath), true, `expected NIS2COMPASS visual asset: ${assetPath}`);
+  }
+
+  for (const requiredFragment of [
+    'NIS2COMPASS: Turning Cybersecurity Work Into Verifiable Proof',
+    'SmartClover and AI STM Learning',
+    'CYberSynchrony',
+    'Evidence Graph',
+    'human reviewer',
+    'Public-safe outputs',
+    'synthetic evidence examples',
+    '/images/blog/nis2compass-collaboration-flow.png',
+    '/images/blog/nis2compass-evidence-flow.png',
+    'This article is a project announcement and methodology overview, not legal advice.',
+    'Last reviewed: 2026-06-15'
+  ]) {
+    assert.equal(source.includes(requiredFragment), true, `NIS2COMPASS blog should include: ${requiredFragment}`);
+  }
+
+  for (const rejectedFragment of [
+    'may still fail the compliance test',
+    'legally meaningful',
+    'audit-ready proof',
+    'audit-ready evidence',
+    'fully compliant',
+    'certified compliance',
+    'software alone can certify compliance',
+    'images/nis2compass-blog-hero',
+    'images/evidence-flow-imagegen',
+    'images/collaboration-flow-imagegen'
+  ]) {
+    assert.equal(
+      normalizedSource.includes(normalizeForSearch(rejectedFragment)),
+      false,
+      `NIS2COMPASS blog should avoid overclaim or package-local wording: ${rejectedFragment}`
+    );
+  }
+});
+
 test('blog posts use scoped evidence and reader-value language', () => {
   const healthcareResearch = normalizeCopy(readFileSync('posts/healthcare-ai-research.md', 'utf8'));
   const cerviGuard = normalizeCopy(readFileSync('posts/cerviguard-remote-screening-foundations.md', 'utf8'));
