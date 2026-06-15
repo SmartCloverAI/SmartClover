@@ -1,5 +1,35 @@
 # SmartClover Change Log
 
+### [2026-06-15 13:43 UTC] TYPE: change
+- Author: Codex
+- Summary: Added NIS2COMPASS project links and readability emphasis to the NIS2COMPASS blog article, including a linked article-title token and release version `3.28`.
+- Evidence: `posts/nis2compass-verifiable-cybersecurity-proof.md`, `pages/blog/[slug].jsx`, `tests/public-copy-tone.test.mjs`, `public/openapi.json`, `version.json`.
+- Impact: The article now directs readers to `https://www.nis2compass.eu`, uses a callout-style opening, and highlights critical takeaways without changing the article's substantive claims.
+- Follow-up: Commit, push, wait for version `3.28` online, then verify `/api/status`, article links, callout/highlight rendering, and the Further Reading entry.
+- Related Entry: 2026-06-15 13:26 UTC TYPE: correction
+
+### [2026-06-15 13:43 UTC] ADVERSARIAL-CHECK
+- Scope: NIS2COMPASS article link and readability pass.
+- BUILDER Intent + Change:
+  - Converted body references to `NIS2COMPASS` into links to `https://www.nis2compass.eu` and added the project link to Further Reading.
+  - Converted the opening paragraph into a Markdown blockquote callout and added selective bold emphasis for key takeaways.
+  - Added a scoped article-title renderer so the `NIS2COMPASS` token in the article H1 links to the project website.
+- CRITIC Findings:
+  - Title text is rendered outside Markdown, so body-only linking would leave the visible H1 mention unlinked.
+  - Image alt text contains NIS2COMPASS mentions; wrapping images in links makes the visual/alt context point to the project without changing the supplied image assets.
+  - Overuse of emphasis could make the article noisy; emphasis was kept to key decision, evidence, AI-boundary, privacy, and outcome sentences.
+- BUILDER Response / Refinements:
+  - Added tests that remove linked body mentions and fail if unlinked `NIS2COMPASS` remains in the article body outside image alt text.
+  - Added test coverage for the callout, bold takeaways, Further Reading link, and H1 title-link renderer.
+  - Bumped `version.json` and `public/openapi.json` once to `3.28` for this release.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 17/17 tests passed.
+  - `npm test` -> pass, 17/17 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed and generated `/blog/nis2compass-verifiable-cybersecurity-proof`.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online deployment propagation and live route rendering still need verification after push.
+
 ### [2026-06-15 13:26 UTC] TYPE: correction
 - Author: Codex
 - Summary: Restored the NIS2COMPASS blog article as a verbatim publication of `_raw/article.zip/article_1.md` after the operator clarified that supplied material must not be silently processed or humanized.

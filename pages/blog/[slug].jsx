@@ -19,6 +19,29 @@ export const getStaticProps = async ({ params }) => {
 const formatDate = (value) =>
   new Intl.DateTimeFormat('en', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(value));
 
+const NIS2_COMPASS_URL = 'https://www.nis2compass.eu';
+
+const renderLinkedTitle = (title) => {
+  if (!title.includes('NIS2COMPASS')) {
+    return title;
+  }
+
+  const parts = title.split('NIS2COMPASS');
+
+  return parts.flatMap((part, index) => {
+    if (index === 0) {
+      return part;
+    }
+
+    return [
+      <a key={`nis2compass-title-link-${index}`} href={NIS2_COMPASS_URL} target="_blank" rel="noopener noreferrer">
+        NIS2COMPASS
+      </a>,
+      part
+    ];
+  });
+};
+
 const BlogPost = ({ post }) => {
   const description = post.excerpt || post.subtitle;
 
@@ -31,7 +54,7 @@ const BlogPost = ({ post }) => {
 
       <header className="page-header">
         <span className="tagline">Blog · Insight</span>
-        <h1>{post.title}</h1>
+        <h1>{renderLinkedTitle(post.title)}</h1>
         <p>{formatDate(post.date)}</p>
       </header>
 

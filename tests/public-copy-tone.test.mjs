@@ -429,8 +429,10 @@ test('DataGems blog uses workflow value and avoids portfolio-status narration', 
   }
 });
 
-test('NIS2COMPASS blog preserves the operator-approved verbatim article and local visuals', () => {
-  const source = normalizeCopy(readFileSync('posts/nis2compass-verifiable-cybersecurity-proof.md', 'utf8'));
+test('NIS2COMPASS blog links project mentions and uses reader-friendly emphasis', () => {
+  const rawSource = readFileSync('posts/nis2compass-verifiable-cybersecurity-proof.md', 'utf8');
+  const source = normalizeCopy(rawSource);
+  const nis2CompassUrl = 'https://www.nis2compass.eu';
 
   for (const assetPath of [
     'public/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png',
@@ -443,7 +445,9 @@ test('NIS2COMPASS blog preserves the operator-approved verbatim article and loca
   for (const requiredFragment of [
     'NIS2COMPASS: Turning Cybersecurity Work Into Verifiable Proof',
     'SmartClover and AI STM Learning are building a practical evidence layer for NIS2 readiness, funded through the CYberSynchrony FSTP open call.',
-    'NIS2COMPASS treats that proof as a first-class cybersecurity object.',
+    `**[NIS2COMPASS](${nis2CompassUrl}) treats that proof as a first-class cybersecurity object.**`,
+    `What [NIS2COMPASS](${nis2CompassUrl}) Is Building`,
+    `[NIS2COMPASS](${nis2CompassUrl}) is an 8-month project accepted for grant funding`,
     'The Partnership: SmartClover And AI STM Learning',
     'AI STM Learning SRL coordinates the project and leads the compliance/evidence architecture.',
     'What SmartClover Brings To The Project',
@@ -460,10 +464,21 @@ test('NIS2COMPASS blog preserves the operator-approved verbatim article and loca
     'images/evidence-flow-imagegen.png',
     'images/collaboration-flow-imagegen.png',
     'audit-ready proof',
-    'legally meaningful'
+    'legally meaningful',
+    `- [NIS2COMPASS](${nis2CompassUrl})`,
+    '> **The decisive question is not only whether the security work happened.',
+    '**The central technical idea is the Compliance Evidence Graph.**',
+    '**That is the difference between activity and proof.**'
   ]) {
     assert.equal(source.includes(requiredFragment), true, `NIS2COMPASS blog should include: ${requiredFragment}`);
   }
+
+  const bodyWithoutFrontmatter = rawSource.replace(/^---[\s\S]*?---\s*/, '');
+  const bodyWithoutImageAlt = bodyWithoutFrontmatter.replace(/!\[[^\]]*\]\([^)]+\)/g, '');
+  const bodyWithoutLinkedMentions = bodyWithoutImageAlt.replaceAll(`[NIS2COMPASS](${nis2CompassUrl})`, '');
+  const unlinkedBodyMentions = bodyWithoutLinkedMentions.match(/NIS2COMPASS/g) ?? [];
+
+  assert.deepEqual(unlinkedBodyMentions, [], 'NIS2COMPASS mentions in article body should link to the project website');
 
   const blogIndex = readFileSync('pages/blog/index.jsx', 'utf8');
   const blogPost = readFileSync('pages/blog/[slug].jsx', 'utf8');
@@ -478,6 +493,8 @@ test('NIS2COMPASS blog preserves the operator-approved verbatim article and loca
     true,
     'blog post metadata should use subtitle metadata when a verbatim article does not define excerpt'
   );
+  assert.equal(blogPost.includes(nis2CompassUrl), true, 'article title renderer should link the NIS2COMPASS title token');
+  assert.equal(blogPost.includes('renderLinkedTitle(post.title)'), true, 'article page should render linked titles');
 });
 
 test('blog posts use scoped evidence and reader-value language', () => {
