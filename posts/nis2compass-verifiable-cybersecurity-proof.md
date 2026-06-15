@@ -1,99 +1,147 @@
 ---
 title: "NIS2COMPASS: Turning Cybersecurity Work Into Verifiable Proof"
+subtitle: "SmartClover and AI STM Learning are building a practical evidence layer for NIS2 readiness, funded through the CYberSynchrony FSTP open call."
 date: "2026-06-15"
-excerpt: "How SmartClover and AI STM Learning are building a practical evidence layer for NIS2 readiness through the CYberSynchrony FSTP open call."
+author: "SmartClover SRL"
+partner: "AI STM Learning SRL"
+hero_image: "images/nis2compass-blog-hero-auditor-evidence-variant-3.png"
 ---
 
-Cybersecurity teams do a lot of real work that never becomes easy to prove. A security review happens in a call. A patch is applied by one team and validated by another. A supplier sends evidence by email. Months later, leadership or an auditor needs a clear answer: what was done, who reviewed it, what changed, and where is the record?
+An auditor can arrive at a manufacturing plant and find a network that appears technically secure: modern firewalls, patched servers, trained staff, and an IT team that has performed the required checks. Under NIS2, that is no longer enough. If the evidence of those checks lives in scattered email threads, disconnected vulnerability spreadsheets, manual scanner exports, and informal status notes, the organization may still fail the compliance test. The decisive question is not only whether the security work happened. The decisive question is whether the organization can prove it in a structured, immutable, and legally meaningful way.
 
-That evidence problem is the focus of **NIS2COMPASS**, a new SmartClover project with **AI STM Learning SRL**. The project is building a practical evidence layer for NIS2 readiness so operational cybersecurity work can become structured, traceable, and reviewable without presenting the software as a compliance authority.
+![NIS2COMPASS diagram showing scattered records becoming human-reviewed, audit-ready proof through an Evidence Graph.](images/nis2compass-blog-hero-auditor-evidence-variant-3.png)
 
-![NIS2COMPASS collaboration flow connecting SmartClover, AI STM Learning, evidence structure, governance review, and public playbooks](/images/blog/nis2compass-collaboration-flow.png)
+That is the trap NIS2COMPASS is designed to address. NIS2 does not make firewalls, monitoring, incident response, vulnerability handling, training, or governance optional. It also makes the documentation burden more serious. The hard part for many teams is not that no security work exists. The hard part is that the proof is scattered across tools, people, tickets, screenshots, exports, reports, and memories.
 
-*Conceptual view of the NIS2COMPASS collaboration model. Human review, governance context, and evidence structure remain explicit parts of the workflow.*
+NIS2COMPASS treats that proof as a first-class cybersecurity object.
 
-## Why this matters now
+## Why This Matters Now
 
-The NIS2 Directive raises expectations for cybersecurity governance, risk management, incident handling, business continuity, supply-chain security, and management accountability. For many organizations, the hard part is no longer only defining controls. It is maintaining evidence that can survive real operational pressure.
+NIS2 is the European Union's updated cybersecurity framework for important and essential sectors. It expands the scope of regulated sectors, raises expectations around risk management, strengthens incident reporting, and brings management accountability closer to cybersecurity practice. For organizations in manufacturing, healthcare-adjacent activity, digital infrastructure, hosting, cloud, data centers, managed services, public administration, and other critical areas, this changes the tone of cybersecurity work.
 
-Evidence often sits across tickets, spreadsheets, chat messages, screenshots, policy documents, monitoring tools, and supplier reports. Each fragment may be useful on its own. Together, they can become hard to search, hard to trust, and hard to explain.
+The old comfort zone was: "we did the scan," "we patched the server," "we trained the staff," or "we monitored the traffic."
 
-NIS2COMPASS starts from a simple premise: cybersecurity work should leave a dependable record as it happens. The goal is not to replace security teams, auditors, legal advisers, or management judgment. The goal is to help them work from better evidence.
+The new question is: "show me the record, show me the link to the obligation, show me who reviewed it, show me when it changed, and show me that the evidence was not silently rewritten afterwards."
 
-This article is a project announcement and methodology overview, not legal advice.
+That is where a normal spreadsheet starts to break down. It can list findings, but it does not naturally preserve the argument. It rarely explains how a log, a training record, a remediation note, and a governance control connect. During an audit, that missing connection becomes expensive.
 
-## What NIS2COMPASS is building
+## What NIS2COMPASS Is Building
 
-SmartClover is announcing **NIS2COMPASS** as an 8-month project accepted for grant funding by the **CYberSynchrony** consortium through its FSTP open call. The project brings together SmartClover's work in healthcare AI, cybersecurity, permissioned deployment patterns, and traceable workflows with AI STM Learning's training and organizational learning expertise.
+NIS2COMPASS is an 8-month project accepted for grant funding by the CYberSynchrony consortium through the Financial Support to Third Parties instrument, often shortened to FSTP. In plain language, CYberSynchrony is the larger EU-funded project. NIS2COMPASS is one selected project contributing practical methods, tooling, validation, and public-safe knowledge back into that ecosystem.
 
-The work is centered on one practical question: how can cybersecurity activity be converted into evidence that a human reviewer can inspect, challenge, and reuse?
+The central technical idea is the Compliance Evidence Graph.
 
-NIS2COMPASS is being designed around four connected layers:
+The Evidence Graph is a structured way to connect cybersecurity artifacts to obligations, controls, owners, timestamps, approvals, remediation actions, and integrity checks. A raw artifact may be a monitoring alert, a vulnerability finding, a test report, a training metric, a policy file, or a remediation record. Instead of leaving that artifact as an isolated file, the graph stores the relationship: this artifact supports this control, relates to this system, was reviewed by this role, and belongs in this evidence pack.
 
-1. **Evidence capture** for policies, tasks, incidents, reviews, supplier checks, and security-control activity.
-2. **An Evidence Graph** that connects records to assets, people, roles, controls, dates, risks, and review status.
-3. **Human review checkpoints** so AI support helps organize and explain evidence without becoming the final authority.
-4. **Public-safe outputs** such as synthetic evidence examples, reusable templates, and playbooks that smaller organizations can learn from without exposing confidential data.
+![Flow diagram showing the path from security activity to evidence capture, Evidence Graph, human review, and audit-ready proof.](images/evidence-flow-imagegen.png)
 
-![NIS2COMPASS evidence flow from security activity through evidence capture, evidence graph, human review, and management review](/images/blog/nis2compass-evidence-flow.png)
+The project does not try to replace every security tool. That would be the wrong ambition. Most organizations already have tools that produce useful signals. The useful question is whether those signals become reviewable evidence.
 
-*Evidence should move from scattered operational activity into a structured review path that people can verify and govern.*
+## The Partnership: SmartClover And AI STM Learning
 
-## The Evidence Graph approach
+NIS2COMPASS works because the roles are deliberately different.
 
-Traditional compliance work often stores evidence as disconnected files. That creates friction when teams need to answer follow-up questions:
+AI STM Learning SRL coordinates the project and leads the compliance/evidence architecture. That means project control, NIS2 mapping, the Evidence Graph, governance logic, audit-ready evidence packs, human review of AI-suggested mappings, and funder-facing delivery evidence.
 
-- Which control does this record support?
-- Who reviewed it?
-- Was the related supplier or system in scope?
-- What changed after the first review?
-- Which evidence is missing, stale, duplicated, or inconsistent?
+SmartClover SRL contributes the operational cybersecurity and dissemination side. That means monitoring evidence, threat-intelligence alignment, vulnerability assessment and penetration-test coordination, remediation verification, awareness material, aggregate phishing or training metrics, public-safe technical writing, and community-facing outputs.
 
-The Evidence Graph approach treats those relationships as first-class information. A policy is not just a document. It can be connected to responsible roles, systems, risks, tasks, incidents, supplier dependencies, review history, and supporting artifacts.
+Neither role is enough by itself. A graph without real operational evidence becomes an elegant database with no ground truth. Security testing without traceable evidence becomes another folder of disconnected reports. NIS2COMPASS is the attempt to join those two worlds: real cybersecurity activity and structured proof.
 
-This matters because NIS2 readiness is not a static document exercise. It is a management and operating discipline. An evidence layer should therefore help teams understand both what exists and what is still weak.
+![Collaboration diagram showing SmartClover operational evidence, AI STM Evidence Graph governance, and public playbooks and templates.](images/collaboration-flow-imagegen.png)
 
-## Where AI helps
+## What SmartClover Brings To The Project
 
-AI support is useful when it reduces evidence chaos. In NIS2COMPASS, AI can help classify records, identify missing context, suggest control mappings, summarize evidence trails, and prepare draft review packs. Those drafts still need human judgment.
+SmartClover is known publicly for healthcare AI work, especially CerviGuard for cervical-screening workflows and DataGems for synthetic-data research. That may sound far away from NIS2 at first. It is not.
 
-That distinction is important. AI should not declare an organization compliant. It should help the organization see its evidence more clearly, expose weak spots earlier, and prepare better questions for security, management, legal, and audit review.
+Healthcare AI has forced us to care about traceability, human review, data minimization, local control, evidence, security boundaries, and claim discipline. Cybersecurity evidence has similar constraints. Raw telemetry can expose systems. Vulnerability reports can become attacker roadmaps. Training metrics can become personal data if handled carelessly. Public demos can accidentally reveal private architecture.
 
-This is also why the project keeps synthetic examples in scope. Public templates and demo evidence need to be useful without leaking private operational details. Synthetic evidence can show how a defensible workflow works while keeping real systems, suppliers, staff, and incidents out of public material.
+So the operational discipline is familiar: keep sensitive data controlled, make claims traceable, keep humans responsible for decisions, and publish only what is safe to publish.
 
-## Why SmartClover is working on this
+Inside NIS2COMPASS, SmartClover's work is expected to include monitoring and detection evidence, threat-intelligence mappings, safe validation activity, remediation tracking, awareness work, and public dissemination material. Some of the tool families are familiar to security teams: host monitoring, network detection, vulnerability scanners, threat-intelligence formats, and controlled adversary-emulation methods. But the article-worthy point is not the tool list. The point is the chain:
 
-SmartClover's public work has been shaped by healthcare AI, cybersecurity resilience, and deployment models where trust, access control, and traceability matter. In healthcare and regulated environments, a workflow is only useful if people can understand who did what, what the system suggested, and what was ultimately approved by a responsible human.
+1. security activity happens;
+2. evidence is captured;
+3. the artifact is normalized and hashed;
+4. the Evidence Graph links it to a control or obligation;
+5. a human reviewer approves the mapping;
+6. an evidence pack can be inspected without hunting through months of messages.
 
-That same pattern applies to cybersecurity evidence. NIS2COMPASS extends the company's focus from AI-assisted operational workflows into cybersecurity governance and proof-of-work for regulated teams.
+That last step is where compliance becomes less theatrical and more operational.
 
-The result we want is practical: less evidence hunting, clearer accountability, and stronger readiness conversations before an external review creates urgency.
+## How CYberSynchrony Fits
 
-## What becomes public
+CYberSynchrony provides the larger frame. Its module families cover monitoring, threat intelligence, resilience validation, awareness, governance, and secure exchange. NIS2COMPASS maps its work into those families instead of inventing a private vocabulary.
 
-NIS2COMPASS is expected to produce public-safe material that can help organizations reason about NIS2 evidence without exposing sensitive data. Planned outputs include:
+The practical mapping looks like this:
 
-- A reusable Evidence Graph model for cybersecurity readiness.
-- Synthetic evidence packs that show realistic records without real operational secrets.
-- Templates for policies, control reviews, supplier checks, and evidence summaries.
-- Playbooks for turning operational cybersecurity work into structured review material.
-- Lessons from the SmartClover and AI STM Learning collaboration.
+- CYBRITE: monitoring and early detection evidence.
+- CYBERRA: threat intelligence, indicators, risk scenarios, and response-playbook alignment.
+- CYRESCUE: posture assessment, vulnerability validation, breach-simulation style evidence, and remediation verification.
+- CYBERWISE: awareness, training, phishing or social-engineering metrics, and human-risk improvement.
+- CYBERGOPLUS: governance, NIS2 control mapping, policy alignment, audit evidence, and compliance traceability.
+- CROSS-CORE: secure exchange and evidence integrity, if the project receives confirmed interface requirements for sanitized data sharing.
 
-The most useful public material will be practical rather than promotional. A smaller organization should be able to look at an example and understand how to improve its own evidence workflow.
+This matters because a funded project should not disappear into a private consulting folder. The reusable parts should come back out: public playbooks, templates, schema examples, methodology notes, and synthetic evidence examples that other teams can learn from without seeing sensitive pilot information.
 
-## What to watch next
+## The AI Part, Without The Hype
 
-As the project progresses, SmartClover will share implementation lessons, example evidence structures, and public-safe templates that show how cybersecurity activity can become reviewable proof.
+NIS2COMPASS includes AI-assisted mapping, but the design is intentionally restrained.
 
-For SmartClover, NIS2COMPASS is part of a broader direction: healthcare AI, cybersecurity resilience, cloud-on-edge deployment patterns, and evidence-rich workflows that remain understandable to the people responsible for decisions.
+The useful role for AI here is classification assistance. A local model can help suggest that a monitoring event, vulnerability record, training metric, or remediation note may support a specific NIS2 control area. That can save time because the volume of artifacts can be large and the mapping work is repetitive.
 
-Last reviewed: 2026-06-15.
+But the AI does not become the compliance officer. It does not make autonomous legal conclusions. A human reviewer must inspect and approve the mapping before it becomes part of the authoritative record.
 
-## Further reading
+That boundary matters. It is also more credible. In regulated work, the safest AI systems are usually the ones that are honest about where responsibility stays.
 
-- [European Commission overview of the NIS2 Directive](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
-- [European Commission NIS2 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs)
-- [CYberSynchrony Open Calls](https://cybersynchrony.eu/open-calls/)
-- [CYberSynchrony Public Deliverables](https://cybersynchrony.eu/public-deliverables/)
-- [SmartClover cybersecurity services](/cybersecurity)
-- [SmartClover cloud architecture](/cloud-architecture)
+## What Becomes Public
+
+The public side of NIS2COMPASS is important. The project should help more than the direct pilots and partners.
+
+Public outputs may include:
+
+- plain-language explanations of NIS2 readiness work;
+- public-safe playbooks;
+- reusable evidence templates;
+- synthetic example records;
+- schema examples;
+- workshop material;
+- sanitized methodology notes;
+- public website content and repository documentation.
+
+The public outputs should help a team understand how to organize evidence, what kinds of records matter, and how monitoring, testing, remediation, training, and governance can be connected.
+
+## What Must Stay Private
+
+The boundary is just as important as the publication.
+
+Real vulnerabilities, exploit details, raw monitoring logs, private network architecture, credentials, personal data, pilot-specific weaknesses, signed documents, financial records, and internal funder material do not belong in public dissemination. If a public demo needs realistic material, the right answer is synthetic data or heavily sanitized examples.
+
+That is not secrecy for its own sake. It is basic cybersecurity hygiene. A project about proof should not create new exposure while trying to demonstrate maturity.
+
+## The Practical Result We Want
+
+At the end of NIS2COMPASS, the strongest result would not be a glossy statement that "cybersecurity improved." The stronger result would be a reviewable evidence trail:
+
+- what was assessed;
+- what was monitored;
+- what was found;
+- what was fixed;
+- what remained open;
+- who reviewed it;
+- which NIS2 obligation it supports;
+- which public lessons can be shared safely.
+
+That is the difference between activity and proof.
+
+For SmartClover, this project also connects two parts of our work that are usually discussed separately: secure healthcare AI delivery and cybersecurity resilience. Both need traceability. Both need disciplined evidence. Both need human review. Both need careful public communication.
+
+NIS2COMPASS gives us a way to turn that discipline into a reusable cybersecurity pattern, together with AI STM Learning and within the CYberSynchrony ecosystem.
+
+## Further Reading
+
+- European Commission: [NIS2 Directive: securing network and information systems](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
+- European Commission: [NIS2 Directive FAQs](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs)
+- CYberSynchrony: [Open Calls](https://cybersynchrony.eu/open-calls/)
+- CYberSynchrony: [Public Deliverables](https://cybersynchrony.eu/public-deliverables/)
+- SmartClover: [Healthcare AI with live product proof](https://smartclover.ro/)
+- SmartClover: [Products and service capabilities](https://smartclover.ro/products)

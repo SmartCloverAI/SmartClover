@@ -1,5 +1,35 @@
 # SmartClover Change Log
 
+### [2026-06-15 13:26 UTC] TYPE: correction
+- Author: Codex
+- Summary: Restored the NIS2COMPASS blog article as a verbatim publication of `_raw/article.zip/article_1.md` after the operator clarified that supplied material must not be silently processed or humanized.
+- Evidence: `posts/nis2compass-verifiable-cybersecurity-proof.md`, `pages/blog/index.jsx`, `pages/blog/[slug].jsx`, `public/blog/images/`, `tests/public-copy-tone.test.mjs`, `public/openapi.json`, `version.json`.
+- Impact: Future article integrations must preserve operator-supplied publication material verbatim unless the operator explicitly chooses processed/reviewed/humanized publication. The blog template now supports `subtitle` as a metadata fallback so source frontmatter does not need to be rewritten only to satisfy the index/meta description.
+- Follow-up: Commit, push, wait for version `3.27` online, then verify `/api/status`, the NIS2COMPASS route, the blog index summary, and all three original image assets.
+- Related Entry: 2026-06-15 10:26 UTC TYPE: change
+
+### [2026-06-15 13:26 UTC] ADVERSARIAL-CHECK
+- Scope: Verbatim NIS2COMPASS article correction.
+- BUILDER Intent + Change:
+  - Replaced the processed NIS2COMPASS post with the exact Markdown supplied in `_raw/article.zip/article_1.md`.
+  - Hosted the original image filenames under `public/blog/images/` so the article's relative `images/...` links render without changing the article body.
+  - Added `subtitle` fallback support to the blog index and article metadata, updated the regression test to require verbatim article anchors, and bumped the release version to `3.27`.
+- CRITIC Findings:
+  - The earlier `3.26` release silently rewrote the article and omitted the supplied hero image, which violated the operator's intended publication mode.
+  - Preserving the raw Markdown restores stronger claim language and the original "Achieving NIS2 Compliance" hero image; this is now an explicit operator decision, not an agent editorial decision.
+  - Relative image paths would fail unless hosted under the route-compatible `/blog/images/` public path.
+- BUILDER Response / Refinements:
+  - Confirmed `diff -u /tmp/smartclover-article/article_1.md posts/nis2compass-verifiable-cybersecurity-proof.md` produced no output, proving the Markdown file is identical to the supplied source.
+  - Kept only mechanical platform changes outside the article source: subtitle metadata fallback, asset placement, version metadata, and tests.
+  - Deleted the previous processed-copy NIS2COMPASS image assets under `public/images/blog/` because the verbatim article uses the original relative image filenames.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs` -> pass, 17/17 tests passed.
+  - `npm test` -> pass, 17/17 tests passed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed and generated `/blog/nis2compass-verifiable-cybersecurity-proof`.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Online deployment propagation and live route rendering still need verification after push.
+
 ### [2026-06-15 10:26 UTC] TYPE: change
 - Author: Codex
 - Summary: Published the NIS2COMPASS blog article from the supplied article package with scoped readiness-evidence language, local visual assets, and release version `3.26`.

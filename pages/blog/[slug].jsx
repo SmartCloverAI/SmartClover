@@ -19,34 +19,38 @@ export const getStaticProps = async ({ params }) => {
 const formatDate = (value) =>
   new Intl.DateTimeFormat('en', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(value));
 
-const BlogPost = ({ post }) => (
-  <>
-    <Head>
-      <title>{`${post.title} | SmartClover Blog`}</title>
-      {post.excerpt && <meta name="description" content={post.excerpt} />}
-    </Head>
+const BlogPost = ({ post }) => {
+  const description = post.excerpt || post.subtitle;
 
-    <header className="page-header">
-      <span className="tagline">Blog · Insight</span>
-      <h1>{post.title}</h1>
-      <p>{formatDate(post.date)}</p>
-    </header>
+  return (
+    <>
+      <Head>
+        <title>{`${post.title} | SmartClover Blog`}</title>
+        {description && <meta name="description" content={description} />}
+      </Head>
 
-    <article className="surface-card">
-      <div
-        className="markdown-body"
-        dangerouslySetInnerHTML={{
-          __html: post.contentHtml
-        }}
-      />
-    </article>
+      <header className="page-header">
+        <span className="tagline">Blog · Insight</span>
+        <h1>{post.title}</h1>
+        <p>{formatDate(post.date)}</p>
+      </header>
 
-    <div className="cta-links">
-      <Link href="/blog" className="button secondary">
-        ← Back to all posts
-      </Link>
-    </div>
-  </>
-);
+      <article className="surface-card">
+        <div
+          className="markdown-body"
+          dangerouslySetInnerHTML={{
+            __html: post.contentHtml
+          }}
+        />
+      </article>
+
+      <div className="cta-links">
+        <Link href="/blog" className="button secondary">
+          ← Back to all posts
+        </Link>
+      </div>
+    </>
+  );
+};
 
 export default BlogPost;

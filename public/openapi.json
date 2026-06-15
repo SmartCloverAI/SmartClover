@@ -135,7 +135,7 @@
           },
           "version": {
             "type": "string",
-            "example": "3.26"
+            "example": "3.27"
           },
           "checkedAt": {
             "type": "string",

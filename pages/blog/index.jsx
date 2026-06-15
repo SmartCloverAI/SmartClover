@@ -14,6 +14,8 @@ export const getStaticProps = () => {
 const formatDate = (value) =>
   new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(value));
 
+const getPostSummary = (post) => post.excerpt || post.subtitle || '';
+
 const Blog = ({ posts }) => (
   <>
     <Head>
@@ -40,7 +42,7 @@ const Blog = ({ posts }) => (
             <Link href={`/blog/${post.slug}`}>{post.title}</Link>
           </h2>
           <p className="post-meta">{formatDate(post.date)}</p>
-          <p>{post.excerpt}</p>
+          <p>{getPostSummary(post)}</p>
           <Link href={`/blog/${post.slug}`}>Read more →</Link>
         </article>
       ))}
