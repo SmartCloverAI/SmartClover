@@ -1,14 +1,13 @@
-import Head from 'next/head';
+import PageSeo from '../components/PageSeo';
 
 const Values = () => (
   <>
-    <Head>
-      <title>Our Values | SmartClover</title>
-      <meta
-        name="description"
-        content="Creativity, digitalization, and responsible AI for good guide every SmartClover product and platform release."
-      />
-    </Head>
+    <PageSeo
+      title="Our Values | SmartClover"
+      description="Creativity, digitalization, and responsible AI for good guide every SmartClover product and platform release."
+      path="/values"
+      image="/images/eq-learning-tablet.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Values</span>

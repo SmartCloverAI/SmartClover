@@ -13,6 +13,33 @@
     <loc>https://smartclover.ro/products</loc>
   </url>
   <url>
+    <loc>https://smartclover.ro/services</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/pricing</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/how-to-buy</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/proof</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/regulatory</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/cloud-architecture</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/cybersecurity</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/decentralized</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/values</loc>
+  </url>
+  <url>
     <loc>https://smartclover.ro/trust</loc>
   </url>
   <url>
@@ -31,27 +58,39 @@
     <loc>https://smartclover.ro/trust/incident-response</loc>
   </url>
   <url>
-    <loc>https://smartclover.ro/contact</loc>
-  </url>
-  <url>
-    <loc>https://smartclover.ro/pricing</loc>
-  </url>
-  <url>
-    <loc>https://smartclover.ro/how-to-buy</loc>
+    <loc>https://smartclover.ro/gender-equality-plan</loc>
   </url>
   <url>
     <loc>https://smartclover.ro/blog</loc>
   </url>
   <url>
+    <loc>https://smartclover.ro/docs/api</loc>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/contact</loc>
+  </url>
+  <url>
     <loc>https://smartclover.ro/blog/cerviguard-remote-screening-foundations</loc>
+    <lastmod>2025-11-03</lastmod>
   </url>
   <url>
     <loc>https://smartclover.ro/blog/cybersecurity-healthcare-ledger</loc>
+    <lastmod>2025-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/blog/datagems-synthetic-data-workflows</loc>
+    <lastmod>2026-05-11</lastmod>
   </url>
   <url>
     <loc>https://smartclover.ro/blog/healthcare-ai-research</loc>
+    <lastmod>2024-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://smartclover.ro/blog/nis2compass-verifiable-cybersecurity-proof</loc>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://smartclover.ro/blog/on-prem-ledger-ci-cd</loc>
+    <lastmod>2025-04-18</lastmod>
   </url>
 </urlset>

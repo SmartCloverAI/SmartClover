@@ -1,9 +1,7 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
-
-const siteUrl = 'https://smartclover.ro';
+import PageSeo from '../components/PageSeo';
 
 const servicePrinciples = [
   {
@@ -19,7 +17,7 @@ const servicePrinciples = [
   {
     title: 'Healthcare cybersecurity and resilience',
     description:
-      'Security/resilience engagements are scoped for healthcare environments and delivered with authorized/certified personnel, partner security products, and agentic engineering support.'
+      'Security/resilience engagements are scoped for healthcare environments and delivered with authorized/certified personnel, partner security products, and agentic engineering support where scoped.'
   }
 ];
 
@@ -77,14 +75,12 @@ const serviceCapabilities = [
 
 const Services = () => (
   <>
-    <Head>
-      <title>Services | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover services covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
-      />
-      <link rel="canonical" href={`${siteUrl}/services`} />
-    </Head>
+    <PageSeo
+      title="Services | SmartClover"
+      description="SmartClover services covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
+      path="/services"
+      image="/images/partnership-handshake.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Services</span>

@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const declarationFields = [
   { field: 'Manufacturer', value: 'SMARTCLOVER SRL' },
@@ -19,13 +19,12 @@ const monitoringSteps = [
 
 const Regulatory = () => (
   <>
-    <Head>
-      <title>Regulatory | SmartClover</title>
-      <meta
-        name="description"
-        content="Regulatory overview for CerviGuard intended use, draft MDR Class I self-assessment, jurisdiction scope, and post-market process summary with publication limits."
-      />
-    </Head>
+    <PageSeo
+      title="Regulatory | SmartClover"
+      description="Regulatory overview for CerviGuard intended use, draft MDR Class I self-assessment, jurisdiction scope, and post-market process summary with publication limits."
+      path="/regulatory"
+      image="/images/cerviguard/cerviguard-case-detail.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Regulatory</span>

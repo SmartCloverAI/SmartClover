@@ -1,16 +1,15 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const Cybersecurity = () => (
   <>
-    <Head>
-      <title>Healthcare Cybersecurity | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover cybersecurity and resilience services for healthcare organizations, delivered with authorized/certified personnel, partner products, and agentic engineering workflows."
-      />
-    </Head>
+    <PageSeo
+      title="Healthcare Cybersecurity | SmartClover"
+      description="SmartClover cybersecurity and resilience services for healthcare organizations, delivered with authorized/certified personnel, partner products, and agentic engineering workflows where scoped."
+      path="/cybersecurity"
+      image="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Healthcare Cybersecurity</span>

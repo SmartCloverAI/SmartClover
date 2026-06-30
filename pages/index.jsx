@@ -113,7 +113,6 @@ const organizationSchema = {
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'andreea@smartclover.ro',
       url: `${siteUrl}/contact`
     }
   ]

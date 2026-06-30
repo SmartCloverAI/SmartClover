@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 
 const controls = [
   {
@@ -26,13 +26,12 @@ const controls = [
 
 const Security = () => (
   <>
-    <Head>
-      <title>Security | SmartClover Trust Center</title>
-      <meta
-        name="description"
-        content="Draft SmartClover security baseline covering access control, encryption controls, data boundaries, and traceable event records without certification claims."
-      />
-    </Head>
+    <PageSeo
+      title="Security | SmartClover Trust Center"
+      description="Draft SmartClover security baseline covering access control, encryption controls, data boundaries, and traceable event records without certification claims."
+      path="/trust/security"
+      image="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Trust Center</span>

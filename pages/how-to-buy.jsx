@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const personas = [
   {
@@ -56,13 +56,12 @@ const reviewCheckpoints = [
 
 const HowToBuy = () => (
   <>
-    <Head>
-      <title>How to Buy | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover procurement and onboarding flow for healthcare SaaS/PaaS adoption, including buyer personas and structured 30/60/90 activation path."
-      />
-    </Head>
+    <PageSeo
+      title="How to Buy | SmartClover"
+      description="SmartClover procurement and onboarding flow for healthcare SaaS/PaaS adoption, including buyer personas and structured 30/60/90 activation path."
+      path="/how-to-buy"
+      image="/images/partnership-handshake.png"
+    />
 
     <header className="page-header">
       <span className="tagline">How to Buy</span>

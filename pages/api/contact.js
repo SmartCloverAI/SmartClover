@@ -81,8 +81,16 @@ export default async function handler(req, res) {
   const timeline = clean(payload.timeline, 80);
   const complianceRequirements = clean(payload.complianceRequirements, 2000);
   const consentAccepted = Boolean(payload.consentAccepted);
+  const isPrivacyInquiry = inquiryType === 'Privacy or data-subject request';
 
-  if (!inquiryType || !fullName || !email || !organization || !useCase || !complianceRequirements || !consentAccepted) {
+  if (
+    !inquiryType ||
+    !fullName ||
+    !email ||
+    !useCase ||
+    !consentAccepted ||
+    (!isPrivacyInquiry && (!organization || !complianceRequirements))
+  ) {
     return res.status(400).json({ error: 'Missing required fields.' });
   }
 
@@ -92,14 +100,28 @@ export default async function handler(req, res) {
 
   const recipient = process.env.SMARTCLOVER_CONTACT_INBOX || 'andreea@smartclover.ro';
   const timestamp = new Date().toISOString();
-  const subject = `SmartClover inquiry - ${inquiryType} - ${organization}`;
+  const subjectOrganization = organization || 'No organization provided';
+  const subject = isPrivacyInquiry
+    ? `SmartClover privacy request - ${fullName || 'Name not provided'}`
+    : `SmartClover inquiry - ${inquiryType} - ${subjectOrganization}`;
 
-  const lines = [
+  const privacyLines = [
     `Timestamp: ${timestamp}`,
     `Inquiry type: ${inquiryType}`,
     `Full name: ${fullName}`,
     `Email: ${email}`,
-    `Organization: ${organization}`,
+    `Organization: ${subjectOrganization}`,
+    `Privacy request details: ${useCase}`,
+    `Additional context: ${complianceRequirements}`,
+    `Consent accepted: ${consentAccepted ? 'yes' : 'no'}`
+  ];
+
+  const commercialLines = [
+    `Timestamp: ${timestamp}`,
+    `Inquiry type: ${inquiryType}`,
+    `Full name: ${fullName}`,
+    `Email: ${email}`,
+    `Organization: ${subjectOrganization}`,
     `Role: ${role}`,
     `Organization type: ${organizationType}`,
     `Use case: ${useCase}`,
@@ -108,6 +130,7 @@ export default async function handler(req, res) {
     `Compliance requirements: ${complianceRequirements}`,
     `Consent accepted: ${consentAccepted ? 'yes' : 'no'}`
   ];
+  const lines = isPrivacyInquiry ? privacyLines : commercialLines;
 
   const relayPayload = {
     recipient,
@@ -132,8 +155,10 @@ export default async function handler(req, res) {
 
   const responseMessage =
     relayStatus === 'webhook'
-      ? 'Qualification request received and routed.'
-      : 'Qualification request received. Use the optional pre-filled email fallback to complete manual routing.';
+      ? isPrivacyInquiry
+        ? 'Privacy request received and routed.'
+        : 'Qualification request received and routed.'
+      : 'Automatic routing is not confirmed. Please open the email fallback to complete manual routing.';
 
   return res.status(200).json({
     message: responseMessage,

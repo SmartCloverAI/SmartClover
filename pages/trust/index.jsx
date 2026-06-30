@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 
 const trustRoutes = [
   {
@@ -36,13 +36,12 @@ const trustRoutes = [
 
 const TrustCenter = () => (
   <>
-    <Head>
-      <title>Trust Center | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover trust center with draft legal, privacy, data-processing, incident-response, and security baseline documents for healthcare procurement review."
-      />
-    </Head>
+    <PageSeo
+      title="Trust Center | SmartClover"
+      description="SmartClover trust center with draft legal, privacy, data-processing, incident-response, and security baseline documents for healthcare procurement review."
+      path="/trust"
+      image="/images/governance-network.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Trust Center</span>

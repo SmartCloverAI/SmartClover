@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 import { getSortedPostsData } from '../../lib/posts';
 
 export const getStaticProps = () => {
@@ -18,13 +18,12 @@ const getPostSummary = (post) => post.excerpt || post.subtitle || '';
 
 const Blog = ({ posts }) => (
   <>
-    <Head>
-      <title>SmartClover Blog | Insights & Updates</title>
-      <meta
-        name="description"
-        content="Thoughts on healthcare AI products, cybersecurity, SaaS/PaaS operations, and decentralized deployments from the SmartClover team."
-      />
-    </Head>
+    <PageSeo
+      title="SmartClover Blog | Insights & Updates"
+      description="Thoughts on healthcare AI products, cybersecurity, SaaS/PaaS operations, and decentralized deployments from the SmartClover team."
+      path="/blog"
+      image="/images/blog/cerviguard-workflow-napkin_v1.0.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Blog</span>

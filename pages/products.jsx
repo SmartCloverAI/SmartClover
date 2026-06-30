@@ -1,7 +1,7 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
+import PageSeo from '../components/PageSeo';
 
 const portfolioTracks = [
   {
@@ -93,13 +93,12 @@ const dataGemsShots = [
 
 const Products = () => (
   <>
-    <Head>
-      <title>Products | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
-      />
-    </Head>
+    <PageSeo
+      title="Products | SmartClover"
+      description="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
+      path="/products"
+      image="/images/cerviguard/cerviguard-dashboard.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Products</span>

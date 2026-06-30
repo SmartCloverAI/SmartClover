@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const packages = [
   {
@@ -45,13 +45,12 @@ const packages = [
 
 const Pricing = () => (
   <>
-    <Head>
-      <title>Pricing and Packaging | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover pricing and packaging overview for B2B healthcare platform adoption, including pilot, production, and enterprise package boundaries with RFQ-only commercial policy."
-      />
-    </Head>
+    <PageSeo
+      title="Pricing and Packaging | SmartClover"
+      description="SmartClover pricing and packaging overview for B2B healthcare platform adoption, including pilot, production, and enterprise package boundaries with RFQ-only commercial policy."
+      path="/pricing"
+      image="/images/partnership-handshake.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Pricing and Packaging</span>

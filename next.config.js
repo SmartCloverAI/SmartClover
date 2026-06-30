@@ -16,6 +16,13 @@ const cacheablePublicHeaders = [
   }
 ];
 
+const cloudflareEmailSafeHeaders = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=0, must-revalidate, no-transform'
+  }
+];
+
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
@@ -60,6 +67,14 @@ const nextConfig = {
             value: 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"; charset=utf-8'
           }
         ]
+      },
+      {
+        source: '/contact',
+        headers: cloudflareEmailSafeHeaders
+      },
+      {
+        source: '/docs/api',
+        headers: cloudflareEmailSafeHeaders
       }
     ];
   }

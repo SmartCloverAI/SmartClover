@@ -1,5 +1,7 @@
 import PageSeo from '../../components/PageSeo';
 
+const exampleEmail = ['user', 'example.com'].join('@');
+
 const apiSections = [
   {
     id: 'status-api',
@@ -27,7 +29,7 @@ const apiSections = [
   -d '{
     "inquiryType": "Book demo / Request pilot",
     "fullName": "Example User",
-    "email": "user@example.com",
+    "email": "${exampleEmail}",
     "organization": "Example Clinic",
     "role": "Clinical lead",
     "organizationType": "Hospital or clinic",
@@ -40,6 +42,18 @@ const apiSections = [
   }'`
   }
 ];
+
+const escapeHtml = (value) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+const renderCloudflareSafeCode = (value) =>
+  escapeHtml(value).replace(
+    /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi,
+    '<!--email_off-->$1<!--/email_off-->'
+  );
 
 const ApiDocsPage = () => (
   <>
@@ -104,7 +118,7 @@ const ApiDocsPage = () => (
             </p>
             <p>{section.description}</p>
             <pre>
-              <code>{section.example}</code>
+              <code dangerouslySetInnerHTML={{ __html: renderCloudflareSafeCode(section.example) }} />
             </pre>
           </article>
         ))}

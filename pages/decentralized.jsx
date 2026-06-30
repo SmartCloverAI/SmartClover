@@ -1,16 +1,15 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const Decentralized = () => (
   <>
-    <Head>
-      <title>Permissioned Cloud-On-Edge Deployment | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover describes permissioned cloud-on-edge healthcare AI deployment with explicit data boundaries, traceable deployment records, and immutable anchoring."
-      />
-    </Head>
+    <PageSeo
+      title="Permissioned Cloud-On-Edge Deployment | SmartClover"
+      description="SmartClover describes permissioned cloud-on-edge healthcare AI deployment with explicit data boundaries, traceable deployment records, and immutable anchoring."
+      path="/decentralized"
+      image="/images/governance-network.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Permissioned Cloud-On-Edge</span>

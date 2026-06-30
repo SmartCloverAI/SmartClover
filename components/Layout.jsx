@@ -110,11 +110,21 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                 </button>
               </div>
               <div id="primary-navigation" className={`nav-links${isMenuOpen ? ' open' : ''}`}>
-                {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className={`nav-link${isLinkActive(link.href) ? ' active' : ''}`}>
-                    {link.label}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = isLinkActive(link.href);
+                  const isCurrentPage = router.pathname === link.href;
+
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`nav-link${isActive ? ' active' : ''}`}
+                      aria-current={isCurrentPage ? 'page' : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
                 <Link href="/contact#inquiry-form" className="button primary nav-cta">
                   Book demo
                 </Link>

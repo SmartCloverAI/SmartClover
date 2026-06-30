@@ -1,15 +1,12 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
+import PageSeo, { siteUrl } from '../components/PageSeo';
 import RepoIconLinks from '../components/RepoIconLinks';
 
-const siteUrl = 'https://smartclover.ro';
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
 const pageDescription =
   'CerviGuard is SmartClover\'s live cervical-screening workflow product for structured intake, AI-assisted review, and clinician-led follow-up, with draft MDR Class I self-assessment material published for review.';
-
-const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 
 const featurePillars = [
   {
@@ -167,29 +164,14 @@ const softwareSchema = {
 
 const CerviGuard = () => (
   <>
-    <Head>
-      <title>{pageTitle}</title>
-      <meta name="description" content={pageDescription} />
-      <meta
-        name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      />
-      <meta
-        name="keywords"
-        content="CerviGuard, healthcare AI platform, cervical screening software, SaaS healthcare, PaaS healthcare"
-      />
-      <link rel="canonical" href={`${siteUrl}/cerviguard`} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDescription} />
-      <meta property="og:url" content={`${siteUrl}/cerviguard`} />
-      <meta property="og:image" content={`${siteUrl}/images/cerviguard/cerviguard-dashboard.png`} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content={`${siteUrl}/images/cerviguard/cerviguard-dashboard.png`} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(softwareSchema) }} />
-    </Head>
+    <PageSeo
+      title={pageTitle}
+      description={pageDescription}
+      path="/cerviguard"
+      image="/images/cerviguard/cerviguard-dashboard.png"
+      keywords="CerviGuard, healthcare AI platform, cervical screening software, SaaS healthcare, PaaS healthcare"
+      jsonLd={softwareSchema}
+    />
 
     <header className="page-header">
       <span className="tagline">CerviGuard</span>

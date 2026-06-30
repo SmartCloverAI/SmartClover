@@ -363,6 +363,11 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
   assert.notEqual(dataGemsIndex, -1, 'products page should mention DataGems');
   assert.equal(cerviGuardIndex < dataGemsIndex, true, 'CerviGuard should appear before DataGems');
   assert.equal(source.includes('Live research pilot'), true, 'DataGems should remain a live research pilot');
+  assert.equal(
+    source.includes('image="/images/cerviguard/cerviguard-dashboard.png"'),
+    true,
+    'products social preview should use CerviGuard proof while the page is CerviGuard-led'
+  );
 
   for (const requiredFragment of ['synthetic-data workflows', 'test schemas', 'export reviewable results']) {
     assert.equal(source.includes(requiredFragment), true, `products page should describe DataGems reader value: ${requiredFragment}`);
@@ -463,8 +468,8 @@ test('NIS2COMPASS blog links project mentions and uses reader-friendly emphasis'
     'images/nis2compass-blog-hero-auditor-evidence-variant-3.png',
     'images/evidence-flow-imagegen.png',
     'images/collaboration-flow-imagegen.png',
-    'audit-ready proof',
-    'legally meaningful',
+    'human-reviewed evidence pack',
+    'reviewable way',
     `- [NIS2COMPASS](${nis2CompassUrl})`,
     '> **The decisive question is not only whether the security work happened.',
     '**The central technical idea is the Compliance Evidence Graph.**',
@@ -651,6 +656,171 @@ test('machine-readable status schema tracks the public site version', () => {
     version,
     'OpenAPI status response example should match version.json'
   );
+});
+
+test('contact and API docs keep email fallbacks Cloudflare-safe and announced accessibly', () => {
+  const contact = readFileSync('pages/contact.jsx', 'utf8');
+  const privacyPolicy = readFileSync('pages/trust/privacy-policy.jsx', 'utf8');
+  const apiDocs = readFileSync('pages/docs/api.jsx', 'utf8');
+  const home = readFileSync('pages/index.jsx', 'utf8');
+  const layout = readFileSync('components/Layout.jsx', 'utf8');
+  const nextConfig = readFileSync('next.config.js', 'utf8');
+
+  assert.equal(
+    /href=["']mailto:andreea@smartclover\.ro/.test(contact),
+    false,
+    'contact page should not server-render a static mailto href for Cloudflare to rewrite'
+  );
+  assert.equal(
+    /href=["']mailto:andreea@smartclover\.ro/.test(privacyPolicy),
+    false,
+    'privacy policy should not server-render a static mailto href for Cloudflare to rewrite'
+  );
+  assert.equal(
+    home.includes("email: 'andreea@smartclover.ro'"),
+    false,
+    'homepage JSON-LD should avoid raw email strings that Cloudflare may rewrite'
+  );
+  assert.equal(
+    contact.includes('email: getContactEmail()'),
+    false,
+    'contact JSON-LD should avoid raw email strings that Cloudflare may rewrite'
+  );
+  assert.equal(
+    contact.includes('setDirectMailtoUrl(`mailto:${getContactEmail()}`)'),
+    true,
+    'contact page should build the direct email fallback after hydration'
+  );
+  assert.equal(
+    contact.includes('buildClientFallbackMailtoUrl(submissionPayload)'),
+    true,
+    'contact page should create a pre-filled fallback when the API request fails'
+  );
+  assert.equal(
+    contact.includes('const isPrivacyPayload = payload.inquiryType === privacyInquiryLabel;'),
+    true,
+    'client fallback mailto should branch privacy requests away from commercial qualification fields'
+  );
+  assert.equal(
+    contact.includes('Privacy request details: ${cleanMailtoField(payload.useCase, 2000)}'),
+    true,
+    'client privacy fallback should label the body as a privacy request'
+  );
+  assert.equal(
+    contact.includes('isPrivacyPayload ? privacyLines : commercialLines'),
+    true,
+    'client privacy fallback should not include commercial role, organization-type, deployment, or timeline fields'
+  );
+  assert.equal(
+    contact.includes("payload?.relayStatus === 'manual'"),
+    true,
+    'contact page should treat manual relay as unresolved instead of delivered success'
+  );
+  assert.equal(
+    contact.includes("setStatus('manual')"),
+    true,
+    'contact page should expose manual routing state'
+  );
+  assert.equal(
+    contact.includes("status === 'manual' ? 'warning'"),
+    true,
+    'manual contact routing should use a distinct needs-action feedback state'
+  );
+  assert.equal(
+    contact.includes('!isPrivacyInquiry ? ('),
+    true,
+    'privacy requests should not display commercial qualification-only fields'
+  );
+  assert.equal(
+    contact.includes('Privacy or data-subject request'),
+    true,
+    'contact page should provide a dedicated privacy/data-subject request path'
+  );
+  assert.equal(
+    privacyPolicy.includes('/contact?inquiry=privacy#inquiry-form'),
+    true,
+    'privacy policy should route privacy requests to the dedicated privacy path'
+  );
+  assert.equal(
+    contact.includes("aria-live={status === 'error' ? 'assertive' : 'polite'}"),
+    true,
+    'contact feedback should announce success and error states'
+  );
+  assert.equal(
+    contact.includes('aria-pressed={form.inquiryType === item.label}'),
+    true,
+    'contact inquiry path buttons should expose pressed state'
+  );
+  assert.equal(
+    apiDocs.includes('<!--email_off-->$1<!--/email_off-->'),
+    true,
+    'API docs code examples should wrap email addresses in Cloudflare email_off markers'
+  );
+  assert.equal(
+    apiDocs.includes('dangerouslySetInnerHTML={{ __html: renderCloudflareSafeCode(section.example) }}'),
+    true,
+    'API docs should render escaped code examples with Cloudflare-safe comments'
+  );
+  assert.equal(nextConfig.includes("source: '/contact'"), true, 'contact route should have scoped headers');
+  assert.equal(nextConfig.includes("source: '/docs/api'"), true, 'API docs route should have scoped headers');
+  assert.equal(
+    nextConfig.includes('no-transform'),
+    true,
+    'contact and API docs routes should opt out of Cloudflare email rewriting transforms'
+  );
+  const contactApi = readFileSync('pages/api/contact.js', 'utf8');
+  assert.equal(
+    contactApi.includes('const privacyLines = ['),
+    true,
+    'contact API should build a separate privacy request relay body'
+  );
+  assert.equal(
+    contactApi.includes("'Privacy request received and routed.'"),
+    true,
+    'contact API should not call privacy webhook success a qualification request'
+  );
+  assert.equal(
+    contactApi.includes('const lines = isPrivacyInquiry ? privacyLines : commercialLines;'),
+    true,
+    'contact API should keep commercial fields out of privacy relay bodies'
+  );
+  assert.equal(
+    layout.includes("aria-current={isCurrentPage ? 'page' : undefined}"),
+    true,
+    'primary navigation should expose exact current-page state'
+  );
+});
+
+test('NIS2COMPASS visuals use readiness evidence wording, not over-strong compliance wording', () => {
+  const article = normalizeCopy(readFileSync('posts/nis2compass-verifiable-cybersecurity-proof.md', 'utf8'));
+
+  for (const requiredFragment of [
+    'updated: "2026-06-30"',
+    'human-reviewed evidence pack',
+    'a reviewable evidence pack',
+    'reviewable way',
+    'reviewable evidence packs',
+    'public playbooks and templates'
+  ]) {
+    assert.equal(article.includes(requiredFragment), true, `NIS2COMPASS article should include safer visual context: ${requiredFragment}`);
+  }
+
+  for (const rejectedFragment of [
+    'Achieving NIS2 Compliance',
+    'Audit-Ready Proof',
+    'Audit-ready proof',
+    'audit-ready evidence',
+    'audit-ready proof',
+    'compliance test',
+    'legally meaningful',
+    'playbookes'
+  ]) {
+    assert.equal(
+      normalizeForSearch(article).includes(normalizeForSearch(rejectedFragment)),
+      false,
+      `NIS2COMPASS article should avoid over-strong or misspelled visual wording: ${rejectedFragment}`
+    );
+  }
 });
 
 test('proof page separates public evidence from pending metrics', () => {

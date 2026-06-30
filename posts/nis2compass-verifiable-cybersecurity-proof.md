@@ -2,16 +2,17 @@
 title: "NIS2COMPASS: Turning Cybersecurity Work Into Verifiable Proof"
 subtitle: "SmartClover and AI STM Learning are building a practical evidence layer for NIS2 readiness, funded through the CYberSynchrony FSTP open call."
 date: "2026-06-15"
+updated: "2026-06-30"
 author: "SmartClover SRL"
 partner: "AI STM Learning SRL"
 hero_image: "images/nis2compass-blog-hero-auditor-evidence-variant-3.png"
 ---
 
-> An auditor can arrive at a manufacturing plant and find a network that appears technically secure: modern firewalls, patched servers, trained staff, and an IT team that has performed the required checks. Under NIS2, that is no longer enough. If the evidence of those checks lives in scattered email threads, disconnected vulnerability spreadsheets, manual scanner exports, and informal status notes, the organization may still fail the compliance test.
+> An auditor can arrive at a manufacturing plant and find a network that appears technically secure: modern firewalls, patched servers, trained staff, and an IT team that has performed the required checks. Under NIS2, that is no longer enough. If the evidence of those checks lives in scattered email threads, disconnected vulnerability spreadsheets, manual scanner exports, and informal status notes, the organization may still struggle to demonstrate readiness during review.
 >
-> **The decisive question is not only whether the security work happened. The decisive question is whether the organization can prove it in a structured, immutable, and legally meaningful way.**
+> **The decisive question is not only whether the security work happened. The decisive question is whether the organization can prove it in a structured, immutable, and reviewable way.**
 
-[![NIS2COMPASS diagram showing scattered records becoming human-reviewed, audit-ready proof through an Evidence Graph.](images/nis2compass-blog-hero-auditor-evidence-variant-3.png)](https://www.nis2compass.eu)
+[![NIS2COMPASS diagram showing scattered records becoming a human-reviewed evidence pack through an Evidence Graph.](images/nis2compass-blog-hero-auditor-evidence-variant-3.png)](https://www.nis2compass.eu)
 
 That is the trap [NIS2COMPASS](https://www.nis2compass.eu) is designed to address. NIS2 does not make firewalls, monitoring, incident response, vulnerability handling, training, or governance optional. It also makes the documentation burden more serious. **The hard part for many teams is not that no security work exists. The hard part is that the proof is scattered across tools, people, tickets, screenshots, exports, reports, and memories.**
 
@@ -35,7 +36,7 @@ That is where a normal spreadsheet starts to break down. It can list findings, b
 
 The Evidence Graph is a structured way to connect cybersecurity artifacts to obligations, controls, owners, timestamps, approvals, remediation actions, and integrity checks. A raw artifact may be a monitoring alert, a vulnerability finding, a test report, a training metric, a policy file, or a remediation record. Instead of leaving that artifact as an isolated file, the graph stores the relationship: this artifact supports this control, relates to this system, was reviewed by this role, and belongs in this evidence pack.
 
-[![Flow diagram showing the path from security activity to evidence capture, Evidence Graph, human review, and audit-ready proof.](images/evidence-flow-imagegen.png)](https://www.nis2compass.eu)
+[![Flow diagram showing the path from security activity to evidence capture, Evidence Graph, human review, and a reviewable evidence pack.](images/evidence-flow-imagegen.png)](https://www.nis2compass.eu)
 
 The project does not try to replace every security tool. That would be the wrong ambition. Most organizations already have tools that produce useful signals. The useful question is whether those signals become reviewable evidence.
 
@@ -43,7 +44,7 @@ The project does not try to replace every security tool. That would be the wrong
 
 [NIS2COMPASS](https://www.nis2compass.eu) works because the roles are deliberately different.
 
-AI STM Learning SRL coordinates the project and leads the compliance/evidence architecture. That means project control, NIS2 mapping, the Evidence Graph, governance logic, audit-ready evidence packs, human review of AI-suggested mappings, and funder-facing delivery evidence.
+AI STM Learning SRL coordinates the project and leads the compliance/evidence architecture. That means project control, NIS2 mapping, the Evidence Graph, governance logic, reviewable evidence packs, human review of AI-suggested mappings, and funder-facing delivery evidence.
 
 SmartClover SRL contributes the operational cybersecurity and dissemination side. That means monitoring evidence, threat-intelligence alignment, vulnerability assessment and penetration-test coordination, remediation verification, awareness material, aggregate phishing or training metrics, public-safe technical writing, and community-facing outputs.
 

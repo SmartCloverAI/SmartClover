@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 
 const severityRows = [
   {
@@ -25,13 +25,12 @@ const lifecycle = [
 
 const IncidentResponse = () => (
   <>
-    <Head>
-      <title>Incident Response | SmartClover Trust Center</title>
-      <meta
-        name="description"
-        content="Draft SmartClover incident-response baseline covering severity model, response lifecycle, and post-incident corrective governance."
-      />
-    </Head>
+    <PageSeo
+      title="Incident Response | SmartClover Trust Center"
+      description="Draft SmartClover incident-response baseline covering severity model, response lifecycle, and post-incident corrective governance."
+      path="/trust/incident-response"
+      image="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Trust Center</span>

@@ -24,7 +24,7 @@ const normalizeUrl = (pathOrUrl) => {
     return pathOrUrl;
   }
 
-  return `${siteUrl}${pathOrUrl}`;
+  return `${siteUrl}${pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`}`;
 };
 
 const PageSeo = ({
@@ -34,19 +34,27 @@ const PageSeo = ({
   image = defaultImage,
   type = 'website',
   robots = defaultRobots,
+  keywords,
+  author = 'SmartClover',
+  publishedTime,
+  modifiedTime,
+  section,
+  tags = [],
   jsonLd = []
 }) => {
   const normalizedPath = normalizePath(path);
   const canonicalUrl = `${siteUrl}${normalizedPath}`;
   const imageUrl = normalizeUrl(image);
   const scripts = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+  const tagList = Array.isArray(tags) ? tags : [tags];
 
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content={robots} />
-      <meta name="author" content="SmartClover" />
+      <meta name="author" content={author} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <meta name="theme-color" content="#0f766e" />
       <link rel="canonical" href={canonicalUrl} />
       <meta property="og:site_name" content="SmartClover" />
@@ -55,6 +63,13 @@ const PageSeo = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+      {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+      {type === 'article' && author && <meta property="article:author" content={author} />}
+      {section && <meta property="article:section" content={section} />}
+      {tagList.filter(Boolean).map((tag) => (
+        <meta key={`${title}-article-tag-${tag}`} property="article:tag" content={tag} />
+      ))}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

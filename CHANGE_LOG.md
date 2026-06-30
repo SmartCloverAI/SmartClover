@@ -1,5 +1,36 @@
 # SmartClover Change Log
 
+### [2026-06-30 18:11 UTC] TYPE: change
+- Author: Codex + xhigh execution council + xhigh review council
+- Summary: Completed Stage 1 of the 2026-06-30 public-trust remediation plan and prepared release version `3.29`, covering NIS2COMPASS risk wording, public route SEO metadata, sitemap generation, Cloudflare-safe contact/API email handling, and a dedicated privacy/data-subject contact path.
+- Evidence: `components/PageSeo.jsx`, route files under `pages/`, `pages/contact.jsx`, `pages/api/contact.js`, `pages/docs/api.jsx`, `posts/nis2compass-verifiable-cybersecurity-proof.md`, NIS2 article images under `public/blog/images/`, `scripts/generate-sitemap.mjs`, `public/sitemap.xml`, `tests/public-copy-tone.test.mjs`, `tests/seo-sitemap.test.mjs`, `public/openapi.json`, `version.json`.
+- Impact: Public pages now use centralized route metadata, the sitemap is generated from actual routes and posts, the NIS2 article no longer exposes over-strong audit/legal/compliance wording in flagged text-bearing surfaces, and privacy requests no longer reuse commercial qualification wording or commercial-only relay fields.
+- Follow-up: Commit, push, wait for version `3.29` online, run live route checks, and complete the independent xhigh live-review council before advancing to Stage 2.
+- Related Entry: [2026-06-15 13:43 UTC] TYPE: change
+
+### [2026-06-30 18:11 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 1 public-trust defects and SEO plumbing.
+- BUILDER Intent + Change:
+  - Standardized public route metadata through `PageSeo`, regenerated `public/sitemap.xml` from static routes and Markdown posts, and added dependency-free sitemap generation plus parity tests.
+  - Surgically corrected NIS2COMPASS text-bearing visuals, alt text, and flagged wording from achieved/audit/legal/compliance language to readiness and reviewable-evidence language under the operator-approved Stage 1 exception.
+  - Added Cloudflare-safe contact/API email handling, no-transform headers for `/contact` and `/docs/api`, manual-routing feedback, a privacy/data-subject request path, and privacy-specific fallback/API relay bodies.
+  - Incremented `version.json` and the OpenAPI status example from `3.28` to `3.29`.
+- CRITIC Findings:
+  - The review council initially blocked release because NIS2 visual/text wording could be read as over-strong compliance proof, product social metadata used a generic image, and contact/API fallbacks could be corrupted or misleading under Cloudflare email rewriting.
+  - A later content pass found privacy/data-subject requests still received commercial success wording and commercial intake fields in fallback/API relay bodies.
+  - The VC/trust review repeatedly flagged release governance as incomplete until `CHANGE_LOG.md`, `version.json`, and OpenAPI parity were updated.
+- BUILDER Response / Refinements:
+  - Replaced flagged NIS2 visual text and article references with readiness/reviewable-evidence wording, updated article `updated` metadata, and added tests blocking the risky phrases.
+  - Updated contact and privacy handling so privacy requests have separate subject lines, body fields, and success copy, while manual relay stays a needs-action state.
+  - Added regression tests for PageSeo adoption, centralized route Head usage, sitemap parity, NIS2 wording, contact/API email safety, privacy routing, and OpenAPI version parity.
+- Verification:
+  - `/home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node scripts/generate-sitemap.mjs && /home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node --test tests/*.test.mjs` -> pass, 22/22 tests passed.
+  - `/home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node --check pages/api/contact.js` -> pass.
+  - `git diff --check` -> pass.
+  - Public source scan for over-strong NIS2 wording, static mailto links, `user@example.com`, and Cloudflare obfuscation markers -> pass, no matches outside the API implementation.
+  - `npm test`, `npm run lint`, and `npm run build` -> not run because this shell has no `npm`, `corepack`, or `node_modules`; the available VS Code-bundled Node binary was used for feasible tests.
+- Residual Risk: Live deployment propagation and rendered-route verification remain pending until after push; direct JSX build validation could not be run without the project package manager/dependencies.
+
 ### [2026-06-15 13:43 UTC] TYPE: change
 - Author: Codex
 - Summary: Added NIS2COMPASS project links and readability emphasis to the NIS2COMPASS blog article, including a linked article-title token and release version `3.28`.

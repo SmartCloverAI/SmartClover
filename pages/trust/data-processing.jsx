@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 
 const roleRows = [
   {
@@ -29,13 +29,12 @@ const dpaClauses = [
 
 const DataProcessing = () => (
   <>
-    <Head>
-      <title>Data Processing | SmartClover Trust Center</title>
-      <meta
-        name="description"
-        content="Draft SmartClover data-processing posture with GDPR role model by deployment mode and baseline DPA structure for enterprise procurement review."
-      />
-    </Head>
+    <PageSeo
+      title="Data Processing | SmartClover Trust Center"
+      description="Draft SmartClover data-processing posture with GDPR role model by deployment mode and baseline DPA structure for enterprise procurement review."
+      path="/trust/data-processing"
+      image="/images/governance-network.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Trust Center</span>

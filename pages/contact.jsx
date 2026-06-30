@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import PageSeo, { siteUrl } from '../components/PageSeo';
 
 const inquiryPaths = [
@@ -22,8 +22,15 @@ const inquiryPaths = [
     label: 'General contact',
     title: 'General contact',
     description: 'Best for broader outreach that does not fit the primary paths above.'
+  },
+  {
+    label: 'Privacy or data-subject request',
+    title: 'Privacy or data-subject request',
+    description: 'Best for privacy questions, data-subject requests, or rights-related contact.'
   }
 ];
+
+const privacyInquiryLabel = 'Privacy or data-subject request';
 
 const roleOptions = [
   'Clinical lead',
@@ -101,6 +108,58 @@ const initialFormState = {
   website: ''
 };
 
+const contactEmailParts = ['andreea', 'smartclover.ro'];
+
+const getContactEmail = () => contactEmailParts.join('@');
+
+const cleanMailtoField = (value, maxLength = 500) =>
+  String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, maxLength);
+
+const buildMailtoUrl = (recipient, subject, lines) => {
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(lines.join('\n'));
+  return `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
+};
+
+const buildClientFallbackMailtoUrl = (payload) => {
+  const inquiryType = cleanMailtoField(payload.inquiryType, 140) || 'General contact';
+  const organization = cleanMailtoField(payload.organization, 180) || 'Organization not provided';
+  const fullName = cleanMailtoField(payload.fullName, 140);
+  const isPrivacyPayload = payload.inquiryType === privacyInquiryLabel;
+  const subject = isPrivacyPayload
+    ? `SmartClover privacy request - ${fullName || 'Name not provided'}`
+    : `SmartClover inquiry - ${inquiryType} - ${organization}`;
+
+  const privacyLines = [
+    `Inquiry type: ${inquiryType}`,
+    `Full name: ${fullName}`,
+    `Email: ${cleanMailtoField(payload.email, 180)}`,
+    `Organization: ${organization}`,
+    `Privacy request details: ${cleanMailtoField(payload.useCase, 2000)}`,
+    `Additional context: ${cleanMailtoField(payload.complianceRequirements, 2000)}`,
+    `Consent accepted: ${payload.consentAccepted ? 'yes' : 'no'}`
+  ];
+
+  const commercialLines = [
+    `Inquiry type: ${inquiryType}`,
+    `Full name: ${fullName}`,
+    `Email: ${cleanMailtoField(payload.email, 180)}`,
+    `Organization: ${organization}`,
+    `Role: ${cleanMailtoField(payload.role, 140)}`,
+    `Organization type: ${cleanMailtoField(payload.organizationType, 140)}`,
+    `Use case: ${cleanMailtoField(payload.useCase, 2000)}`,
+    `Deployment preference: ${cleanMailtoField(payload.deploymentPreference, 140)}`,
+    `Timeline: ${cleanMailtoField(payload.timeline, 80)}`,
+    `Compliance requirements: ${cleanMailtoField(payload.complianceRequirements, 2000)}`,
+    `Consent accepted: ${payload.consentAccepted ? 'yes' : 'no'}`
+  ];
+
+  return buildMailtoUrl(getContactEmail(), subject, isPrivacyPayload ? privacyLines : commercialLines);
+};
+
 const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
@@ -111,8 +170,7 @@ const contactSchema = {
   mainEntity: {
     '@type': 'Organization',
     name: 'SmartClover',
-    url: siteUrl,
-    email: 'andreea@smartclover.ro'
+    url: siteUrl
   }
 };
 
@@ -121,8 +179,33 @@ const Contact = () => {
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
   const [mailtoUrl, setMailtoUrl] = useState('');
+  const [directMailtoUrl, setDirectMailtoUrl] = useState('');
+
+  useEffect(() => {
+    setDirectMailtoUrl(`mailto:${getContactEmail()}`);
+
+    if (typeof window !== 'undefined') {
+      const inquiry = new URLSearchParams(window.location.search).get('inquiry');
+
+      if (inquiry === 'privacy') {
+        setForm((current) => ({ ...current, inquiryType: privacyInquiryLabel }));
+      }
+    }
+  }, []);
+
+  const isPrivacyInquiry = form.inquiryType === privacyInquiryLabel;
 
   const canSubmit = useMemo(() => {
+    if (isPrivacyInquiry) {
+      return Boolean(
+        form.inquiryType.trim() &&
+          form.fullName.trim() &&
+          form.email.trim() &&
+          form.useCase.trim() &&
+          form.consentAccepted
+      );
+    }
+
     return Boolean(
       form.inquiryType.trim() &&
       form.fullName.trim() &&
@@ -132,7 +215,7 @@ const Contact = () => {
       form.complianceRequirements.trim() &&
       form.consentAccepted
     );
-  }, [form]);
+  }, [form, isPrivacyInquiry]);
 
   const updateField = (key, value) => {
     setForm((current) => ({ ...current, [key]: value }));
@@ -161,13 +244,24 @@ const Contact = () => {
     setFeedback('');
     setMailtoUrl('');
 
+    const submissionPayload = isPrivacyInquiry
+      ? {
+          ...form,
+          role: '',
+          organizationType: '',
+          deploymentPreference: '',
+          timeline: '',
+          complianceRequirements: form.complianceRequirements.trim()
+        }
+      : form;
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(form)
+        body: JSON.stringify(submissionPayload)
       });
 
       const payload = await response.json();
@@ -176,13 +270,24 @@ const Contact = () => {
         throw new Error(payload?.error || 'Unable to submit request.');
       }
 
+      if (payload?.relayStatus === 'manual') {
+        setStatus('manual');
+        setFeedback(
+          payload?.message ||
+            'Automatic routing is not confirmed. Please open the email fallback to complete manual routing.'
+        );
+        setMailtoUrl(payload?.mailtoUrl || buildClientFallbackMailtoUrl(submissionPayload));
+        return;
+      }
+
       setStatus('success');
       setFeedback(payload?.message || 'Inquiry submitted.');
       setMailtoUrl(payload?.mailtoUrl || '');
       setForm(initialFormState);
     } catch (error) {
       setStatus('error');
-      setFeedback(error.message || 'Unexpected error. Please email andreea@smartclover.ro.');
+      setFeedback(error.message || 'Unexpected error. Use the optional pre-filled email fallback to complete manual routing.');
+      setMailtoUrl(buildClientFallbackMailtoUrl(submissionPayload));
     }
   };
 
@@ -242,6 +347,7 @@ const Contact = () => {
                   key={item.label}
                   type="button"
                   className={`path-card${form.inquiryType === item.label ? ' is-active' : ''}`}
+                  aria-pressed={form.inquiryType === item.label}
                   onClick={() => chooseInquiryPath(item.label)}
                 >
                   <h3>{item.title}</h3>
@@ -263,7 +369,12 @@ const Contact = () => {
             </p>
           </div>
 
-          <form onSubmit={onSubmit} className="contact-form" noValidate>
+          <form
+            onSubmit={onSubmit}
+            className="contact-form"
+            noValidate
+            aria-describedby={feedback ? 'contact-form-feedback' : undefined}
+          >
             <div className="field-grid">
               <label className="field-span-2">
                 Inquiry type *
@@ -287,7 +398,7 @@ const Contact = () => {
               </label>
 
               <label>
-                Work email *
+                Email *
                 <input
                   type="email"
                   value={form.email}
@@ -297,64 +408,68 @@ const Contact = () => {
               </label>
 
               <label>
-                Organization *
+                Organization {isPrivacyInquiry ? '(optional)' : '*'}
                 <input
                   type="text"
                   value={form.organization}
                   onChange={(event) => updateField('organization', event.target.value)}
-                  required
+                  required={!isPrivacyInquiry}
                 />
               </label>
 
-              <label>
-                Role *
-                <select value={form.role} onChange={(event) => updateField('role', event.target.value)}>
-                  {roleOptions.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              {!isPrivacyInquiry ? (
+                <>
+                  <label>
+                    Role *
+                    <select value={form.role} onChange={(event) => updateField('role', event.target.value)}>
+                      {roleOptions.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-              <label>
-                Organization type *
-                <select value={form.organizationType} onChange={(event) => updateField('organizationType', event.target.value)}>
-                  {orgTypeOptions.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                  <label>
+                    Organization type *
+                    <select value={form.organizationType} onChange={(event) => updateField('organizationType', event.target.value)}>
+                      {orgTypeOptions.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-              <label>
-                Deployment preference *
-                <select
-                  value={form.deploymentPreference}
-                  onChange={(event) => updateField('deploymentPreference', event.target.value)}
-                >
-                  {deploymentOptions.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                  <label>
+                    Deployment preference *
+                    <select
+                      value={form.deploymentPreference}
+                      onChange={(event) => updateField('deploymentPreference', event.target.value)}
+                    >
+                      {deploymentOptions.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
 
-              <label>
-                Target timeline *
-                <select value={form.timeline} onChange={(event) => updateField('timeline', event.target.value)}>
-                  {timelineOptions.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                  <label>
+                    Target timeline *
+                    <select value={form.timeline} onChange={(event) => updateField('timeline', event.target.value)}>
+                      {timelineOptions.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </>
+              ) : null}
 
               <label className="field-span-2">
-                Primary use case or conversation goal *
+                {isPrivacyInquiry ? 'Privacy question or request details *' : 'Primary use case or conversation goal *'}
                 <textarea
                   value={form.useCase}
                   onChange={(event) => updateField('useCase', event.target.value)}
@@ -362,17 +477,19 @@ const Contact = () => {
                   required
                 />
                 <span className="field-hint">
-                  Example: cervical screening pilot scope, data-governance fit, research collaboration idea, or investor review focus.
+                  {isPrivacyInquiry
+                    ? 'Do not include sensitive clinical, credential, or unnecessary personal data in this form.'
+                    : 'Example: cervical screening pilot scope, data-governance fit, research collaboration idea, or investor review focus.'}
                 </span>
               </label>
 
               <label className="field-span-2">
-                Trust, compliance, or security requirements *
+                Trust, compliance, or security requirements {isPrivacyInquiry ? '(optional)' : '*'}
                 <textarea
                   value={form.complianceRequirements}
                   onChange={(event) => updateField('complianceRequirements', event.target.value)}
                   rows={4}
-                  required
+                  required={!isPrivacyInquiry}
                 />
               </label>
             </div>
@@ -403,18 +520,30 @@ const Contact = () => {
               <button type="submit" className="button primary" disabled={!canSubmit || status === 'submitting'}>
                 {status === 'submitting' ? 'Submitting...' : 'Send inquiry'}
               </button>
-              <a href="mailto:andreea@smartclover.ro" className="button secondary">
+              <a
+                href={directMailtoUrl || '#inquiry-form'}
+                className="button secondary"
+                aria-label={directMailtoUrl ? 'Email SmartClover instead' : 'Email link loading'}
+              >
                 Email instead
               </a>
             </div>
 
             {feedback ? (
-              <p className={`form-feedback ${status === 'success' ? 'success' : 'error'}`}>{feedback}</p>
+              <p
+                id="contact-form-feedback"
+                className={`form-feedback ${status === 'success' ? 'success' : status === 'manual' ? 'warning' : 'error'}`}
+                role={status === 'error' ? 'alert' : 'status'}
+                aria-live={status === 'error' ? 'assertive' : 'polite'}
+                aria-atomic="true"
+              >
+                {feedback}
+              </p>
             ) : null}
 
-            {status === 'success' && mailtoUrl ? (
+            {mailtoUrl ? (
               <a href={mailtoUrl} className="button tertiary">
-                Open pre-filled email fallback
+                {status === 'success' ? 'Open pre-filled email fallback' : 'Open email fallback to complete routing'}
               </a>
             ) : null}
           </form>

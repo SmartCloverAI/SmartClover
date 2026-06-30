@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../../components/PageSeo';
 
 const dataCategories = [
   {
@@ -44,13 +44,12 @@ const retentionRows = [
 
 const PrivacyPolicy = () => (
   <>
-    <Head>
-      <title>Privacy Policy | SmartClover Trust Center</title>
-      <meta
-        name="description"
-        content="Draft privacy policy baseline for SmartClover trust center, including data categories, lawful basis framing, retention schedule, and rights contact channel."
-      />
-    </Head>
+    <PageSeo
+      title="Privacy Policy | SmartClover Trust Center"
+      description="Draft privacy policy baseline for SmartClover trust center, including data categories, lawful basis framing, retention schedule, and rights contact channel."
+      path="/trust/privacy-policy"
+      image="/images/governance-network.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Trust Center</span>
@@ -68,7 +67,8 @@ const PrivacyPolicy = () => (
         <span className="status-badge">Owner: Legal + Privacy</span>
       </div>
       <p>
-        Privacy questions can be routed to <a href="mailto:andreea@smartclover.ro">andreea@smartclover.ro</a>.
+        Privacy questions and data-subject requests can be routed through the{' '}
+        <Link href="/contact?inquiry=privacy#inquiry-form">dedicated privacy request path</Link>.
       </p>
     </section>
 
@@ -147,8 +147,8 @@ const PrivacyPolicy = () => (
         <Link href="/trust/data-processing" className="button secondary">
           Data Processing Posture
         </Link>
-        <Link href="/contact" className="button primary">
-          Contact Privacy Owner
+        <Link href="/contact?inquiry=privacy#inquiry-form" className="button primary">
+          Open Privacy Request Path
         </Link>
       </div>
     </section>

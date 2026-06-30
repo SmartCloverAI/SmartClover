@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const timeline = [
   {
@@ -74,13 +74,12 @@ const evidenceStatus = [
 
 const Proof = () => (
   <>
-    <Head>
-      <title>Proof | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover proof page with product timeline, pilot methodology notes, and KPI disclosure template with publication limits."
-      />
-    </Head>
+    <PageSeo
+      title="Proof | SmartClover"
+      description="SmartClover proof page with product timeline, pilot methodology notes, and KPI disclosure template with publication limits."
+      path="/proof"
+      image="/images/cerviguard/cerviguard-dashboard.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Proof</span>

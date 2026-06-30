@@ -1,6 +1,6 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import PageSeo from '../components/PageSeo';
 
 const serviceMap = [
   {
@@ -63,13 +63,12 @@ const costDrivers = [
 
 const CloudArchitecture = () => (
   <>
-    <Head>
-      <title>Cloud Architecture | SmartClover</title>
-      <meta
-        name="description"
-        content="SmartClover cloud architecture baseline describing permissioned cloud-on-edge services, tenancy boundaries, encryption, reliability posture, and traceable deployment records."
-      />
-    </Head>
+    <PageSeo
+      title="Cloud Architecture | SmartClover"
+      description="SmartClover cloud architecture baseline describing permissioned cloud-on-edge services, tenancy boundaries, encryption, reliability posture, and traceable deployment records."
+      path="/cloud-architecture"
+      image="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
+    />
 
     <header className="page-header">
       <span className="tagline">Cloud Architecture</span>
