@@ -1,5 +1,37 @@
 # SmartClover Change Log
 
+### [2026-06-30 18:47 UTC] TYPE: change
+- Author: Codex + xhigh execution council + xhigh review council
+- Summary: Released follow-up version `3.30` to close the live Stage 1 `/contact` no-JS fallback blocker by adding server-rendered contact form semantics, browser-form HTML fallback handling, and a static `/contact/privacy` route.
+- Evidence: `pages/contact.jsx`, `pages/contact/privacy.jsx`, `pages/api/contact.js`, `pages/trust/privacy-policy.jsx`, `next.config.js`, `scripts/generate-sitemap.mjs`, `public/sitemap.xml`, `tests/public-copy-tone.test.mjs`, `tests/seo-sitemap.test.mjs`, `public/openapi.json`, `version.json`.
+- Impact: Contact and privacy-request paths now remain usable when JavaScript is unavailable, manual browser-form fallback copy no longer implies delivery, and `/contact/privacy` receives the same no-transform protection as `/contact`.
+- Follow-up: Commit, push, wait for version `3.30` online, verify `/contact`, `/contact/privacy`, `/api/contact`, `/trust/privacy-policy`, `/sitemap.xml`, and complete live re-review before declaring Stage 1 complete.
+- Related Entry: [2026-06-30 18:11 UTC] TYPE: change
+
+### [2026-06-30 18:47 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 1 contact/privacy no-JS fallback fine-tune.
+- BUILDER Intent + Change:
+  - Added `/api/contact` `action`/`method`, browser-submittable field names, hydration-guarded submit disabling, and a server-rendered encoded mailto fallback to the contact form.
+  - Added browser-form HTML responses from `/api/contact` while preserving JSON responses for fetch clients, including action-oriented manual fallback copy.
+  - Added static `/contact/privacy` route, updated privacy-policy links, added sitemap coverage, and applied no-transform headers to `/contact/privacy`.
+  - Incremented `version.json` and the OpenAPI status example from `3.29` to `3.30`.
+- CRITIC Findings:
+  - Live UI review found `/contact` had no functional no-JS/server-rendered fallback: no form action/method, no control names, disabled submit, and an email link that pointed to `#inquiry-form`.
+  - Content review found manual browser-form fallback copy could imply delivery before the user opened the email fallback.
+  - Content and VC/trust review found the privacy request path depended on client-side query handling and then lacked the `/contact/privacy` no-transform header after the static route was added.
+- BUILDER Response / Refinements:
+  - Implemented server-rendered form semantics and HTML fallback handling, then changed manual fallback copy to `Complete contact request by email`.
+  - Added `/contact/privacy` as a static privacy-selected contact route and changed privacy-policy links to that route.
+  - Added `/contact/privacy` to sitemap generation and `cloudflareEmailSafeHeaders`, with regression assertions for all blocker conditions.
+- Verification:
+  - `/home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node scripts/generate-sitemap.mjs && /home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node --test tests/*.test.mjs` -> pass, 23/23 tests passed.
+  - `/home/andrei/.vscode-server/bin/7e7950df89d055b5a378379db9ee14290772148a/node --check pages/api/contact.js` -> pass.
+  - Direct `/api/contact` handler simulation for browser-form privacy submission -> pass; HTML fallback used action-oriented title/link and excluded commercial fields.
+  - `git diff --check` -> pass.
+  - Source scan for stale privacy query links, raw server-rendered contact mailto, and Cloudflare obfuscation markers -> pass.
+  - `npm test`, `npm run lint`, and `npm run build` -> not run because this shell has no `npm`, `corepack`, or `node_modules`.
+- Residual Risk: Live deployment propagation, rendered HTML/header verification, and live re-review remain pending until after push.
+
 ### [2026-06-30 18:11 UTC] TYPE: change
 - Author: Codex + xhigh execution council + xhigh review council
 - Summary: Completed Stage 1 of the 2026-06-30 public-trust remediation plan and prepared release version `3.29`, covering NIS2COMPASS risk wording, public route SEO metadata, sitemap generation, Cloudflare-safe contact/API email handling, and a dedicated privacy/data-subject contact path.

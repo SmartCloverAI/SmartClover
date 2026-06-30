@@ -68,7 +68,7 @@ const PrivacyPolicy = () => (
       </div>
       <p>
         Privacy questions and data-subject requests can be routed through the{' '}
-        <Link href="/contact?inquiry=privacy#inquiry-form">dedicated privacy request path</Link>.
+        <Link href="/contact/privacy#inquiry-form">dedicated privacy request path</Link>.
       </p>
     </section>
 
@@ -147,7 +147,7 @@ const PrivacyPolicy = () => (
         <Link href="/trust/data-processing" className="button secondary">
           Data Processing Posture
         </Link>
-        <Link href="/contact?inquiry=privacy#inquiry-form" className="button primary">
+        <Link href="/contact/privacy#inquiry-form" className="button primary">
           Open Privacy Request Path
         </Link>
       </div>

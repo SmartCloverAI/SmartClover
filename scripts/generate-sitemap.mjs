@@ -27,7 +27,8 @@ export const staticRoutes = [
   '/gender-equality-plan',
   '/blog',
   '/docs/api',
-  '/contact'
+  '/contact',
+  '/contact/privacy'
 ];
 
 const escapeXml = (value) =>

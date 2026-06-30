@@ -30,7 +30,7 @@ const inquiryPaths = [
   }
 ];
 
-const privacyInquiryLabel = 'Privacy or data-subject request';
+export const privacyInquiryLabel = 'Privacy or data-subject request';
 
 const roleOptions = [
   'Clinical lead',
@@ -93,8 +93,8 @@ const trustLinks = [
   }
 ];
 
-const initialFormState = {
-  inquiryType: inquiryPaths[0].label,
+const createInitialFormState = (inquiryType = inquiryPaths[0].label) => ({
+  inquiryType,
   fullName: '',
   email: '',
   organization: '',
@@ -106,11 +106,14 @@ const initialFormState = {
   complianceRequirements: '',
   consentAccepted: false,
   website: ''
-};
+});
 
 const contactEmailParts = ['andreea', 'smartclover.ro'];
 
 const getContactEmail = () => contactEmailParts.join('@');
+
+const getServerRenderedMailtoUrl = () =>
+  `mailto:${contactEmailParts.map(encodeURIComponent).join('%40')}`;
 
 const cleanMailtoField = (value, maxLength = 500) =>
   String(value || '')
@@ -174,15 +177,22 @@ const contactSchema = {
   }
 };
 
-const Contact = () => {
-  const [form, setForm] = useState(initialFormState);
+const Contact = ({
+  initialInquiryType = inquiryPaths[0].label,
+  seoPath = '/contact',
+  seoTitle = 'Contact SmartClover | Demo, Research, And Investor Inquiries',
+  seoDescription = 'Contact SmartClover through a structured intake for demo requests, research partnerships, investor conversations, and product evaluation.'
+}) => {
+  const [form, setForm] = useState(() => createInitialFormState(initialInquiryType));
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
   const [mailtoUrl, setMailtoUrl] = useState('');
   const [directMailtoUrl, setDirectMailtoUrl] = useState('');
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     setDirectMailtoUrl(`mailto:${getContactEmail()}`);
+    setIsHydrated(true);
 
     if (typeof window !== 'undefined') {
       const inquiry = new URLSearchParams(window.location.search).get('inquiry');
@@ -283,7 +293,7 @@ const Contact = () => {
       setStatus('success');
       setFeedback(payload?.message || 'Inquiry submitted.');
       setMailtoUrl(payload?.mailtoUrl || '');
-      setForm(initialFormState);
+      setForm(createInitialFormState(initialInquiryType));
     } catch (error) {
       setStatus('error');
       setFeedback(error.message || 'Unexpected error. Use the optional pre-filled email fallback to complete manual routing.');
@@ -294,9 +304,9 @@ const Contact = () => {
   return (
     <>
       <PageSeo
-        title="Contact SmartClover | Demo, Research, And Investor Inquiries"
-        description="Contact SmartClover through a structured intake for demo requests, research partnerships, investor conversations, and product evaluation."
-        path="/contact"
+        title={seoTitle}
+        description={seoDescription}
+        path={seoPath}
         image="/images/cerviguard/cerviguard-dashboard.png"
         jsonLd={contactSchema}
       />
@@ -370,6 +380,8 @@ const Contact = () => {
           </div>
 
           <form
+            action="/api/contact"
+            method="post"
             onSubmit={onSubmit}
             className="contact-form"
             noValidate
@@ -378,7 +390,12 @@ const Contact = () => {
             <div className="field-grid">
               <label className="field-span-2">
                 Inquiry type *
-                <select value={form.inquiryType} onChange={(event) => updateField('inquiryType', event.target.value)} required>
+                <select
+                  name="inquiryType"
+                  value={form.inquiryType}
+                  onChange={(event) => updateField('inquiryType', event.target.value)}
+                  required
+                >
                   {inquiryPaths.map((item) => (
                     <option key={item.label} value={item.label}>
                       {item.label}
@@ -390,6 +407,7 @@ const Contact = () => {
               <label>
                 Full name *
                 <input
+                  name="fullName"
                   type="text"
                   value={form.fullName}
                   onChange={(event) => updateField('fullName', event.target.value)}
@@ -400,6 +418,7 @@ const Contact = () => {
               <label>
                 Email *
                 <input
+                  name="email"
                   type="email"
                   value={form.email}
                   onChange={(event) => updateField('email', event.target.value)}
@@ -410,6 +429,7 @@ const Contact = () => {
               <label>
                 Organization {isPrivacyInquiry ? '(optional)' : '*'}
                 <input
+                  name="organization"
                   type="text"
                   value={form.organization}
                   onChange={(event) => updateField('organization', event.target.value)}
@@ -421,7 +441,11 @@ const Contact = () => {
                 <>
                   <label>
                     Role *
-                    <select value={form.role} onChange={(event) => updateField('role', event.target.value)}>
+                    <select
+                      name="role"
+                      value={form.role}
+                      onChange={(event) => updateField('role', event.target.value)}
+                    >
                       {roleOptions.map((item) => (
                         <option key={item} value={item}>
                           {item}
@@ -432,7 +456,11 @@ const Contact = () => {
 
                   <label>
                     Organization type *
-                    <select value={form.organizationType} onChange={(event) => updateField('organizationType', event.target.value)}>
+                    <select
+                      name="organizationType"
+                      value={form.organizationType}
+                      onChange={(event) => updateField('organizationType', event.target.value)}
+                    >
                       {orgTypeOptions.map((item) => (
                         <option key={item} value={item}>
                           {item}
@@ -444,6 +472,7 @@ const Contact = () => {
                   <label>
                     Deployment preference *
                     <select
+                      name="deploymentPreference"
                       value={form.deploymentPreference}
                       onChange={(event) => updateField('deploymentPreference', event.target.value)}
                     >
@@ -457,7 +486,11 @@ const Contact = () => {
 
                   <label>
                     Target timeline *
-                    <select value={form.timeline} onChange={(event) => updateField('timeline', event.target.value)}>
+                    <select
+                      name="timeline"
+                      value={form.timeline}
+                      onChange={(event) => updateField('timeline', event.target.value)}
+                    >
                       {timelineOptions.map((item) => (
                         <option key={item} value={item}>
                           {item}
@@ -471,6 +504,7 @@ const Contact = () => {
               <label className="field-span-2">
                 {isPrivacyInquiry ? 'Privacy question or request details *' : 'Primary use case or conversation goal *'}
                 <textarea
+                  name="useCase"
                   value={form.useCase}
                   onChange={(event) => updateField('useCase', event.target.value)}
                   rows={4}
@@ -484,8 +518,9 @@ const Contact = () => {
               </label>
 
               <label className="field-span-2">
-                Trust, compliance, or security requirements {isPrivacyInquiry ? '(optional)' : '*'}
+                {isPrivacyInquiry ? 'Additional privacy context (optional)' : 'Trust, compliance, or security requirements *'}
                 <textarea
+                  name="complianceRequirements"
                   value={form.complianceRequirements}
                   onChange={(event) => updateField('complianceRequirements', event.target.value)}
                   rows={4}
@@ -497,6 +532,7 @@ const Contact = () => {
             <label className="hidden-field" aria-hidden="true">
               Leave this field blank
               <input
+                name="website"
                 type="text"
                 autoComplete="off"
                 tabIndex={-1}
@@ -507,7 +543,9 @@ const Contact = () => {
 
             <label className="checkbox-row">
               <input
+                name="consentAccepted"
                 type="checkbox"
+                value="true"
                 checked={form.consentAccepted}
                 onChange={(event) => updateField('consentAccepted', event.target.checked)}
               />
@@ -517,13 +555,17 @@ const Contact = () => {
             </label>
 
             <div className="hero-action-row">
-              <button type="submit" className="button primary" disabled={!canSubmit || status === 'submitting'}>
+              <button
+                type="submit"
+                className="button primary"
+                disabled={isHydrated && (!canSubmit || status === 'submitting')}
+              >
                 {status === 'submitting' ? 'Submitting...' : 'Send inquiry'}
               </button>
               <a
-                href={directMailtoUrl || '#inquiry-form'}
+                href={directMailtoUrl || getServerRenderedMailtoUrl()}
                 className="button secondary"
-                aria-label={directMailtoUrl ? 'Email SmartClover instead' : 'Email link loading'}
+                aria-label="Email SmartClover instead"
               >
                 Email instead
               </a>

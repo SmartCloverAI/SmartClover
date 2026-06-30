@@ -40,6 +40,22 @@ const extractHomeHeroCopy = (source) => {
   return normalizeCopy(match[1]);
 };
 
+const extractContactFormSource = (source) => {
+  const match = source.match(/<form[\s\S]*?<\/form>/);
+
+  assert.ok(match, 'pages/contact.jsx should contain one contact form');
+
+  return match[0];
+};
+
+const extractArrayDeclaration = (source, declarationName) => {
+  const match = source.match(new RegExp(`const ${declarationName} = \\[[\\s\\S]*?\\];`));
+
+  assert.ok(match, `expected ${declarationName} array declaration`);
+
+  return match[0];
+};
+
 const bannedCopyByFile = {
   'pages/about.jsx': [
     'Dr. Andreea Damian anchors the public company story.',
@@ -661,6 +677,7 @@ test('machine-readable status schema tracks the public site version', () => {
 test('contact and API docs keep email fallbacks Cloudflare-safe and announced accessibly', () => {
   const contact = readFileSync('pages/contact.jsx', 'utf8');
   const privacyPolicy = readFileSync('pages/trust/privacy-policy.jsx', 'utf8');
+  const privacyContact = readFileSync('pages/contact/privacy.jsx', 'utf8');
   const apiDocs = readFileSync('pages/docs/api.jsx', 'utf8');
   const home = readFileSync('pages/index.jsx', 'utf8');
   const layout = readFileSync('components/Layout.jsx', 'utf8');
@@ -737,9 +754,15 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
     'contact page should provide a dedicated privacy/data-subject request path'
   );
   assert.equal(
-    privacyPolicy.includes('/contact?inquiry=privacy#inquiry-form'),
+    privacyPolicy.includes('/contact/privacy#inquiry-form'),
     true,
     'privacy policy should route privacy requests to the dedicated privacy path'
+  );
+  assert.equal(
+    privacyContact.includes('initialInquiryType={privacyInquiryLabel}') &&
+      privacyContact.includes('seoPath="/contact/privacy"'),
+    true,
+    'dedicated privacy contact route should render the privacy form server-side without query-string hydration'
   );
   assert.equal(
     contact.includes("aria-live={status === 'error' ? 'assertive' : 'polite'}"),
@@ -762,6 +785,7 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
     'API docs should render escaped code examples with Cloudflare-safe comments'
   );
   assert.equal(nextConfig.includes("source: '/contact'"), true, 'contact route should have scoped headers');
+  assert.equal(nextConfig.includes("source: '/contact/privacy'"), true, 'privacy contact route should have scoped headers');
   assert.equal(nextConfig.includes("source: '/docs/api'"), true, 'API docs route should have scoped headers');
   assert.equal(
     nextConfig.includes('no-transform'),
@@ -789,6 +813,132 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
     true,
     'primary navigation should expose exact current-page state'
   );
+});
+
+test('contact form keeps the no-JS and browser-form fallback path functional', () => {
+  const contact = readFileSync('pages/contact.jsx', 'utf8');
+  const contactApi = readFileSync('pages/api/contact.js', 'utf8');
+  const formSource = extractContactFormSource(contact);
+  const submitButton = formSource.match(/<button[\s\S]*?type="submit"[\s\S]*?<\/button>/)?.[0] || '';
+  const directEmailLink = contact.match(/<a[\s\S]*?Email instead[\s\S]*?<\/a>/)?.[0] || '';
+  const privacyLines = extractArrayDeclaration(contactApi, 'privacyLines');
+  const commercialLines = extractArrayDeclaration(contactApi, 'commercialLines');
+
+  assert.equal(
+    /<form[\s\S]*\baction=["']\/api\/contact["']/.test(formSource),
+    true,
+    'server-rendered contact form should submit to /api/contact when JavaScript is unavailable'
+  );
+  assert.equal(
+    /<form[\s\S]*\bmethod=["']post["']/.test(formSource),
+    true,
+    'server-rendered contact form should use POST for browser submissions'
+  );
+
+  for (const controlName of [
+    'inquiryType',
+    'fullName',
+    'email',
+    'organization',
+    'role',
+    'organizationType',
+    'deploymentPreference',
+    'timeline',
+    'useCase',
+    'complianceRequirements',
+    'consentAccepted',
+    'website'
+  ]) {
+    assert.equal(
+      new RegExp(`\\bname=["']${controlName}["']`).test(formSource),
+      true,
+      `contact form control should have a browser-submittable name: ${controlName}`
+    );
+  }
+
+  assert.notEqual(submitButton, '', 'contact form should include a submit button');
+  assert.equal(
+    contact.includes('const [isHydrated, setIsHydrated] = useState(false);'),
+    true,
+    'contact page should initialize hydration state to false for server-rendered markup'
+  );
+  assert.equal(
+    contact.includes('setIsHydrated(true);'),
+    true,
+    'contact page should flip hydration state only after client hydration'
+  );
+  assert.equal(
+    submitButton.includes('disabled={isHydrated &&'),
+    true,
+    'submit button disabled state should be hydration-guarded so server-rendered markup remains submittable'
+  );
+  assert.notEqual(directEmailLink, '', 'contact page should include the direct email fallback link');
+  assert.equal(
+    directEmailLink.includes('#inquiry-form'),
+    false,
+    'server-rendered email fallback should not point to #inquiry-form'
+  );
+  assert.equal(
+    contact.includes('const getServerRenderedMailtoUrl = () =>') &&
+      contact.includes("join('%40')") &&
+      directEmailLink.includes('getServerRenderedMailtoUrl()'),
+    true,
+    'server-rendered email fallback should use an encoded mailto address instead of a raw Cloudflare-rewritable address'
+  );
+  assert.equal(
+    contact.includes('createInitialFormState(initialInquiryType)') &&
+      contact.includes('Additional privacy context (optional)'),
+    true,
+    'contact page should support a server-rendered privacy initial state and privacy-specific optional context label'
+  );
+
+  assert.equal(
+    /req\.headers(?:\[['"]accept['"]\]|\.accept)/.test(contactApi),
+    true,
+    'contact API should inspect the Accept header for browser-form HTML fallback handling'
+  );
+  assert.equal(
+    contactApi.includes('text/html'),
+    true,
+    'contact API should be able to return an HTML fallback response to browser form submissions'
+  );
+  assert.equal(
+    /res\.setHeader\(['"]Cache-Control['"],\s*['"][^'"]*no-transform/.test(contactApi),
+    true,
+    'contact API should mark fallback responses no-transform so encoded mailto output is not rewritten in transit'
+  );
+  assert.equal(
+    contactApi.includes('toMailtoUrl(recipient, subject, lines)'),
+    true,
+    'browser-form fallback should reuse the same encoded mailto URL construction as JSON responses'
+  );
+  assert.equal(
+    contactApi.includes('Complete contact request by email') &&
+      contactApi.includes('Open email fallback to complete routing'),
+    true,
+    'manual browser-form fallback should make the required email action explicit instead of implying delivery'
+  );
+
+  for (const rejectedFragment of ['Role:', 'Organization type:', 'Use case:', 'Deployment preference:', 'Timeline:']) {
+    assert.equal(
+      privacyLines.includes(rejectedFragment),
+      false,
+      `privacy relay/fallback body should not include commercial qualification field: ${rejectedFragment}`
+    );
+  }
+  assert.equal(
+    privacyLines.includes('Privacy request details:'),
+    true,
+    'privacy relay/fallback body should label request details as privacy-specific'
+  );
+
+  for (const requiredFragment of ['Role:', 'Organization type:', 'Use case:', 'Deployment preference:', 'Timeline:']) {
+    assert.equal(
+      commercialLines.includes(requiredFragment),
+      true,
+      `commercial relay/fallback body should preserve qualification field: ${requiredFragment}`
+    );
+  }
 });
 
 test('NIS2COMPASS visuals use readiness evidence wording, not over-strong compliance wording', () => {

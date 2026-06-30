@@ -73,6 +73,10 @@ const nextConfig = {
         headers: cloudflareEmailSafeHeaders
       },
       {
+        source: '/contact/privacy',
+        headers: cloudflareEmailSafeHeaders
+      },
+      {
         source: '/docs/api',
         headers: cloudflareEmailSafeHeaders
       }

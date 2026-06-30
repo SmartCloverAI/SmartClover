@@ -36,9 +36,13 @@ const read = (filePath) => readFileSync(filePath, 'utf8');
 test('public route pages use PageSeo for route metadata', () => {
   for (const route of staticRoutes) {
     const pagePath = routeToPagePath(route);
+    const source = read(pagePath);
+    const rendersPageSeo =
+      source.includes('<PageSeo') ||
+      (route === '/contact/privacy' && source.includes('<Contact') && source.includes('seoPath="/contact/privacy"'));
 
     assert.equal(existsSync(pagePath), true, `expected a page file for ${route}: ${pagePath}`);
-    assert.equal(read(pagePath).includes('<PageSeo'), true, `${pagePath} should use PageSeo metadata`);
+    assert.equal(rendersPageSeo, true, `${pagePath} should use PageSeo metadata`);
   }
 });
 
