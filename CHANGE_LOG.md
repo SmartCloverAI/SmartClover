@@ -427,3 +427,38 @@
   - `git diff --check` -> pass.
   - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
 - Residual Risk: Full Next.js lint/build and browser visual QA must be confirmed through deployment or another environment with `npm` and installed dependencies; live Stage 2 council review remains required after version `3.31` is online.
+
+### [2026-07-01 04:50 UTC] TYPE: change
+- Author: Codex + xhigh live review council
+- Summary: Applied the Stage 2 live-review fix patch for blog topic classification, explicit-summary discipline, TOC anchors, Markdown image attributes, duplicate hero/body images, and NIS2 inline figure captions.
+- Evidence: `lib/posts.js`, `tests/blog-editorial.test.mjs`, `version.json`, `public/openapi.json`; live council findings against `/blog`, `/blog/nis2compass-verifiable-cybersecurity-proof`, and `/blog/datagems-synthetic-data-workflows`.
+- Impact: The blog editorial system no longer mislabels NIS2 or CerviGuard content, avoids body-derived summary text, makes TOC links match rendered heading IDs, and keeps DataGems/NIS2 diagrams from duplicating or losing lazy-loading metadata.
+- Follow-up: Commit and push version `3.32`, wait for deployment, re-check live blog routes, and rerun an independent xhigh live review council on the fixed release.
+- Related Entry: [2026-07-01 04:36 UTC] TYPE: change
+
+### [2026-07-01 04:50 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 2 post-deploy live-review corrections.
+- BUILDER Intent + Change:
+  - Added slug-level editorial defaults for topic labels, tags, and non-placeholder hero images.
+  - Removed body-derived summary fallback so article summary UI uses explicit metadata only.
+  - Matched TOC IDs to the `remark-html` rendered heading prefix.
+  - Added rendered-HTML image post-processing for `loading="lazy"` and `decoding="async"`.
+  - Converted inline Markdown image/caption paragraphs to `article-figure`, removed duplicate hero figures, and added caption defaults for NIS2 inline diagrams.
+  - Incremented the release version from `3.31` to `3.32` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The xhigh visual reviewer found visible topic-chip misclassification, repeated fallback thumbnails, missing NIS2 inline captions, and weak DataGems scan structure.
+  - The xhigh content reviewer found NIS2 miscategorized as `Research Data` and summary sourcing not enforced by the data layer.
+  - The xhigh UI/UX reviewer found broken TOC anchors because rendered headings were prefixed with `user-content-`, DataGems hero/body image duplication, and missing runtime image attributes.
+- BUILDER Response / Refinements:
+  - Fixed topic/thumbnail defaults without editing article prose or changing operator-supplied NIS2 body content.
+  - Removed the first-content summary fallback and kept summary/dek logic tied to explicit front matter fields.
+  - Made TOC IDs use the rendered heading prefix and updated regression expectations.
+  - Added an image HTML post-process step after `remark-html` so lazy/decoding attributes survive sanitization.
+  - Added figure conversion patterns that handle inline image plus italic-caption paragraphs.
+- Verification:
+  - `node --test tests/*.test.mjs` -> pass, 24 passed and 3 dependency-backed blog integration checks skipped because `gray-matter`, `remark`, and `remark-html` are not installed.
+  - `node --check lib/posts.js` -> pass.
+  - `node --check tests/blog-editorial.test.mjs` -> pass.
+  - `git diff --check` -> pass.
+  - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
+- Residual Risk: Live deployment and council re-review are still required before closing Stage 2 because the decisive failures were visible only after a deployed build with installed Markdown dependencies.

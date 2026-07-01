@@ -67,6 +67,14 @@ test('blog data layer source exposes the Stage 2 metadata and rendering hooks', 
   }
 
   assert.equal(
+    source.includes('getFirstContentSummary'),
+    false,
+    'summaries should come from explicit metadata, not body-derived fallback text'
+  );
+  assert.equal(source.includes('postEditorialDefaults'), true, 'topic and thumbnail defaults should be explicit by slug');
+  assert.equal(source.includes('htmlHeadingPrefix'), true, 'TOC ids should account for rendered heading prefixes');
+
+  assert.equal(
     source.includes('content,\n        ...data'),
     false,
     'getSortedPostsData should not retain the legacy raw Markdown body return shape'
@@ -113,8 +121,8 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
 
   assert.equal(post.summary, post.subtitle);
   assert.equal(post.modifiedDate, '2026-06-30');
-  assert.ok(post.contentHtml.includes('<h2 id="why-this-matters-now">Why This Matters Now</h2>'));
-  assert.ok(post.contentHtml.includes('<h2 id="what-nis2compass-is-building">What <a href="https://www.nis2compass.eu">NIS2COMPASS</a> Is Building</h2>'));
+  assert.ok(post.contentHtml.includes('<h2 id="user-content-why-this-matters-now">Why This Matters Now</h2>'));
+  assert.ok(post.contentHtml.includes('<h2 id="user-content-what-nis2compass-is-building">What <a href="https://www.nis2compass.eu">NIS2COMPASS</a> Is Building</h2>'));
   assert.equal(post.heroImage, '/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png');
   assert.equal(
     post.contentHtml.includes('src="/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png"'),
@@ -128,9 +136,13 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   assert.deepEqual(
     post.toc.slice(0, 3).map(({ id, depth, text }) => ({ id, depth, text })),
     [
-      { id: 'why-this-matters-now', depth: 2, text: 'Why This Matters Now' },
-      { id: 'what-nis2compass-is-building', depth: 2, text: 'What NIS2COMPASS Is Building' },
-      { id: 'the-partnership-smartclover-and-ai-stm-learning', depth: 2, text: 'The Partnership: SmartClover And AI STM Learning' }
+      { id: 'user-content-why-this-matters-now', depth: 2, text: 'Why This Matters Now' },
+      { id: 'user-content-what-nis2compass-is-building', depth: 2, text: 'What NIS2COMPASS Is Building' },
+      {
+        id: 'user-content-the-partnership-smartclover-and-ai-stm-learning',
+        depth: 2,
+        text: 'The Partnership: SmartClover And AI STM Learning'
+      }
     ]
   );
 
