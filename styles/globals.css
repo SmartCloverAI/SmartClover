@@ -552,9 +552,18 @@ nav {
   line-height: 1;
 }
 
-.nav-toggle:focus-visible,
 .nav-toggle:hover {
   outline: none;
+  background: rgba(31, 122, 140, 0.12);
+  color: var(--accent);
+  border-color: rgba(31, 122, 140, 0.35);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+}
+
+.nav-toggle:focus,
+.nav-toggle:focus-visible {
+  outline: 3px solid rgba(15, 120, 141, 0.32);
+  outline-offset: 3px;
   background: rgba(31, 122, 140, 0.12);
   color: var(--accent);
   border-color: rgba(31, 122, 140, 0.35);
@@ -1199,6 +1208,13 @@ footer p {
   color: var(--accent);
 }
 
+.consent-settings-button:focus-visible,
+.consent-banner button:focus-visible,
+.consent-panel button:focus-visible {
+  outline: 3px solid rgba(15, 120, 141, 0.32);
+  outline-offset: 3px;
+}
+
 .consent-settings-label {
   white-space: nowrap;
 }
@@ -1209,12 +1225,55 @@ footer p {
   text-overflow: ellipsis;
 }
 
-.consent-panel {
+.consent-banner {
   position: fixed;
   left: 50%;
-  bottom: 4.2rem;
+  bottom: 1rem;
+  z-index: 85;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(880px, calc(100vw - 2rem));
+  border: 1px solid rgba(15, 120, 141, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 20px 38px rgba(15, 23, 42, 0.18);
+  padding: 0.9rem 1rem;
   transform: translateX(-50%);
-  width: min(560px, calc(100vw - 1.4rem));
+}
+
+.consent-banner-copy {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.consent-banner h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.consent-banner p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.consent-banner-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.consent-panel {
+  position: fixed;
+  right: 1rem;
+  bottom: 4.2rem;
+  width: min(520px, calc(100vw - 2rem));
   max-height: calc(100vh - 5.6rem);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -1231,6 +1290,11 @@ footer p {
 .consent-panel h2 {
   margin: 0;
   font-size: 1.1rem;
+}
+
+.consent-panel h2:focus {
+  outline: 3px solid rgba(15, 120, 141, 0.24);
+  outline-offset: 4px;
 }
 
 .consent-panel p {
@@ -1481,10 +1545,25 @@ footer p {
 
   .consent-panel {
     bottom: 4.7rem;
-    left: 50%;
+    right: 0.4rem;
     width: calc(100vw - 0.8rem);
     max-height: calc(100vh - 5.4rem);
     padding: 0.95rem 0.9rem;
+  }
+
+  .consent-banner {
+    left: 0.4rem;
+    right: 0.4rem;
+    bottom: 0.55rem;
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    transform: none;
+    padding: 0.85rem;
+  }
+
+  .consent-banner-actions {
+    justify-content: flex-start;
   }
 
   .consent-settings-button {

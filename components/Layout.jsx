@@ -77,11 +77,14 @@ const Layout = ({ children, hostId = 'unknown' }) => {
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [router.pathname]);
+  }, [router.asPath]);
 
   return (
     <>
       <div className="site-shell">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <header className="site-header">
           <nav className="nav-shell" aria-label="Primary">
             <div className="nav-inner">
@@ -120,12 +123,13 @@ const Layout = ({ children, hostId = 'unknown' }) => {
                       href={link.href}
                       className={`nav-link${isActive ? ' active' : ''}`}
                       aria-current={isCurrentPage ? 'page' : undefined}
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
                     </Link>
                   );
                 })}
-                <Link href="/contact#inquiry-form" className="button primary nav-cta">
+                <Link href="/contact#inquiry-form" className="button primary nav-cta" onClick={() => setIsMenuOpen(false)}>
                   Book demo
                 </Link>
               </div>
@@ -133,7 +137,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
           </nav>
         </header>
 
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
 
         <footer className="site-footer">
           <div className="site-footer-panel">

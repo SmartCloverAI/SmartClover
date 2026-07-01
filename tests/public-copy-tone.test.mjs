@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -54,6 +55,14 @@ const extractArrayDeclaration = (source, declarationName) => {
   assert.ok(match, `expected ${declarationName} array declaration`);
 
   return match[0];
+};
+
+const extractPdfText = (filePath) => {
+  const result = spawnSync('pdftotext', [filePath, '-'], { encoding: 'utf8' });
+
+  assert.equal(result.status, 0, `pdftotext should extract ${filePath}: ${result.stderr || result.error?.message || ''}`);
+
+  return normalizeForSearch(result.stdout);
 };
 
 const bannedCopyByFile = {
@@ -881,6 +890,177 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
     true,
     'primary navigation should expose exact current-page state'
   );
+});
+
+test('Stage 4 trust center acts as the diligence center for proof, regulatory, security, and services review', () => {
+  const trust = normalizeCopy(readFileSync('pages/trust/index.jsx', 'utf8'));
+  const css = normalizeCopy(readFileSync('styles/refactor.css', 'utf8'));
+
+  for (const requiredFragment of [
+    'Healthcare AI diligence center',
+    'product proof',
+    'regulatory posture',
+    'security, privacy, and data processing',
+    'incident response',
+    'permissioned cloud-on-edge architecture',
+    'healthcare cybersecurity and resilience',
+    'Services and RFQ path',
+    'Detailed pages cover',
+    'trust-proof-map'
+  ]) {
+    assert.equal(trust.includes(requiredFragment), true, `trust center should include Stage 4 review area: ${requiredFragment}`);
+  }
+
+  for (const route of [
+    '/proof',
+    '/regulatory',
+    '/trust/security',
+    '/trust/data-processing',
+    '/trust/incident-response',
+    '/cloud-architecture',
+    '/cybersecurity',
+    '/services',
+    '/contact'
+  ]) {
+    assert.equal(trust.includes(`href: '${route}'`) || trust.includes(`href="${route}"`), true, `trust center should link to ${route}`);
+  }
+
+  assert.equal(
+    trust.indexOf('Product proof') < trust.indexOf('Regulatory posture'),
+    true,
+    'trust center should present product proof before regulatory posture'
+  );
+  assert.equal(
+    trust.indexOf('Regulatory posture') < trust.indexOf('Security, privacy, and data processing'),
+    true,
+    'trust center should present regulatory posture before trust controls'
+  );
+  assert.equal(
+    css.includes('.trust-proof-map') && css.includes('.trust-proof-node') && css.includes('.trust-proof-rail'),
+    true,
+    'Stage 4 trust proof map should have dedicated responsive CSS'
+  );
+});
+
+test('Stage 4 layout exposes skip-link and grouped active navigation accessibility', () => {
+  const layout = normalizeCopy(readFileSync('components/Layout.jsx', 'utf8'));
+  const css = normalizeCopy(readFileSync('styles/refactor.css', 'utf8'));
+
+  assert.equal(layout.includes('href="#main-content"'), true, 'layout should expose a skip link to main content');
+  assert.equal(layout.includes('<main id="main-content"'), true, 'main landmark should provide the skip-link target');
+  assert.equal(layout.includes('tabIndex={-1}'), true, 'skip-link target should be programmatically focusable');
+  assert.equal(
+    layout.includes("className={`nav-link${isActive ? ' active' : ''}`}"),
+    true,
+    'grouped primary navigation items should keep active visual state'
+  );
+  assert.equal(
+    layout.includes("const isCurrentPage = router.pathname === link.href;"),
+    true,
+    'navigation should calculate exact current-page state separately from grouped active state'
+  );
+  assert.equal(
+    layout.includes("aria-current={isCurrentPage ? 'page' : undefined}"),
+    true,
+    'primary navigation should expose aria-current only for the exact current page'
+  );
+  assert.equal(
+    css.includes('.skip-link') && css.includes('.skip-link:focus'),
+    true,
+    'skip link should have visible focus styles'
+  );
+  assert.equal(
+    css.includes('#main-content') && css.includes('scroll-margin-top') && css.includes('#main-content:focus'),
+    true,
+    'skip-link target should account for the sticky header without showing a full-page focus outline'
+  );
+  assert.equal(
+    layout.includes('onClick={() => setIsMenuOpen(false)}'),
+    true,
+    'mobile navigation links should close the menu even for same-page hash navigation'
+  );
+  assert.equal(
+    css.includes('.nav-toggle:focus-visible'),
+    true,
+    'mobile menu toggle should have an explicit keyboard focus style'
+  );
+});
+
+test('consent prompt uses a compact first-visit banner instead of blocking page content', () => {
+  const consent = normalizeCopy(readFileSync('components/ConsentManager.jsx', 'utf8'));
+  const css = normalizeCopy(readFileSync('styles/globals.css', 'utf8'));
+
+  assert.equal(
+    consent.includes('className="consent-banner"'),
+    true,
+    'first-visit consent prompt should render as a compact banner'
+  );
+  assert.equal(
+    consent.includes('const shouldShowPanel = isPanelOpen;'),
+    true,
+    'full consent preferences panel should open only after an explicit settings/customize action'
+  );
+  assert.equal(
+    consent.includes('setIsPanelOpen(true);') && consent.includes('setIsBannerVisible(false);'),
+    true,
+    'customize/settings actions should switch from banner to preferences panel'
+  );
+  assert.equal(
+    consent.includes('panelHeadingRef.current?.focus();') && consent.includes('tabIndex={-1}'),
+    true,
+    'explicitly opened consent preferences panel should receive focus'
+  );
+  assert.equal(
+    consent.includes('analytics: true, marketing: true'),
+    false,
+    'analytics acceptance should not store inactive marketing consent'
+  );
+  assert.equal(
+    css.includes('.consent-banner') && css.includes('.consent-banner-actions'),
+    true,
+    'compact consent banner should have dedicated responsive styling'
+  );
+});
+
+test('public one-page pitch deck avoids stale positioning and internal draft notes', () => {
+  const pdfFiles = ['docs/SmartClover_1pagepitchdeck.pdf', 'public/docs/SmartClover_1pagepitchdeck.pdf'];
+  const bannedPdfFragments = [
+    'human-in-the-loop ai for good',
+    'human-in-the-loop',
+    'ai for good',
+    'live pilot surface',
+    'diligence orientation',
+    'stakeholders',
+    'fundraising amount and terms should be added only after approval',
+    'flagship wedge',
+    'boutique ai studio',
+    'digital resilience',
+    'creative education',
+    'never leaves',
+    'approved mdr',
+    'final mdr',
+    'certified',
+    'guaranteed'
+  ];
+
+  for (const filePath of pdfFiles) {
+    const extracted = extractPdfText(filePath);
+
+    for (const fragment of bannedPdfFragments) {
+      assert.equal(extracted.includes(fragment), false, `${filePath} should not contain ${fragment}`);
+    }
+
+    assert.equal(
+      extracted.includes('live product workspace'),
+      true,
+      `${filePath} should describe CerviGuard as a live product workspace`
+    );
+    assert.equal(
+      extracted.includes('review before outreach'),
+      true,
+      `${filePath} should use buyer-facing review language`
+    );
+  }
 });
 
 test('contact form keeps the no-JS and browser-form fallback path functional', () => {

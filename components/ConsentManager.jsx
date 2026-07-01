@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Script from 'next/script';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const GA_ID = 'G-L7K8RBNW1L';
 const STORAGE_KEY = 'smartclover_consent_v1';
@@ -22,8 +22,10 @@ const normalizeConsent = (value) => ({
 });
 
 const ConsentManager = () => {
+  const panelHeadingRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isBannerVisible, setIsBannerVisible] = useState(false);
   const [consent, setConsent] = useState(defaultConsent);
   const [analyticsDraft, setAnalyticsDraft] = useState(false);
   const [marketingDraft, setMarketingDraft] = useState(false);
@@ -36,14 +38,14 @@ const ConsentManager = () => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (!raw) {
-        setIsPanelOpen(true);
+        setIsBannerVisible(true);
       } else {
         const parsed = normalizeConsent(JSON.parse(raw));
         setConsent(parsed);
       }
     } catch {
       window.localStorage.removeItem(STORAGE_KEY);
-      setIsPanelOpen(true);
+      setIsBannerVisible(true);
     }
 
     setIsLoaded(true);
@@ -62,6 +64,12 @@ const ConsentManager = () => {
     setMarketingDraft(consent.marketing);
   }, [consent.analytics, consent.marketing]);
 
+  useEffect(() => {
+    if (isPanelOpen) {
+      panelHeadingRef.current?.focus();
+    }
+  }, [isPanelOpen]);
+
   const saveConsent = (nextConsent, closePanel = true) => {
     const normalized = normalizeConsent({
       ...nextConsent,
@@ -76,6 +84,7 @@ const ConsentManager = () => {
     }
 
     if (closePanel) {
+      setIsBannerVisible(false);
       setIsPanelOpen(false);
     }
   };
@@ -83,10 +92,13 @@ const ConsentManager = () => {
   const openSettings = () => {
     setAnalyticsDraft(consent.analytics);
     setMarketingDraft(consent.marketing);
+    setIsBannerVisible(false);
     setIsPanelOpen(true);
   };
 
-  const shouldShowPanel = isPanelOpen || (isLoaded && !consent.decided);
+  const shouldShowBanner = isLoaded && !consent.decided && isBannerVisible && !isPanelOpen;
+  const shouldShowPanel = isPanelOpen;
+  const shouldShowSettingsButton = isLoaded && !shouldShowBanner && !isPanelOpen;
 
   const consentSummary = useMemo(() => {
     if (!isLoaded || !consent.decided) {
@@ -114,19 +126,51 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
         </>
       ) : null}
 
-      <button
-        type="button"
-        className="consent-settings-button"
-        onClick={openSettings}
-        aria-label={`Cookie settings (${consentSummary})`}
-      >
-        <span className="consent-settings-label">Cookie settings</span>
-        <span className="consent-settings-summary">({consentSummary})</span>
-      </button>
+      {shouldShowSettingsButton ? (
+        <button
+          type="button"
+          className="consent-settings-button"
+          onClick={openSettings}
+          aria-label={`Cookie settings (${consentSummary})`}
+        >
+          <span className="consent-settings-label">Cookie settings</span>
+          <span className="consent-settings-summary">({consentSummary})</span>
+        </button>
+      ) : null}
+
+      {shouldShowBanner ? (
+        <section className="consent-banner" aria-label="Cookie notice">
+          <div className="consent-banner-copy">
+            <h2>Cookie choices</h2>
+            <p>
+              We use necessary cookies for site function. Optional analytics is used only after your consent.
+            </p>
+          </div>
+          <div className="consent-banner-actions">
+            <button
+              type="button"
+              className="button primary"
+              onClick={() => saveConsent({ ...consent, analytics: true, marketing: false })}
+            >
+              Accept analytics
+            </button>
+            <button
+              type="button"
+              className="button secondary"
+              onClick={() => saveConsent({ ...consent, analytics: false, marketing: false })}
+            >
+              Reject optional
+            </button>
+            <button type="button" className="button tertiary" onClick={openSettings}>
+              Customize
+            </button>
+          </div>
+        </section>
+      ) : null}
 
       {shouldShowPanel ? (
         <section className="consent-panel" aria-label="Cookie and analytics preferences">
-          <h2>Cookie and analytics preferences</h2>
+          <h2 ref={panelHeadingRef} tabIndex={-1}>Cookie and analytics preferences</h2>
           <p>
             We use strictly necessary cookies for site function. Optional analytics is enabled only after your explicit
             consent.
@@ -170,9 +214,9 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
             <button
               type="button"
               className="button primary"
-              onClick={() => saveConsent({ ...consent, analytics: true, marketing: true })}
+              onClick={() => saveConsent({ ...consent, analytics: true, marketing: false })}
             >
-              Accept all
+              Accept analytics
             </button>
             <button
               type="button"

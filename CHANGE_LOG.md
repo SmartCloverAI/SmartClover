@@ -1,5 +1,52 @@
 # SmartClover Change Log
 
+### [2026-07-01 13:59 UTC] TYPE: change
+- Author: Codex + xhigh execution council + xhigh review council
+- Summary: Prepared release version `3.38` for the first Stage 4 trust/diligence batch by making `/trust` the diligence center, preserving proof/regulatory/security deep dives, adding an accessible skip-link and exact current-page navigation semantics with grouped visual state, replacing the stale one-page public deck with the regenerated `v1.2` review brief, and repairing the local Playwright/PDF QA toolchain.
+- Evidence: `.gitattributes`, `pages/trust/index.jsx`, `components/Layout.jsx`, `components/ConsentManager.jsx`, `styles/globals.css`, `styles/refactor.css`, `tests/public-copy-tone.test.mjs`, `docs/SmartClover_1pagepitchdeck.pdf`, `public/docs/SmartClover_1pagepitchdeck.pdf`, `version.json`, `public/openapi.json`.
+- Impact: Reviewers now reach product proof, regulatory posture, security/privacy, cloud-on-edge, cybersecurity, incident-response, and services evidence from the trust center without treating dependency maintenance as part of this Stage 4 batch.
+- Follow-up: Commit, push, deploy version `3.38`, confirm `/api/status` is live, rerun the live review council on `smartclover.ro`, and handle Next/security dependency updates as a separate maintenance batch.
+- Related Entry: [2026-06-30 18:47 UTC] TYPE: change
+
+### [2026-07-01 13:59 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 4 first trust/diligence/accessibility/deck batch.
+- BUILDER Intent + Change:
+  - Reworked `/trust` from a document-index surface into the main diligence center for product proof, regulatory posture, security/privacy, services, incident response, and architecture review.
+  - Added skip-link support and kept grouped navigation active styling while reserving `aria-current="page"` for exact current-page links.
+  - Replaced the first-visit centered cookie preferences modal with a compact consent banner and kept the detailed settings panel behind explicit customize/settings actions.
+  - Replaced the stale public and source one-page pitch-deck PDFs with the regenerated `SmartClover_pitchdeck_1pager_v1.2.pdf` artifact.
+  - Used Playwright-managed Chromium and Poppler/Python PDF text tooling, and incremented `version.json` plus the OpenAPI status example from `3.37` to `3.38`.
+- CRITIC Findings:
+  - Stage 4 planning found `/trust` still behaved as a document index and should become the coherent reviewer entry point while `/proof`, `/regulatory`, `/services`, `/cloud-architecture`, `/cybersecurity`, and trust subroutes remain live.
+  - Live QA found the public site served version `3.37`, had reachable routes and working media, but lacked a skip link and grouped active navigation state.
+  - Local rendered QA found the new skip-link target could scroll under the sticky header and show a full-page default focus outline.
+  - PDF/deck review initially found the public/source one-page decks still contained stale public claims, while the first replacement still extracted `Human-in-the-loop AI for Good`, `live pilot surface`, `diligence orientation`, generic `stakeholders`, and an internal fundraising note.
+  - Council accessibility review found repeated generic `Review`/`Open` link labels, missing explicit mobile menu focus-ring coverage in the refactor focus list, and mobile menu close behavior that could miss same-page hash navigation.
+  - Council visual review found the trust review-card grid could render four narrow columns on desktop and should be capped to three columns with responsive overrides.
+  - Rendered first-visit QA found the centered cookie preferences panel obstructed the new trust hero and reviewer-card entry path.
+  - `git diff --check` treated the regenerated ReportLab PDF internals as text and reported binary-artifact trailing whitespace.
+  - Dependency review found Next/security updates are non-blocking for this Stage 4 batch and should remain a separate maintenance release.
+- BUILDER Response / Refinements:
+  - Added regression tests for the trust center route links/content and layout accessibility behavior before implementing the page and layout changes.
+  - Added `#main-content` scroll-margin and focus styling so skip-link activation lands cleanly below the sticky header without a full-page focus rectangle.
+  - Updated the trust center copy and visual proof map without deleting the subordinate proof, regulatory, services, cloud, cybersecurity, or trust-policy routes.
+  - Tightened trust-center status wording, replaced generic trust-card CTAs with specific link labels, closed the mobile menu on link click/asPath changes, and capped the trust review grid at three columns on desktop.
+  - Changed consent UX to a compact first-visit banner, retained explicit accept/reject/customize controls, moved the full preferences panel behind explicit action, prevented inactive marketing consent from being stored through the analytics shortcut, added focus handoff to the settings panel, and strengthened mobile nav focus styling.
+  - Regenerated the one-page source deck as `v1.2`, changed the public heading to `Flagship product: CerviGuard`, added a ReportLab PDF fallback for environments without LibreOffice, copied the generated PDF into both public/source website paths, and added a `pdftotext` regression test for stale public-deck phrases.
+  - Added `.gitattributes` binary handling for PDFs, DOCX files, and common image assets so binary artifacts are not checked as text diffs.
+  - Kept framework/security dependency versions unchanged.
+- Verification:
+  - `npm test` -> pass, 32/32 tests passed including PDF text extraction and consent-banner regression coverage.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed with the existing Browserslist data warning only.
+  - `git diff --check` -> pass.
+  - `npm exec playwright -- install chromium` and `npm exec playwright -- screenshot --timeout=30000 https://smartclover.ro /tmp/smartclover-qa/smoke-home.png` -> pass.
+  - Live QA script against `https://smartclover.ro` -> pass for version `3.37`; local QA script against `http://127.0.0.1:3138` -> pass for version `3.38`.
+  - `pdftotext ... | rg "human-in|AI for Good|live pilot surface|diligence orientation|stakeholders|fundraising amount|boutique ai studio|digital resilience|creative education|certified|guaranteed|approved mdr|final mdr|never leaves"` on public/source decks -> pass, no matches; `cmp` confirmed both checked-in PDFs match the `v1.2` artifact.
+  - `pdftoppm -png -singlefile SmartClover/public/docs/SmartClover_1pagepitchdeck.pdf /tmp/smartclover-public-onepager-final` plus visual inspection -> pass, one-page A4 layout rendered without clipping or overlap.
+  - Playwright rendered smoke against local `http://127.0.0.1:3138` -> pass for `/trust` first-visit consent banner, specific trust-card links, three-column grid cap, skip-link focus target, mobile nav focus/close behavior, and console cleanliness.
+- Residual Risk: Online `3.38` deployment, final live re-review, security-header hardening, and the separate Next/security dependency maintenance batch remain pending after this local release-prep change.
+
 ### [2026-06-30 18:47 UTC] TYPE: change
 - Author: Codex + xhigh execution council + xhigh review council
 - Summary: Released follow-up version `3.30` to close the live Stage 1 `/contact` no-JS fallback blocker by adding server-rendered contact form semantics, browser-form HTML fallback handling, and a static `/contact/privacy` route.
