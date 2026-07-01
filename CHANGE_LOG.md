@@ -586,3 +586,34 @@
   - `npm run build` -> pass, production build generated 32 static pages; existing Browserslist warning only.
   - `git diff --check` -> pass, no whitespace errors.
 - Residual Risk: Fresh CerviGuard product screenshots remain the durable fix for all pilot-era UI labels; screenshot-backed browser QA remains blocked because the local Playwright Chromium binary is not installed.
+
+### [2026-07-01 07:30 UTC] TYPE: change
+- Author: Codex + independent xhigh visual live-review council
+- Summary: Replaced the remaining published CerviGuard proof screenshots with public-safe cropped assets and removed unused pilot-era clinical/account screenshots from the public asset folder.
+- Evidence: `public/images/cerviguard/cerviguard-dashboard.png`, `public/images/cerviguard/cerviguard-add-case.png`, removed `public/images/cerviguard/cerviguard-login.png`, `public/images/cerviguard/cerviguard-profile.png`, `public/images/cerviguard/cerviguard-case-detail.png`, `public/images/cerviguard/cerviguard-cases-list.png`, `tests/public-copy-tone.test.mjs`, `version.json`, `public/openapi.json`; xhigh visual re-review failure on live version `3.36`.
+- Impact: The actual published image files used for CerviGuard proof and social previews no longer expose `Pilot Console`, pilot guidelines, pilot build wording, account screenshots, clinical case detail imagery, or case-list screenshots.
+- Follow-up: Commit and push version `3.37`, wait for deployment, verify old asset URLs no longer return public pilot-era images, and rerun focused live visual review.
+- Related Entry: [2026-07-01 07:13 UTC] TYPE: change.
+
+### [2026-07-01 07:30 UTC] ADVERSARIAL-CHECK
+- Scope: Asset-level Stage 3 visual blocker remediation for CerviGuard proof images.
+- BUILDER Intent + Change:
+  - Replaced `cerviguard-dashboard.png` with a public-safe aggregate-card crop that removes the pilot-era header/footer and row-level case identifiers.
+  - Replaced `cerviguard-add-case.png` with a public-safe intake-form crop that removes the pilot-era header/footer and pilot-guideline/build text.
+  - Removed obsolete public CerviGuard screenshots that should not be directly published: login, profile, case-detail, and cases-list.
+  - Added a regression assertion that those obsolete public asset files are absent.
+  - Incremented the release version from `3.36` to `3.37` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The focused xhigh visual reviewer found that `/cerviguard` version `3.36` still rendered `cerviguard-add-case.png` with visible pilot-guideline/build language.
+  - The same reviewer found the full dashboard image still contained `CerviGuard Pilot Console` when used as a proof/social image asset.
+  - The removed login/profile files were no longer rendered, but still returned `200` if opened directly.
+- BUILDER Response / Refinements:
+  - Sanitized the two retained images at the binary asset level instead of relying on CSS cropping or page references.
+  - Deleted the no-longer-rendered risky screenshots from `public/images/cerviguard` so deployment should stop serving them directly after cache expiry.
+  - Used Python/Pillow for the binary image transformation because no ImageMagick, GraphicsMagick, or ffmpeg binary was available in the environment.
+- Verification:
+  - Manual inspection of sanitized `public/images/cerviguard/cerviguard-dashboard.png` -> pass, no pilot header/footer and no row-level case identifiers.
+  - Manual inspection of sanitized `public/images/cerviguard/cerviguard-add-case.png` -> pass, no pilot header/footer and no pilot-guideline/build text.
+  - `rg -n "cerviguard-login\\.png|cerviguard-profile\\.png|cerviguard-case-detail\\.png|cerviguard-cases-list\\.png|Pilot Console|pilot accounts|pilot guidelines|pilot build" pages components lib posts public tests styles CHANGE_LOG.md -S` -> pass for public source/assets; remaining matches are changelog/test context only.
+  - `file public/images/cerviguard/*.png` -> pass, only sanitized dashboard and add-case PNGs remain, both `1600 x 1100`.
+- Residual Risk: Browser screenshot/aXe QA remains blocked until Playwright browser dependencies are installed; any CDN or image optimizer cache may briefly retain old direct asset responses immediately after deployment.

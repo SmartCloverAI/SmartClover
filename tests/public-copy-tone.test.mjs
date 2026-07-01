@@ -470,6 +470,14 @@ test('Stage 3 product proof layout keeps CerviGuard visual proof first', () => {
     false,
     'proof page should not promise a login screenshot while that asset is withheld'
   );
+  for (const removedAsset of [
+    'public/images/cerviguard/cerviguard-login.png',
+    'public/images/cerviguard/cerviguard-profile.png',
+    'public/images/cerviguard/cerviguard-case-detail.png',
+    'public/images/cerviguard/cerviguard-cases-list.png'
+  ]) {
+    assert.equal(existsSync(removedAsset), false, `${removedAsset} should not be published as a public asset`);
+  }
   assert.equal(
     css.includes('.datagems-shot-media') && css.includes('object-fit: contain'),
     true,
