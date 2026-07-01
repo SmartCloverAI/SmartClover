@@ -388,3 +388,42 @@
   - `git diff --check` -> pass, no whitespace errors.
   - `rg -n "process large datasets, identify patterns|We train retrieval-augmented models|community health records similar to those documented|SmartClover's knowledge graph|Each answer includes the underlying|clinicians in the loop|policy-controlled AI deployment with ledger-backed controls|role-based policy bundles define|approved edge/on-prem workers|flagship healthcare AI project for cervical cancer prevention|AI-assisted interpretation|reduce missed follow-up signals|SmartClover uses AI in research workflows|DataGems belongs in the research track|cybersecurity dashboards|SmartClover's role is to help keep those questions visible|This deployment model aligns with our operating principle|de-identified cervical image intake|secure clinical system|SLM-first generation|approved peers|Ratio1|guaranteed|every deployment satisfies healthcare compliance|before data ever leaks|cannot silently remove|single product promise|unlock|transform|seamless|revolutionary|game-changing|privacy-safe|100 percent|100%" posts` -> pass, no matches.
 - Residual Risk: Online deployment and blog URL verification are still required for version `3.22`; NapkinAI visuals remain a separate planned batch.
+
+### [2026-07-01 04:36 UTC] TYPE: change
+- Author: Codex + xhigh Stage 2 implementation council
+- Summary: Upgraded the SmartClover blog into a clinical evidence journal system with featured index hierarchy, richer article metadata, article heroes, long-article TOC, figure-aware Markdown rendering, related reading, and Blog/Article JSON-LD.
+- Evidence: `lib/posts.js`, `pages/blog/index.jsx`, `pages/blog/[slug].jsx`, `styles/refactor.css`, `tests/blog-editorial.test.mjs`, `version.json`, `public/openapi.json`; commands `node --test tests/*.test.mjs`, `node --test tests/blog-editorial.test.mjs`, `node --test tests/seo-sitemap.test.mjs`, `node --check lib/posts.js`, `node --check tests/blog-editorial.test.mjs`, `git diff --check`, CSS balance/source checks.
+- Impact: Stage 2 now gives blog readers a stronger editorial path without rewriting operator-supplied article bodies; the NIS2COMPASS article can expose its author, partner, updated date, hero image, long-article contents, and related context while preserving claim discipline.
+- Follow-up: Commit and push version `3.31`, wait for deployment, verify `/blog` and key article routes online, then run an independent xhigh live review council before closing Stage 2.
+- Related Entry: [2026-05-11 18:46 UTC] TYPE: change
+
+### [2026-07-01 04:36 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 2 blog/editorial system implementation.
+- BUILDER Intent + Change:
+  - Used two xhigh visual/artwork reviewers, one xhigh UI/UX implementation reviewer, and one xhigh content-quality reviewer to select the clinical evidence journal direction before build work.
+  - Enriched the Markdown data layer with normalized summaries, topics, tags, author/partner metadata, hero-image metadata, reading time, TOC entries, related posts, local image dimensions, lazy image attributes, and local image-path safety checks.
+  - Replaced the blog index with a featured article, topic labels, thumbnails, reading metadata, and Blog JSON-LD.
+  - Replaced the article template with an editorial hero, metadata strip, summary/key-points box, TOC for long posts, figure-aware Markdown body, related reading, NIS2COMPASS title linking, and BlogPosting JSON-LD.
+  - Added scoped clinical-journal CSS and a focused `tests/blog-editorial.test.mjs` regression file.
+  - Incremented the release version from `3.30` to `3.31` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The first implementation pass risked duplicating the hero image because the article template and Markdown body could both render the same first image.
+  - Markdown captions would remain only presentational if image paragraphs were not converted into article figures.
+  - Existing public-copy tests depended on NIS2COMPASS subtitle fallback behavior and title linking, so the new templates had to preserve those source-level safeguards.
+  - Local build validation is blocked because `npm` is unavailable and `node_modules` is absent in this checkout.
+- BUILDER Response / Refinements:
+  - Added rendered-HTML figure conversion for Markdown images and moved matching first-image captions into hero metadata.
+  - Removed duplicate hero figures from rendered body HTML without changing source Markdown.
+  - Kept article summaries sourced from `summary`, `excerpt`, or `subtitle` only; no NIS2COMPASS body prose was rewritten.
+  - Preserved NIS2COMPASS title linking and existing project-link tests.
+  - Added dependency-aware blog tests that run source checks locally and skip only integration checks requiring missing installed packages.
+- Verification:
+  - `node --test tests/*.test.mjs` -> pass, 24 passed and 3 dependency-backed blog integration checks skipped because `gray-matter`, `remark`, and `remark-html` are not installed.
+  - `node --test tests/blog-editorial.test.mjs` -> pass, 1 passed and 3 dependency-backed checks skipped for the same missing packages.
+  - `node --test tests/seo-sitemap.test.mjs` -> pass, 3/3.
+  - `node --check lib/posts.js` -> pass.
+  - `node --check tests/blog-editorial.test.mjs` -> pass.
+  - CSS balance/source checks -> pass.
+  - `git diff --check` -> pass.
+  - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
+- Residual Risk: Full Next.js lint/build and browser visual QA must be confirmed through deployment or another environment with `npm` and installed dependencies; live Stage 2 council review remains required after version `3.31` is online.
