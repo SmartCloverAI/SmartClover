@@ -462,3 +462,30 @@
   - `git diff --check` -> pass.
   - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
 - Residual Risk: Live deployment and council re-review are still required before closing Stage 2 because the decisive failures were visible only after a deployed build with installed Markdown dependencies.
+
+### [2026-07-01 05:00 UTC] TYPE: change
+- Author: Codex
+- Summary: Linked the generated NIS2COMPASS mention inside the renderer-injected collaboration figure caption, resolving the only non-blocking content-review advisory from the fixed-release council.
+- Evidence: `lib/posts.js`, `version.json`, `public/openapi.json`; live council advisory from the `3.32` content-quality re-review.
+- Impact: Generated figure-caption text now follows the same project-linking rule as the operator-supplied NIS2COMPASS article body without editing article Markdown prose.
+- Follow-up: Commit and push version `3.33`, wait for deployment, and verify the generated caption link online.
+- Related Entry: [2026-07-01 04:50 UTC] TYPE: change
+
+### [2026-07-01 05:00 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 2 final generated-caption link advisory.
+- BUILDER Intent + Change:
+  - Updated the generated NIS2 collaboration-flow caption so `NIS2COMPASS` links to `https://www.nis2compass.eu`.
+  - Left `posts/nis2compass-verifiable-cybersecurity-proof.md` unchanged.
+  - Incremented the release version from `3.32` to `3.33` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The `3.32` council passed closure but noted one generated caption mention was not linked.
+  - Changing generated caption HTML must not weaken source-controlled verbatim-publication discipline for the NIS2 article body.
+- BUILDER Response / Refinements:
+  - Made the fix only in `lib/posts.js` caption defaults, where the generated text originates.
+  - Kept the operator-supplied article source untouched.
+- Verification:
+  - `node --test tests/*.test.mjs` -> pass, 24 passed and 3 dependency-backed blog integration checks skipped because `gray-matter`, `remark`, and `remark-html` are not installed.
+  - `node --check lib/posts.js` -> pass.
+  - `git diff --check` -> pass.
+  - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
+- Residual Risk: Live deployment verification remains required for version `3.33`.
