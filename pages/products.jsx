@@ -5,7 +5,7 @@ import PageSeo from '../components/PageSeo';
 
 const portfolioTracks = [
   {
-    status: 'Live product',
+    status: 'Flagship product',
     title: 'CerviGuard clinical platform',
     description:
       'Cervical-screening workflow product with draft MDR Class I self-assessment material and clinician-reviewed AI outputs.'
@@ -45,9 +45,9 @@ const healthcareDirections = [
 
 const dataGemsHighlights = [
   {
-    title: 'Privacy-centered distributed execution',
+    title: 'Distributed generation workflow',
     description:
-      'DataGems supports synthetic-data generation across distributed nodes without relying on a single centralized runtime.'
+      'DataGems can run configured generation jobs across distributed nodes in scoped research environments, with reviewable job status and exports.'
   },
   {
     title: 'Internal and external inference options',
@@ -72,22 +72,56 @@ const dataGemsShots = [
     alt: 'DataGems generation job form with fields for title, description, instructions, and record count.',
     title: 'Generation job setup',
     description: 'Job drafting flow with schema guidance, instruction fields, and configured generation controls.'
+  }
+];
+
+const cerviGuardProofLinks = [
+  {
+    href: 'https://cerviguard.link',
+    title: 'Live CerviGuard workspace',
+    description: 'Authenticated demo workspace for reviewing the current screening workflow surface.'
   },
   {
-    src: '/images/datagems/datagems-screen-schema-peer-stats.png',
-    width: 903,
-    height: 583,
-    alt: 'DataGems schema output view and peer statistics table for distributed job execution.',
-    title: 'Schema output and peer stats',
-    description: 'Generated schema payload plus peer-level execution status, result CID tracking, and timestamps.'
+    href: 'https://github.com/SmartCloverAI/CerviGuard',
+    title: 'Public implementation repository',
+    description: 'Source-level context for product reviewers and technical partners.'
   },
   {
-    src: '/images/datagems/datagems-screen-sign-in.png',
-    width: 903,
-    height: 491,
-    alt: 'DataGems sign-in and account creation interface.',
-    title: 'Workspace sign-in',
-    description: 'Provides basic tenant authenticated access before running distributed synthetic-data generation jobs.'
+    href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',
+    title: 'Draft MDR Class I self-assessment',
+    description: 'Regulatory-positioning material published as a draft review artifact.'
+  },
+  {
+    href: '/proof',
+    title: 'Product evidence baseline',
+    description: 'Current milestones, evidence limits, and pending KPI publication context.'
+  }
+];
+
+const cerviGuardProofShots = [
+  {
+    src: '/images/cerviguard/cerviguard-dashboard.png',
+    width: 1600,
+    height: 1100,
+    alt: 'CerviGuard workspace dashboard with screening workflow overview.',
+    title: 'Operational dashboard',
+    description: 'Workspace overview for case distribution, review queues, and follow-up coordination.'
+  },
+  {
+    src: '/images/cerviguard/cerviguard-add-case.png',
+    width: 1600,
+    height: 1100,
+    alt: 'CerviGuard workspace intake form using demo data.',
+    title: 'Case intake',
+    description: 'Guided intake flow for de-identified cervical-screening material and review notes.'
+  },
+  {
+    src: '/images/blog/cerviguard-workflow-napkin_v1.0.png',
+    width: 1600,
+    height: 900,
+    alt: 'CerviGuard workflow diagram from intake through clinician-led follow-up.',
+    title: 'Workflow model',
+    description: 'Structured intake, AI-assisted review, clinician review, triage coordination, and follow-up planning.'
   }
 ];
 
@@ -120,6 +154,68 @@ const Products = () => (
       </div>
     </header>
 
+    <section className="surface-card product-proof-lead" aria-labelledby="products-cerviguard-proof-heading">
+      <div className="section-heading">
+        <span className="flagship-kicker">Flagship product proof</span>
+        <h2 id="products-cerviguard-proof-heading">CerviGuard leads the product portfolio</h2>
+        <p>
+          CerviGuard is the product path buyers should inspect first: a live workspace, current workflow screenshots,
+          a public implementation repository, and draft regulatory material are available before qualification.
+        </p>
+      </div>
+
+      <div className="product-proof-grid">
+        <div className="visual-frame product-visual-frame">
+          <Image
+            src="/images/cerviguard/cerviguard-dashboard.png"
+            alt="CerviGuard workspace dashboard showing screening workflow overview"
+            width={1600}
+            height={1100}
+            sizes="(max-width: 879px) 100vw, 44vw"
+            priority
+          />
+        </div>
+        <div className="proof-link-grid">
+          {cerviGuardProofLinks.map((item) => {
+            const isExternal = item.href.startsWith('http');
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className="proof-link-card"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="product-shot-grid">
+        {cerviGuardProofShots.map((shot) => (
+          <article key={shot.src} className="product-shot-card">
+            <div className="product-shot-media product-visual-frame">
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                width={shot.width}
+                height={shot.height}
+                sizes="(max-width: 879px) 100vw, 31vw"
+              />
+            </div>
+            <div className="product-shot-meta">
+              <h3>{shot.title}</h3>
+              <p>{shot.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section className="surface-card" aria-labelledby="products-directions-heading">
       <div className="section-heading">
         <h2 id="products-directions-heading">Two healthcare AI product directions</h2>
@@ -136,8 +232,8 @@ const Products = () => (
 
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
-        <span className="flagship-kicker">Portfolio Status</span>
-        <h2 id="products-portfolio-heading">Product, research, and service capabilities</h2>
+        <span className="flagship-kicker">Offer map</span>
+        <h2 id="products-portfolio-heading">Product, research, and service capabilities around CerviGuard</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (
@@ -152,7 +248,8 @@ const Products = () => (
 
     <section className="surface-card datagems-spotlight" aria-labelledby="products-datagems-heading">
       <div className="section-heading">
-        <h2 id="products-datagems-heading">DataGems features in practice</h2>
+        <span className="flagship-kicker">Live research pilot</span>
+        <h2 id="products-datagems-heading">DataGems research track in practice</h2>
         <p>
           DataGems helps research and data teams shape synthetic-data workflows, test schemas, track generation jobs,
           and export reviewable results across distributed environments. We discuss inference configuration, job design,

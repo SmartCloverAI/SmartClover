@@ -249,6 +249,7 @@ const globallyBannedFragments = [
   'governed experimentation',
   'another pile of plausible-looking rows',
   'approved peers',
+  'SLM-first',
   'SLM-first generation',
   'DataGems anonymizes patient data',
   'DataGems is HIPAA compliant',
@@ -320,10 +321,16 @@ test('homepage hero speaks in client-facing product and workflow language', () =
 
   assert.equal(
     heroCopy.includes(
-      'SmartClover builds healthcare AI where clinical work actually happens. Our flagship product, CerviGuard, helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage clinician-led follow-up. DataGems supports our synthetic-data research track.'
+      'SmartClover builds healthcare AI where clinical work actually happens. CerviGuard helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage clinician-led follow-up.'
     ),
     true,
-    'homepage hero should use the approved 10-second elevator pitch'
+    'homepage hero should use the Stage 3 CerviGuard-first elevator pitch'
+  );
+
+  assert.equal(
+    heroCopy.includes('DataGems'),
+    false,
+    'homepage first-screen hero should not give DataGems equal visual weight with CerviGuard'
   );
 
   for (const requiredFragment of ['CerviGuard', 'cervical-screening teams', 'clinician-led', 'workflow']) {
@@ -380,6 +387,16 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
   assert.equal(cerviGuardIndex < dataGemsIndex, true, 'CerviGuard should appear before DataGems');
   assert.equal(source.includes('Live research pilot'), true, 'DataGems should remain a live research pilot');
   assert.equal(
+    source.indexOf('CerviGuard leads the product portfolio') < source.indexOf('DataGems research track in practice'),
+    true,
+    'products page should show CerviGuard proof before the DataGems research track'
+  );
+  assert.equal(
+    source.includes('Flagship product proof'),
+    true,
+    'products page should include an explicit CerviGuard proof section'
+  );
+  assert.equal(
     source.includes('image="/images/cerviguard/cerviguard-dashboard.png"'),
     true,
     'products social preview should use CerviGuard proof while the page is CerviGuard-led'
@@ -396,7 +413,7 @@ test('home and about explain product proof through reader value, not internal st
   const layout = normalizeCopy(readFileSync('components/Layout.jsx', 'utf8'));
 
   for (const requiredFragment of [
-    'review CerviGuard through its live workspace, public repository, screenshots, and trust material',
+    'Visitors can review CerviGuard through its live workspace, public repository, screenshots, MDR draft, and trust material',
     'DataGems gives research partners a concrete surface for synthetic-data workflow discussions'
   ]) {
     assert.equal(home.includes(requiredFragment), true, `homepage should include reader-value proof language: ${requiredFragment}`);
@@ -415,6 +432,33 @@ test('home and about explain product proof through reader value, not internal st
   ]) {
     assert.equal(layout.includes(requiredFragment), true, `footer should include reader-value product language: ${requiredFragment}`);
   }
+});
+
+test('Stage 3 product proof layout keeps CerviGuard visual proof first', () => {
+  const home = normalizeCopy(readFileSync('pages/index.jsx', 'utf8'));
+  const products = normalizeCopy(readFileSync('pages/products.jsx', 'utf8'));
+  const proof = normalizeCopy(readFileSync('pages/proof.jsx', 'utf8'));
+  const cerviguard = normalizeCopy(readFileSync('pages/cerviguard.jsx', 'utf8'));
+  const css = normalizeCopy(readFileSync('styles/refactor.css', 'utf8'));
+
+  assert.equal(home.includes('product-visual-frame'), true, 'homepage should crop high-funnel product screenshots');
+  assert.equal(products.includes('product-shot-grid'), true, 'products page should include CerviGuard proof screenshots');
+  assert.equal(proof.includes('Verified product proof'), true, 'proof page should open with verified product proof');
+  assert.equal(
+    proof.indexOf('Verified product proof') < proof.indexOf('Evidence status'),
+    true,
+    'verified product proof should appear before evidence-status taxonomy'
+  );
+  assert.equal(
+    cerviguard.includes('cerviguard-case-detail.png'),
+    false,
+    'CerviGuard gallery should not expose detailed clinical case imagery'
+  );
+  assert.equal(
+    css.includes('.datagems-shot-media') && css.includes('object-fit: contain'),
+    true,
+    'DataGems screenshots should use normalized contained media framing'
+  );
 });
 
 test('DataGems blog uses workflow value and avoids portfolio-status narration', () => {

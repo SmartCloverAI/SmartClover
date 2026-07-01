@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import PageSeo from '../components/PageSeo';
 
@@ -72,6 +73,29 @@ const evidenceStatus = [
   }
 ];
 
+const verifiedProductProof = [
+  {
+    href: 'https://cerviguard.link',
+    title: 'Live CerviGuard workspace',
+    description: 'Current product surface available for demo and product-review conversations.'
+  },
+  {
+    href: 'https://github.com/SmartCloverAI/CerviGuard',
+    title: 'Public implementation repository',
+    description: 'Source-level context for the CerviGuard workflow product.'
+  },
+  {
+    href: '/cerviguard',
+    title: 'Product screenshot gallery',
+    description: 'Public-safe screenshots showing login, dashboard, case intake, and account controls.'
+  },
+  {
+    href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',
+    title: 'Draft MDR Class I self-assessment',
+    description: 'Draft regulatory-positioning artifact; not a final approval claim.'
+  }
+];
+
 const Proof = () => (
   <>
     <PageSeo
@@ -100,6 +124,48 @@ const Proof = () => (
         Reported outcomes are cohort-specific, method-bounded, and include explicit limitations. KPI percentages will not
         be published without denominator and date-window context.
       </p>
+    </section>
+
+    <section className="surface-card product-proof-lead" aria-labelledby="verified-product-proof-heading">
+      <div className="section-heading">
+        <span className="flagship-kicker">Verified product proof</span>
+        <h2 id="verified-product-proof-heading">CerviGuard artifacts visitors can inspect today</h2>
+        <p>
+          The current public proof set starts with CerviGuard: live workspace access, public implementation context,
+          product screenshots, and the draft MDR self-assessment.
+        </p>
+      </div>
+
+      <div className="product-proof-grid">
+        <div className="visual-frame product-visual-frame">
+          <Image
+            src="/images/cerviguard/cerviguard-dashboard.png"
+            alt="CerviGuard workspace dashboard used as product proof"
+            width={1600}
+            height={1100}
+            sizes="(max-width: 879px) 100vw, 44vw"
+            priority
+          />
+        </div>
+        <div className="proof-link-grid">
+          {verifiedProductProof.map((item) => {
+            const isExternal = item.href.startsWith('http');
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className="proof-link-card"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                <strong>{item.title}</strong>
+                <span>{item.description}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
     </section>
 
     <section className="surface-card" aria-labelledby="evidence-status-heading">

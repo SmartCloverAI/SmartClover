@@ -16,7 +16,7 @@ const inquiryPaths = [
   {
     label: 'Investor inquiry',
     title: 'Investor inquiry',
-    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover\'s platform, governance, and commercial readiness.'
+    description: 'Best for investors, accelerators, and strategic backers evaluating SmartClover\'s platform, governance, and public product evidence.'
   },
   {
     label: 'General contact',

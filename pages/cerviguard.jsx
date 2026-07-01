@@ -59,29 +59,11 @@ const screenshotGallery = [
     height: 1100
   },
   {
-    title: 'Case history management',
-    description:
-      'The case log provides searchable status tracking and direct access to each analysis record for follow-up.',
-    src: '/images/cerviguard/cerviguard-cases-list.png',
-    alt: 'CerviGuard case history table with status and actions',
-    width: 1600,
-    height: 1613
-  },
-  {
     title: 'New case onboarding',
     description:
       'De-identified cervical image upload and notes are captured through a guided intake flow with privacy guardrails.',
     src: '/images/cerviguard/cerviguard-add-case.png',
     alt: 'CerviGuard add-case form for image upload and notes',
-    width: 1600,
-    height: 1100
-  },
-  {
-    title: 'AI analysis detail',
-    description:
-      'Per-case analysis displays metadata and confidence values for clinician review.',
-    src: '/images/cerviguard/cerviguard-case-detail.png',
-    alt: 'CerviGuard case detail page with AI analysis metadata',
     width: 1600,
     height: 1100
   },
@@ -233,6 +215,34 @@ const CerviGuard = () => (
       </div>
     </section>
 
+    <section className="surface-card cerviguard-gallery" aria-labelledby="cerviguard-gallery-heading">
+      <div className="section-heading">
+        <h2 id="cerviguard-gallery-heading">Inside the live application</h2>
+        <p>
+          Screens below use demo data and show public-safe workflow surfaces without patient-identifying details.
+        </p>
+      </div>
+      <div className="cerviguard-shot-grid">
+        {screenshotGallery.map((shot) => (
+          <article key={shot.src} className="cerviguard-shot-card">
+            <div className="cerviguard-shot-media product-visual-frame">
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                width={shot.width}
+                height={shot.height}
+                sizes="(max-width: 879px) 100vw, 46vw"
+              />
+            </div>
+            <div className="cerviguard-shot-meta">
+              <h3>{shot.title}</h3>
+              <p>{shot.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section className="surface-card" aria-labelledby="cerviguard-directions-heading">
       <div className="section-heading">
         <h2 id="cerviguard-directions-heading">How CerviGuard fits within the SmartClover portfolio</h2>
@@ -266,38 +276,19 @@ const CerviGuard = () => (
       </div>
     </section>
 
-    <section className="surface-card cerviguard-gallery" aria-labelledby="cerviguard-gallery-heading">
-      <div className="section-heading">
-        <h2 id="cerviguard-gallery-heading">Inside the live application</h2>
-        <p>
-          Screens below use demo data and show the current public product workflow without patient-identifying details.
-        </p>
-      </div>
-      <div className="cerviguard-shot-grid">
-        {screenshotGallery.map((shot) => (
-          <article key={shot.src} className="cerviguard-shot-card">
-            <div className="cerviguard-shot-media">
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                width={shot.width}
-                height={shot.height}
-                sizes="(max-width: 879px) 100vw, 46vw"
-              />
-            </div>
-            <div className="cerviguard-shot-meta">
-              <h3>{shot.title}</h3>
-              <p>{shot.description}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section className="surface-card" aria-labelledby="cerviguard-workflow-heading">
       <div className="section-heading">
         <h2 id="cerviguard-workflow-heading">Workflow from case intake to clinical follow-up</h2>
         <p>Every stage is structured for operational clarity, clinician review, and case follow-up.</p>
+      </div>
+      <div className="workflow-visual-frame">
+        <Image
+          src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
+          alt="CerviGuard workflow diagram from structured intake to clinician-led follow-up planning"
+          width={1600}
+          height={900}
+          sizes="(max-width: 879px) 100vw, 72vw"
+        />
       </div>
       <div className="cerviguard-flow-grid">
         {workflowSteps.map((step) => (

@@ -23,7 +23,7 @@ const Regulatory = () => (
       title="Regulatory | SmartClover"
       description="Regulatory overview for CerviGuard intended use, draft MDR Class I self-assessment, jurisdiction scope, and post-market process summary with publication limits."
       path="/regulatory"
-      image="/images/cerviguard/cerviguard-case-detail.png"
+      image="/images/cerviguard/cerviguard-dashboard.png"
     />
 
     <header className="page-header">

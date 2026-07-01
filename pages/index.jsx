@@ -5,22 +5,22 @@ import PageSeo, { siteUrl } from '../components/PageSeo';
 
 const proofCards = [
   {
-    kicker: 'Live product',
-    title: 'CerviGuard is the flagship product.',
+    kicker: 'CerviGuard proof',
+    title: 'Live workspace, repository, and MDR draft are visible.',
     description:
-      'The live product surface, public repository, and trust routes make the cervical screening workflow visible from the first visit.'
+      'Visitors can review CerviGuard through its live workspace, public repository, screenshots, MDR draft, and trust material.'
   },
   {
     kicker: 'Research context',
-    title: 'Cervical-screening research is easy to find.',
+    title: 'Cervical-screening research stays source-linked.',
     description:
       'Two PubMed references are linked for visitors who want context on cervical screening participation and follow-up work in Romania.'
   },
   {
-    kicker: 'Trust routes',
-    title: 'Security, privacy, proof, and regulatory material stay visible.',
+    kicker: 'Research track',
+    title: 'DataGems sits below the product story.',
     description:
-      'Visitors can move from the homepage into trust, proof, pricing, and buying paths without leaving the public site.'
+      'DataGems gives research partners a concrete surface for synthetic-data workflow discussions after the CerviGuard path is clear.'
   }
 ];
 
@@ -35,7 +35,7 @@ const portfolioCards = [
     kicker: 'Live research pilot',
     title: 'DataGems',
     description:
-      'A live research pilot for synthetic-data generation using SLM-first execution with optional external APIs.'
+      'A live research pilot for synthetic-data workflows, schema drafting, configured generation jobs, and reviewable exports.'
   },
   {
     kicker: 'Public research directions',
@@ -85,7 +85,7 @@ const pathCards = [
   },
   {
     title: 'Investor inquiry',
-    description: 'For investors or accelerators reviewing SmartClover\'s healthcare AI platform, public proof, and commercial readiness.',
+    description: 'For investors or accelerators reviewing SmartClover\'s healthcare AI platform, public product evidence, and current routes.',
     href: '/contact#inquiry-form'
   }
 ];
@@ -136,9 +136,6 @@ const Home = () => (
             <span className="proof-pill">
               <strong>CerviGuard</strong> live product
             </span>
-            <span className="proof-pill">
-              <strong>DataGems</strong> live research pilot
-            </span>
           </div>
 
           <div className="hero-copy">
@@ -146,9 +143,9 @@ const Home = () => (
               Clinician-led AI workflow software for cervical screening.
             </h1>
             <p>
-              SmartClover builds healthcare AI where clinical work actually happens. Our flagship product, CerviGuard,
-              helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and
-              manage clinician-led follow-up. DataGems supports our synthetic-data research track.
+              SmartClover builds healthcare AI where clinical work actually happens. CerviGuard helps
+              cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage
+              clinician-led follow-up.
             </p>
           </div>
 
@@ -159,36 +156,14 @@ const Home = () => (
             <Link href="/cerviguard" className="button secondary">
               Explore CerviGuard
             </Link>
-            <Link href="/trust" className="button tertiary">
-              Open trust center
-            </Link>
           </div>
-
-          <ul className="hero-evidence-list">
-            <li>
-              <strong>Product proof:</strong>
-              live product surface at{' '}
-              <a href="https://cerviguard.link" target="_blank" rel="noopener noreferrer">
-                cerviguard.link
-              </a>{' '}
-              plus public repository and model hub references.
-            </li>
-            <li>
-              <strong>Research context:</strong>
-              PubMed references from 2017 and 2022 provide context on cervical screening participation and follow-up work.
-            </li>
-            <li>
-              <strong>Trust orientation:</strong>
-              privacy, security, incident response, pricing, buying, proof, and regulatory routes remain public.
-            </li>
-          </ul>
         </div>
 
         <div className="detail-panel">
-          <div className="visual-frame">
+          <div className="visual-frame product-visual-frame">
             <Image
               src="/images/cerviguard/cerviguard-dashboard.png"
-              alt="CerviGuard dashboard showing case distribution and operational overview"
+              alt="CerviGuard workspace dashboard showing case distribution and operational overview"
               width={1600}
               height={1100}
               priority
@@ -196,23 +171,8 @@ const Home = () => (
             />
           </div>
           <div className="visual-caption">
-            <strong>Authentic flagship proof</strong>
-            <span>The live CerviGuard workspace shows case review, operational oversight, and clinician-led follow-up workflows.</span>
-          </div>
-
-          <div className="metric-grid">
-            <article className="metric-card">
-              <strong>1</strong>
-              <p>Visitors can review CerviGuard through its live workspace, public repository, screenshots, and trust material.</p>
-            </article>
-            <article className="metric-card">
-              <strong>1</strong>
-              <p>DataGems gives research partners a concrete surface for synthetic-data workflow discussions.</p>
-            </article>
-            <article className="metric-card">
-              <strong>2</strong>
-              <p>PubMed references provide cervical-screening context for readers who want the research background.</p>
-            </article>
+            <strong>CerviGuard workspace proof</strong>
+            <span>Current authenticated demo workspace capture showing operational review and follow-up workflow surfaces.</span>
           </div>
         </div>
       </div>
@@ -226,23 +186,45 @@ const Home = () => (
           commercial paths for clinics, research partners, and investors.
         </p>
       </div>
-      <div className="story-grid">
-        {proofCards.map((item) => (
-          <article key={item.title} className="story-card">
-            <p className="kicker">{item.kicker}</p>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
+      <div className="product-proof-grid">
+        <div className="visual-frame product-visual-frame">
+          <Image
+            src="/images/cerviguard/cerviguard-add-case.png"
+            alt="CerviGuard workspace case-intake screen using demo data"
+            width={1600}
+            height={1100}
+            sizes="(max-width: 879px) 100vw, 44vw"
+          />
+        </div>
+        <div className="proof-link-grid">
+          {proofCards.map((item) => (
+            <article key={item.title} className="proof-link-card">
+              <p className="kicker">{item.kicker}</p>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div className="inline-link-row">
+        <a href="https://cerviguard.link" className="button primary" target="_blank" rel="noopener noreferrer">
+          Open live CerviGuard workspace
+        </a>
+        <Link href="/proof" className="button secondary">
+          See product evidence
+        </Link>
+        <Link href="/trust" className="button tertiary">
+          Check trust material
+        </Link>
       </div>
     </section>
 
     <section className="surface-card" aria-labelledby="home-portfolio-heading">
       <div className="section-heading">
-        <h2 id="home-portfolio-heading">A flagship product within a broader company platform</h2>
+        <h2 id="home-portfolio-heading">Research and service tracks around the flagship product</h2>
         <p>
-          CerviGuard is the product teams review first. DataGems, research, and trust surfaces show the broader
-          SmartClover work around it.
+          CerviGuard is the product teams review first. DataGems and service capabilities sit around that product
+          path as research and deployment conversations.
         </p>
       </div>
       <div className="story-grid">
@@ -289,19 +271,22 @@ const Home = () => (
           </div>
         </div>
 
-        <div className="detail-panel">
-          <div className="visual-frame">
-            <Image
-              src="/images/research-lab.png"
-              alt="Research workspace representing SmartClover's cervical-screening context"
-              width={1024}
-              height={1024}
-              sizes="(max-width: 1080px) 100vw, 40vw"
-            />
-          </div>
-          <div className="visual-caption">
-            <strong>Research context and product proof</strong>
-            <span>Research links, product access, and trust materials give visitors concrete places to continue.</span>
+        <div className="detail-panel artifact-proof-panel">
+          <p className="kicker">Source-linked materials</p>
+          <h3>Source-linked proof visitors can inspect before outreach.</h3>
+          <div className="artifact-card-list">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/35197342/" target="_blank" rel="noopener noreferrer">
+              <strong>2022 PubMed record</strong>
+              <span>Follow-up barriers after abnormal cervical screening results.</span>
+            </a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28460211/" target="_blank" rel="noopener noreferrer">
+              <strong>2017 PubMed record</strong>
+              <span>Barriers to cervical screening participation in Romania.</span>
+            </a>
+            <a href="https://github.com/SmartCloverAI/CerviGuard" target="_blank" rel="noopener noreferrer">
+              <strong>CerviGuard repository</strong>
+              <span>Public implementation context for the flagship workflow product.</span>
+            </a>
           </div>
         </div>
       </div>
@@ -344,7 +329,7 @@ const Home = () => (
     <DiligenceLinksSection
       headingId="home-diligence-links"
       heading="Trust, proof, and buying routes"
-      description="Use these routes to review proof, regulatory posture, trust, pricing, and procurement context before outreach."
+      description="Use these routes to check product evidence, regulatory posture, trust, pricing, and procurement context before outreach."
     />
   </>
 );

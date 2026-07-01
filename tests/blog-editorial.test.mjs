@@ -131,8 +131,8 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   );
   assert.ok(post.contentHtml.includes('loading="lazy"'));
   assert.ok(post.contentHtml.includes('decoding="async"'));
-  assert.ok(post.contentHtml.includes('width="1601"'));
-  assert.ok(post.contentHtml.includes('height="1525"'));
+  assert.ok(post.contentHtml.includes('width="1672"'));
+  assert.ok(post.contentHtml.includes('height="941"'));
   assert.deepEqual(
     post.toc.slice(0, 3).map(({ id, depth, text }) => ({ id, depth, text })),
     [

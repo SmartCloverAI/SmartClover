@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import PageSeo, { siteUrl } from '../components/PageSeo';
 
@@ -119,7 +118,7 @@ const About = () => (
       title="About SmartClover | Healthcare AI For Cervical Screening"
       description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research workflows."
       path="/about"
-      image="/images/research-lab.png"
+      image="/images/cerviguard/cerviguard-dashboard.png"
       jsonLd={aboutSchema}
     />
 
@@ -154,20 +153,10 @@ const About = () => (
           </div>
         </div>
 
-        <div className="founder-proof-list">
-          <div className="visual-frame">
-            <Image
-              src="/images/research-lab.png"
-              alt="Research and product workspace representing SmartClover's cervical-screening focus"
-              width={1024}
-              height={1024}
-              sizes="(max-width: 1080px) 100vw, 40vw"
-            />
-          </div>
-          <div className="visual-caption">
-            <strong>Research references and product routes</strong>
-            <span>Use these links for research context, product access, and citation details.</span>
-          </div>
+        <div className="founder-proof-list artifact-proof-panel">
+          <p className="kicker">Research references and product routes</p>
+          <h3>Source-linked materials replace generic credibility imagery.</h3>
+          <p>Use these links for research context, product access, and citation details.</p>
           <ul className="list-reset">
             {founderAnchors.map((item) => (
               <li key={item.title}>

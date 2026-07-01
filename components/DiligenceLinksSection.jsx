@@ -14,12 +14,12 @@ const reviewLinks = [
   {
     href: '/proof',
     label: 'Proof',
-    description: 'Milestones, pilots, and evidence timeline.'
+    description: 'Product artifacts, milestones, and evidence limits.'
   },
   {
     href: '/regulatory',
     label: 'Regulatory',
-    description: 'MDR scope and publication-status summary.'
+    description: 'MDR scope and current publication status.'
   },
   {
     href: '/trust',
@@ -31,7 +31,7 @@ const reviewLinks = [
 const DiligenceLinksSection = ({
   headingId,
   heading = 'Commercial and trust routes',
-  description = 'Use these routes to review pricing, buying steps, proof, regulatory context, and trust material before onboarding.'
+  description = 'Use these routes to check pricing, buying steps, product evidence, regulatory context, and trust material before onboarding.'
 }) => (
   <section className="surface-card" aria-labelledby={headingId}>
     <div className="section-heading">

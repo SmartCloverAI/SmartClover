@@ -519,3 +519,38 @@
   - `npm run lint` -> fail, `next: not found` because this checkout has no installed `node_modules`.
   - `npm run build` -> fail, `next: not found` because this checkout has no installed `node_modules`.
 - Residual Risk: Browser visual QA must be confirmed after deployment because the local checkout cannot run a Next.js build without installing dependencies.
+
+### [2026-07-01 06:52 UTC] TYPE: change
+- Author: Codex + xhigh Stage 3 execution council
+- Summary: Started Stage 3 homepage and product-proof remediation by making CerviGuard the first visual proof path, moving DataGems into a secondary research-track role, and adding concrete product artifacts to `/products` and `/proof`.
+- Evidence: `pages/index.jsx`, `pages/products.jsx`, `pages/cerviguard.jsx`, `pages/proof.jsx`, `pages/about.jsx`, `pages/regulatory.jsx`, `components/DiligenceLinksSection.jsx`, `styles/refactor.css`, `tests/public-copy-tone.test.mjs`, `tests/blog-editorial.test.mjs`, `version.json`, `public/openapi.json`; xhigh visual, UI, VC/client, and asset-review findings.
+- Impact: The public site now leads with CerviGuard product evidence instead of equal-weight product/research/service clutter, removes sensitive high-detail CerviGuard screenshots from the public gallery, and replaces generic About/Home credibility imagery with source-linked materials.
+- Follow-up: Commit and push version `3.35`, wait for deployment, verify live routes, then run an independent xhigh live review council before closing Stage 3.
+- Related Entry: [2026-07-01 06:29 UTC] TYPE: decision in meta-repo SmartClover playbook.
+
+### [2026-07-01 06:52 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 3 first implementation batch for homepage, product proof, CerviGuard, DataGems presentation, and proof assets.
+- BUILDER Intent + Change:
+  - Simplified the homepage hero around CerviGuard only, removed DataGems from first-screen equal visual weight, and moved product/research/trust proof into the next section.
+  - Added a CerviGuard-first proof section on `/products` with workspace screenshot, live workspace link, public repository, MDR draft, and proof route before the DataGems research-track section.
+  - Moved safer CerviGuard screenshots higher on `/cerviguard`, removed case-list and case-detail screenshots from that gallery, and added the workflow diagram before general platform highlights.
+  - Added a verified product-proof section to `/proof`, replaced generic About visual treatment with source-linked materials, changed the regulatory social image away from the clinical case-detail screenshot, normalized DataGems screenshot framing, and added broader focus-visible styling.
+  - Incremented the release version from `3.34` to `3.35` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The xhigh visual reviewer found `/products` claimed CerviGuard led while DataGems carried the only substantial screenshot proof, and flagged generic `research-lab.png` credibility imagery.
+  - The xhigh VC/client reviewer found the homepage first screen proof-cluttered, flagged `SLM-first` and `commercial readiness` wording, and found `Portfolio Status` too internal.
+  - The xhigh UI reviewer found DataGems screenshot cards had uneven media heights and recommended explicit focus-visible styling plus product-proof hierarchy tests.
+  - The xhigh asset reviewer flagged current CerviGuard screenshots as carrying pilot-era UI labels and identified case-detail/case-list images plus DataGems sign-in/schema-peer images as unsuitable for high-funnel proof.
+- BUILDER Response / Refinements:
+  - Used CSS-framed high-funnel screenshots to crop app chrome without altering source assets, while recording that fresh product-label screenshots remain needed.
+  - Reordered product proof so CerviGuard leads on homepage, `/products`, `/cerviguard`, and `/proof`; DataGems remains present but secondary as a research pilot.
+  - Removed or demoted sensitive/risky screenshots from public product-proof surfaces and constrained DataGems screenshot presentation to safer dashboard/job-form assets.
+  - Extended tests to require Stage 3 product-proof hierarchy, block generic `SLM-first` public wording, and keep DataGems screenshots contained.
+- Verification:
+  - `npm ci` -> pass, dependencies installed; npm reported existing audit findings: 5 moderate and 7 high.
+  - `node --test tests/*.test.mjs` -> pass, 28/28 tests passed with Markdown dependencies installed.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, Next.js production build completed and generated 32 static pages; existing Browserslist `caniuse-lite` warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+  - Focused source scan for `SLM-first`, `Portfolio Status`, `commercial readiness`, risky screenshot references in touched pages, and banned proof wording -> pass for public pages touched by Stage 3; `gender-equality-plan` still uses `research-lab.png` outside this Stage 3 product-proof scope.
+- Residual Risk: Fresh CerviGuard and DataGems screenshots should be recaptured from product-status-safe, public-safe UI; screenshot-backed browser QA remains blocked until browser runtime dependencies are available; npm audit findings are existing dependency-maintenance work, not introduced by this content/layout batch.
