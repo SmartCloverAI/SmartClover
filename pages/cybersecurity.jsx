@@ -21,6 +21,19 @@ const Cybersecurity = () => (
       </p>
     </header>
 
+    <section className="surface-card" aria-labelledby="cybersecurity-status-heading">
+      <div className="status-badge-list" id="cybersecurity-status-heading">
+        <span className="status-badge">Document status: Draft for security/service review</span>
+        <span className="status-badge">Service baseline updated: 2026-07-01</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
+        <span className="status-badge">Owner: Security + Delivery</span>
+      </div>
+      <p>
+        Service scope, partner controls, personnel responsibilities, and evidence records are confirmed per engagement
+        before operational work starts.
+      </p>
+    </section>
+
     <section className="surface-card">
       <h2>Healthcare security scope</h2>
       <p>

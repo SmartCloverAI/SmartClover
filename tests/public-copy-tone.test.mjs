@@ -1033,6 +1033,16 @@ test('consent prompt uses a compact first-visit banner instead of blocking page 
     true,
     'compact consent banner should have dedicated responsive styling'
   );
+  assert.equal(
+    css.includes('grid-template-columns: repeat(3, minmax(0, 1fr))'),
+    true,
+    'mobile consent banner actions should use bounded grid columns instead of overlapping the title'
+  );
+  assert.equal(
+    css.includes('font-size: clamp(0.68rem, 2.7vw, 0.76rem)'),
+    true,
+    'mobile consent buttons should dynamically fit narrow viewports'
+  );
 });
 
 test('public one-page pitch deck avoids stale positioning and internal draft notes', () => {
@@ -1325,6 +1335,9 @@ test('service capability pages preserve SmartClover product and service hierarch
 
   for (const requiredFragment of [
     'Cybersecurity and resilience services for healthcare organizations',
+    'Document status: Draft for security/service review',
+    'Service baseline updated: 2026-07-01',
+    'Page reviewed: 2026-07-01',
     'Scoped engagements can involve authorized/certified personnel',
     'partner security products',
     'engineering workflows matched to the environment'

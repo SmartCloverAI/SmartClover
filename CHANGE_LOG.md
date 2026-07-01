@@ -1,5 +1,35 @@
 # SmartClover Change Log
 
+### [2026-07-01 19:58 UTC] TYPE: change
+- Author: Codex + xhigh live-review council
+- Summary: Prepared release version `3.40` to close Stage 4 live-review blockers by making the mobile first-visit consent banner stack without internal overlap or horizontal clipping and adding visible status/freshness labels to the healthcare cybersecurity services page.
+- Evidence: `styles/globals.css`, `pages/cybersecurity.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`, `public/openapi.json`.
+- Impact: The Stage 4 trust/accessibility review no longer depends on a fragile mobile consent layout, and the cybersecurity/resilience service page now carries the same public review-date discipline as adjacent trust and architecture pages.
+- Follow-up: Commit, push, deploy version `3.40`, confirm `/api/status` is live, rerun live visual/UI council review on `smartclover.ro`, and continue Stage 4 only if blockers are closed.
+- Related Entry: [2026-07-01 19:25 UTC] TYPE: change
+
+### [2026-07-01 19:58 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 4 v3.40 live-review blocker fix for mobile consent and cybersecurity freshness labels.
+- BUILDER Intent + Change:
+  - Changed the narrow-viewport consent banner from a compressed horizontal layout into a stacked mobile layout with bounded grid action buttons, dynamic button text sizing, and hidden long explanatory copy.
+  - Added a visible cybersecurity service status strip with draft status, service baseline date, page review date, owner, and per-engagement scoping note.
+  - Added regression assertions for mobile consent grid behavior and cybersecurity freshness labels, then incremented website release metadata from `3.39` to `3.40`.
+- CRITIC Findings:
+  - The live UI/accessibility review found `/trust` mobile fresh-visit consent still failed at `390x844` and `360x740` because the label overlapped the action row and buttons bled horizontally.
+  - The live visual review also found the mobile consent banner only partially resolved the previous Stage 4 blocker.
+  - The live UI/accessibility review found `/cybersecurity` lacked explicit status, baseline, and page-reviewed labels despite carrying healthcare security/resilience service claims.
+- BUILDER Response / Refinements:
+  - Replaced the mobile row layout with a column layout and three bounded action columns that fit the 360px stress viewport without overlap.
+  - Kept desktop consent behavior unchanged and preserved explicit accept, reject, and customize actions.
+  - Added `/cybersecurity` freshness/status labels and a short note that service scope, partner controls, personnel responsibilities, and evidence records are confirmed per engagement.
+- Verification:
+  - `npm test` -> pass, 32/32 tests passed including new consent and cybersecurity freshness assertions.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed with the existing Browserslist data warning only.
+  - `git diff --check` -> pass.
+  - Local Playwright rendered smoke against `http://127.0.0.1:3140` at `390x844` and `360x740` -> pass, no mobile consent title/action overlap, no action-row overflow, and `/cybersecurity` status labels visible.
+- Residual Risk: Requires deployment and live re-review before Stage 4 v3.40 can be closed.
+
 ### [2026-07-01 19:25 UTC] TYPE: change
 - Author: Codex + xhigh live-review council
 - Summary: Prepared release version `3.39` as a live-review fine-tune for Stage 4 by softening the public one-page deck's DataGems, cybersecurity, and investment-milestone wording, replacing stale `/proof` planning-artifact phrasing with public-checkable proof routes, adding current page-review freshness labels, tightening security/architecture claim scope, exposing the review-brief download from `/trust`, and shrinking the consent UI footprint.

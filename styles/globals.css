@@ -1559,13 +1559,40 @@ footer p {
     right: 0.4rem;
     bottom: 0.45rem;
     width: auto;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.5rem 0.55rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    padding: 0.6rem;
+  }
+
+  .consent-banner-copy {
+    gap: 0.1rem;
+  }
+
+  .consent-banner h2 {
+    font-size: 0.86rem;
+  }
+
+  .consent-banner p {
+    display: none;
   }
 
   .consent-banner-actions {
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 0.3rem;
+    width: 100%;
+  }
+
+  .consent-banner .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 34px;
+    padding: 0.45rem 0.3rem;
+    font-size: clamp(0.68rem, 2.7vw, 0.76rem);
+    white-space: normal;
+    text-align: center;
   }
 
   .consent-settings-button {
