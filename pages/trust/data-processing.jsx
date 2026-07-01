@@ -48,7 +48,8 @@ const DataProcessing = () => (
     <section className="surface-card" aria-labelledby="dpa-status-heading">
       <div className="status-badge-list" id="dpa-status-heading">
         <span className="status-badge">Document status: Draft for legal/privacy review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Data-processing baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Legal + Privacy</span>
       </div>
       <p>

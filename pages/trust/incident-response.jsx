@@ -44,7 +44,8 @@ const IncidentResponse = () => (
     <section className="surface-card" aria-labelledby="incident-status-heading">
       <div className="status-badge-list" id="incident-status-heading">
         <span className="status-badge">Document status: Draft for security/operations review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Incident baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Security + Operations</span>
       </div>
       <p>

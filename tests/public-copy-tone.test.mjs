@@ -200,6 +200,15 @@ const globallyBannedFragments = [
   'governed deployment options',
   'governed deployment',
   'governed synthetic-data',
+  'secondary product and research pilot',
+  'secondary synthetic-data research and pilot product',
+  'NIS2 readiness evidence',
+  'CRA-aware product-security preparation',
+  'signed pilots',
+  'measured workflow outcomes',
+  'procurement-ready security pack',
+  'planning artifacts',
+  'internal/public planning artifacts',
   'data governance controls in scope',
   'claim-to-artifact discipline',
   'pending-publication safeguards',
@@ -905,6 +914,9 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     'permissioned cloud-on-edge architecture',
     'healthcare cybersecurity and resilience',
     'Services and RFQ path',
+    'One-page review brief',
+    'Download review brief',
+    'Page reviewed: 2026-07-01',
     'Detailed pages cover',
     'trust-proof-map'
   ]) {
@@ -920,6 +932,7 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     '/cloud-architecture',
     '/cybersecurity',
     '/services',
+    '/docs/SmartClover_1pagepitchdeck.pdf',
     '/contact'
   ]) {
     assert.equal(trust.includes(`href: '${route}'`) || trust.includes(`href="${route}"`), true, `trust center should link to ${route}`);
@@ -1033,6 +1046,14 @@ test('public one-page pitch deck avoids stale positioning and internal draft not
     'stakeholders',
     'fundraising amount and terms should be added only after approval',
     'flagship wedge',
+    'secondary product and research pilot',
+    'secondary synthetic-data research and pilot product',
+    'governed synthetic-data environment',
+    'NIS2 readiness evidence',
+    'CRA-aware product-security preparation',
+    'signed pilots',
+    'measured workflow outcomes',
+    'procurement-ready security pack',
     'boutique ai studio',
     'digital resilience',
     'creative education',
@@ -1059,6 +1080,11 @@ test('public one-page pitch deck avoids stale positioning and internal draft not
       extracted.includes('review before outreach'),
       true,
       `${filePath} should use buyer-facing review language`
+    );
+    assert.equal(
+      extracted.includes('research pilot: datagems'),
+      true,
+      `${filePath} should position DataGems as a research pilot`
     );
   }
 });
@@ -1290,18 +1316,18 @@ test('service capability pages preserve SmartClover product and service hierarch
 
   for (const requiredFragment of [
     'Permissioned cloud-on-edge services for healthcare AI workloads',
-    'end-to-end encrypted',
-    'clinical payload data is not centralized',
-    'immutable trace events'
+    'deployment-specific encryption controls',
+    'designed to limit unnecessary centralization',
+    'deployment records remain traceable'
   ]) {
     assert.equal(cloud.includes(requiredFragment), true, `cloud architecture page should include: ${requiredFragment}`);
   }
 
   for (const requiredFragment of [
     'Cybersecurity and resilience services for healthcare organizations',
-    'authorized/certified personnel',
+    'Scoped engagements can involve authorized/certified personnel',
     'partner security products',
-    'agentic engineering workflows'
+    'engineering workflows matched to the environment'
   ]) {
     assert.equal(cybersecurity.includes(requiredFragment), true, `cybersecurity page should include: ${requiredFragment}`);
   }

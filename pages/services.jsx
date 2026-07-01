@@ -17,7 +17,7 @@ const servicePrinciples = [
   {
     title: 'Healthcare cybersecurity and resilience',
     description:
-      'Security/resilience engagements are scoped for healthcare environments and delivered with authorized/certified personnel, partner security products, and agentic engineering support where scoped.'
+      'Security/resilience engagements are scoped for healthcare environments and can involve authorized/certified personnel, partner security products, and engineering support where approved.'
   }
 ];
 
@@ -67,7 +67,7 @@ const serviceCapabilities = [
     title: 'Cybersecurity and resilience services',
     points: [
       'Healthcare-focused assessment, hardening, and resilience planning',
-      'Delivery with authorized/certified personnel and partner security products where scoped',
+      'Delivery with authorized/certified personnel and partner security products within approved scopes',
       'Agentic engineering workflows for monitoring support, remediation support, documentation, and operational hardening'
     ]
   }

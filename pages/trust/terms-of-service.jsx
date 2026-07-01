@@ -45,7 +45,8 @@ const TermsOfService = () => (
     <section className="surface-card" aria-labelledby="terms-status-heading">
       <div className="status-badge-list" id="terms-status-heading">
         <span className="status-badge">Document status: Draft for legal review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Terms baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Legal</span>
       </div>
       <p>

@@ -1,5 +1,40 @@
 # SmartClover Change Log
 
+### [2026-07-01 19:25 UTC] TYPE: change
+- Author: Codex + xhigh live-review council
+- Summary: Prepared release version `3.39` as a live-review fine-tune for Stage 4 by softening the public one-page deck's DataGems, cybersecurity, and investment-milestone wording, replacing stale `/proof` planning-artifact phrasing with public-checkable proof routes, adding current page-review freshness labels, tightening security/architecture claim scope, exposing the review-brief download from `/trust`, and shrinking the consent UI footprint.
+- Evidence: `pages/trust/index.jsx`, `pages/proof.jsx`, `pages/regulatory.jsx`, `pages/cloud-architecture.jsx`, `pages/cybersecurity.jsx`, `pages/services.jsx`, `pages/products.jsx`, `pages/trust/*.jsx`, `components/ConsentManager.jsx`, `styles/globals.css`, `styles/refactor.css`, `tests/public-copy-tone.test.mjs`, `docs/SmartClover_1pagepitchdeck.pdf`, `public/docs/SmartClover_1pagepitchdeck.pdf`, `version.json`, `public/openapi.json`.
+- Impact: Public diligence material no longer frames DataGems as a secondary product or presents NIS2/CRA/security-pack milestones with claim strength above the current public evidence posture; trust pages now separate baseline document dates from current page review dates and link the one-page brief directly from the diligence center.
+- Follow-up: Commit, push, deploy version `3.39`, confirm `/api/status` is live, rerun live review on `smartclover.ro`, and continue Stage 4 with dated trust-pack freshness/security evidence depth.
+- Related Entry: [2026-07-01 13:59 UTC] TYPE: change
+
+### [2026-07-01 19:25 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 4 v3.39 live-review fine-tune for public deck and proof-page copy.
+- BUILDER Intent + Change:
+  - Updated the one-page deck source to `v1.3`, renamed the DataGems section to `Research pilot: DataGems`, softened NIS2/CRA service language, and made the financing milestone explicitly about future qualified pilots and approved reporting.
+  - Replaced `/proof` timeline references to planning artifacts and internal/public planning artifacts with public product route, live workspace, screenshot, and repository evidence.
+  - Added current `Page reviewed: 2026-07-01` labels to trust/proof/regulatory/security/policy review routes, tightened public security/architecture phrasing to deployment-specific controls and traceable records, added the one-page review brief download to `/trust`, and reduced consent banner/settings overlap.
+  - Added regression coverage for the live-review blocker phrases in PDF extraction and public source scans, then incremented website release metadata from `3.38` to `3.39`.
+- CRITIC Findings:
+  - Live content review blocked Stage 4 closure because the public PDF still called DataGems a secondary product/governed synthetic-data environment, used over-strong NIS2/CRA/security-pack wording, and `/proof` relied on planning-artifact phrasing.
+  - Live VC/diligence review blocked closure because the trust center still looked stale with February-only dates, security/architecture claims needed clearer deployment scoping, and the one-page review brief was not discoverable from `/trust`.
+  - Live visual review blocked closure because first-visit consent UI still obscured primary trust content and the persistent settings pill could sit over content/CTAs.
+  - The v3.38 PDF regression guarded earlier stale phrases but did not yet include the newer live-review blocker phrases.
+- BUILDER Response / Refinements:
+  - Repositioned DataGems in the deck as a research pilot rather than a secondary product.
+  - Replaced compliance-heavy language with NIS2 documentation support, CRA-oriented review support, and security documentation for procurement review.
+  - Removed planning-artifact wording from `/proof`, separated baseline dates from current page-review dates, scoped public security/architecture wording, added `/trust` review-brief discovery, compacted the consent controls, and added blocker phrases to durable copy/PDF tests.
+- Verification:
+  - `npm test` -> pass, 32/32 tests passed including expanded PDF/source blocker phrase guards.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed with the existing Browserslist data warning only.
+  - `git diff --check` -> pass.
+  - `pdftotext public/docs/SmartClover_1pagepitchdeck.pdf - | rg "secondary product|governed synthetic|NIS2 readiness evidence|CRA-aware|signed pilots|measured workflow outcomes|procurement-ready security pack|planning artifacts|internal/public|human-in|AI for Good|live pilot surface|diligence orientation|stakeholders|fundraising amount|flagship wedge"` -> pass, no matches.
+  - `cmp` against `SmartClover_pitchdeck_1pager_v1.3.pdf` for both website PDF copies -> pass.
+  - `pdftoppm -png -singlefile public/docs/SmartClover_1pagepitchdeck.pdf /tmp/smartclover-v139-onepager` plus visual inspection -> pass, one-page A4 layout rendered without clipping or overlap.
+  - Playwright rendered smoke against local `http://127.0.0.1:3139` -> pass for compact consent banner/settings pill, `/trust` review-brief link, page-review freshness labels, and scoped cloud-architecture language.
+- Residual Risk: Requires deployment and live re-review before Stage 4 v3.39 can be closed.
+
 ### [2026-07-01 13:59 UTC] TYPE: change
 - Author: Codex + xhigh execution council + xhigh review council
 - Summary: Prepared release version `3.38` for the first Stage 4 trust/diligence batch by making `/trust` the diligence center, preserving proof/regulatory/security deep dives, adding an accessible skip-link and exact current-page navigation semantics with grouped visual state, replacing the stale one-page public deck with the regenerated `v1.2` review brief, and repairing the local Playwright/PDF QA toolchain.

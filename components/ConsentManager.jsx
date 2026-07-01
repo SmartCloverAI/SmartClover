@@ -132,8 +132,9 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
           className="consent-settings-button"
           onClick={openSettings}
           aria-label={`Cookie settings (${consentSummary})`}
+          title={`Cookie settings (${consentSummary})`}
         >
-          <span className="consent-settings-label">Cookie settings</span>
+          <span className="consent-settings-label">Cookies</span>
           <span className="consent-settings-summary">({consentSummary})</span>
         </button>
       ) : null}
@@ -142,9 +143,6 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
         <section className="consent-banner" aria-label="Cookie notice">
           <div className="consent-banner-copy">
             <h2>Cookie choices</h2>
-            <p>
-              We use necessary cookies for site function. Optional analytics is used only after your consent.
-            </p>
           </div>
           <div className="consent-banner-actions">
             <button

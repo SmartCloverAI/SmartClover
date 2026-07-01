@@ -38,7 +38,8 @@ const Regulatory = () => (
     <section className="surface-card" aria-labelledby="reg-status-heading">
       <div className="status-badge-list" id="reg-status-heading">
         <span className="status-badge">Document status: Draft for legal/regulatory review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Regulatory baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Regulatory + Legal</span>
       </div>
       <p>

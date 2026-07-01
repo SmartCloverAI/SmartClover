@@ -45,7 +45,8 @@ const Security = () => (
     <section className="surface-card" aria-labelledby="security-status-heading">
       <div className="status-badge-list" id="security-status-heading">
         <span className="status-badge">Document status: Draft for security/legal review</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Security + Legal</span>
       </div>
       <blockquote>

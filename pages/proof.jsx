@@ -7,7 +7,7 @@ const timeline = [
     period: '2019-2020',
     event: 'First CerviGuard pilot phase',
     evidence:
-      'Initial downloadable Win32 TensorFlow-based pilot workflow documented in MDR draft references and planning artifacts.'
+      'Historical pilot context is summarized here; current public proof starts with the live CerviGuard workspace and product screenshots below.'
   },
   {
     period: '2022',
@@ -17,7 +17,7 @@ const timeline = [
   {
     period: '2024',
     event: 'Company launch and platform preparation',
-    evidence: 'Company launch milestones and online product transition documented in internal/public planning artifacts.'
+    evidence: 'Company launch and online product transition are represented by the current public product route, live workspace, and repository links.'
   },
   {
     period: '2025',
@@ -117,7 +117,8 @@ const Proof = () => (
     <section className="surface-card" aria-labelledby="proof-status-heading">
       <div className="status-badge-list" id="proof-status-heading">
         <span className="status-badge">Document status: Current public baseline</span>
-        <span className="status-badge">Last updated: 2026-02-17</span>
+        <span className="status-badge">Evidence baseline updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Product + Commercial + Data</span>
       </div>
       <p>

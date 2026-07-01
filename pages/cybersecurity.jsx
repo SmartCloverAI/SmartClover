@@ -6,7 +6,7 @@ const Cybersecurity = () => (
   <>
     <PageSeo
       title="Healthcare Cybersecurity | SmartClover"
-      description="SmartClover cybersecurity and resilience services for healthcare organizations, delivered with authorized/certified personnel, partner products, and agentic engineering workflows where scoped."
+      description="SmartClover cybersecurity and resilience services for healthcare organizations, delivered with authorized/certified personnel, partner products, and engineering workflows within scoped engagements."
       path="/cybersecurity"
       image="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
     />
@@ -16,8 +16,8 @@ const Cybersecurity = () => (
       <h1>Cybersecurity and resilience services for healthcare organizations</h1>
       <p>
         SmartClover supports healthcare teams that need security assessment, deployment hardening, resilience planning,
-        and operational follow-through around AI-enabled workflows. Engagements are delivered with authorized/certified
-        personnel, partner security products, and agentic engineering workflows scoped to the environment.
+        and operational follow-through around AI-enabled workflows. Scoped engagements can involve authorized/certified
+        personnel, partner security products, and engineering workflows matched to the environment.
       </p>
     </header>
 

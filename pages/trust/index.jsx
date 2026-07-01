@@ -11,7 +11,7 @@ const trustRoutes = [
   {
     href: '/trust/terms-of-service',
     title: 'Terms of Service',
-    cta: 'Open terms',
+    cta: 'Open Terms of Service',
     description: 'Service boundaries, customer obligations, support model, and liability framing.'
   },
   {
@@ -35,7 +35,7 @@ const trustRoutes = [
   {
     href: '/gender-equality-plan',
     title: 'Gender Equality Plan',
-    cta: 'Open GEP',
+    cta: 'Open Gender Equality Plan',
     description: 'Public GEP covering governance, monitoring, training, inclusive recruitment, and anti-harassment measures.'
   }
 ];
@@ -74,7 +74,7 @@ const reviewAreas = [
     title: 'Permissioned cloud-on-edge architecture',
     cta: 'Review architecture',
     description:
-      'Provider-neutral deployment boundary, encrypted sensitive flows, local/edge responsibilities, and immutable trace events.'
+      'Provider-neutral deployment boundary, deployment-specific encryption controls, local/edge responsibilities, and traceable deployment records.'
   },
   {
     href: '/cybersecurity',
@@ -123,6 +123,7 @@ const TrustCenter = () => (
       <div className="status-badge-list" id="trust-status-heading">
         <span className="status-badge">Document status: Draft set for legal/privacy/security review</span>
         <span className="status-badge">Policy draft set updated: 2026-02-17</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Legal + Privacy + Security</span>
       </div>
       <p>
@@ -142,6 +143,15 @@ const TrustCenter = () => (
         </p>
       </div>
       <div className="feature-grid three-up">
+        <article className="feature">
+          <h3 className="feature-title">One-page review brief</h3>
+          <p className="feature-description">
+            A compact PDF summary for first-pass commercial, investor, and procurement review.
+          </p>
+          <a href="/docs/SmartClover_1pagepitchdeck.pdf" className="button secondary" target="_blank" rel="noopener noreferrer">
+            Download review brief
+          </a>
+        </article>
         {reviewAreas.map((route) => (
           <article key={route.href} className="feature">
             <h3 className="feature-title">{route.title}</h3>

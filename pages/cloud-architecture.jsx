@@ -11,7 +11,7 @@ const serviceMap = [
   },
   {
     domain: 'Data and storage boundaries',
-    baseline: 'Clinical payload data remains tenant-local and encrypted within the approved deployment model.',
+    baseline: 'Clinical payload data remains tenant-local with deployment-specific encryption controls.',
     deploymentRationale:
       'Control-plane metadata may use managed storage patterns without centralizing clinical payload data.'
   },
@@ -29,7 +29,7 @@ const serviceMap = [
   },
   {
     domain: 'Observability and audit',
-    baseline: 'Append-only operational traces with immutable anchoring for audit integrity.',
+    baseline: 'Append-only operational traces with traceable deployment records for review.',
     deploymentRationale:
       'Operational telemetry supports reliability review, security review, and release traceability.'
   }
@@ -83,13 +83,14 @@ const CloudArchitecture = () => (
     <section className="surface-card" aria-labelledby="cloud-status-heading">
       <div className="status-badge-list" id="cloud-status-heading">
         <span className="status-badge">Document status: Draft for architecture/security review</span>
-        <span className="status-badge">Last updated: 2026-05-11</span>
+        <span className="status-badge">Architecture baseline updated: 2026-05-11</span>
+        <span className="status-badge">Page reviewed: 2026-07-01</span>
         <span className="status-badge">Owner: Architecture + Security</span>
       </div>
       <blockquote>
         SmartClover uses a permissioned cloud-on-edge architecture: clinical workloads run in authorized edge/on-prem
-        boundaries, sensitive flows are end-to-end encrypted, clinical payload data is not centralized by default, and
-        immutable trace events are anchored for auditable integrity.
+        boundaries, sensitive flows use deployment-specific encryption controls, architecture is designed to limit
+        unnecessary centralization of clinical payload data, and deployment records remain traceable for review.
       </blockquote>
     </section>
 

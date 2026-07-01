@@ -26,7 +26,7 @@ const portfolioTracks = [
     status: 'Service capability',
     title: 'Healthcare cybersecurity and resilience',
     description:
-      'Security/resilience services for healthcare organizations, delivered with authorized/certified personnel, partner security products, and agentic engineering workflows where scoped.'
+      'Security/resilience services for healthcare organizations that can involve authorized/certified personnel, partner security products, and scoped engineering support.'
   }
 ];
 

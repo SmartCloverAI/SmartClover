@@ -73,6 +73,10 @@ a:hover {
   outline: none;
 }
 
+.section-heading h2[id] {
+  scroll-margin-top: 7.5rem;
+}
+
 .site-shell::before {
   content: '';
   position: fixed;
