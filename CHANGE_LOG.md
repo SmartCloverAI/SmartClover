@@ -1,5 +1,35 @@
 # SmartClover Change Log
 
+### [2026-07-01 20:11 UTC] TYPE: change
+- Author: Codex
+- Summary: Prepared release version `3.41` as the first post-stage maintenance patch by adding conservative global browser security headers while leaving major framework upgrades for a separate compatibility-reviewed batch.
+- Evidence: `next.config.js`, `tests/public-copy-tone.test.mjs`, `version.json`, `public/openapi.json`.
+- Impact: Public routes now publish HSTS, nosniff, frame, referrer, and permissions-policy protections without changing the Deeploy/Next.js runtime model, route architecture, or content.
+- Follow-up: Commit, push, deploy version `3.41`, confirm `/api/status` and live response headers, then evaluate dependency upgrade options separately.
+- Related Entry: [2026-07-01 19:58 UTC] TYPE: change
+
+### [2026-07-01 20:11 UTC] ADVERSARIAL-CHECK
+- Scope: Post-stage global security-header hardening.
+- BUILDER Intent + Change:
+  - Added global `/:path*` security headers for `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, and `Permissions-Policy`.
+  - Preserved existing route-specific Link, content-type, cache, and no-transform headers.
+  - Added regression assertions for the global header set and incremented website release metadata from `3.40` to `3.41`.
+- CRITIC Findings:
+  - Live header diagnostics showed the deployed site did not publish standard browser security headers beyond Cloudflare defaults.
+  - A full dependency audit cleanup would require a major Next/ESLint jump to `16.x`, which is too broad for this surgical post-stage patch and needs separate compatibility review.
+  - A strict CSP would require a separate pass because the site uses Next inline runtime scripts, Google Fonts, and optional analytics.
+- BUILDER Response / Refinements:
+  - Added only conservative headers that do not require script/style nonce migration or framework major changes.
+  - Used `SAMEORIGIN` instead of `DENY` for framing to avoid accidental same-origin route breakage.
+  - Kept HSTS to `max-age=31536000` without preload or includeSubDomains to avoid overcommitting unknown subdomain policy.
+- Verification:
+  - `npm test` -> pass, 32/32 tests passed including global security-header assertions.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build completed with the existing Browserslist data warning only.
+  - `git diff --check` -> pass.
+  - `next start` on `http://127.0.0.1:3141` plus `curl -I` for `/`, `/trust`, `/openapi.json`, and `/contact` -> pass, all five security headers present and existing route-specific headers preserved.
+- Residual Risk: Live deployment verification remains pending; dependency audit still requires a separate compatibility-reviewed upgrade batch.
+
 ### [2026-07-01 19:58 UTC] TYPE: change
 - Author: Codex + xhigh live-review council
 - Summary: Prepared release version `3.40` to close Stage 4 live-review blockers by making the mobile first-visit consent banner stack without internal overlap or horizontal clipping and adding visible status/freshness labels to the healthcare cybersecurity services page.

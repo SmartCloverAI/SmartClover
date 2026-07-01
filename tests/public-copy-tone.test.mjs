@@ -878,6 +878,20 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
     true,
     'contact and API docs routes should opt out of Cloudflare email rewriting transforms'
   );
+  for (const requiredHeader of [
+    'Strict-Transport-Security',
+    'X-Content-Type-Options',
+    'X-Frame-Options',
+    'Referrer-Policy',
+    'Permissions-Policy'
+  ]) {
+    assert.equal(nextConfig.includes(requiredHeader), true, `next.config.js should publish ${requiredHeader}`);
+  }
+  assert.equal(
+    nextConfig.includes("source: '/:path*'") && nextConfig.includes('headers: securityHeaders'),
+    true,
+    'security headers should apply globally instead of only to selected review routes'
+  );
   const contactApi = readFileSync('pages/api/contact.js', 'utf8');
   assert.equal(
     contactApi.includes('const privacyLines = ['),
