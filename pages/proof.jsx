@@ -87,7 +87,7 @@ const verifiedProductProof = [
   {
     href: '/cerviguard',
     title: 'Product screenshot gallery',
-    description: 'Public-safe screenshots showing login, dashboard, case intake, and account controls.'
+    description: 'Public-safe screenshots showing dashboard and case-intake workflow surfaces.'
   },
   {
     href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',

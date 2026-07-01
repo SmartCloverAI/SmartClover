@@ -41,15 +41,6 @@ const aiHealthcareDirections = [
 
 const screenshotGallery = [
   {
-    title: 'Secure sign-in workspace',
-    description:
-      'Role-based access limits pilot access to authorized users who operate case workflows.',
-    src: '/images/cerviguard/cerviguard-login.png',
-    alt: 'CerviGuard secure sign-in screen',
-    width: 1600,
-    height: 1100
-  },
-  {
     title: 'Operational dashboard',
     description:
       'A live operational overview shows completed analyses and risk distribution for daily triage review.',
@@ -64,15 +55,6 @@ const screenshotGallery = [
       'De-identified cervical image upload and notes are captured through a guided intake flow with privacy guardrails.',
     src: '/images/cerviguard/cerviguard-add-case.png',
     alt: 'CerviGuard add-case form for image upload and notes',
-    width: 1600,
-    height: 1100
-  },
-  {
-    title: 'User profile and security',
-    description:
-      'Account-level profile and password controls support traceable access governance in regulated environments.',
-    src: '/images/cerviguard/cerviguard-profile.png',
-    alt: 'CerviGuard profile page with account and security settings',
     width: 1600,
     height: 1100
   }
@@ -351,12 +333,12 @@ const CerviGuard = () => (
           <RepoIconLinks githubHref="https://github.com/SmartCloverAI/CerviGuard" labelPrefix="Technical repository links" />
         </div>
       </div>
-      <div className="spotlight-media">
+      <div className="spotlight-media workflow-visual-frame">
         <Image
-          src="/images/cerviguard/cerviguard-profile.png"
-          alt="CerviGuard profile controls supporting secure account operations"
+          src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
+          alt="CerviGuard workflow diagram showing structured intake, AI-assisted review, and clinician-led follow-up"
           width={1600}
-          height={1100}
+          height={900}
           sizes="(max-width: 879px) 100vw, 44vw"
         />
       </div>

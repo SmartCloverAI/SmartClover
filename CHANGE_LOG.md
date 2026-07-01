@@ -554,3 +554,35 @@
   - `git diff --check` -> pass, no whitespace errors.
   - Focused source scan for `SLM-first`, `Portfolio Status`, `commercial readiness`, risky screenshot references in touched pages, and banned proof wording -> pass for public pages touched by Stage 3; `gender-equality-plan` still uses `research-lab.png` outside this Stage 3 product-proof scope.
 - Residual Risk: Fresh CerviGuard and DataGems screenshots should be recaptured from product-status-safe, public-safe UI; screenshot-backed browser QA remains blocked until browser runtime dependencies are available; npm audit findings are existing dependency-maintenance work, not introduced by this content/layout batch.
+
+### [2026-07-01 07:13 UTC] TYPE: change
+- Author: Codex + independent xhigh Stage 3 live-review council
+- Summary: Fine-tuned the Stage 3 product-proof release by removing pilot-era CerviGuard sign-in/profile screenshots from public proof presentation and replacing one internal About heading with reader-facing language.
+- Evidence: `pages/cerviguard.jsx`, `pages/proof.jsx`, `pages/about.jsx`, `tests/public-copy-tone.test.mjs`, `version.json`, `public/openapi.json`; live xhigh visual/artwork reviewer blocker on `/cerviguard`.
+- Impact: Stage 3 no longer exposes the highest-friction pilot-worded screenshots in the public CerviGuard gallery or closing visual while preserving CerviGuard-first proof hierarchy.
+- Follow-up: Commit and push version `3.36`, wait for deployment, then re-check live `/cerviguard` and rerun the independent visual blocker review.
+- Related Entry: [2026-07-01 06:52 UTC] TYPE: change.
+
+### [2026-07-01 07:13 UTC] ADVERSARIAL-CHECK
+- Scope: Stage 3 live-review fine-tune for CerviGuard screenshot presentation and one About-page wording advisory.
+- BUILDER Intent + Change:
+  - Removed `cerviguard-login.png` and `cerviguard-profile.png` from public CerviGuard proof surfaces because the live-review council found visible pilot-era wording in those assets.
+  - Replaced the closing CerviGuard screenshot with the existing workflow diagram and updated `/proof` so it no longer promises a login screenshot.
+  - Replaced the About heading `Source-linked materials replace generic credibility imagery` with direct reader-facing wording.
+  - Incremented the release version from `3.35` to `3.36` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The xhigh visual reviewer failed Stage 3 close because `/cerviguard` rendered a sign-in screenshot containing `SMARTCLOVER CERVICAL SCREENING PILOT` and `pilot accounts`.
+  - The xhigh content/market reviewer passed Stage 3 but found the About heading sounded like internal remediation language instead of website copy.
+  - The remaining dashboard and add-case assets still need future recapture from a product-label-safe UI, even though current high-funnel frames crop app chrome.
+- BUILDER Response / Refinements:
+  - Removed the uncropped sign-in and profile screenshots from rendered CerviGuard proof presentation and added regression assertions blocking those paths from reappearing on the CerviGuard page.
+  - Kept the dashboard and add-case proof screenshots because they remain cropped inside the current visual frames and were not the live-review blocker.
+  - Kept the patch surgical and avoided broad copy or design changes outside the identified live-review findings.
+- Verification:
+  - `node --test tests/public-copy-tone.test.mjs tests/seo-sitemap.test.mjs tests/blog-editorial.test.mjs` -> pass, 28/28 tests.
+  - Focused source scan for `cerviguard-login.png`, `cerviguard-profile.png`, `Source-linked materials replace generic credibility imagery`, and `showing login` across public source surfaces excluding the regression test -> pass, no matches.
+  - `node --test tests/*.test.mjs` -> pass, 28/28 tests.
+  - `npm run lint` -> pass, no ESLint warnings or errors.
+  - `npm run build` -> pass, production build generated 32 static pages; existing Browserslist warning only.
+  - `git diff --check` -> pass, no whitespace errors.
+- Residual Risk: Fresh CerviGuard product screenshots remain the durable fix for all pilot-era UI labels; screenshot-backed browser QA remains blocked because the local Playwright Chromium binary is not installed.

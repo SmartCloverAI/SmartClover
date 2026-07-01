@@ -155,7 +155,7 @@ const About = () => (
 
         <div className="founder-proof-list artifact-proof-panel">
           <p className="kicker">Research references and product routes</p>
-          <h3>Source-linked materials replace generic credibility imagery.</h3>
+          <h3>Research context and product access in one place.</h3>
           <p>Use these links for research context, product access, and citation details.</p>
           <ul className="list-reset">
             {founderAnchors.map((item) => (

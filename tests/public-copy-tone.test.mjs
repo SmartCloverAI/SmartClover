@@ -62,6 +62,7 @@ const bannedCopyByFile = {
     'built to look and act like a real company',
     'make the real company legible',
     'anonymous marketing positioning',
+    'Source-linked materials replace generic credibility imagery',
     'Founder-led representation still needs public policy and accountability.',
     'Founder identity is not treated as a substitute for process.',
     'Values from the old standalone route now live here, where people expect them',
@@ -453,6 +454,21 @@ test('Stage 3 product proof layout keeps CerviGuard visual proof first', () => {
     cerviguard.includes('cerviguard-case-detail.png'),
     false,
     'CerviGuard gallery should not expose detailed clinical case imagery'
+  );
+  assert.equal(
+    cerviguard.includes('cerviguard-login.png'),
+    false,
+    'CerviGuard gallery should not expose the pilot-era sign-in screenshot'
+  );
+  assert.equal(
+    cerviguard.includes('cerviguard-profile.png'),
+    false,
+    'CerviGuard page should avoid uncropped pilot-era account screenshots'
+  );
+  assert.equal(
+    proof.includes('showing login'),
+    false,
+    'proof page should not promise a login screenshot while that asset is withheld'
   );
   assert.equal(
     css.includes('.datagems-shot-media') && css.includes('object-fit: contain'),
