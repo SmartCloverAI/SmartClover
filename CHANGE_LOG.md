@@ -489,3 +489,33 @@
   - `git diff --check` -> pass.
   - `npm --version` -> fail, `npm` is not installed in this shell, so `npm run lint` and `npm run build` could not be run locally.
 - Residual Risk: Live deployment verification remains required for version `3.33`.
+
+### [2026-07-01 05:45 UTC] TYPE: change
+- Author: Codex + xhigh visual/UI review sidecar
+- Summary: Reworked the blog article Contents sidebar to remove the large oval/blob visual treatment and make the TOC a restrained, bounded navigation panel.
+- Evidence: `styles/refactor.css`, `version.json`, `public/openapi.json`; operator screenshot of the NIS2COMPASS article sidebar.
+- Impact: Long blog articles now keep a more professional clinical/B2B sidebar treatment, with a narrower desktop rail, earlier single-column fallback, visible keyboard focus, and no article-prose changes.
+- Follow-up: Commit and push version `3.34`, wait for deployment, and verify the live NIS2COMPASS article sidebar online.
+- Related Entry: [2026-07-01 04:36 UTC] TYPE: change
+
+### [2026-07-01 05:45 UTC] ADVERSARIAL-CHECK
+- Scope: Blog article Contents/sidebar visual hotfix.
+- BUILDER Intent + Change:
+  - Converted the Contents area from an unbounded rule-separated list into a compact bordered panel aligned to a predictable left rail.
+  - Reduced the desktop sidebar width, limited sticky height, added scroll protection for long TOCs, improved link rhythm and focus state, and added an `1180px` breakpoint so the sidebar stacks before medium-width layouts become cramped.
+  - Incremented the release version from `3.33` to `3.34` and updated the OpenAPI status example.
+- CRITIC Findings:
+  - The xhigh visual reviewer found the existing Contents presentation looked like an accidental large white oval/blob, with too much empty decorative mass and inconsistent treatment versus the Summary note.
+  - The xhigh UI reviewer found the two-column sticky article layout collapsed too late and could squeeze the article body on medium desktop/tablet widths.
+  - The fix should remain CSS-only and must not alter the operator-supplied NIS2COMPASS article prose.
+- BUILDER Response / Refinements:
+  - Kept the patch to `styles/refactor.css` plus required release-version files; no Markdown/article text or rendering logic was changed.
+  - Removed blur-heavy/decorative behavior from the TOC panel, narrowed the rail to `220px-260px`, and added a scoped medium-width single-column override for article pages with TOC.
+  - Strengthened keyboard focus visibility while preserving normal link wrapping and anchor behavior.
+- Verification:
+  - `node --test tests/*.test.mjs` -> pass, 24 passed and 3 dependency-backed blog integration checks skipped because `gray-matter`, `remark`, and `remark-html` are not installed.
+  - CSS brace balance check -> pass.
+  - `git diff --check` -> pass, no whitespace errors.
+  - `npm run lint` -> fail, `next: not found` because this checkout has no installed `node_modules`.
+  - `npm run build` -> fail, `next: not found` because this checkout has no installed `node_modules`.
+- Residual Risk: Browser visual QA must be confirmed after deployment because the local checkout cannot run a Next.js build without installing dependencies.
