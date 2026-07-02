@@ -102,8 +102,8 @@ const CloudArchitecture = () => (
         <Image
           src="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
           alt="Provider-neutral cloud-on-edge boundary diagram showing healthcare team and data, permissioned edge workers, cloud coordination, and immutable anchoring."
-          width={3216}
-          height={2712}
+          width={1600}
+          height={1349}
           sizes="(max-width: 960px) 100vw, 900px"
         />
         <figcaption>

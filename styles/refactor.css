@@ -413,6 +413,20 @@ a:hover {
   gap: 1rem;
 }
 
+/* Let the hero visual fill the stretched panel height (caption pinned at
+   the bottom) instead of leaving dead space below the caption. The definite
+   row height overrides the frame's 16/9 aspect-ratio; the image covers. */
+.hero-grid .detail-panel {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.hero-grid .detail-panel .visual-frame {
+  /* pin both axes: with only height set, the 16/9 aspect-ratio would
+     transfer the definite height into an overflowing width */
+  width: 100%;
+  height: 100%;
+}
+
 .detail-panel h2,
 .detail-panel h3,
 .story-card h3,
@@ -525,7 +539,10 @@ a:hover {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
   gap: clamp(1rem, 2.2vw, 1.4rem);
-  align-items: stretch;
+  /* center, not stretch: a stretched row height combined with the frame's
+     aspect-ratio transfers into a width larger than the column track,
+     overflowing into the neighbouring column on desktop */
+  align-items: center;
   min-width: 0;
 }
 
@@ -1057,6 +1074,10 @@ a:hover {
 
 .blog-featured-media {
   aspect-ratio: 4 / 3;
+  /* width must stay pinned to the column: with height 100% alone, the
+     aspect-ratio transfers the stretched height into a width wider than
+     the grid track and the media bleeds under the neighbouring text */
+  width: 100%;
   height: 100%;
   min-height: 100%;
   border-right: 1px solid rgba(16, 32, 39, 0.08);

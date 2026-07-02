@@ -111,8 +111,8 @@ test('getSortedPostsData returns normalized listing-safe metadata', dependencySk
   assert.ok(nis2Post, 'expected NIS2COMPASS post metadata');
   assert.equal(nis2Post.partner, 'AI STM Learning SRL');
   assert.equal(nis2Post.heroImage, '/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png');
-  assert.equal(nis2Post.heroImageWidth, 1601);
-  assert.equal(nis2Post.heroImageHeight, 1525);
+  assert.equal(nis2Post.heroImageWidth, 1600);
+  assert.equal(nis2Post.heroImageHeight, 1524);
 });
 
 test('getPostData adds heading ids, toc entries, image attributes, and related candidates', dependencySkip, async () => {
@@ -131,8 +131,8 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   );
   assert.ok(post.contentHtml.includes('loading="lazy"'));
   assert.ok(post.contentHtml.includes('decoding="async"'));
-  assert.ok(post.contentHtml.includes('width="1672"'));
-  assert.ok(post.contentHtml.includes('height="941"'));
+  assert.ok(post.contentHtml.includes('width="1600"'));
+  assert.ok(post.contentHtml.includes('height="900"'));
   assert.deepEqual(
     post.toc.slice(0, 3).map(({ id, depth, text }) => ({ id, depth, text })),
     [
@@ -149,8 +149,8 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   const heroImage = post.images.find((image) => image.src === '/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png');
 
   assert.ok(heroImage, 'expected rendered image metadata for the NIS2COMPASS hero diagram');
-  assert.equal(heroImage.width, 1601);
-  assert.equal(heroImage.height, 1525);
+  assert.equal(heroImage.width, 1600);
+  assert.equal(heroImage.height, 1524);
   assert.equal(heroImage.type, 'png');
   assert.equal(Array.isArray(post.relatedPosts), true);
 

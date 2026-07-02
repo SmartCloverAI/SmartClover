@@ -268,7 +268,7 @@ const CerviGuard = () => (
           src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
           alt="CerviGuard workflow diagram from structured intake to clinician-led follow-up planning"
           width={1600}
-          height={900}
+          height={1384}
           sizes="(max-width: 879px) 100vw, 72vw"
         />
       </div>
@@ -338,7 +338,7 @@ const CerviGuard = () => (
           src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
           alt="CerviGuard workflow diagram showing structured intake, AI-assisted review, and clinician-led follow-up"
           width={1600}
-          height={900}
+          height={1384}
           sizes="(max-width: 879px) 100vw, 44vw"
         />
       </div>

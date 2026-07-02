@@ -55,8 +55,8 @@ const Cybersecurity = () => (
         <Image
           src="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
           alt="Healthcare cybersecurity and resilience loop showing assessment, identity hardening, partner security configuration, agentic engineering support, remediation, and evidence review."
-          width={3188}
-          height={2764}
+          width={1600}
+          height={1387}
           sizes="(max-width: 960px) 100vw, 900px"
         />
         <figcaption>

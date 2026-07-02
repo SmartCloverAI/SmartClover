@@ -118,7 +118,7 @@ const cerviGuardProofShots = [
   {
     src: '/images/blog/cerviguard-workflow-napkin_v1.0.png',
     width: 1600,
-    height: 900,
+    height: 1384,
     alt: 'CerviGuard workflow diagram from intake through clinician-led follow-up.',
     title: 'Workflow model',
     description: 'Structured intake, AI-assisted review, clinician review, triage coordination, and follow-up planning.'
